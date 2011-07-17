@@ -1,0 +1,22 @@
+Database Changes:
+1) Added coloumn 'quick_topic' in `forums` table. Remember to make `quick_topic` = 1 for existing forums! QUERY: ALTER TABLE `forums` ADD `quick_topic` TINYINT( 2 ) NOT NULL AFTER `quick_reply` ;
+
+Language Strings:
+Posts - $l['edit_title'] = 'Title';
+Posts - $l['edit_description'] = 'Description';
+Posts - $l['edit_submit_button'] = 'Edit Topic';
+Posts - $l['quick_edit_topic'] = 'Quickly Edit Topic';
+Forums Theme (Admin) - $l['quick_topic'] = 'Quick Topic :';
+Forums Theme (Admin) - $l['quick_topic_exp'] = 'This will display a Quick Topic Box in this forum.';
+Topics - $l['quick_topic'] = 'Quick Topic';
+Topics - $l['your_name'] = 'Your Name';//For Guests
+Topics - $l['your_email'] = 'Your Email';//Guests Email
+Topics - $l['newtopic_title'] = 'Title';
+Topics - $l['newtopic_desc'] = 'Description';
+Topics - $l['newtopic_post'] = 'Post';
+Topics - $l['newtopic_options'] = 'Options';
+Topics - $l['options_enable_smileys'] = '<b>Enable</b> Smileys';
+Topics - $l['options_notify_topic'] = '<b>Notify</b> Replies to this Topic';
+Topics - $l['options_post_poll'] = '<b>Post</b> a Poll';
+Topics - $l['newtopic_submit_button'] = 'Post Topic';
+Topics - $l['newtopic_advanced'] = 'Advanced Options';

@@ -1,0 +1,164 @@
+/* Admin Slide Menu */
+div.sdmenu {
+width:100%;
+padding-bottom: 10px;
+background:transparent;	
+color: #000;
+}
+div.sdmenu div {
+background: url(images/sdmenutop.png) repeat-x;
+overflow: hidden;
+}
+div.sdmenu div:first-child {
+background: url(images/sdmenutop.png);
+}
+
+div.sdmenu div.collapsed {
+height: 25px;
+}
+div.sdmenu div span {
+display: block;
+padding: 5px 5px 5px 18px;
+font-weight: bold;
+color: #000000;
+background: url(images/expanded.png) no-repeat 5px center;
+cursor: pointer;
+border: 1px solid #ddd;
+}
+div.sdmenu div.collapsed span {
+background-image: url(images/collapsed.png);
+}
+div.sdmenu div a:link,
+div.sdmenu div a:visited,
+div.sdmenu div a:active {
+padding: 3px 10px;
+background: #fff;
+display: block;
+color: #000;
+text-decoration:none;
+}
+div.sdmenu div a.current {
+background: #EAEAEA;
+}
+div.sdmenu div a:hover {
+background : #b3cfe5;
+text-decoration: none;
+}
+
+/* Ending - Admin Slide Menu */
+
+/* Admin Index Style*/
+.adgreen{
+color: #009933;
+font-size:13px;
+font-weight:bold
+}
+
+.adlink a:link, .adlink a:visited, .adlink a:active {
+display: block;
+color: #000000;
+text-decoration:none;
+background-color: transparent;
+padding:2px;
+}
+.adlink a:hover {
+display: block;
+color: #FFFFFF;
+text-decoration:none;
+background-image:url(images/admin/admenunav.jpg);
+padding:2px;
+}
+
+.adlink{
+width:75%;
+}
+
+.adbg{
+color: #000000;
+background-color: rgb(240, 240, 240);
+}
+/* adcbg - Unversal Admin Panel CBG*/
+.adcbg{background-image: url(images/admin/adcbg.jpg);
+font-weight: bold;
+font-size:16px;
+background-color: silver;
+color: #FFFFFF;
+height:30px;
+}
+
+.adexp{
+font-size:10px;
+color: #666666;
+}
+
+.adcbg1{background-image:url(images/admin/adcbg1.gif);
+}
+.adcbg2{background-image:url(images/admin/adcbg2.gif);
+font-weight:bold;
+}
+
+.aefnews{
+overflow:auto;
+display:block;
+height:125px;
+}
+
+.aefnews a:link, .aefnews a:visited, .aefnews a:active{
+color: #4D7CC4;
+text-decoration: none;
+}
+
+.aefnews a:hover{
+color: #4D7CC4;
+text-decoration:underline;
+}
+
+.aefnewshead{
+border:1px solid #CCCCCC;
+padding:2px;
+margin:2px;
+background: #EFF1F1;
+}
+
+.aefnewsblock{
+font-size:10px;
+padding-left:10px;
+}
+
+/* End of the Admin Index Style*/
+
+/* Admin Categories Style*/
+
+
+/* Admin Smiley Style*/
+
+.smreo{
+border:1px solid #5E97F7;
+background: #DDECFF;
+padding:2px 0px;
+position:absolute;
+top:0px;
+left:0px;
+z-index:0;
+visibility:hidden;
+}
+
+
+/* End - Admin Smiley Style*/
+
+
+/* Admin Categories Style*/
+
+.catreo{
+border:1px solid #CCCCCC;
+background: #EFF1F1;
+padding:2px 0px;
+position:absolute;
+top:0px;
+left:0px;
+z-index:0;
+visibility:hidden;
+}
+
+
+/* End - Admin Categories Style*/

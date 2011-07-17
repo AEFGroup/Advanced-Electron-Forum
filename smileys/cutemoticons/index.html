@@ -1,0 +1,1 @@
+<h1>Restricted Area</h1>

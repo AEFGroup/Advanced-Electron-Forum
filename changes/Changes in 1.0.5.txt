@@ -1,0 +1,23 @@
+1) Modified field 'language_id' to 'language' VARCHAR 50 in users table
+
+2) Added Registry Key 'language' - Default Language. Default value - English
+
+3) Added Registry Key 'choose_language' - Allow members to choose lanuages.Default value - 1 - means allow
+
+4) Added Registry Key 'smiley_space_boundary' - Space before and after a smiley.Default value - 1 - means true
+
+5) Added Registry Key 'users_visited_today' - Show users who have visited today on the Main Index. Default value - 0 - means false
+
+6) Added Registry Key 'av_width' - The max width of a users avatar
+
+7) Added Registry Key 'av_height' - The max height of a users avatar
+
+8) Added Registry Key 'ppic_width' - The max width of a users ppic
+
+9) Added Registry Key 'ppic_height' - The max height of a users ppic
+
+10) Changed 'timezone' key from char 3 to VARCHAR 6
+
+11) Added Registry Key 'last_posts_reply' - Show the last posts while replying in a topic - Default 10
+
+12) Added Registry Key 'recent_posts' - Shows the recent posts on the Main Index - Default 8
