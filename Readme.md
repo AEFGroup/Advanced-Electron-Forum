@@ -60,6 +60,13 @@ If you experience any kind of errors or you dont know what to do you can always 
 Or you can enjoy chatting with us in our official IRC channel : Irc-Ro.net: 6667, 6668/ #Aef OR Chat.irc-ro.net: 6667, 6668/ #Aef 
 
 
+License :
+--------
+You are allowed to modify,redistribute,share AEF under the terms found in AEF License
+http://www.anelectron.com/about.php?page=license
+
+
 We hope you enjoy AEF & Thank you for trusting our experience in forums building.
 
 The Advanced Electron Forums team.
+
