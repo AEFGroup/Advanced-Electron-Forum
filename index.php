@@ -26,12 +26,16 @@ $user = array();
 $theme = array();
 
 //This causes some probems
-@ini_set('magic_quotes_runtime', 0);
-@ini_set('magic_quotes_sybase', 0);
+ini_set('magic_quotes_runtime', 0);
+ini_set('magic_quotes_sybase', 0);
 
 //Set a error reporting to zero
-//error_reporting(E_PARSE);
+error_reporting(E_ALL);
 
+//fix errors regarding timezone
+if (!ini_get('date.timezone')) {
+  ini_set('date.timezone', 'Europe/Berlin');
+}
 
 //All imp info like DB username & pass.
 include_once('universal.php');
@@ -44,7 +48,7 @@ if($globals['installed'] == 0) die(header('Location: setup/index.php'));
 
 //Make the connection
 $conn = mysql_connect($globals['server'], $globals['user'], $globals['password']);
-@mysql_select_db($globals['database'], $conn) or die( "Unable to select database");
+mysql_select_db($globals['database'], $conn) or die( "Unable to select database");
 
 //A array of DB Tables prefixed with the prefix
 include_once($globals['server_url'].'/dbtables.php');
