@@ -56,6 +56,9 @@ include_once($globals['server_url'].'/dbtables.php');
 //The necessary functions to run the Board
 include_once($globals['mainfiles'].'/functions.php');
 
+//include the csrf protection (thanks csrf magic library <3)
+include_once($globals['mainfiles'].'/csrf_protection.php');
+
 //ob_start('aefoutput_buffer');
 
 //Will be available in future versions

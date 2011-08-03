@@ -48,14 +48,14 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 		
 		if(!is_dir($folderpath)){
 		
-			if (!@mkdir($folderpath, 0777)){
+			if (!mkdir($folderpath, 0777)){
 			
 				return false;
 			
 			}
 			
 			//Try to give access
-			@chmod($folderpath, 0777);
+			chmod($folderpath, 0777);
 			
 		}
 		
@@ -70,14 +70,14 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 
 	
 	//Create and Open the file for writing
-	if(!$fp = @fopen($file, "wb")){
+	if(!$fp = fopen($file, "wb")){
 	
 		return false;
 	
 	}
 	
 	//Write the contents
-	if (@fwrite($fp, $data) === FALSE) {
+	if (fwrite($fp, $data) === FALSE) {
 		
 		return false;
 		
@@ -104,7 +104,7 @@ global $globals;
 	}
 	
 	//Read the file
-	$file = @implode('', file($url));
+	$file = implode('', file($url));
 	
 	//Did we get something
 	if(empty($file)){
@@ -121,19 +121,19 @@ global $globals;
 	//Store the file
 	}else{
 	
-		$fp = @fopen($writefilename, "wb"); //This opens the file
+		$fp = fopen($writefilename, "wb"); //This opens the file
 		
 		//If its opened then proceed
 		if($fp){
 		
-			if(@fwrite($fp, $file) === FALSE){
+			if(fwrite($fp, $file) === FALSE){
 			
 				return false;
 			
 			//Wrote the file
 			}else{
 				
-				@fclose($fp);
+				fclose($fp);
 				
 				return true;
 				
