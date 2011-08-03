@@ -2,7 +2,7 @@
 // AEF Texteditor
 // By Pulkit Gupta
 // Please Read the Terms of use at http://www.anelectron.com
-// (c)Electron Inc.
+// (C)AEF Group All Rights Reserved.
 // You can use this script only if you let this copyright be
 // here and link bact to http://www.anelectron.com from the 
 // page that uses this.

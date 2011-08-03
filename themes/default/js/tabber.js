@@ -2,7 +2,7 @@
 // Tabber.js
 // By Electron, Ronak Gupta, Pulkit Gupta
 // Please Read the Terms of use at http://www.anelectron.com
-// (c)Electron Inc.
+// (C)AEF Group All Rights Reserved.
 // You cannot remove the copyrights.
 //////////////////////////////////////////////////////////////
 

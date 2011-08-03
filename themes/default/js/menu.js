@@ -4,7 +4,7 @@
 // ----------------------------------------------------------
 // Please Read the Terms of use at http://www.anelectron.com
 // ----------------------------------------------------------
-// (c)Electron Inc.
+// (C)AEF Group All Rights Reserved.
 //////////////////////////////////////////////////////////////
 
 //Shows the menu

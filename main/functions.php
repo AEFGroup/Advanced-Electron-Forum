@@ -16,7 +16,7 @@
 // Please Read the Terms of use at http://www.anelectron.com
 // ----------------------------------------------------------
 //===========================================================
-// (c)Electron Inc.
+// (C)AEF Group All Rights Reserved.
 //===========================================================
 //////////////////////////////////////////////////////////////
 
@@ -1497,7 +1497,7 @@ function copyright(){
 	// LICENCE TO USE AEF.
 	/////////////////////////////////////////////////////
 	
-	return '<a href="http://www.anelectron.com">Powered By AEF 1.0.9</a> &copy; 2007-2011 <a href="http://www.anelectron.com">Electron Inc.</a>';
+	return '<a href="http://www.anelectron.com">Powered By AEF 1.0.9</a> &copy; 2007-2011 <a href="http://www.anelectron.com">AEF Group.</a> All rights reserved';
 
 
 }
