@@ -382,6 +382,7 @@ function csrf_generate_secret($len = 32) {
  * from the current time.
  */
 function csrf_hash($value, $time = null) {
+	global $secret;
     if (!$time) $time = time();
     return sha1($secret . $value . $time) . ',' . $time;
 }
