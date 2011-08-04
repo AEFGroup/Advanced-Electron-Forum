@@ -183,263 +183,64 @@ if($globals['only_users'] && !$logged_in){
 	
 }
 
-switch($act){
-	
-	//The admin is calling so include its admin index file that handles administration and all.
-	case 'admin':	
-	include_once($globals['mainfiles'].'/admin/admin_functions.php');
-	include_once($globals['mainfiles'].'/admin/index.php');
-	break;
-	
-	//The default is - you guessed it right - The MainIndex
-	default:	
-	include_once($globals['mainfiles'].'/MainIndex.php');
-	MainIndex();//from MainIndex.php
-	break;	
-	
-	//The news related stuff
-	case 'news':
-	include_once($globals['mainfiles'].'/news.php');
-	news();
-	break;
-	
-	//Show the profile of a user
-	case 'mid':
-	include_once($globals['mainfiles'].'/profile.php');
-	profile();
-	break;
-	
-	//Delete a user - Pending
-	case 'deleteuser':
-	include_once($globals['mainfiles'].'/deleteuser.php');
-	deleteuser();
-	break;
-	
-	//Ban - Unban a user
-	case 'ban':
-	include_once($globals['mainfiles'].'/ban.php');
-	ban();
-	break;
-	
-	//Edit profile a user
-	case 'editprofile':
-	include_once($globals['mainfiles'].'/editprofile.php');
-	editprofile();
-	break;
-	
-	//Show the members list
-	case 'members':
-	include_once($globals['mainfiles'].'/members.php');
-	members();
-	break;
-	
-	//The active users list
-	case 'active':
-	include_once($globals['mainfiles'].'/active.php');
-	active();
-	break;
-	
-	/*//The forums stats
-	case 'stats':
-	include_once($globals['mainfiles'].'/stats.php');
-	stats();
-	break;*/
-	
-	//This is to get a list of unread topics
-	case 'unread':
-	include_once($globals['mainfiles'].'/unread.php');	
-	unread();
-	break;
-	
-	//The boards search engine
-	case 'search':
-	include_once($globals['mainfiles'].'/search.php');	
-	search();
-	break;
-	
-	//Download a attachment
-	case 'downloadattach':
-	include_once($globals['mainfiles'].'/attachments.php');
-	download();
-	break;
-	
-	//Mark all the messages as read
-	case 'markread':
-	include_once($globals['mainfiles'].'/markread.php');
-	markread();
-	break;
-	
-	//this is for registering an account
-	case 'register':
-	include_once($globals['mainfiles'].'/register.php');
-	register();//The main registration function
-	break;
-	
-	//this is for (You know it) to log in
-	case 'login':		
-	include_once($globals['mainfiles'].'/login.php');
-	login();//The main login function
-	break;
-	
-	//This for logging out
-	case 'logout':
-	include_once($globals['mainfiles'].'/logout.php');
-	logout();//This will log you out
-	break;
-	
-	//Image Maker - Validation Image for the Registration
-	case 'sec_conf_image':
-	include_once($globals['mainfiles'].'/imagemaker.php');
-	regimagemaker();//The Cofirmation code is a Parameter
-	break;
-	
-	case 'fid':
-	include_once($globals['mainfiles'].'/topics.php');
-	topics();//main fuction from topics.php
-	break;
-	
-	case 'notify':
-	include_once($globals['mainfiles'].'/notify.php');
-	notify();
-	break;
-	
-	case 'tid':
-	include_once($globals['mainfiles'].'/posts.php');	
-	posts();//main fuction from posts.php
-	break;
-	
-	//To Lock or Unlock a topic
-	case 'locktopic':
-	include_once($globals['mainfiles'].'/locktopic.php');	
-	locktopic();//main fuction from locktopic.php
-	break;
-	
-	//To Pin or Unpin a topic
-	case 'pintopic':
-	include_once($globals['mainfiles'].'/pintopic.php');	
-	pintopic();//main fuction from pintopic.php
-	break;
-	
-	//This is to edit topic
-	case 'edittopic':
-	include_once($globals['mainfiles'].'/edittopic.php');	
-	edittopic();
-	break;
-	
-	//This is to merge topics
-	case 'mergetopics':
-	include_once($globals['mainfiles'].'/mergetopics.php');	
-	mergetopics();
-	break;
-	
-	//This is to edit post
-	case 'edit':
-	include_once($globals['mainfiles'].'/editpost.php');	
-	editpost();
-	break;
-	
-	//This is to merge posts
-	case 'mergeposts':
-	include_once($globals['mainfiles'].'/mergeposts.php');	
-	mergeposts();
-	break;
-	
-	//This is to delete post
-	case 'delete':
-	include_once($globals['mainfiles'].'/delete.php');	
-	delete();
-	break;
-	
-	//Removes the poll
-	case 'removepoll':
-	include_once($globals['mainfiles'].'/poll.php');	
-	removepoll();
-	break;
-	
-	//This is to edit a poll
-	case 'editpoll':
-	include_once($globals['mainfiles'].'/poll.php');	
-	editpoll();
-	break;
-	
-	//This is to post a poll
-	case 'postpoll':
-	include_once($globals['mainfiles'].'/poll.php');	
-	postpoll();
-	break;
-	
-	case 'tellafriend':
-	include_once($globals['mainfiles'].'/tellafriend.php');	
-	tellafriend();
-	break;
-	
-	//This is just the form for starting a new topic
-	case 'topic':
-	include_once($globals['mainfiles'].'/newtopic.php');
-	newtopic();//main fuction from postatopic.php	
-	break;
-	
-	//This is to delete topic
-	case 'deletetopic':
-	include_once($globals['mainfiles'].'/deletetopic.php');	
-	deletetopic();
-	break;
-	
-	//This is to move a topic
-	case 'movetopic':
-	include_once($globals['mainfiles'].'/movetopic.php');
-	movetopic();
-	break;
-	
-	//This is just the form for starting a new topic
-	case 'post':
-	include_once($globals['mainfiles'].'/reply.php');	
-	reply();
-	break;
-	
-	//This is the Users Control Panel
-	case 'usercp':
-	include_once($globals['mainfiles'].'/usercp/index.php');	
-	usercp();//main fuction from usercp.php
-	break;
-	
-	//Suggest the usernames
-	case 'suggest':
-	include_once($globals['mainfiles'].'/suggest.php');
-	suggest();
-	break;
-	
-	//Shout Box
-	case 'shoutbox':
-	include_once($globals['mainfiles'].'/shoutbox.php');
-	shoutbox();
-	break;
-	
-	//RSS Feeds
-	case 'feeds':
-	include_once($globals['mainfiles'].'/feeds.php');
-	feeds();
-	break;
-	
-	//Calendar
-	case 'calendar':
-	include_once($globals['mainfiles'].'/calendar.php');
-	calendar();
-	break;
-	
-	//Report
-	case 'report':
-	include_once($globals['mainfiles'].'/report.php');
-	report();
-	break;
-	
-	//Special Cases to get past the Switch before entering the Switch
-	case 'error_break':
-	break;
-	
-	
-}//end of switch
-	
+//this part is copied from another project of mine and it was inspired from SMF, thank you both (SAFAD and SMF) +P
+$actionsArray = array (
+	''					=> array('MainIndex.php', 'MainIndex'),
+	'admin'				=> array('admin/index.php'),
+	'news'				=> array('news.php', 'news'),
+	'mid'				=> array('profile.php', 'profile'),
+	'deleteuser'    	=> array('delete.php', 'deleteuser'),
+	'ban'   			=> array('ban.php', 'ban'),
+	'editprofile'   	=> array('edit.php', 'editprofile'),
+	'members'		    => array('members.php', 'members'),
+	'active'			=> array('active.php', 'active'),
+	/*'stats'   			=> array('stats.php', 'stats'),*/
+	'unread'   			=> array('unread.php', 'unread'),
+	'search'   			=> array('search.php', 'search'),
+	'downloadattach'    => array('attachments.php', 'download'),
+	'markread'   		=> array('markread.php', 'markread'),
+	'register'  		=> array('register.php', 'register'),
+	'login'   			=> array('login.php', 'login'),
+	'logout'   			=> array('logout.php', 'logout'),
+	'sec_conf_image'    => array('imagemaker.php', 'regimagemaker'),
+	'fid'  				=> array('topics.php', 'topics'),
+	'notify'   			=> array('notify.php', 'notify'),
+	'tid'   			=> array('posts.php', 'posts'),
+	'locktopic'   		=> array('locktopic.php', 'locktopic'),
+	'pintopic'   		=> array('pintopic.php', 'pintopic'),
+	'edittopic'   		=> array('edit.php', 'edittopic'),
+	'mergetopics'   	=> array('mergetopics.php', 'mergetopics'),
+	'edit'   			=> array('edit.php', 'editpost'),
+	'mergeposts'   		=> array('mergeposts.php', 'mergeposts'),
+	'delete'   			=> array('delete.php', 'delte'),
+	'removepoll'   		=> array('poll.php', 'removepoll'),
+	'editpoll'  		=> array('poll.php', 'editpoll'),
+	'postpoll'   		=> array('poll.php', 'postpoll'),
+	'tellafriend'   	=> array('tellafriend.php', 'tellafriend'),
+	'topic'   			=> array('newtopic.php', 'newtopic'),
+	'deletetopic'   	=> array('delete.php', 'deletetopic'),
+	'movetopic'   		=> array('movetopic.php', 'movetopic'),
+	'post'   			=> array('reply.php', 'reply'),
+	'usercp'   			=> array('usercp/index.php', 'usercp'),
+	'suggest'  			=> array('suggest.php', 'suggest'),
+	'shoutbox'   		=> array('shoutbox.php', 'shoutbox'),
+	'feeds'   			=> array('feeds.php', 'feeds'),
+	'calendar'   		=> array('calendar.php', 'calendar'),
+	'report'   			=> array('report.php', 'report'),
+	'active'   			=> array('active.php', 'active'),
+	'active'   			=> array('active.php', 'active'),
+);
+		
+if (isset($act))
+{
+	//check first if the file really exists
+	if(isset($actionsArray[$act][0]) && file_exists($globals['mainfiles'].'/'.$actionsArray[$act][0])){
+		//include the file
+		include_once $globals['mainfiles'].'/'.$actionsArray[$act][0];
+		//execute the function
+		if (!empty($actionsArray[$act][1])) $actionsArray[$act][1]();
+	}
+}
 
 //We must try to save the session
 save_session();
