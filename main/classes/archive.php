@@ -170,7 +170,7 @@ class archive
 			$current['name2'] = str_replace(dirname($list).'/', '', $current['name']);
 			$this->files[] = $current;
 		}
-		//r_print($this->files);
+
 	}
 
 	function exclude_files($list)
@@ -674,4 +674,4 @@ class zip_file extends archive
 
 		return 1;
 	}
-} ?>
+}

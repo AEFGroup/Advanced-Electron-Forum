@@ -163,11 +163,7 @@ global $tree, $days, $month, $year, $date, $birthdays, $today;
 							
 	}
 	
-	//r_print($birthdays);
-	
 	$theme['call_theme_func'] = 'monthview_theme';
 
 }
 
-
-?>

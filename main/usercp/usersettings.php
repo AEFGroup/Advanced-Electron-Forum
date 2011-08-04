@@ -418,8 +418,7 @@ global $error, $theme_registry, $themes, $tree;
 	}	
 	
 	$theme_registry = theme_registry($thid, true);
-	
-	//r_print($theme_registry);
+
 	
 	//Is theme registry proper
 	if(empty($theme_registry) && !is_array($theme_registry)){
@@ -433,8 +432,7 @@ global $error, $theme_registry, $themes, $tree;
 	
 	
 	if(isset($_POST['editthemeset'])){
-	
-		//r_print($_POST);
+
 		foreach($theme_registry as $rk => $rv){
 		
 		foreach($theme_registry[$rk] as $k => $v){
@@ -511,6 +509,3 @@ global $error, $theme_registry, $themes, $tree;
 	}
 
 }
-
-								
-?>

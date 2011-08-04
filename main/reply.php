@@ -408,7 +408,6 @@ function reply() {
         }
     }
 
-    //r_print($last_posts);
     ///////////////////////////////////////
     // Create a 16 bit random code for POST
     // DATA REFRESH Problem to be solved.
@@ -1023,4 +1022,3 @@ function reply() {
     }
 }
 
-?>

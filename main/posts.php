@@ -1218,8 +1218,6 @@ function threaded_post($post, $pid){
 	
 	}
 	
-	//r_print($parents);	
-	
 	foreach($parents as $par => $kid){		
 		
 		if(!empty($par)){
@@ -1246,9 +1244,7 @@ function threaded_post($post, $pid){
 		}
 	
 	}
-	
-	//r_print($r_post);
-	
+		
 	foreach($r_post as $k => $v){
 	
 		$level = 1;		
@@ -1291,11 +1287,5 @@ function threaded_post($post, $pid){
 	
 	}
 	
-	//r_print($posts);
-	
 	return $posts;
-
 }
-
-
-?>

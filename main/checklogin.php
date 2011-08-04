@@ -322,13 +322,13 @@ $errorheading, $act, $isbot;
 	}
 	
 	$user = mysql_fetch_array($qresult);	
-	//r_print($user);
+
 	
 	//Set the timezone if not there
 	$globals['pgtimezone'] = (float) (empty($user['timezone']) ? $globals['timezone'] : $user['timezone']);
 	
 	//Free the resources
-	@mysql_free_result($qresult);
+	mysql_free_result($qresult);
 	
 	
 	///////////////////////////////////////
@@ -411,11 +411,7 @@ $errorheading, $act, $isbot;
 		$user['group_message'] = parse_br($user['group_message']);
 	
 	}
-	
-		
+
 	return $to_return;
 
 }
-
-
-?>

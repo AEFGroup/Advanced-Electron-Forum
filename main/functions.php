@@ -1354,8 +1354,6 @@ global $act, $load_hf;
 						
 	}
 	
-	//r_print($skins);
-	
 	if(!empty($skins[$id][0]['theme_registry'])){
 	
 		$skin = aefunserialize($skins[$id][0]['theme_registry']);
@@ -1366,12 +1364,10 @@ global $act, $load_hf;
 		$skin['path'] = '';
 	
 	}
-	//r_print($skin);
 	
 	//Now pass the theme_registry
 	$theme = array_merge($theme, $skin);
 	
-	//r_print($theme);
 	
 	//Contains all the necessary theme Variables of every theme file.
 	if(!@include_once($theme['path'].'/theme_settings.php')){
@@ -1418,10 +1414,7 @@ global $act, $load_hf;
 	
 	}
 	
-	//r_print($theme);
-	
 	return true;
-
 }
 
 //////////////////////////////////////
@@ -1883,11 +1876,6 @@ global $globals;
 		$_GET['mid'] = $matches[1];
 	
 	}
-		
-	//r_print($matches);	
-	//echo $_SERVER['REQUEST_URI'];
-	//r_print($_GET);
-
 }
 
 function seotext($text){
@@ -2167,5 +2155,3 @@ global $error;
 	}
 
 }
-
-?>
