@@ -167,8 +167,6 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 	
 	$tar->extract_files();//Extract the files
 	
-	//r_print($test->files);
-	
 	//Are there any errors
 	if(!empty($tar->error)){
 	
@@ -185,11 +183,8 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 			continue;
 		
 		}else{
-		
-			//r_print($zip->Entries[$k]);
-			//echo $globals['themesdir'].'/'.$v['name'].'<br />';
 			if(!writefile($destination.'/'.$v['name'], $v['data'], $overwrite)){
-				
+
 				return false;
 			
 			}
@@ -220,8 +215,6 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 	
 	$gzip->extract_files();//Extract the files
 	
-	//r_print($test->files);
-	
 	//Are there any errors
 	if(!empty($gzip->error)){
 	
@@ -238,21 +231,12 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 			continue;
 		
 		}else{
-		
-			//r_print($zip->Entries[$k]);
-			//echo $globals['themesdir'].'/'.$v['name'].'<br />';
 			if(!writefile($destination.'/'.$v['name'], $v['data'], $overwrite)){
-				
 				return false;
-			
 			}
-			
 		}
-	
 	}
-	
 	return true;
-
 }
 
 
@@ -273,8 +257,6 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 	
 	$tbz->extract_files();//Extract the files
 	
-	//r_print($tbz->files);
-	
 	//Are there any errors
 	if(!empty($tbz->error)){
 	
@@ -292,8 +274,6 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 		
 		}else{
 		
-			//r_print($zip->Entries[$k]);
-			//echo $globals['themesdir'].'/'.$v['name'].'<br />';
 			if(!writefile($destination.'/'.$v['name'], $v['data'], $overwrite)){
 				
 				return false;
@@ -341,8 +321,6 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 		
 		}else{
 		
-			//r_print($zip->Entries[$k]);
-			//echo $globals['themesdir'].'/'.$v['path'].'/'.$v['name'].'<br />';
 			if(!writefile($destination.'/'.$v['path'].'/'.$v['name'], $v['data'], $overwrite)){
 				
 				return false;

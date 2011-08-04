@@ -173,11 +173,9 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
 
         unset($row);
     }//End of main for loop
-    //r_print($categories);
+
     //Free the resources
-    @mysql_free_result($qresult);
-
-
+    mysql_free_result($qresult);
 
     $parents = array();
 
@@ -242,36 +240,24 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
 
         $forum_r[$fk]['ft_topic'] = $forum_r[$fk]['ntopic'];
     }//End the for loop
-    //r_print($parents);
 
     $r_fid = array();
 
-
     foreach ($parents as $par => $kid) {
-
         if (!empty($par)) {
-
             $kid = array_reverse($kid);
         }
-
         foreach ($kid as $k => $v) {
-
             //If there is a parent found in the forums - Array Splice
             if (in_array('fid' . $par, array_keys($r_fid))) {
-
                 //Insert in between
                 array_insert($r_fid, find_pos($r_fid, 'fid' . $par), array('fid' . $v => $v));
-
                 //No parent was found - Push
             } else {
-
                 $r_fid['fid' . $v] = $v;
             }
         }
     }
-
-    //r_print($r_fid);
-
     $in_board = array();
 
     foreach ($r_fid as $k => $v) {
@@ -316,8 +302,6 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
 
         $forums[$forum_r[$v]['cid']]['fid' . $forum_r[$v]['fid']] = $forum_r[$v];
     }
-
-    //r_print($forums);
 
     if (!empty($in_board)) {
 

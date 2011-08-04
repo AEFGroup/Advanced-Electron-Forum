@@ -90,7 +90,6 @@ $links .= '</tr>
 	
 if(!empty($news)){
 	
-	//r_print($news);
 	$show_mod = ($user['can_delete_news']  || $user['can_approve_news'] ? 1 : 0);
 	
 	if($show_mod){

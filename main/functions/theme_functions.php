@@ -58,19 +58,11 @@ global $conn, $dbtables, $globals, $user, $logged_in;
 	
 	$registry = aefunserialize($skin['theme_registry']);
 	
-	//r_print($registry);
 	
-	/*if(empty($registry)){
-
-		return false;
-	
-	}*/
-	
-	
-	if(!@include_once($registry['path'].'/theme_registry.php')){
+	if(!include_once($registry['path'].'/theme_registry.php')){
 		
 		//Try to load directly
-		@include_once($globals['themesdir'].'/'.$skin['th_folder'].'/theme_registry.php');
+		include_once($globals['themesdir'].'/'.$skin['th_folder'].'/theme_registry.php');
 		
 	}
 	
