@@ -73,7 +73,7 @@ function mainregister_theme() {
 						</td> 
 						<td class="ucpfrc" align="left"> 
 							<img src="'.$globals['index_url'].'act=sec_conf_image"><br /><br /> 
-							<input type="text" size="20" name="s ec_conf" /> 
+							<input type="text" size="20" name="sec_conf" /> 
 						</td> 
 					</tr>';
 			} 
