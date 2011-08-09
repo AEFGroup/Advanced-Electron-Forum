@@ -64,20 +64,20 @@ function mainregister_theme() {
                     <input type="text" size="45" name="email" <?php echo ((isset($_POST['email'])) ? 'value="' . trim($_POST['email']) . '"' : ''); ?> />
                 </td>
             </tr>
-			<?php 
-			if($globals['sec_conf']){ 
-				echo '<tr> 
+            <?php
+            if ($globals['sec_conf']) {
+                echo '<tr> 
 						<td class="ucpflc" align="left"> 
-							<b>'.$l['confirmation_code'].'</b><br /> 
-							<font class="ucpfexp">'.$l['confirmation_code_exp'].'</font> 
+							<b>' . $l['confirmation_code'] . '</b><br /> 
+							<font class="ucpfexp">' . $l['confirmation_code_exp'] . '</font> 
 						</td> 
 						<td class="ucpfrc" align="left"> 
-							<img src="'.$globals['index_url'].'act=sec_conf_image"><br /><br /> 
+							<img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br /> 
 							<input type="text" size="20" name="sec_conf" /> 
 						</td> 
 					</tr>';
-			} 
-			?>
+            }
+            ?>
             <tr>
                 <td class="ucpflc" align="left">
                     <b><?php echo $l['time_zone']; ?></b><br />
@@ -127,7 +127,7 @@ function mainregister_theme() {
                     <br /><br />
                 </td>
             </tr>
-           
+
 
             <tr>
                 <td class="ucpflc" align="center" colspan="2">

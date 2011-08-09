@@ -146,22 +146,22 @@ function reply_theme() {
                     <td>
                         <table width="100%" cellpadding="1" cellspacing="1" class="cbgbor">
 
-    <?php
-    if (!$logged_in) {
+                            <?php
+                            if (!$logged_in) {
 
-        //When guests are allowed their name
-        echo '<tr>
+                                //When guests are allowed their name
+                                echo '<tr>
 		<td width="18%" class="rlc">' . $l['your_name'] . '</td>
 		<td class="rrc"><input type="text" size="40" maxlength="50" name="gposter_name" ' . ( (isset($_POST['gposter_name'])) ? 'value="' . $_POST['gposter_name'] . '"' : '' ) . ' /></td>
 		</tr>';
 
-        //When guests are allowed their email
-        echo '<tr>
+                                //When guests are allowed their email
+                                echo '<tr>
 		<td width="18%" class="rlc">' . $l['your_email'] . '</td>
 		<td class="rrc"><input type="text" size="40" maxlength="50" name="gposter_email" ' . ( (isset($_POST['gposter_email'])) ? 'value="' . $_POST['gposter_email'] . '"' : '' ) . ' /></td>
 		</tr>';
-    }
-    ?>
+                            }
+                            ?>
 
 
                             <tr>
@@ -173,11 +173,11 @@ function reply_theme() {
                             <tr>
                                 <td width="18%" class="rlc"><?php echo $l['reply_text_formatting']; ?></td>
                                 <td class="rrc">
-    <?php editor_buttons('editor'); ?>
+                                    <?php editor_buttons('editor'); ?>
                                 </td>
                             </tr>
 
-    <?php editor_smileys('editor', $globals['usesmileys']); ?>
+                            <?php editor_smileys('editor', $globals['usesmileys']); ?>
 
                             <tr>
                                 <td width="18%" class="rlc"><?php echo $l['reply_post']; ?></td>
@@ -284,19 +284,19 @@ function reply_theme() {
 
                             <tr>
                                 <td colspan="2" class="rrc" style="text-align:center">
-                            
-                            <input type="hidden" name="par_id" value="<?php echo $qpid; ?>" />
-                            <input type="submit" name="submitpost" value="<?php echo $l['reply_submit_button']; ?>"/>
-                            <input type="submit" name="previewpost" value="<?php echo $l['reply_prewiew_button']; ?>"/>
+
+                                    <input type="hidden" name="par_id" value="<?php echo $qpid; ?>" />
+                                    <input type="submit" name="submitpost" value="<?php echo $l['reply_submit_button']; ?>"/>
+                                    <input type="submit" name="previewpost" value="<?php echo $l['reply_prewiew_button']; ?>"/>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
-            </table>
-            </td>
-            </tr>
 
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbot.png" width="100%" height="10"></td>
-            </tr>
+                <tr>
+                    <td><img src="<?php echo $theme['images']; ?>cbot.png" width="100%" height="10"></td>
+                </tr>
             </table>
         </form>
 
