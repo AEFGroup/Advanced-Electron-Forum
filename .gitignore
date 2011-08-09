@@ -1,6 +1,7 @@
 #Okay, this is the gitignore file. It's used by the developers
 #in order to stop junk files being used. Files you don't need.
-#Basically, it tells Git (our database system) to ignore the files.
+#Basically, it tells Git (our development file sharing system) 
+#to ignore the files.
 
 #If you are not a developer, stop reading.
 
