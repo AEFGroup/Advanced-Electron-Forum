@@ -9,7 +9,7 @@ function editpoll_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%', true);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="editpollform">
         <br />
@@ -19,7 +19,7 @@ function editpoll_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['edit_poll_heading']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -146,7 +146,7 @@ function postpoll_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%', true);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="postpollform">
         <br />
@@ -156,7 +156,7 @@ function postpoll_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['add_poll_heading']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>

@@ -41,7 +41,7 @@ function mergeposts_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="pcbgl"></td>
                                 <td class="pcbg" align="left"><?php echo $l['mergeposts_heading']; ?></td>
-                                <td class="pcbgr"></td>		
+                                <td class="pcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -89,7 +89,7 @@ function mergeposts_theme() {
                             <tr>
                                 <td class="mplc"><?php echo $l['merge_text_formatting']; ?></td>
                                 <td class="mprc">
-                                    <?php editor_buttons('editor'); ?>	
+                                    <?php editor_buttons('editor'); ?>
                                 </td>
                             </tr>
 
@@ -115,21 +115,21 @@ function mergeposts_theme() {
                             <?php
                             //If the user has some special Options
                             echo '<tr>
-		<td class="mplc">' . $l['merge_options'] . '</td>
-		<td class="mprc">
-		<table cellpadding="1" cellspacing="1">
-		';
+        <td class="mplc">' . $l['merge_options'] . '</td>
+        <td class="mprc">
+        <table cellpadding="1" cellspacing="1">
+        ';
 
                             echo '<tr>
-		<td>
-		<input type="checkbox" name="usesmileys" ' . (isset($_POST['usesmileys']) ? 'checked="checked"' : ($globals['usesmileys'] ? 'checked="checked"' : '') ) . ' />
-		</td>
-		<td>' . $l['options_enable_smileys'] . '</td>
-		</tr>';
+        <td>
+        <input type="checkbox" name="usesmileys" ' . (isset($_POST['usesmileys']) ? 'checked="checked"' : ($globals['usesmileys'] ? 'checked="checked"' : '') ) . ' />
+        </td>
+        <td>' . $l['options_enable_smileys'] . '</td>
+        </tr>';
 
                             echo '</table>
-		</td>
-		</tr>';
+        </td>
+        </tr>';
                             ?>
 
                             <tr>

@@ -8,7 +8,7 @@ function mainregister_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="registerform">
         <table width="90%" cellpadding="2" cellspacing="1" class="cbor" align="center">
@@ -66,16 +66,16 @@ function mainregister_theme() {
             </tr>
             <?php
             if ($globals['sec_conf']) {
-                echo '<tr> 
-						<td class="ucpflc" align="left"> 
-							<b>' . $l['confirmation_code'] . '</b><br /> 
-							<font class="ucpfexp">' . $l['confirmation_code_exp'] . '</font> 
-						</td> 
-						<td class="ucpfrc" align="left"> 
-							<img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br /> 
-							<input type="text" size="20" name="sec_conf" /> 
-						</td> 
-					</tr>';
+                echo '<tr>
+                        <td class="ucpflc" align="left">
+                            <b>' . $l['confirmation_code'] . '</b><br />
+                            <font class="ucpfexp">' . $l['confirmation_code_exp'] . '</font>
+                        </td>
+                        <td class="ucpfrc" align="left">
+                            <img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />
+                            <input type="text" size="20" name="sec_conf" />
+                        </td>
+                    </tr>';
             }
             ?>
             <tr>
@@ -159,7 +159,7 @@ function validate_theme() {
     aefheader($l['<title>']);
 
     error_handle($error);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="get" name="account_actform">
         <table width="70%" cellpadding="2" cellspacing="1" class="cbor" align="center">
@@ -221,7 +221,7 @@ function age_theme() {
     aefheader($l['<title>']);
 
     error_handle($error);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="reg_ageform">
         <table width="60%" cellpadding="2" cellspacing="1" class="cbor" align="center">
@@ -334,7 +334,7 @@ function coppa_theme() {
     aefheader($l['<title>']);
 
     error_handle($error);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="coppaform">
         <table width="80%" cellpadding="2" cellspacing="1" class="cbor" align="center">
@@ -356,13 +356,13 @@ function coppa_theme() {
                     <b><?php echo $l['coppa_policy_heading']; ?> :</b><br />
                     <?php echo $l['coppa_terms']; ?>
                 </td>
-            </tr>	
+            </tr>
 
             <tr>
                 <td class="ucpflc" align="left">
                     <input type="checkbox" name="iagree" /><b><?php echo $l['i_agree']; ?></b>
                 </td>
-            </tr>	
+            </tr>
 
             <tr>
                 <td class="ucpfrc" align="left" colspan="2">
@@ -388,7 +388,7 @@ function resendact_theme() {
     aefheader($l['<title>']);
 
     error_handle($error);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="resendactform">
         <table width="70%" cellpadding="2" cellspacing="1" class="cbor" align="center">
@@ -436,28 +436,28 @@ function coppaform_theme() {
     global $globals, $theme, $error, $l;
 
     echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
-	<title>' . $l['<title>'] . '</title>
-	<link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
-	</head>
-	<body>';
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
+    <title>' . $l['<title>'] . '</title>
+    <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
+    </head>
+    <body>';
 
     echo '<p align="left"><font size="5">' . $globals['sn'] . '</font><br />
-	' . $l['address'] . ' : ' . $globals['age_rest_act_address'] . '.<br />
-	' . $l['telephone'] . ' : ' . $globals['age_rest_act_tele'] . '<br />
-	' . $l['fax'] . ' : ' . $globals['age_rest_act_fax'] . '<br /></p>';
+    ' . $l['address'] . ' : ' . $globals['age_rest_act_address'] . '.<br />
+    ' . $l['telephone'] . ' : ' . $globals['age_rest_act_tele'] . '<br />
+    ' . $l['fax'] . ' : ' . $globals['age_rest_act_fax'] . '<br /></p>';
 
     echo '<p align="right">' . $l['address'] . ' : ________________<br />
-	 ________________<br />
-	 ________________<br />
-	 ________________<br />
-	 ________________<br />
-	' . $l['date'] . ' : ________________<br /></p>';
+     ________________<br />
+     ________________<br />
+     ________________<br />
+     ________________<br />
+    ' . $l['date'] . ' : ________________<br /></p>';
 
     echo '<p align="left"><font size="4">' . $l['subject'] . '</font><br /><br />
-	' . $l['body'] . '</p>';
+    ' . $l['body'] . '</p>';
 
     echo '<center>' . copyright() . '</center>
 <br />

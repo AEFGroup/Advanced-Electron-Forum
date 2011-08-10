@@ -18,7 +18,7 @@ function emailpmset_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['uset_email_pm_pref']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -60,7 +60,7 @@ function emailpmset_theme() {
                                 <input type="radio" name="hideemail" value="2" <?php echo (($user['hideemail'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="hideemail" value="0" <?php echo (($user['hideemail'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_auto_subscription']; ?></b><br />
@@ -71,7 +71,7 @@ function emailpmset_theme() {
                                 <input type="radio" name="subscribeauto" value="2" <?php echo (($user['subscribeauto'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="subscribeauto" value="0" <?php echo (($user['subscribeauto'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_send_new_reply']; ?></b><br />
@@ -82,12 +82,12 @@ function emailpmset_theme() {
                                 <input type="radio" name="sendnewreply" value="2" <?php echo (($user['sendnewreply'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="sendnewreply" value="0" <?php echo (($user['sendnewreply'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>		
+                        </tr>
 
                         <tr>
                             <td class="ucpcbg1" colspan="2" align="center"><b><?php echo $l['uset_pm_set']; ?></b><br />
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_notify_new_pm_email']; ?></b><br />
@@ -98,7 +98,7 @@ function emailpmset_theme() {
                                 <input type="radio" name="pm_email_notify" value="2" <?php echo (($user['pm_email_notify'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="pm_email_notify" value="0" <?php echo (($user['pm_email_notify'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_pop-up_notification_new_pm']; ?></b><br />
@@ -164,7 +164,7 @@ function forumset_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['uset_board_preferences']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -179,7 +179,7 @@ function forumset_theme() {
                             <td class="ucpfcbg1" colspan="2" align="center">
                                 <img src="<?php echo $theme['images']; ?>usercp/boardsettings.gif" />
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc" width="60%"><b><?php echo $l['uset_user_theme']; ?></b><br />
@@ -190,12 +190,12 @@ function forumset_theme() {
                                     function preview_theme(id){
                                         redirect_url = '<?php echo $globals['url'] . '/index.php?' . getallGET(array('thid')); ?>';
                                         thid = $(id).value;
-                                        if(thid != 0){		
+                                        if(thid != 0){
                                             window.location = redirect_url+'&thid='+thid;
                                         }
                                     }
                                 </script>
-                                <select name="user_theme" id="themeselector" >		
+                                <select name="user_theme" id="themeselector" >
                                     <?php
                                     echo '<option value="0" ' . ((isset($_POST['user_theme']) && (int) trim($_POST['user_theme']) == 0) ? 'selected="selected"' : ($user['user_theme'] == 0 ? 'selected="selected"' : '' ) ) . ' >' . $l['uset_use_board_default'] . '</option>';
 
@@ -207,7 +207,7 @@ function forumset_theme() {
                                 </select>&nbsp;&nbsp;&nbsp;
                                 <a href="javascript:preview_theme('themeselector')"><b><?php echo $l['uset_preview']; ?></b></a>
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_language']; ?></b><br />
@@ -245,7 +245,7 @@ function forumset_theme() {
                                 <input type="radio" name="showavatars" value="2" <?php echo (($user['showavatars'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="showavatars" value="0" <?php echo (($user['showavatars'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_show_smileys']; ?></b><br />
@@ -256,7 +256,7 @@ function forumset_theme() {
                                 <input type="radio" name="showsmileys" value="2" <?php echo (($user['showsmileys'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="showsmileys" value="0" <?php echo (($user['showsmileys'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_fast_reply']; ?></b><br />
@@ -267,7 +267,7 @@ function forumset_theme() {
                                 <input type="radio" name="autofastreply" value="2" <?php echo (($user['autofastreply'] == 2) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_no']; ?> &nbsp;&nbsp;
                                 <input type="radio" name="autofastreply" value="0" <?php echo (($user['autofastreply'] == 0) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_default']; ?>
                             </td>
-                        </tr>		
+                        </tr>
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_show_images']; ?></b><br />
@@ -380,7 +380,7 @@ function themeset_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="ucpcbgl"></td>
                                 <td class="ucpcbg"><?php echo $l['uset_theme_set']; ?></td>
-                                <td class="ucpcbgr"></td>		
+                                <td class="ucpcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -414,15 +414,15 @@ function themeset_theme() {
                                         foreach ($theme_registry[$ck] as $k => $v) {
 
                                             echo '<tr>
-	<td width="40%" class="ucpflc">
-	<b>' . $theme_registry[$ck][$k]['shortexp'] . '</b>
-	' . (empty($theme_registry[$ck][$k]['exp']) ? '' : '<br />
-	<font class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</font>') . '
-	</td>
-	<td class="ucpflc" align="left">        
-	&nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func_array('html_' . $theme_registry[$ck][$k]['type'], array($k, $theme_registry[$ck][$k]['value'])) . '
-	</td>
-	</tr>';
+    <td width="40%" class="ucpflc">
+    <b>' . $theme_registry[$ck][$k]['shortexp'] . '</b>
+    ' . (empty($theme_registry[$ck][$k]['exp']) ? '' : '<br />
+    <font class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</font>') . '
+    </td>
+    <td class="ucpflc" align="left">
+    &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func_array('html_' . $theme_registry[$ck][$k]['type'], array($k, $theme_registry[$ck][$k]['value'])) . '
+    </td>
+    </tr>';
                                         }
 
                                         echo '</table>';
@@ -436,8 +436,8 @@ function themeset_theme() {
                                     <input type="submit" name="editthemeset" value="<?php echo $l['uset_edit_set']; ?>" />
                                     <input type="submit" name="defaultthemeset" value="<?php echo $l['uset_use_default']; ?>" />
                                 </td>
-                            </tr>	
-                        </table>    
+                            </tr>
+                        </table>
 
                     </td>
                 </tr>
@@ -453,12 +453,12 @@ function themeset_theme() {
     } else {
 
         echo '<br /><br /><table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-		<tr>
-		<td align="left" class="ucpflc">
-		' . $l['uset_no_settings_theme'] . '
-		</td>
-		</tr>	
-	</table>';
+        <tr>
+        <td align="left" class="ucpflc">
+        ' . $l['uset_no_settings_theme'] . '
+        </td>
+        </tr>
+    </table>';
     }
 
     usercpfoot();

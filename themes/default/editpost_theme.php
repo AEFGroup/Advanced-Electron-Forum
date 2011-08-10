@@ -36,38 +36,38 @@ function editpost_theme() {
     if (isset($_POST['previewpost']) && empty($error)) {
 
         echo '<br /><h3>' . $l['preview_title'] . '</h3><table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="pcbgl"></td>
-	<td class="pcbg"><b>' . $preview['title'] . '</b></td>
-	<td class="pcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	<table width="100%" cellpadding="1" cellspacing="0">
-	<tr>
-	<td class="posterbg" width="22%">
-	
-	<a href="' . (!empty($post['is_guest']) ? 'mailto:' . $post['gposter_email'] : $globals['index_url'] . 'mid=' . $post['poster_id']) . '">
-	' . $post['username'] . '
-	</a>
-	</td>
-	
-	<td class="postdate" align="right">
-	<div style="float:left">
-	<img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '">
-	' . $preview['pdate'] . '
-	</div>
-	</td>
-	</tr>';
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="pcbgl"></td>
+    <td class="pcbg"><b>' . $preview['title'] . '</b></td>
+    <td class="pcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+    <table width="100%" cellpadding="1" cellspacing="0">
+    <tr>
+    <td class="posterbg" width="22%">
+
+    <a href="' . (!empty($post['is_guest']) ? 'mailto:' . $post['gposter_email'] : $globals['index_url'] . 'mid=' . $post['poster_id']) . '">
+    ' . $post['username'] . '
+    </a>
+    </td>
+
+    <td class="postdate" align="right">
+    <div style="float:left">
+    <img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '">
+    ' . $preview['pdate'] . '
+    </div>
+    </td>
+    </tr>';
 
         echo '<tr>
-	<td class="posterinfo" valign="top"><div style="text-align:center;"><b>' .
+    <td class="posterinfo" valign="top"><div style="text-align:center;"><b>' .
         $l['this_preview'] . '</b></div>';
 
         if (!empty($preview['avatarurl'])) {
@@ -88,12 +88,12 @@ function editpost_theme() {
         }
 
         echo '
-	' . (!empty($post['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $post['post_gr_name'] . '</div>' : '') . '
-	' . (!empty($post['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $post['posts'] . '</div>' : '') . '
-	<div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
-	</td>
-	<td class="post" align="left" valign="top">
-	' . $preview['post']
+    ' . (!empty($post['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $post['post_gr_name'] . '</div>' : '') . '
+    ' . (!empty($post['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $post['posts'] . '</div>' : '') . '
+    <div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
+    </td>
+    <td class="post" align="left" valign="top">
+    ' . $preview['post']
         . ($logged_in ? '<br /><br />' . $l['edited_by'] . ' <b>' . $user['username'] . '</b> : ' . $post['modtime'] : '');
 
         if (!empty($preview['sig'])) {
@@ -102,27 +102,27 @@ function editpost_theme() {
         }
 
         echo '</td>
-	</tr>';
+    </tr>';
 
         echo '<tr>
-	<td class="ptip">
-	&nbsp;
-	</td>
-	<td class="specialrow">
-	<div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
-	</td>
-	</tr>
-	
-	</table>
+    <td class="ptip">
+    &nbsp;
+    </td>
+    <td class="specialrow">
+    <div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
+    </td>
+    </tr>
 
-	</td>
-	</tr>
-	
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10"></td>
-	</tr>
-	</table>
-	<br />';
+    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10"></td>
+    </tr>
+    </table>
+    <br />';
     }
     ?>
 
@@ -136,7 +136,7 @@ function editpost_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="pcbgl"></td>
                                 <td class="pcbg" align="left"><?php echo $l['editpost_heading'] . $post_title; ?></td>
-                                <td class="pcbgr"></td>		
+                                <td class="pcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -153,15 +153,15 @@ function editpost_theme() {
 
                                 //When guests are allowed their name
                                 echo '<tr>
-		<td width="18%" class="erlc">' . $l['your_name'] . '</td>
-		<td class="errc"><input type="text" size="40" maxlength="50" name="gposter_name" ' . ( (isset($_POST['gposter_name'])) ? 'value="' . $_POST['gposter_name'] . '"' : 'value="' . $post['gposter_name'] . '"' ) . ' /></td>
-		</tr>';
+        <td width="18%" class="erlc">' . $l['your_name'] . '</td>
+        <td class="errc"><input type="text" size="40" maxlength="50" name="gposter_name" ' . ( (isset($_POST['gposter_name'])) ? 'value="' . $_POST['gposter_name'] . '"' : 'value="' . $post['gposter_name'] . '"' ) . ' /></td>
+        </tr>';
 
                                 //When guests are allowed their email
                                 echo '<tr>
-		<td width="18%" class="erlc">' . $l['your_email'] . '</td>
-		<td class="errc"><input type="text" size="40" maxlength="50" name="gposter_email" ' . ( (isset($_POST['gposter_email'])) ? 'value="' . $_POST['gposter_email'] . '"' : 'value="' . $post['gposter_email'] . '"' ) . ' /></td>
-		</tr>';
+        <td width="18%" class="erlc">' . $l['your_email'] . '</td>
+        <td class="errc"><input type="text" size="40" maxlength="50" name="gposter_email" ' . ( (isset($_POST['gposter_email'])) ? 'value="' . $_POST['gposter_email'] . '"' : 'value="' . $post['gposter_email'] . '"' ) . ' /></td>
+        </tr>';
                             }
                             ?>
 
@@ -191,45 +191,45 @@ function editpost_theme() {
                             <?php
                             //If the user has some special Options
                             echo '<tr>
-		<td width="18%" class="erlc">' . $l['edit_options'] . '</td>
-		<td class="errc">
-		<table cellpadding="1" cellspacing="1">
-		';
+        <td width="18%" class="erlc">' . $l['edit_options'] . '</td>
+        <td class="errc">
+        <table cellpadding="1" cellspacing="1">
+        ';
 
                             $usesmileys = $post['use_smileys'];
 
                             echo '<tr>
-		<td>
-		<input type="checkbox" name="usesmileys" ' . (isset($_POST['usesmileys']) ? 'checked="checked"' : ($usesmileys ? 'checked="checked"' : '') ) . ' />
-		</td>
-		<td>
-		' . $l['options_enable_smileys'] . '</td>
-		</tr>';
+        <td>
+        <input type="checkbox" name="usesmileys" ' . (isset($_POST['usesmileys']) ? 'checked="checked"' : ($usesmileys ? 'checked="checked"' : '') ) . ' />
+        </td>
+        <td>
+        ' . $l['options_enable_smileys'] . '</td>
+        </tr>';
 
                             //Some options are removed as they are more appropriate to be in the topic itself.
                             //e.g. can_make_sticky, lock topic, notify topic, add a poll
                             //If the user has permissions to ANNOUNCE this topic
                             if ($user['can_announce_topic']) {
                                 echo '<tr>
-			<td>
-			<input type="checkbox" name="announcetopic" ' . (isset($_POST['announcetopic']) ? 'checked="checked"' : '' ) . ' />
-			</td>
-			<td>
-			' . $l['options_announce_topic'] . '</td>
-			</tr>';
+            <td>
+            <input type="checkbox" name="announcetopic" ' . (isset($_POST['announcetopic']) ? 'checked="checked"' : '' ) . ' />
+            </td>
+            <td>
+            ' . $l['options_announce_topic'] . '</td>
+            </tr>';
                             }
 
                             echo '</table>
-		</td>
-		</tr>';
+        </td>
+        </tr>';
 
 
                             if (!empty($attachments) && $user['can_remove_attach']) {
 
                                 echo '<tr>
-			<td width="18%" class="erlc">' . $l['edit_attached_files'] . '</td>			
-			<td class="errc">
-			' . $l['uncheck_remove_attachments'] . '<br /><br />';
+            <td width="18%" class="erlc">' . $l['edit_attached_files'] . '</td>
+            <td class="errc">
+            ' . $l['uncheck_remove_attachments'] . '<br /><br />';
 
                                 foreach ($attachments as $at => $av) {
 
@@ -237,7 +237,7 @@ function editpost_theme() {
                                 }
 
                                 echo '<br /></td>
-			</tr>';
+            </tr>';
                             }
 
 
@@ -245,8 +245,8 @@ function editpost_theme() {
                             if ($user['can_attach'] && $globals['allownewattachment']) {
 
                                 echo '<tr>
-			<td width="18%" class="erlc">' . $l['edit_attachments'] . '</td>			
-			<td class="errc">';
+            <td width="18%" class="erlc">' . $l['edit_attachments'] . '</td>
+            <td class="errc">';
 
                                 for ($a = 1; $a <= $globals['maxattachmentpost']; $a++) {
 
@@ -254,7 +254,7 @@ function editpost_theme() {
                                 }
 
                                 echo '</td>
-			</tr>';
+            </tr>';
                             }
                             ?>
 

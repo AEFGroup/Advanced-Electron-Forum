@@ -35,38 +35,38 @@ function newtopic_theme() {
     if (isset($_POST['previewtopic']) && empty($error)) {
 
         echo '<br /><h3>' . $l['preview_title'] . '</h3><table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="pcbgl"></td>
-	<td class="pcbg"><b>' . $preview['title'] . (empty($preview['description']) ? '' : ', ' . $preview['description']) . '</b></td>
-	<td class="pcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	<table width="100%" cellpadding="1" cellspacing="0">
-	<tr>
-	<td class="posterbg" width="22%">
-	
-	<a href="' . (!$logged_in ? 'mailto:' . $preview['gposter_email'] : $globals['index_url'] . 'mid=' . $user['id']) . '">
-	' . $preview['username'] . '
-	</a>
-	</td>
-	
-	<td class="postdate" align="right">
-	<div style="float:left">
-	<img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '">
-	' . $preview['pdate'] . '
-	</div>' .
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="pcbgl"></td>
+    <td class="pcbg"><b>' . $preview['title'] . (empty($preview['description']) ? '' : ', ' . $preview['description']) . '</b></td>
+    <td class="pcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+    <table width="100%" cellpadding="1" cellspacing="0">
+    <tr>
+    <td class="posterbg" width="22%">
+
+    <a href="' . (!$logged_in ? 'mailto:' . $preview['gposter_email'] : $globals['index_url'] . 'mid=' . $user['id']) . '">
+    ' . $preview['username'] . '
+    </a>
+    </td>
+
+    <td class="postdate" align="right">
+    <div style="float:left">
+    <img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '">
+    ' . $preview['pdate'] . '
+    </div>' .
         '</td>
-	</tr>';
+    </tr>';
 
         echo '<tr>
-	<td class="posterinfo" valign="top"><div style="text-align:center;"><b>' .
+    <td class="posterinfo" valign="top"><div style="text-align:center;"><b>' .
         $l['this_preview'] . '</b></div>';
 
         if (!empty($preview['avatarurl'])) {
@@ -87,13 +87,13 @@ function newtopic_theme() {
         }
 
         echo '
-	' . (!empty($user['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $user['post_gr_name'] . '</div>' : '') . '
-	' . (!empty($user['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $user['posts'] . '</div>' : '') . '	
-	<div class="pisub">' . $l['prefix_status'] . ' ' . ($logged_in ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['online'] . '" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['offline'] . '" />') . '</div>
-	<div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
-	</td>
-	<td class="post" align="left" valign="top">
-	' . $preview['post'];
+    ' . (!empty($user['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $user['post_gr_name'] . '</div>' : '') . '
+    ' . (!empty($user['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $user['posts'] . '</div>' : '') . '
+    <div class="pisub">' . $l['prefix_status'] . ' ' . ($logged_in ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['online'] . '" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['offline'] . '" />') . '</div>
+    <div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
+    </td>
+    <td class="post" align="left" valign="top">
+    ' . $preview['post'];
 
         if (!empty($preview['sig'])) {
 
@@ -101,27 +101,27 @@ function newtopic_theme() {
         }
 
         echo '</td>
-	</tr>';
+    </tr>';
 
         echo '<tr>
-	<td class="ptip">
-	&nbsp;
-	</td>
-	<td class="specialrow">
-	<div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
-	</td>
-	</tr>
-	
-	</table>
+    <td class="ptip">
+    &nbsp;
+    </td>
+    <td class="specialrow">
+    <div style="text-align:center;"><b>' . $l['this_preview'] . '</b></div>
+    </td>
+    </tr>
 
-	</td>
-	</tr>
-	
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10"></td>
-	</tr>
-	</table>
-	<br />';
+    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10"></td>
+    </tr>
+    </table>
+    <br />';
     }
     ?>
 
@@ -135,7 +135,7 @@ function newtopic_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="pcbgl"></td>
                                 <td class="pcbg" align="left"><?php echo $l['newtopic_heading']; ?></td>
-                                <td class="pcbgr"></td>		
+                                <td class="pcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -150,15 +150,15 @@ function newtopic_theme() {
 
                                 //When guests are allowed their name
                                 echo '<tr>
-		<td class="ntlc">' . $l['your_name'] . '</td>
-		<td class="ntrc"><input type="text" size="40" maxlength="50" name="gposter_name" ' . ( (isset($_POST['gposter_name'])) ? 'value="' . $_POST['gposter_name'] . '"' : '' ) . ' /></td>
-		</tr>';
+        <td class="ntlc">' . $l['your_name'] . '</td>
+        <td class="ntrc"><input type="text" size="40" maxlength="50" name="gposter_name" ' . ( (isset($_POST['gposter_name'])) ? 'value="' . $_POST['gposter_name'] . '"' : '' ) . ' /></td>
+        </tr>';
 
                                 //When guests are allowed their email
                                 echo '<tr>
-		<td class="ntlc">' . $l['your_email'] . '</td>
-		<td class="ntrc"><input type="text" size="40" maxlength="50" name="gposter_email" ' . ( (isset($_POST['gposter_email'])) ? 'value="' . $_POST['gposter_email'] . '"' : '' ) . ' /></td>
-		</tr>';
+        <td class="ntlc">' . $l['your_email'] . '</td>
+        <td class="ntrc"><input type="text" size="40" maxlength="50" name="gposter_email" ' . ( (isset($_POST['gposter_email'])) ? 'value="' . $_POST['gposter_email'] . '"' : '' ) . ' /></td>
+        </tr>';
                             }
                             ?>
 
@@ -191,68 +191,68 @@ function newtopic_theme() {
                             <?php
                             //Topic Icons
                             echo '<tr>
-			<td width="18%" class="ntlc">' . $l['newtopic_topic_icons'] . '</td>
-			<td class="ntrc">';
+            <td width="18%" class="ntlc">' . $l['newtopic_topic_icons'] . '</td>
+            <td class="ntrc">';
 
                             //Topic Icons loop
                             foreach ($globals['topic_icons'] as $ik => $iv) {
 
                                 echo '<input type="radio" name="topic_icon" value="' . $ik . '" ' . ( (isset($_POST['topic_icon']) && (int) $_POST['topic_icon'] == $ik ) ? 'checked="checked"' : '' ) . ' />
-			<img src="' . $theme['images'] . 'icons/' . $globals['topic_icons'][$ik][0] . '" title="' . $globals['topic_icons'][$ik][1] . '" />&nbsp;&nbsp;&nbsp;';
+            <img src="' . $theme['images'] . 'icons/' . $globals['topic_icons'][$ik][0] . '" title="' . $globals['topic_icons'][$ik][1] . '" />&nbsp;&nbsp;&nbsp;';
                             }
 
 
                             echo '<br />
-			<input type="radio" name="topic_icon" value="0" ' . ( (isset($_POST['topic_icon']) && (int) $_POST['topic_icon'] == 0 ) ? 'checked="checked"' : (!isset($_POST['topic_icon']) ? 'checked="checked"' : '') ) . ' />' . $l['topic_icons_none'] . '&nbsp;&nbsp;&nbsp;';
+            <input type="radio" name="topic_icon" value="0" ' . ( (isset($_POST['topic_icon']) && (int) $_POST['topic_icon'] == 0 ) ? 'checked="checked"' : (!isset($_POST['topic_icon']) ? 'checked="checked"' : '') ) . ' />' . $l['topic_icons_none'] . '&nbsp;&nbsp;&nbsp;';
 
                             echo '</td></tr>';
 
 
                             //If the user has some special Options
                             echo '<tr>
-		<td width="18%" class="ntlc">' . $l['newtopic_options'] . '</td>
-		<td class="ntrc">
-		<table cellpadding="1" cellspacing="1">';
+        <td width="18%" class="ntlc">' . $l['newtopic_options'] . '</td>
+        <td class="ntrc">
+        <table cellpadding="1" cellspacing="1">';
 
                             echo '<tr>
-		<td>
-		<input type="checkbox" name="usesmileys" ' . (isset($_POST['usesmileys']) ? 'checked="checked"' : ($globals['usesmileys'] ? 'checked="checked"' : '') ) . ' />
-		</td>
-		<td>
-		' . $l['options_enable_smileys'] . '</td>
-		</tr>';
+        <td>
+        <input type="checkbox" name="usesmileys" ' . (isset($_POST['usesmileys']) ? 'checked="checked"' : ($globals['usesmileys'] ? 'checked="checked"' : '') ) . ' />
+        </td>
+        <td>
+        ' . $l['options_enable_smileys'] . '</td>
+        </tr>';
 
                             //If the user has permissions to sticky this topic
                             if ($user['can_make_sticky']) {
                                 echo '<tr>
-			<td>
-			<input type="checkbox" name="makesticky" ' . (isset($_POST['makesticky']) ? 'checked="checked"' : '' ) . ' />
-			</td>
-			<td>
-			' . $l['options_sticky_topic'] . '</td>
-			</tr>';
+            <td>
+            <input type="checkbox" name="makesticky" ' . (isset($_POST['makesticky']) ? 'checked="checked"' : '' ) . ' />
+            </td>
+            <td>
+            ' . $l['options_sticky_topic'] . '</td>
+            </tr>';
                             }
 
                             //If the user has permissions to LOCK this topic
                             if ($user['can_lock_own_topic']) {
                                 echo '<tr>
-			<td>
-			<input type="checkbox" name="locktopic" ' . (isset($_POST['locktopic']) ? 'checked="checked"' : '' ) . ' />
-			</td>
-			<td>
-			' . $l['options_lock_topic'] . '</td>
-			</tr>';
+            <td>
+            <input type="checkbox" name="locktopic" ' . (isset($_POST['locktopic']) ? 'checked="checked"' : '' ) . ' />
+            </td>
+            <td>
+            ' . $l['options_lock_topic'] . '</td>
+            </tr>';
                             }
 
                             //If the user has permissions to ANNOUNCE this topic
                             if ($user['can_announce_topic']) {
                                 echo '<tr>
-			<td>
-			<input type="checkbox" name="announcetopic" ' . (isset($_POST['announcetopic']) ? 'checked="checked"' : '' ) . ' />
-			</td>
-			<td>
-			' . $l['options_announce_topic'] . '</td>
-			</tr>';
+            <td>
+            <input type="checkbox" name="announcetopic" ' . (isset($_POST['announcetopic']) ? 'checked="checked"' : '' ) . ' />
+            </td>
+            <td>
+            ' . $l['options_announce_topic'] . '</td>
+            </tr>';
                             }
 
                             $notifytopic = ($logged_in ? ( $user['subscribeauto'] == 1 ? true : ($user['subscribeauto'] == 2 ? false : $globals['subscribeauto']) ) : $globals['subscribeauto']);
@@ -260,12 +260,12 @@ function newtopic_theme() {
                             //If the user has permissions to NOTIFY Replies to this topic
                             if ($logged_in && $user['notify_new_posts']) {
                                 echo '<tr>
-			<td>
-			<input type="checkbox" name="notifytopic" ' . (isset($_POST['notifytopic']) ? 'checked="checked"' : ($notifytopic ? 'checked="checked"' : '') ) . ' />
-			</td>
-			<td>
-			' . $l['options_notify_topic'] . '</td>
-			</tr>';
+            <td>
+            <input type="checkbox" name="notifytopic" ' . (isset($_POST['notifytopic']) ? 'checked="checked"' : ($notifytopic ? 'checked="checked"' : '') ) . ' />
+            </td>
+            <td>
+            ' . $l['options_notify_topic'] . '</td>
+            </tr>';
                             }
 
 
@@ -273,25 +273,25 @@ function newtopic_theme() {
                             if (($user['can_post_polls'] || $board['can_post_polls']) &&
                                     $board['allow_poll'] && $globals['enablepolls']) {
                                 echo '<tr>
-			<td>
-			<input type="checkbox" name="postpoll" ' . (isset($_POST['postpoll']) ? 'checked="checked"' : '' ) . ' />
-			</td>
-			<td>
-			' . $l['options_post_poll'] . '</td>
-			</tr>';
+            <td>
+            <input type="checkbox" name="postpoll" ' . (isset($_POST['postpoll']) ? 'checked="checked"' : '' ) . ' />
+            </td>
+            <td>
+            ' . $l['options_post_poll'] . '</td>
+            </tr>';
                             }
 
 
                             echo '</table>
-		</td>
-		</tr>';
+        </td>
+        </tr>';
 
 
                             //Check if he can attach files
                             if ($user['can_attach'] && $globals['allownewattachment']) {
                                 echo '<tr>
-			<td width="18%" class="ntlc">' . $l['newtopic_attachments'] . '</td>			
-			<td class="ntrc">';
+            <td width="18%" class="ntlc">' . $l['newtopic_attachments'] . '</td>
+            <td class="ntrc">';
 
                                 for ($a = 1; $a <= $globals['maxattachmentpost']; $a++) {
 
@@ -299,7 +299,7 @@ function newtopic_theme() {
                                 }
 
                                 echo '</td>
-			</tr>';
+            </tr>';
                             }
                             ?>
 

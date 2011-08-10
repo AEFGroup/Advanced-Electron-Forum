@@ -11,18 +11,18 @@ function select_theme() {
         var req;
 
         function LoadStatus(itsinner){
-            document.getElementById("loadstatus").innerHTML = itsinner;		
+            document.getElementById("loadstatus").innerHTML = itsinner;
         }
 
         function getnewtopics(){
-                        	
+
             metfid = document.getElementById("metfid").value;
-                        		
+
             LoadStatus('<img src="<?php echo $theme['images']; ?>admin/loading.gif"> Refreshing Order List ...');
-                        		
+
             LoadOrder('<?php echo $globals['index_url']; ?>act=admin&adact=forums&seadact=ajax&motherforum='+mother,1);
-                        		
-                        	
+
+
         }
 
         function ajax(url,mode){
@@ -35,7 +35,7 @@ function select_theme() {
                     req = false;
                 }
                 // branch for IE/Windows ActiveX version
-            } 
+            }
             else if(window.ActiveXObject) {
                 try {
                     req = new ActiveXObject("Msxml2.XMLHTTP");
@@ -54,12 +54,12 @@ function select_theme() {
                         break;
                 }
             }
-                        	
+
             if(req) {
                 req.onreadystatechange = modeprocess();
                 req.open("GET", url, true);
                 req.send("");
-                        		
+
             } else {
                 LoadStatus('Unable to Retrieve Data.');
             }
@@ -73,14 +73,14 @@ function select_theme() {
                 if (req.status == 200) {
                     // only if "OK"...processing statements go here..
                     re = req.responseText // result of the req object
-                    //alert(re);			
-                        			
+                    //alert(re);
+
                     while (forder.length> 0) {
                         forder.remove(0);
-                    } 
-                        			
+                    }
+
                     //finallists = "";
-                        			
+
                     for (var i = 1; i <= re; i++) {
                         //finallists += "<option value="+i+">"+i+"</option>"
                         var OptNew = document.createElement('option');
@@ -93,21 +93,21 @@ function select_theme() {
                             forder.add(OptNew); // IE only
                         }
                     }
-                        			
+
                     //This is to make the last row as selected
                     forder.selectedIndex = re - 1;
-                        			
+
                     LoadStatus('');
-                        			
+
                     //alert(forder.innerHTML);
-                        					
+
                 } else {
                     LoadStatus('Unable to Retrieve Data.');
                 }
             }
         }
 
-                        		
+
     </script>
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="get" name="metselectform">
         <table width="100%" cellpadding="1" cellspacing="5">
@@ -119,7 +119,7 @@ function select_theme() {
 
                         <tr>
                             <td class="patcbg" colspan="2" align="left">
-                        	Select the topics to merge
+                                Select the topics to merge
                             </td>
                         </tr>
 
@@ -135,15 +135,15 @@ function select_theme() {
                             foreach ($mother_options as $i => $iv) {
 
                                 echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['metfid']) && trim($_POST['metfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : '' ) . '>
-			' . $mother_options[$i][1] . '
-			</option>';
+            ' . $mother_options[$i][1] . '
+            </option>';
                             }//End of for loop
 
                             echo '</select>
 </td>
 </tr>';
                         }
-                        ?>	
+                        ?>
 
 
 
@@ -157,7 +157,7 @@ function select_theme() {
 
                         <tr>
                             <td class="patcbg" colspan="2" align="left">
-                        	The topics to be merged
+                                The topics to be merged
                             </td>
                         </tr>
 
@@ -193,7 +193,7 @@ function merge_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="pcbgl"></td>
                                 <td class="pcbg" align="left"><?php echo $l['mergetopics_heading']; ?></td>
-                                <td class="pcbgr"></td>		
+                                <td class="pcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -213,7 +213,7 @@ function merge_theme() {
                                             echo '<option value="' . $k . '" ' . ((isset($_POST['topic']) && trim($_POST['topic']) == $k ) ? 'selected="selected"' : '' ) . ' >' . $t['topic'] . '&nbsp;&nbsp;&nbsp;&nbsp;Topic&nbsp;-&nbsp;' . $k . '</option>';
                                         }
                                         ?>
-                                    </select>	
+                                    </select>
                                 </td>
                             </tr>
 

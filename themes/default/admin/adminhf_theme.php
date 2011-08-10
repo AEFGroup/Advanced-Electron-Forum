@@ -3,7 +3,7 @@
 //===========================================================
 // adminhf_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -33,7 +33,7 @@ function adminhead($title = '') {
 
     //Global Headers
     aefheader($title);
-    ?>	
+    ?>
 
     <table width="100%">
         <tr>
@@ -91,7 +91,7 @@ function adminhead($title = '') {
                         <span><?php echo $l['forums']; ?></span>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=forums"><?php echo $l['manage_forums']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=forums&seadact=createforum"><?php echo $l['create_new_forum']; ?></a>
-                        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=forums&seadact=forumreorder"><?php echo $l['reorder_forums']; ?></a>	
+                        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=forums&seadact=forumreorder"><?php echo $l['reorder_forums']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=fpermissions"><?php echo $l['forum_permissions']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=fpermissions&seadact=createfpermissions"><?php echo $l['new_forum_permissions']; ?>s</a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=moderators"><?php echo $l['moderators']; ?></a>
@@ -247,7 +247,7 @@ function js_reorder() {
             var tot_height = 0;
             var width = $(reorder_holder).offsetWidth;
             var top = init_pos[1];
-                                                	
+
             //Find the prerequisites
             for(x in reo_r){
                 tot_height = tot_height + $(reo_ha+reo_r[x]).offsetHeight + 10;
@@ -255,7 +255,7 @@ function js_reorder() {
             }
             $(reorder_holder).style.height = tot_height+'px';//Make it long
             tot_height = (tot_height + init_pos[1]);
-                                                	
+
             //Initialize the Drag
             for(x in reo_r){
                 Drag.init($(reo_ho+reo_r[x]), $(reo_ha+reo_r[x]), init_pos[0], init_pos[0], (init_pos[1]-10), tot_height);
@@ -286,7 +286,7 @@ function js_reorder() {
             for(x in reo_arr_pos){
                 reo_r[x] = find_reokey(reo_arr, reo_arr_pos[x]);
             }
-                                                	
+
             //Re-position Vars
             var init_pos = findelpos($(reorder_holder));
             var top = init_pos[1];
@@ -295,7 +295,7 @@ function js_reorder() {
                 $(reo_ha+reo_r[x]).style.top = top+'px';
                 top = top + $(reo_ha+reo_r[x]).offsetHeight + 10;
                 $(reo_hid+reo_r[x]).value = (parseInt(x) + 1);
-            }	
+            }
         };
 
 

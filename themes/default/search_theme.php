@@ -15,10 +15,11 @@ function search_theme() {
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['search_heading']; ?><input type="hidden" name="act" value="search" /><input type="hidden" name="sact" value="results" /></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>        
                         </tr>
                     </table>
                 </td>
@@ -81,8 +82,8 @@ function search_theme() {
                                     foreach ($mother_options as $i => $iv) {
 
                                         echo '<option value="' . $mother_options[$i][0] . '">
-	' . $mother_options[$i][1] . '
-	</option>';
+    ' . $mother_options[$i][1] . '
+    </option>';
                                     }//End of for loop
                                     ?>
                                 </select>
@@ -136,13 +137,13 @@ function results_theme() {
 
     <script type="text/javascript">
         function gotopage(val){
-            		
+                            
             gourl = '<?php echo $globals['index_url'] . 'act=search&sact=results&allwords=' . $_GET['allwords'] . '&exactphrase=' . (empty($_GET['exactphrase']) ? '' : $_GET['exactphrase']) . '&atleastone=' . (empty($_GET['atleastone']) ? '' : $_GET['atleastone']) . '&without=' . (empty($_GET['without']) ? '' : $_GET['without']) . '&starter=' . (empty($_GET['starter']) ? '' : $_GET['starter']) . '&within=' . $_GET['within'] . '&showas=' . $_GET['showas'] . '&forums=' . $fids_str . '&spg='; ?>';
-            		
+                            
             //alert (gourl);
-            		
+                            
             window.location = gourl+val;
-            	
+                        
         }
     </SCRIPT>
     <?php
@@ -159,133 +160,133 @@ function results_theme() {
 
     if ($showas == 1) {
 
-        echo '<table width="100%" cellpadding="0" cellspacing="0">			
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="tthl"></td>
-	<td class="tthc" align="center">' . $l['results_heading'] . ' :</td>
-	<td class="tthr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td width="100%">
-	
-	<table width="100%" class="cbgbor" cellpadding="1" cellspacing="1">
-	
-	<tr>
-	<td class="ttcbg" colspan="2"></td>
-	<td class="ttcbg" width="30%">' . $l['header_subject'] . '</td>
-	<td class="ttcbg" width="15%" align="center">' . $l['header_forum'] . '</td>
-	<td class="ttcbg" width="15%" align="center">' . $l['header_started_by'] . '</td>
-	<td class="ttcbg" width="6%" align="center">' . $l['header_replies'] . '</td>
-	<td class="ttcbg" width="5%" align="center">' . $l['header_views'] . '</td>
-	<td class="ttcbg" width="22%">' . $l['header_last_post'] . '</td>
-	</tr>';
+        echo '<table width="100%" cellpadding="0" cellspacing="0">            
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="tthl"></td>
+    <td class="tthc" align="center">' . $l['results_heading'] . ' :</td>
+    <td class="tthr"></td>        
+    </tr>
+    </table>
+    </td>
+    </tr>
+    
+    <tr>
+    <td width="100%">
+    
+    <table width="100%" class="cbgbor" cellpadding="1" cellspacing="1">
+    
+    <tr>
+    <td class="ttcbg" colspan="2"></td>
+    <td class="ttcbg" width="30%">' . $l['header_subject'] . '</td>
+    <td class="ttcbg" width="15%" align="center">' . $l['header_forum'] . '</td>
+    <td class="ttcbg" width="15%" align="center">' . $l['header_started_by'] . '</td>
+    <td class="ttcbg" width="6%" align="center">' . $l['header_replies'] . '</td>
+    <td class="ttcbg" width="5%" align="center">' . $l['header_views'] . '</td>
+    <td class="ttcbg" width="22%">' . $l['header_last_post'] . '</td>
+    </tr>';
 
         foreach ($found as $f => $fv) {
 
             echo '<tr>
-	
-	<td class="ttimg" width="5%" align="center">
-	<img src="' . $theme['images'] . 'topics/' . $found[$f]['type'] . '.png" />
-	</td>
-	
-	<td class="ttimg" align="center">
-	' . ($found[$f]['type_image'] ? '<img src="' . $theme['images'] . 'icons/' . $globals['topic_icons'][$found[$f]['type_image']][0] . '" title="' . $globals['topic_icons'][$found[$f]['type_image']][1] . '" />' : '') . '
-	</td>
-	
-	<td class="ttsub">
-	' . ($found[$f]['has_attach'] ? '<img src="' . $theme['images'] . 'topics/attachment.png"  title="' . $l['topic_contains'] . ' ' . $found[$f]['has_attach'] . ' ' . $l['attachments'] . '" />' : '') . '
-	' . (isset($found[$f]['t_prefix']) ? $found[$f]['t_prefix'] : '') . '
-	<a href="' . $globals['index_url'] . 'tid=' . $found[$f]['tid'] . '">' . $found[$f]['topic'] . '</a>
-	' . (!empty($found[$f]['t_description']) ? '<br />' . $found[$f]['t_description'] : '' ) . '
-	' . (isset($found[$f]['pages']) ? '<br /><div style="float:right">( ' . $found[$f]['pages'] . ' )</div>' : '' ) . '
-	</td>
-	
-	<td class="ttsub" align="center">
-	<a href="' . $globals['index_url'] . 'fid=' . $found[$f]['fid'] . '">' . $found[$f]['fname'] . '</a>
-	</td>		
-	
-	<td class="ttstar" align="center">
-	' . (empty($found[$f]['starter']) ? $l['guest'] : '<a href="' . $globals['index_url'] . 'mid=' . $found[$f]['t_mem_id'] . '" title="' . $l['profile_of'] . ' ' . $found[$f]['starter'] . '">' . $found[$f]['starter'] . '</a>' ) . '		
-	</td>
-	
-	<td class="ttrep" align="center">' . $found[$f]['n_posts'] . '</td>
-	
-	<td class="ttviews" align="center">' . $found[$f]['n_views'] . '</td>
-	
-	<td class="ttlpi">' . $found[$f]['ptime'] . '<br />
-	' . $l['by'] . ' <a href="' . $globals['index_url'] . 'mid=' . $found[$f]['poster_id'] . '" title="' . $l['profile_of'] . ' ' . $found[$f]['username'] . '">' . $found[$f]['username'] . '</a>&nbsp;&nbsp;<a href="' . $globals['index_url'] . 'tid=' . $found[$f]['tid'] . '&tpg=' . $found[$f]['last_page'] . '#p' . $found[$f]['pid'] . '" title="' . $l['go_to_last_post'] . '"><img src="' . $theme['images'] . 'right.gif" /></a>
-	</td>	
-	</tr>';
+    
+    <td class="ttimg" width="5%" align="center">
+    <img src="' . $theme['images'] . 'topics/' . $found[$f]['type'] . '.png" />
+    </td>
+    
+    <td class="ttimg" align="center">
+    ' . ($found[$f]['type_image'] ? '<img src="' . $theme['images'] . 'icons/' . $globals['topic_icons'][$found[$f]['type_image']][0] . '" title="' . $globals['topic_icons'][$found[$f]['type_image']][1] . '" />' : '') . '
+    </td>
+    
+    <td class="ttsub">
+    ' . ($found[$f]['has_attach'] ? '<img src="' . $theme['images'] . 'topics/attachment.png"  title="' . $l['topic_contains'] . ' ' . $found[$f]['has_attach'] . ' ' . $l['attachments'] . '" />' : '') . '
+    ' . (isset($found[$f]['t_prefix']) ? $found[$f]['t_prefix'] : '') . '
+    <a href="' . $globals['index_url'] . 'tid=' . $found[$f]['tid'] . '">' . $found[$f]['topic'] . '</a>
+    ' . (!empty($found[$f]['t_description']) ? '<br />' . $found[$f]['t_description'] : '' ) . '
+    ' . (isset($found[$f]['pages']) ? '<br /><div style="float:right">( ' . $found[$f]['pages'] . ' )</div>' : '' ) . '
+    </td>
+    
+    <td class="ttsub" align="center">
+    <a href="' . $globals['index_url'] . 'fid=' . $found[$f]['fid'] . '">' . $found[$f]['fname'] . '</a>
+    </td>        
+    
+    <td class="ttstar" align="center">
+    ' . (empty($found[$f]['starter']) ? $l['guest'] : '<a href="' . $globals['index_url'] . 'mid=' . $found[$f]['t_mem_id'] . '" title="' . $l['profile_of'] . ' ' . $found[$f]['starter'] . '">' . $found[$f]['starter'] . '</a>' ) . '        
+    </td>
+    
+    <td class="ttrep" align="center">' . $found[$f]['n_posts'] . '</td>
+    
+    <td class="ttviews" align="center">' . $found[$f]['n_views'] . '</td>
+    
+    <td class="ttlpi">' . $found[$f]['ptime'] . '<br />
+    ' . $l['by'] . ' <a href="' . $globals['index_url'] . 'mid=' . $found[$f]['poster_id'] . '" title="' . $l['profile_of'] . ' ' . $found[$f]['username'] . '">' . $found[$f]['username'] . '</a>&nbsp;&nbsp;<a href="' . $globals['index_url'] . 'tid=' . $found[$f]['tid'] . '&tpg=' . $found[$f]['last_page'] . '#p' . $found[$f]['pid'] . '" title="' . $l['go_to_last_post'] . '"><img src="' . $theme['images'] . 'right.gif" /></a>
+    </td>    
+    </tr>';
         }
 
         echo '</table>
-	</td>			
-	</tr>
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="15"></td>
-	</tr>
-	
-	</table>
-	<br />';
+    </td>            
+    </tr>
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="15"></td>
+    </tr>
+    
+    </table>
+    <br />';
     } else {
 
         foreach ($found as $f => $fv) {
 
             echo'<br /><table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="pcbgl"></td>
-	<td class="pcbg"><a href="' . $globals['index_url'] . 'tid=' . $found[$f]['tid'] . '">' . $found[$f]['topic'] . '</a>' . (empty($found[$f]['t_description']) ? '' : ',&nbsp;' . $found[$f]['t_description']) . '</td>
-	<td class="pcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td>
-	
-	<table width="100%" cellpadding="1" cellspacing="0" class="cbgbor">
-		
-	<tr>
-	<td class="posterbg" width="20%">
-	' . (isset($found[$f]['is_guest']) ? '<b>' . $l['guest'] . '</b>' : '<a href="' . $globals['index_url'] . 'mid=' . $found[$f]['poster_id'] . '">' . $found[$f]['username'] . '</a>' ) . '
-	</td>
-	
-	<td class="postdate" align="left">
-	<a name="p' . $found[$f]['pid'] . '"></a>
-	<img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '">
-	' . $found[$f]['ptime'] . '</td>
-	</tr>';
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="pcbgl"></td>
+    <td class="pcbg"><a href="' . $globals['index_url'] . 'tid=' . $found[$f]['tid'] . '">' . $found[$f]['topic'] . '</a>' . (empty($found[$f]['t_description']) ? '' : ',&nbsp;' . $found[$f]['t_description']) . '</td>
+    <td class="pcbgr"></td>        
+    </tr>
+    </table>
+    </td>
+    </tr>
+    
+    <tr>
+    <td>
+    
+    <table width="100%" cellpadding="1" cellspacing="0" class="cbgbor">
+        
+    <tr>
+    <td class="posterbg" width="20%">
+    ' . (isset($found[$f]['is_guest']) ? '<b>' . $l['guest'] . '</b>' : '<a href="' . $globals['index_url'] . 'mid=' . $found[$f]['poster_id'] . '">' . $found[$f]['username'] . '</a>' ) . '
+    </td>
+    
+    <td class="postdate" align="left">
+    <a name="p' . $found[$f]['pid'] . '"></a>
+    <img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '">
+    ' . $found[$f]['ptime'] . '</td>
+    </tr>';
 
             echo '<tr>
-	<td class="post" colspan="2">
-	' . $found[$f]['post'] . '
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="ptcbg1" colspan="2" align="left" style="padding:5px;">
-	' . $l['prefix_forum'] . ': <a href="' . $globals['index_url'] . 'fid=' . $found[$f]['fid'] . '">' . $found[$f]['fname'] . '</a>
-	&nbsp;&nbsp;' . $l['prefix_replies'] . ': ' . $found[$f]['n_posts'] . '&nbsp;&nbsp;Views: ' . $found[$f]['n_views'] . '
-	</td>
-	</tr>';
+    <td class="post" colspan="2">
+    ' . $found[$f]['post'] . '
+    </td>
+    </tr>
+    
+    <tr>
+    <td class="ptcbg1" colspan="2" align="left" style="padding:5px;">
+    ' . $l['prefix_forum'] . ': <a href="' . $globals['index_url'] . 'fid=' . $found[$f]['fid'] . '">' . $found[$f]['fname'] . '</a>
+    &nbsp;&nbsp;' . $l['prefix_replies'] . ': ' . $found[$f]['n_posts'] . '&nbsp;&nbsp;Views: ' . $found[$f]['n_views'] . '
+    </td>
+    </tr>';
 
             echo '</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10"></td>
-	</tr>
-	</table>';
+    </td>
+    </tr>
+    
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10"></td>
+    </tr>
+    </table>';
         }
     }
 

@@ -3,7 +3,7 @@
 //===========================================================
 // backup_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -107,7 +107,7 @@ function fileback_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="startfileback" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

@@ -3,7 +3,7 @@
 //===========================================================
 // skin_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -89,7 +89,7 @@ function manskin_theme() {
                     <font class="adexp"><?php echo $l['choose_skin_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="choose_theme"	<?php echo ($globals['choose_theme'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="choose_theme"    <?php echo ($globals['choose_theme'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -242,7 +242,7 @@ function import_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="importskin" value="<?php echo $l['import']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -326,7 +326,7 @@ function uninstall_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="uninstallskin" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -386,7 +386,7 @@ function settings_theme() {
                     <script type="text/javascript">
                         function change_theme_id(){
                             redirect_url = '<?php echo $globals['url'] . '/index.php?' . getallGET(array('theme_id')); ?>';
-                            var theme_id = $('theme_id').value;	
+                            var theme_id = $('theme_id').value;
                             window.location = redirect_url+'&theme_id='+theme_id;
                         }
                     </script>
@@ -409,7 +409,7 @@ function settings_theme() {
             tabs.tabs = new Array('<?php echo implode('\', \'', array_keys($theme_registry)); ?>');
             tabs.tabwindows = new Array('<?php echo implode('_win\', \'', array_keys($theme_registry)); ?>_win');
             addonload('tabs.init();');
-        </script>    
+        </script>
 
         <br /><br />
         <table width="100%" cellpadding="2" cellspacing="1" class="cbor">
@@ -443,15 +443,15 @@ function settings_theme() {
                         foreach ($theme_registry[$ck] as $k => $v) {
 
                             echo '<tr>
-	<td width="40%" class="adbg">
-	<b>' . $theme_registry[$ck][$k]['shortexp'] . '</b>
-	' . (empty($theme_registry[$ck][$k]['exp']) ? '' : '<br />
-	<font class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</font>') . '
-	</td>
-	<td class="adbg" align="left">        
-	&nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func_array('html_' . $theme_registry[$ck][$k]['type'], array($k, $theme_registry[$ck][$k]['value'])) . '
-	</td>
-	</tr>';
+    <td width="40%" class="adbg">
+    <b>' . $theme_registry[$ck][$k]['shortexp'] . '</b>
+    ' . (empty($theme_registry[$ck][$k]['exp']) ? '' : '<br />
+    <font class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</font>') . '
+    </td>
+    <td class="adbg" align="left">
+    &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func_array('html_' . $theme_registry[$ck][$k]['type'], array($k, $theme_registry[$ck][$k]['value'])) . '
+    </td>
+    </tr>';
                         }
 
                         /* 'a:5:{s:4:"name";s:8:"Electron";s:4:"path";s:50:"e:\program files\easyphp1-8\www\aef/themes/default";s:3:"url";s:35:"http://127.0.0.1/aef/themes/default";s:6:"images";s:43:"http://127.0.0.1/aef/themes/default/images/";s:5:"names";s:3:"sss";}'; */
@@ -468,7 +468,7 @@ function settings_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editsettings" value="<?php echo $l['edit_sett']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

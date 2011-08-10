@@ -18,7 +18,7 @@ function profile_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['acc_gen_prof_set']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -43,7 +43,7 @@ function profile_theme() {
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" maxlength="4" size="4" name="dobyear" value="<?php echo (isset($_POST['dobyear']) ? $_POST['dobyear'] : $user['dobyear']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobmonth" value="<?php echo (isset($_POST['dobmonth']) ? $_POST['dobmonth'] : $user['dobmonth']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobday" value="<?php echo (isset($_POST['dobday']) ? $_POST['dobday'] : $user['dobday']); ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc" width="30%">
@@ -87,7 +87,7 @@ function profile_theme() {
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="privatetext" value="<?php echo (isset($_POST['privatetext']) ? $_POST['privatetext'] : $user['users_text']); ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc" width="30%">
@@ -97,7 +97,7 @@ function profile_theme() {
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="icq" value="<?php echo (isset($_POST['icq']) ? $_POST['icq'] : $user['icq']); ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
 
                         <tr>
@@ -193,7 +193,7 @@ function account_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['acc_acc_set']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -239,7 +239,7 @@ function account_theme() {
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="newpass" />
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc" width="30%">
@@ -358,7 +358,7 @@ function signature_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['acc_edit_ur_sig']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -454,7 +454,7 @@ function avatar_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['acc_edit_ur_avatar']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -501,10 +501,10 @@ function avatar_theme() {
                                                     foreach ($avatargallery as $ak => $av) {
 
                                                         echo '<td>
-			<a href="javascript:checkradio(\'' . $av['name'] . '\');checkradio(\'avgallery\');"/>
-			<img src="' . $globals['avatarurl'] . '/' . $av['name'] . '" border=1>
-			</a>
-			</td>';
+            <a href="javascript:checkradio(\'' . $av['name'] . '\');checkradio(\'avgallery\');"/>
+            <img src="' . $globals['avatarurl'] . '/' . $av['name'] . '" border=1>
+            </a>
+            </td>';
                                                     }
                                                 } else {
 
@@ -521,8 +521,8 @@ function avatar_theme() {
                                                     foreach ($avatargallery as $ak => $av) {
 
                                                         echo '<td>
-			<input type="radio" name="avatargalfile" id="' . $av['name'] . '" value="' . $av['name'] . '" ' . ( (isset($_POST['avatartype'])) ? ((isset($_POST['avatargalfile']) && $_POST['avatargalfile'] == $av['name'] && ((int) $_POST['avatartype'] == 1)) ? 'checked="checked"' : '' ) : ((($user['avatar_type'] == 1) && ($av['name'] == $user['avatar'])) ? 'checked="checked"' : '' ) ) . ' />
-			</td>';
+            <input type="radio" name="avatargalfile" id="' . $av['name'] . '" value="' . $av['name'] . '" ' . ( (isset($_POST['avatartype'])) ? ((isset($_POST['avatargalfile']) && $_POST['avatargalfile'] == $av['name'] && ((int) $_POST['avatartype'] == 1)) ? 'checked="checked"' : '' ) : ((($user['avatar_type'] == 1) && ($av['name'] == $user['avatar'])) ? 'checked="checked"' : '' ) ) . ' />
+            </td>';
                                                     }
                                                 } else {
 
@@ -610,7 +610,7 @@ function personalpic_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['acc_edit_ur_perpic']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>

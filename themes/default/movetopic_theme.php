@@ -8,7 +8,7 @@ function movetopic_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%', true);
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="movetopicform">
         <br />
@@ -19,7 +19,7 @@ function movetopic_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['movetopics_heading']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -44,8 +44,8 @@ function movetopic_theme() {
                                     foreach ($mother_options as $i => $iv) {
 
                                         echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['mtfid']) && trim($_POST['mtfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : '' ) . '>
-		' . $mother_options[$i][1] . '
-		</option>';
+        ' . $mother_options[$i][1] . '
+        </option>';
                                     }//End of for loop
                                     ?>
                                 </select>

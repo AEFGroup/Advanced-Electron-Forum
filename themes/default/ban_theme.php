@@ -10,14 +10,14 @@ function putban_theme() {
     error_handle($error, '60%', true);
     ?>
     <form accept-charset="<?php echo $globals['charset']; ?>" method="post" action="" name="putbanform" >
-        <br />	
+        <br />
         <table width="60%" cellpadding="0" cellspacing="0" align="center">
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['ban_heading']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -57,7 +57,7 @@ function putban_theme() {
                             <td colspan="2" class="etrc" style="text-align:center">
                                 <input type="submit" name="putban" value="<?php echo $l['submit_button']; ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
                     </table>
 
@@ -70,7 +70,7 @@ function putban_theme() {
 
         </table>
 
-    </form>	
+    </form>
     <?php
     //The defualt footers
     aeffooter();

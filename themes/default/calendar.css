@@ -6,7 +6,7 @@
     color: #6a6a6b;
 }
 
-.topdayon{	
+.topdayon{
     background: #bbccdd;
     padding: 4px;
     font-weight: bold;
@@ -35,7 +35,7 @@
 
 .bdays a:link, .bdays a:visited, .bdays a:active {
     color: #364c52;
-    text-decoration: none;	
+    text-decoration: none;
 }
 
 .bdays a:hover {

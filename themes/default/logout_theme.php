@@ -1,6 +1,6 @@
 <?php
 
-function notloggedin() {//If error occurs 
+function notloggedin() {//If error occurs
     global $url; //comes from universal.php
     style();
     ?>
@@ -9,7 +9,7 @@ function notloggedin() {//If error occurs
         <tr>
             <td valign='middle'>
                 <table align='center' cellpadding="4" class="fields">
-                    <tr> 
+                    <tr>
                         <td width="100%" align="center" >
 
                             <table width="400" bgcolor="#C4DCFB">
@@ -20,15 +20,15 @@ function notloggedin() {//If error occurs
                                 </tr>
                             </table><br />
                             <font style="font-size:13px;font-family:Arial, Helvetica, sans-serif;">
-                                 You are not logged in.<br />
-                                 Please wait while we redirect you. OR <br />
+                            You are not logged in.<br />
+                            Please wait while we redirect you. OR <br />
                             <a href="<?php echo $url; ?>">Click Here if you do not wish to wait.</a></font>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
-    </table>	  
+    </table>
     <?php
 }
 
@@ -41,7 +41,7 @@ function loggedout() {//If error occurs while inserting in MySQL.
         <tr>
             <td valign='middle'>
                 <table align='center' cellpadding="4" class="fields">
-                    <tr> 
+                    <tr>
                         <td width="100%" align="center" >
 
                             <table width="400" bgcolor="#C4DCFB">
@@ -52,15 +52,15 @@ function loggedout() {//If error occurs while inserting in MySQL.
                                 </tr>
                             </table><br />
                             <font style="font-size:13px;font-family:Arial, Helvetica, sans-serif;">
-                                You have successfully been logged out.<br />
-                                Please wait while we redirect you. OR <br />
+                            You have successfully been logged out.<br />
+                            Please wait while we redirect you. OR <br />
                             <a href="<?php echo $url; ?>">Click Here if you do not wish to wait.</a></font>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
-    </table>	  
+    </table>
     <?php
 }
 
@@ -73,7 +73,7 @@ function logouterror() {//If error occurs while deleting from MySQL.
         <tr>
             <td valign='middle'>
                 <table align='center' cellpadding="4" class="fields">
-                    <tr> 
+                    <tr>
                         <td width="100%" align="center" >
 
                             <table width="400" bgcolor="#C4DCFB">
@@ -84,16 +84,16 @@ function logouterror() {//If error occurs while deleting from MySQL.
                                 </tr>
                             </table><br />
                             <font style="font-size:13px;font-family:Arial, Helvetica, sans-serif;">
-                                There was an error logging you out.<br />
-                                Please try to log out after some time. Inconvenience is regreted.<br />
-                                Please wait while we redirect you. OR <br />
+                            There was an error logging you out.<br />
+                            Please try to log out after some time. Inconvenience is regreted.<br />
+                            Please wait while we redirect you. OR <br />
                             <a href="<?php echo $url; ?>">Click Here if you do not wish to wait.</a></font>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
-    </table>	  
+    </table>
     <?php
 }
 

@@ -8,34 +8,34 @@ function aefheader($title = '') {
 
     //Lets echo the top headers
     echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
-	<meta name="keywords" content="aef, advanced, electron, forum, bulletin, board, software' . (empty($globals['keywords']) ? '' : ', ' . $globals['keywords']) . '" />
-	<title>' . $title . '</title>
-	<link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	' . ((empty($globals['rss_recent'])) ? '' : '<link rel="alternate" type="application/rss+xml" title="' . $globals['sn'] . ' - ' . $l['rss'] . '" href="' . $globals['ind'] . 'act=feeds" />') . '
-	' . (empty($feeds) ? '' : implode('', $feeds)) . '
-	<script language="javascript" src="' . $theme['url'] . '/js/universal.js" type="text/javascript"></script>
-	<script language="javascript" src="' . $theme['url'] . '/js/menu.js" type="text/javascript"></script>
-	<script language="javascript" src="' . $theme['url'] . '/js/domdrag.js" type="text/javascript"></script>	
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
+    <meta name="keywords" content="aef, advanced, electron, forum, bulletin, board, software' . (empty($globals['keywords']) ? '' : ', ' . $globals['keywords']) . '" />
+    <title>' . $title . '</title>
+    <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    ' . ((empty($globals['rss_recent'])) ? '' : '<link rel="alternate" type="application/rss+xml" title="' . $globals['sn'] . ' - ' . $l['rss'] . '" href="' . $globals['ind'] . 'act=feeds" />') . '
+    ' . (empty($feeds) ? '' : implode('', $feeds)) . '
+    <script language="javascript" src="' . $theme['url'] . '/js/universal.js" type="text/javascript"></script>
+    <script language="javascript" src="' . $theme['url'] . '/js/menu.js" type="text/javascript"></script>
+    <script language="javascript" src="' . $theme['url'] . '/js/domdrag.js" type="text/javascript"></script>
 <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 boardurl = \'' . $globals['url'] . '/\';
 indexurl = \'' . $globals['index_url'] . '\';
 imgurl = \'' . $theme['images'] . '\';
 // ]]></script>
-	</head>
-	<body onload="bodyonload();">';
+    </head>
+    <body onload="bodyonload();">';
 
-    echo '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="header">	
-	<tr>
-	
-		<td align="left" rowspan="2">
-		<a href="' . $globals['ind'] . '"><img src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo.jpg') . '" alt="" /></a>
-		</td>
-	
-		<td align="right" class="welcome">';
+    echo '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="header">
+    <tr>
+
+        <td align="left" rowspan="2">
+        <a href="' . $globals['ind'] . '"><img src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo.jpg') . '" alt="" /></a>
+        </td>
+
+        <td align="right" class="welcome">';
 
     if ($logged_in) {
 
@@ -46,12 +46,12 @@ imgurl = \'' . $theme['images'] . '\';
     }
 
     echo '</td>
-		
-	</tr>	
-	
-	<tr>
-	
-		<td align="right" valign="bottom">';
+
+    </tr>
+
+    <tr>
+
+        <td align="right" valign="bottom">';
 
     //Array Holding the Options to be imploded
     $opt = array();
@@ -133,28 +133,28 @@ createmenu("quicklinks", [' . $quick_links . ']);
     if (empty($logged_in)) {
 
         $opt[] = '<form accept-charset="' . $globals['charset'] . '" action="' . $globals['ind'] . 'act=login"  method="post" name="loginform">
-		<input type="text" size="9" name="username" class="ql" value="' . $l['username'] . '" onfocus="(this.value==\'' . $l['username'] . '\' ? this.value=\'\' : void(0))" />&nbsp;
-		<input type="password" size="9" name="password" class="ql" value="' . $l['password'] . '" onfocus="(this.value==\'' . $l['password'] . '\' ? this.value=\'\' : void(0))" />&nbsp;
-		<input type="submit" name="login" value="' . $l['sign_in'] . '" class="ql" />
+        <input type="text" size="9" name="username" class="ql" value="' . $l['username'] . '" onfocus="(this.value==\'' . $l['username'] . '\' ? this.value=\'\' : void(0))" />&nbsp;
+        <input type="password" size="9" name="password" class="ql" value="' . $l['password'] . '" onfocus="(this.value==\'' . $l['password'] . '\' ? this.value=\'\' : void(0))" />&nbsp;
+        <input type="submit" name="login" value="' . $l['sign_in'] . '" class="ql" />
 </form>';
     }
 
     //this is the users menu table
     echo '<table cellspacing="2" cellpadding="3" width="100%" style="height:35px;">
-				<tr align="left">
-					<td align="right" nowrap="nowrap" class="navlinks">';
+                <tr align="left">
+                    <td align="right" nowrap="nowrap" class="navlinks">';
 
     echo implode('&nbsp;&nbsp;|&nbsp;&nbsp;', $opt);
 
     echo '</td>
-				</tr>
-			</table>
-			
-		</td>
-	
-	</tr>
-	
-	</table>';
+                </tr>
+            </table>
+
+        </td>
+
+    </tr>
+
+    </table>';
 
     echo (empty($theme['headernavtree']) ? '' : tree() . '<br /><br />');
 
@@ -189,19 +189,19 @@ news_r = new Array(\'' . implode('\', \'', array_keys($newslinks)) . '\');
 newsindex = 0;
 
 function initnews(){
-	if(news_r.length > 1){
-		try{hideel(nid);}catch(e){}
-		if(typeof(news_r[newsindex]) == "undefined"){
-			newsindex = 0;
-		}
-		nid = "news"+news_r[newsindex];
-		showel(nid);
-		smoothopaque(nid, 0, 100, 5);
-		newsindex++;
-		newstimeout = setTimeout(initnews, nextnews);
-	}else{
-		showel("news"+news_r[newsindex]);
-	}
+    if(news_r.length > 1){
+        try{hideel(nid);}catch(e){}
+        if(typeof(news_r[newsindex]) == "undefined"){
+            newsindex = 0;
+        }
+        nid = "news"+news_r[newsindex];
+        showel(nid);
+        smoothopaque(nid, 0, 100, 5);
+        newsindex++;
+        newstimeout = setTimeout(initnews, nextnews);
+    }else{
+        showel("news"+news_r[newsindex]);
+    }
 };
 
 // ]]></script>';
@@ -211,9 +211,9 @@ function initnews(){
     if (!empty($globals['enableshoutbox']) && !empty($user['can_shout'])) {
 
         echo '<script language="javascript" src="' . $theme['url'] . '/js/shoutbox.js" type="text/javascript"></script>
-		<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-		can_del_shout = ' . (empty($user['can_del_shout']) ? 'false' : 'true') . ';
-		// ]]></script>';
+        <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
+        can_del_shout = ' . (empty($user['can_del_shout']) ? 'false' : 'true') . ';
+        // ]]></script>';
 
         if (empty($theme['fixshoutbox'])) {
 
@@ -352,10 +352,10 @@ addonload(\'aefdock.init();\');
 
     echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 function bodyonload(){
-	if(aefonload != \'\'){		
-		eval(aefonload);
-	}
-	' . (empty($onload) ? '' : 'eval(\'' . implode(';', $onload) . '\');') . '
+    if(aefonload != \'\'){
+        eval(aefonload);
+    }
+    ' . (empty($onload) ? '' : 'eval(\'' . implode(';', $onload) . '\');') . '
 };
 // ]]></script>';
 
@@ -395,10 +395,10 @@ function error_handle($error, $table_width = '100%', $center = false) {
     if (!empty($error)) {
 
         echo '<table width="' . $table_width . '" cellpadding="2" cellspacing="1" class="error" ' . (($center) ? 'align="center"' : '' ) . '>
-			<tr>
-			<td>
-			' . $l['following_errors_occured'] . ' :
-			<ul type="square">';
+            <tr>
+            <td>
+            ' . $l['following_errors_occured'] . ' :
+            <ul type="square">';
 
         foreach ($error as $ek => $ev) {
 
@@ -407,10 +407,10 @@ function error_handle($error, $table_width = '100%', $center = false) {
 
 
         echo '</ul>
-			</td>
-			</tr>
-			</table>' . (($center) ? '</center>' : '' ) . '
-			<br />';
+            </td>
+            </tr>
+            </table>' . (($center) ? '</center>' : '' ) . '
+            <br />';
     }
 }
 
@@ -423,10 +423,10 @@ function success_message($message, $table_width = '100%', $center = false) {
     if (!empty($message)) {
 
         echo '<table width="' . $table_width . '" cellpadding="2" cellspacing="1" class="error" ' . (($center) ? 'align="center"' : '' ) . '>
-			<tr>
-			<td>
-			' . $l['following_message'] . ' :
-			<ul type="square">';
+            <tr>
+            <td>
+            ' . $l['following_message'] . ' :
+            <ul type="square">';
 
         foreach ($message as $mk => $mv) {
 
@@ -435,10 +435,10 @@ function success_message($message, $table_width = '100%', $center = false) {
 
 
         echo '</ul>
-			</td>
-			</tr>
-			</table>' . (($center) ? '</center>' : '' ) . '
-			<br />';
+            </td>
+            </tr>
+            </table>' . (($center) ? '</center>' : '' ) . '
+            <br />';
     }
 }
 

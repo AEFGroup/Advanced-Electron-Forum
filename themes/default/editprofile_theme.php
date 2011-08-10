@@ -18,7 +18,7 @@ function editprofile_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['edit_heading'] . ' ' . $member['username']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -66,8 +66,8 @@ function editprofile_theme() {
                                     foreach ($user_group as $ug => $uv) {
 
                                         echo '<option value="' . $ug . '" ' . ((isset($_POST['u_member_group']) && trim($_POST['u_member_group']) == $ug ) ? 'selected="selected"' : ($member['u_member_group'] == $ug ? 'selected="selected"' : '')) . '>
-		' . $user_group[$ug]['mem_gr_name'] . '
-		</option>';
+        ' . $user_group[$ug]['mem_gr_name'] . '
+        </option>';
                                     }//End of for loop
                                     ?>
                                 </select>
@@ -125,7 +125,7 @@ function editprofile_theme() {
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="privatetext" value="<?php echo (isset($_POST['privatetext']) ? $_POST['privatetext'] : $member['users_text']); ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
                         <tr>
                             <td class="ucpflc" width="30%">
@@ -134,7 +134,7 @@ function editprofile_theme() {
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="icq" value="<?php echo (isset($_POST['icq']) ? $_POST['icq'] : $member['icq']); ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
 
                         <tr>

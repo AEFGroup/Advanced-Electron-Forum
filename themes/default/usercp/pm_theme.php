@@ -10,13 +10,13 @@ function inbox_theme() {
     ?>
     <script type="text/javascript">
         function gotopage(val){
-                        		
+
             gourl = '<?php echo $globals['index_url']; ?>act=usercp&ucpact=inbox&pmfpg='
-                        		
+
             //alert (gourl+val);
-                        		
+
             window.location = gourl+val;
-                        	
+
         }
     </SCRIPT>
     <?php
@@ -32,42 +32,42 @@ function inbox_theme() {
     echo '</select><br /><br />';
 
     echo '
-	<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="inboxform">
-	<table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="ucpcbgl"></td>
-	<td class="ucpcbg">' . $l['pm_inbox'] . '</td>
-	<td class="ucpcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	
-	<table width="100%" cellpadding="2" cellspacing="1">
-	<tr>
-	<td class="ucpfcbg1" colspan="4" align="center">
-	<img src="' . $theme['images'] . 'usercp/inbox.gif" />
-	</td>
-	</tr>
-	<tr>
-	<td class="ucpcbg1" align="left" width="5%">
-	<input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
-	</td>
-	<td class="ucpcbg1" align="left" width="20%">
-	' . $l['pm_sender'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="37%">
-	' . $l['pm_subject'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="33%">
-	' . $l['pm_date'] . '
-	</td>
-	</tr>';
+    <form accept-charset="' . $globals['charset'] . '" method="post" action="" name="inboxform">
+    <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="ucpcbgl"></td>
+    <td class="ucpcbg">' . $l['pm_inbox'] . '</td>
+    <td class="ucpcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+
+    <table width="100%" cellpadding="2" cellspacing="1">
+    <tr>
+    <td class="ucpfcbg1" colspan="4" align="center">
+    <img src="' . $theme['images'] . 'usercp/inbox.gif" />
+    </td>
+    </tr>
+    <tr>
+    <td class="ucpcbg1" align="left" width="5%">
+    <input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
+    </td>
+    <td class="ucpcbg1" align="left" width="20%">
+    ' . $l['pm_sender'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="37%">
+    ' . $l['pm_subject'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="33%">
+    ' . $l['pm_date'] . '
+    </td>
+    </tr>';
 
     //Check do we have some PM's or no
     if (!empty($inbox)) {
@@ -75,44 +75,44 @@ function inbox_theme() {
         foreach ($inbox as $ik => $iv) {
 
             echo '<tr>
-			<td class="pmfwbg" align="left">
-			<input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
-			</td>
-			<td class="pmfwbg" align="left">
-			<a href="' . $globals['index_url'] . 'mid=' . $iv['pm_from'] . '">' . $iv['sender'] . '</a>
-			</td>
-			<td class="pmfwbg" align="left">
-			' . ((empty($iv['pm_read_time'])) ? '<b>' : '') . '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=showpm&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>' . ((empty($iv['pm_read_time'])) ? '</b>' : '') . '
-			</td>
-			<td class="pmfwbg" align="left">
-			' . (datify($iv['pm_time'])) . '
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left">
+            <input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
+            </td>
+            <td class="pmfwbg" align="left">
+            <a href="' . $globals['index_url'] . 'mid=' . $iv['pm_from'] . '">' . $iv['sender'] . '</a>
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . ((empty($iv['pm_read_time'])) ? '<b>' : '') . '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=showpm&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>' . ((empty($iv['pm_read_time'])) ? '</b>' : '') . '
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . (datify($iv['pm_time'])) . '
+            </td>
+            </tr>';
         }
 
         echo '<tr>
-			<td class="pmfwbg" align="left" colspan="5">
-			<input type="submit" name="deleteselinbox" value="' . $l['pm_delete_sel'] . '">
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left" colspan="5">
+            <input type="submit" name="deleteselinbox" value="' . $l['pm_delete_sel'] . '">
+            </td>
+            </tr>';
     } else {
 
         echo '<td class="pmfwbg" align="center" colspan="5">
-			' . $l['pm_no_messages_inbox'] . '
-			</td>';
+            ' . $l['pm_no_messages_inbox'] . '
+            </td>';
     }
 
     echo '</table>
-	
-	</td>
+
+    </td>
 </tr>
 
 <tr>
 <td><img src="' . $theme['images'] . 'cbotsmall.png" width="100%" height="10"></td>
 </tr>
 </table>
-	
-	</form>';
+
+    </form>';
 
     echo '<br /><br /><select onchange="gotopage(this.value)" name="gotopage" align="right">';
 
@@ -139,13 +139,13 @@ function sentitems_theme() {
     ?>
     <script type="text/javascript">
         function gotopage(val){
-                        		
+
             gourl = '<?php echo $globals['index_url']; ?>act=usercp&ucpact=sentitems&pmfpg='
-                        		
+
             //alert (gourl+val);
-                        		
+
             window.location = gourl+val;
-                        	
+
         }
     </SCRIPT>
     <?php
@@ -161,41 +161,41 @@ function sentitems_theme() {
     echo '</select><br /><br />';
 
     echo '
-	<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="sentitemsform">
-	<table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="ucpcbgl"></td>
-	<td class="ucpcbg">' . $l['pm_sent_items'] . '</td>
-	<td class="ucpcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	<table width="100%" cellpadding="2" cellspacing="1">
-	<tr>
-	<td class="ucpfcbg1" colspan="4" align="center">
-	<img src="' . $theme['images'] . 'usercp/sent.gif" />
-	</td>
-	</tr>
-	<tr>
-	<td class="ucpcbg1" align="left" width="5%">
-	<input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
-	</td>
-	<td class="ucpcbg1" align="left" width="20%">
-	' . $l['pm_sent_to'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="37%">
-	' . $l['pm_subject'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="33%">
-	' . $l['pm_date'] . '
-	</td>
-	</tr>';
+    <form accept-charset="' . $globals['charset'] . '" method="post" action="" name="sentitemsform">
+    <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="ucpcbgl"></td>
+    <td class="ucpcbg">' . $l['pm_sent_items'] . '</td>
+    <td class="ucpcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+    <table width="100%" cellpadding="2" cellspacing="1">
+    <tr>
+    <td class="ucpfcbg1" colspan="4" align="center">
+    <img src="' . $theme['images'] . 'usercp/sent.gif" />
+    </td>
+    </tr>
+    <tr>
+    <td class="ucpcbg1" align="left" width="5%">
+    <input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
+    </td>
+    <td class="ucpcbg1" align="left" width="20%">
+    ' . $l['pm_sent_to'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="37%">
+    ' . $l['pm_subject'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="33%">
+    ' . $l['pm_date'] . '
+    </td>
+    </tr>';
 
     //Check do we have some PM's or no
     if (!empty($sentitems)) {
@@ -203,45 +203,45 @@ function sentitems_theme() {
         foreach ($sentitems as $ik => $iv) {
 
             echo '<tr>
-			<td class="pmfwbg" align="left">
-			<input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
-			</td>
-			<td class="pmfwbg" align="left">
-			<a href="' . $globals['index_url'] . 'mid=' . $iv['pm_to'] . '">' . $iv['reciever'] . '</a>
-			</td>
-			<td class="pmfwbg" align="left">
-			<a href="' . $globals['index_url'] . 'act=usercp&ucpact=showsentpm&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>
-			</td>
-			<td class="pmfwbg" align="left">
-			' . (datify($iv['pm_time'])) . '
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left">
+            <input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
+            </td>
+            <td class="pmfwbg" align="left">
+            <a href="' . $globals['index_url'] . 'mid=' . $iv['pm_to'] . '">' . $iv['reciever'] . '</a>
+            </td>
+            <td class="pmfwbg" align="left">
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=showsentpm&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . (datify($iv['pm_time'])) . '
+            </td>
+            </tr>';
         }
 
         echo '<tr>
-			<td class="pmfwbg" align="left" colspan="5">
-			<input type="submit" name="deleteselsent" value="' . $l['pm_delete_sel'] . '">
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left" colspan="5">
+            <input type="submit" name="deleteselsent" value="' . $l['pm_delete_sel'] . '">
+            </td>
+            </tr>';
     } else {
 
         echo '<td class="pmfwbg" align="center" colspan="5">
-			' . $l['pm_no_messages'] . '
-			</td>';
+            ' . $l['pm_no_messages'] . '
+            </td>';
     }
 
     echo '</table>
-	
-	</td>
-	</tr>
-	
-	<tr>
+
+    </td>
+    </tr>
+
+    <tr>
 <td><img src="' . $theme['images'] . 'cbotsmall.png" width="100%" height="10"></td>
 </tr>
 
-	</table>
-	
-	</form>';
+    </table>
+
+    </form>';
 
     echo '<br /><br /><select onchange="gotopage(this.value)" name="gotopage" align="right">';
 
@@ -268,13 +268,13 @@ function drafts_theme() {
     ?>
     <script type="text/javascript">
         function gotopage(val){
-                        		
+
             gourl = '<?php echo $globals['index_url']; ?>act=usercp&ucpact=drafts&pmfpg='
-                        		
+
             //alert (gourl+val);
-                        		
+
             window.location = gourl+val;
-                        	
+
         }
     </SCRIPT>
     <?php
@@ -290,43 +290,43 @@ function drafts_theme() {
     echo '</select><br /><br />';
 
     echo '
-	<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="draftsform">
-	<table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="ucpcbgl"></td>
-	<td class="ucpcbg">' . $l['pm_drafts'] . '</td>
-	<td class="ucpcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	
-	<table width="100%" cellpadding="2" cellspacing="1">
-	<tr>
-	<td class="ucpfcbg1" colspan="4" align="center">
-	<img src="' . $theme['images'] . 'usercp/drafts.gif" />
-	</td>
-	</tr>
-	<tr>
-	<td class="ucpcbg1" align="left" width="5%">
-	<input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
+    <form accept-charset="' . $globals['charset'] . '" method="post" action="" name="draftsform">
+    <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="ucpcbgl"></td>
+    <td class="ucpcbg">' . $l['pm_drafts'] . '</td>
+    <td class="ucpcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
 
-	</td>
-	<td class="ucpcbg1" align="left" width="20%">
-	' . $l['pm_sending_to'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="37%">
-	' . $l['pm_subject'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="33%">
-	' . $l['pm_saved_date'] . '
-	</td>
-	</tr>';
+    <tr>
+    <td class="cbgbor">
+
+    <table width="100%" cellpadding="2" cellspacing="1">
+    <tr>
+    <td class="ucpfcbg1" colspan="4" align="center">
+    <img src="' . $theme['images'] . 'usercp/drafts.gif" />
+    </td>
+    </tr>
+    <tr>
+    <td class="ucpcbg1" align="left" width="5%">
+    <input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
+
+    </td>
+    <td class="ucpcbg1" align="left" width="20%">
+    ' . $l['pm_sending_to'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="37%">
+    ' . $l['pm_subject'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="33%">
+    ' . $l['pm_saved_date'] . '
+    </td>
+    </tr>';
 
     //Check do we have some PM's or no
     if (!empty($drafts)) {
@@ -343,48 +343,48 @@ function drafts_theme() {
               echo '</pre>'; */
 
             echo '<tr>
-			<td class="pmfwbg" align="left">
-			<input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
-			</td>
-			<td class="pmfwbg" align="left">
-			' . (implode(', ', $recievers)) . '
-			</td>
-			<td class="pmfwbg" align="left">
-			<a href="' . $globals['index_url'] . 'act=usercp&ucpact=sendsaved&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>
-			</td>
-			<td class="pmfwbg" align="left">
-			' . (datify($iv['pm_time'])) . '
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left">
+            <input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . (implode(', ', $recievers)) . '
+            </td>
+            <td class="pmfwbg" align="left">
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=sendsaved&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . (datify($iv['pm_time'])) . '
+            </td>
+            </tr>';
 
             //Unset the VAR we set
             unset($recievers);
         }
 
         echo '<tr>
-			<td class="pmfwbg" align="left" colspan="5">
-			<input type="submit" name="deleteseldrafts" value="' . $l['pm_delete_sel'] . '">
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left" colspan="5">
+            <input type="submit" name="deleteseldrafts" value="' . $l['pm_delete_sel'] . '">
+            </td>
+            </tr>';
     } else {
 
         echo '<td class="pmfwbg" align="center" colspan="5">
-			' . $l['pm_no_messages'] . '
-			</td>';
+            ' . $l['pm_no_messages'] . '
+            </td>';
     }
 
     echo '</table>
-	
-	</td>
-	</tr>
-		
-	<tr>
+
+    </td>
+    </tr>
+
+    <tr>
 <td><img src="' . $theme['images'] . 'cbotsmall.png" width="100%" height="10"></td>
 </tr>
 
-	</table>
-	
-	</form>';
+    </table>
+
+    </form>';
 
     echo '<br /><br /><select onchange="gotopage(this.value)" name="gotopage" align="right">';
 
@@ -445,7 +445,7 @@ function writepm_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="ucpcbgl"></td>
                             <td class="ucpcbg"><?php echo $l['pm_send_new']; ?></td>
-                            <td class="ucpcbgr"></td>		
+                            <td class="ucpcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -568,7 +568,7 @@ function searchpm_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="ucpcbgl"></td>
                                 <td class="ucpcbg"><?php echo $l['pm_save_send']; ?></td>
-                                <td class="ucpcbgr"></td>		
+                                <td class="ucpcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -593,32 +593,32 @@ function searchpm_theme() {
                                         <option value="1"><?php echo $l['pm_sent_items']; ?></option>
                                         <option value="2"><?php echo $l['pm_drafts']; ?></option>
                                     </select>
-                                </td> 
+                                </td>
                             </tr>
 
                             <tr>
                                 <td width="30%" class="ucpflc" align="right"><?php echo $l['pm_from']; ?></td>
-                                <td class="ucpflc"><input type="text" name="from" <?php echo 'value="' . ((isset($_POST['from'])) ? $_POST['from'] : '') . '"'; ?> size="40" /></td> 
+                                <td class="ucpflc"><input type="text" name="from" <?php echo 'value="' . ((isset($_POST['from'])) ? $_POST['from'] : '') . '"'; ?> size="40" /></td>
                             </tr>
 
                             <tr>
                                 <td class="ucpflc" align="right"><?php echo $l['pm_to']; ?></td>
-                                <td class="ucpflc"><input type="text" name="to" <?php echo 'value="' . ((isset($_POST['to'])) ? $_POST['to'] : '') . '"'; ?> size="40" /></td> 
+                                <td class="ucpflc"><input type="text" name="to" <?php echo 'value="' . ((isset($_POST['to'])) ? $_POST['to'] : '') . '"'; ?> size="40" /></td>
                             </tr>
 
                             <tr>
                                 <td class="ucpflc" align="right"><?php echo $l['pm_subj']; ?></td>
-                                <td class="ucpflc"><input type="text" name="subject" <?php echo 'value="' . ((isset($_POST['subject'])) ? $_POST['subject'] : '') . '"'; ?> size="40" /></td> 
+                                <td class="ucpflc"><input type="text" name="subject" <?php echo 'value="' . ((isset($_POST['subject'])) ? $_POST['subject'] : '') . '"'; ?> size="40" /></td>
                             </tr>
 
                             <tr>
                                 <td class="ucpflc" align="right"><?php echo $l['pm_has_words']; ?></td>
-                                <td class="ucpflc"><input type="text" name="hasthewords" <?php echo 'value="' . ((isset($_POST['hasthewords'])) ? $_POST['hasthewords'] : '') . '"'; ?> size="40" /></td> 
+                                <td class="ucpflc"><input type="text" name="hasthewords" <?php echo 'value="' . ((isset($_POST['hasthewords'])) ? $_POST['hasthewords'] : '') . '"'; ?> size="40" /></td>
                             </tr>
 
                             <tr>
                                 <td class="ucpflc" align="right"><?php echo $l['pm_doesnt_have']; ?></td>
-                                <td class="ucpflc"><input type="text" name="doesnthave" <?php echo 'value="' . ((isset($_POST['doesnthave'])) ? $_POST['doesnthave'] : '') . '"'; ?> size="40" /></td> 
+                                <td class="ucpflc"><input type="text" name="doesnthave" <?php echo 'value="' . ((isset($_POST['doesnthave'])) ? $_POST['doesnthave'] : '') . '"'; ?> size="40" /></td>
                             </tr>
 
                             <tr>
@@ -656,7 +656,7 @@ function searchpm_theme() {
 <table width="100%" cellpadding="0" cellspacing="0"><tr>
 <td class="ucpcbgl"></td>
 <td class="ucpcbg">' . $pm['pm_subject'] . '</td>
-<td class="ucpcbgr"></td>		
+<td class="ucpcbgr"></td>
 </tr>
 </table>
 </td>
@@ -668,9 +668,9 @@ function searchpm_theme() {
 <table width="100%" cellpadding="1" cellspacing="0">
 
 <tr>
-	<td class="pmsender" width="20%">	
-	' . (empty($pm['sender']) ? '' : '<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['sender'] . '</a>') . '	
-	' . (empty($pm['receiver']) ? '' : '<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['receiver'] . '</a>');
+    <td class="pmsender" width="20%">
+    ' . (empty($pm['sender']) ? '' : '<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['sender'] . '</a>') . '
+    ' . (empty($pm['receiver']) ? '' : '<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['receiver'] . '</a>');
             if (!empty($pm['rec_usernames'])) {
 
                 //First Lets Build up the recievers array
@@ -682,35 +682,35 @@ function searchpm_theme() {
                 echo implode(', ', $recievers);
             }
             echo '</td>
-	<td class="pmdate" width="80%">	
-	<div style="float:right">
-	' . ((!$pm['pm_folder']) ? '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm&reply=' . $pm['pmid'] . '">
-	' . $l['pm_reply'] . '</a> | ' : '') . '
-	<a href="' . $globals['index_url'] . 'act=usercp&ucpact=delpm&pm=' . $pm['pmid'] . '&folder=' . $pm['pm_folder'] . '">
-	' . $l['pm_delete'] . '
-	</a>
-	</div>
-	<img src="' . $theme['images'] . 'postedon.png">&nbsp;' . $pm['pm_time'] . '	
-	</td>
-	</tr>
-	';
+    <td class="pmdate" width="80%">
+    <div style="float:right">
+    ' . ((!$pm['pm_folder']) ? '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm&reply=' . $pm['pmid'] . '">
+    ' . $l['pm_reply'] . '</a> | ' : '') . '
+    <a href="' . $globals['index_url'] . 'act=usercp&ucpact=delpm&pm=' . $pm['pmid'] . '&folder=' . $pm['pm_folder'] . '">
+    ' . $l['pm_delete'] . '
+    </a>
+    </div>
+    <img src="' . $theme['images'] . 'postedon.png">&nbsp;' . $pm['pm_time'] . '
+    </td>
+    </tr>
+    ';
 
             //The PM body
             echo '<tr>
-	<td class="pm" align="left" valign="top" colspan="2" >
-	' . $pm['pm_body'] . '
-	</td>
-	</tr>
-	
-	</table>
+    <td class="pm" align="left" valign="top" colspan="2" >
+    ' . $pm['pm_body'] . '
+    </td>
+    </tr>
 
-	</td>
-	</tr>
-	
-	<tr>
-	<td colspan="2"><img src="' . $theme['images'] . 'cbotsmall.png" width="100%" height="10"></td>
-	</tr>
-	</table>';
+    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td colspan="2"><img src="' . $theme['images'] . 'cbotsmall.png" width="100%" height="10"></td>
+    </tr>
+    </table>';
         }
     }
 
@@ -763,7 +763,7 @@ function sendsaved_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="ucpcbgl"></td>
                                 <td class="ucpcbg"><?php echo $l['pm_drafts']; ?></td>
-                                <td class="ucpcbgr"></td>		
+                                <td class="ucpcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -868,14 +868,14 @@ function sendsaved_theme() {
         /* Show the Read Ones first */
 
         echo '<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="trackreadform">
-	
+
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td>
 <table width="100%" cellpadding="0" cellspacing="0"><tr>
 <td class="ucpcbgl"></td>
 <td class="ucpcbg">' . $l['pm_read_pm'] . '</td>
-<td class="ucpcbgr"></td>		
+<td class="ucpcbgr"></td>
 </tr>
 </table>
 </td>
@@ -883,25 +883,25 @@ function sendsaved_theme() {
 
 <tr>
 <td class="cbgbor">
-	
-	<table width="100%" cellpadding="2" cellspacing="1">
-	<tr>
-	<td class="ucpcbg1" align="left" width="5%">
-	&nbsp;
-	</td>
-	<td class="ucpcbg1" align="left" width="5%">
-	<input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
-	</td>
-	<td class="ucpcbg1" align="left" width="20%">
-	' . $l['pm_sent_to'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="37%">
-	' . $l['pm_subject'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="33%">
-	' . $l['pm_read_date'] . '
-	</td>
-	</tr>';
+
+    <table width="100%" cellpadding="2" cellspacing="1">
+    <tr>
+    <td class="ucpcbg1" align="left" width="5%">
+    &nbsp;
+    </td>
+    <td class="ucpcbg1" align="left" width="5%">
+    <input type=checkbox onClick="check(document.getElementsByName(\'list[]\'), this)" value="0">
+    </td>
+    <td class="ucpcbg1" align="left" width="20%">
+    ' . $l['pm_sent_to'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="37%">
+    ' . $l['pm_subject'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="33%">
+    ' . $l['pm_read_date'] . '
+    </td>
+    </tr>';
 
         //Check do we have some PM's or no
         if (!empty($read)) {
@@ -909,49 +909,49 @@ function sendsaved_theme() {
             foreach ($read as $rk => $rv) {
 
                 echo '<tr>
-			<td class="pmfwbg" align="left">
-			<img src="' . $theme['images'] . 'pm.jpg" />
-			</td>
-			<td class="pmfwbg" align="left">
-			<input type=checkbox name="list[]" value="' . $rv['pmid'] . '">
-			</td>
-			<td class="pmfwbg" align="left">
-			<a href="' . $globals['index_url'] . 'mid=' . $rv['pm_to'] . '">' . $rv['reciever'] . '</a>
-			</td>
-			<td class="pmfwbg" align="left">
-			' . $rv['pm_subject'] . '
-			</td>
-			<td class="pmfwbg" align="left">
-			' . $rv['pm_read_time'] . '
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left">
+            <img src="' . $theme['images'] . 'pm.jpg" />
+            </td>
+            <td class="pmfwbg" align="left">
+            <input type=checkbox name="list[]" value="' . $rv['pmid'] . '">
+            </td>
+            <td class="pmfwbg" align="left">
+            <a href="' . $globals['index_url'] . 'mid=' . $rv['pm_to'] . '">' . $rv['reciever'] . '</a>
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . $rv['pm_subject'] . '
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . $rv['pm_read_time'] . '
+            </td>
+            </tr>';
             }
 
             echo '<tr>
-			<td class="pmfwbg" align="left" colspan="5">
-			<input type="submit" name="stoptrackread" value="' . $l['pm_stop_tracking'] . '">
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left" colspan="5">
+            <input type="submit" name="stoptrackread" value="' . $l['pm_stop_tracking'] . '">
+            </td>
+            </tr>';
         } else {
 
             echo '<td class="pmfwbg" align="center" colspan="5">
-			' . $l['pm_no_messages'] . '
-			</td>';
+            ' . $l['pm_no_messages'] . '
+            </td>';
         }
 
         echo '</table>
-	
-	</td>
+
+    </td>
 </tr>
 
 <tr>
 <td><img src="' . $theme['images'] . 'cbotsmall.png" width="100%" height="10"></td>
 </tr>
 </table>
-	
-		</form>
-		<br />
-		<br />';
+
+        </form>
+        <br />
+        <br />';
 
         /* Ending - Show the Read Ones first */
 
@@ -959,15 +959,15 @@ function sendsaved_theme() {
         /* Show the Unread Ones now */
 
         echo '
-	<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="trackunreadform">
-	
+    <form accept-charset="' . $globals['charset'] . '" method="post" action="" name="trackunreadform">
+
 <table width="100%" cellpadding="0" cellspacing="0">
 <tr>
 <td>
 <table width="100%" cellpadding="0" cellspacing="0"><tr>
 <td class="ucpcbgl"></td>
 <td class="ucpcbg">' . $l['pm_unread_pm'] . '</td>
-<td class="ucpcbgr"></td>		
+<td class="ucpcbgr"></td>
 </tr>
 </table>
 </td>
@@ -975,25 +975,25 @@ function sendsaved_theme() {
 
 <tr>
 <td class="cbgbor">
-	
-	<table width="100%" cellpadding="2" cellspacing="1">
-	<tr>
-	<td class="ucpcbg1" align="left" width="5%">
-	&nbsp;
-	</td>
-	<td class="ucpcbg1" align="left" width="5%">
-	<input type=checkbox onClick="check(document.getElementsByName(\'listu[]\'), this)" value="0">
-	</td>
-	<td class="ucpcbg1" align="left" width="20%">
-	' . $l['pm_sent_to'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="37%">
-	' . $l['pm_subject'] . '
-	</td>
-	<td class="ucpcbg1" align="left" width="33%">
-	' . $l['pm_date_sent'] . '
-	</td>
-	</tr>';
+
+    <table width="100%" cellpadding="2" cellspacing="1">
+    <tr>
+    <td class="ucpcbg1" align="left" width="5%">
+    &nbsp;
+    </td>
+    <td class="ucpcbg1" align="left" width="5%">
+    <input type=checkbox onClick="check(document.getElementsByName(\'listu[]\'), this)" value="0">
+    </td>
+    <td class="ucpcbg1" align="left" width="20%">
+    ' . $l['pm_sent_to'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="37%">
+    ' . $l['pm_subject'] . '
+    </td>
+    <td class="ucpcbg1" align="left" width="33%">
+    ' . $l['pm_date_sent'] . '
+    </td>
+    </tr>';
 
         //Check do we have some PM's or no
         if (!empty($unread)) {
@@ -1001,37 +1001,37 @@ function sendsaved_theme() {
             foreach ($unread as $uk => $uv) {
 
                 echo '<tr>
-			<td class="pmfwbg" align="left">
-			<img src="' . $theme['images'] . 'pm.jpg" />
-			</td>
-			<td class="pmfwbg" align="left">
-			<input type=checkbox name="listu[]" value="' . $uv['pmid'] . '">
-			</td>
-			<td class="pmfwbg" align="left">
-			<a href="' . $globals['index_url'] . 'mid=' . $uv['pm_to'] . '">' . $uv['reciever'] . '</a>
-			</td>
-			<td class="pmfwbg" align="left">
-			' . $uv['pm_subject'] . '
-			</td>
-			<td class="pmfwbg" align="left">
-			' . $uv['pm_time'] . '
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left">
+            <img src="' . $theme['images'] . 'pm.jpg" />
+            </td>
+            <td class="pmfwbg" align="left">
+            <input type=checkbox name="listu[]" value="' . $uv['pmid'] . '">
+            </td>
+            <td class="pmfwbg" align="left">
+            <a href="' . $globals['index_url'] . 'mid=' . $uv['pm_to'] . '">' . $uv['reciever'] . '</a>
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . $uv['pm_subject'] . '
+            </td>
+            <td class="pmfwbg" align="left">
+            ' . $uv['pm_time'] . '
+            </td>
+            </tr>';
             }
 
             echo '<tr>
-			<td class="pmfwbg" align="left" colspan="5">
-			<input type="submit" name="stoptrackunread" value="' . $l['pm_stop_tracking'] . '">
-			</td>
-			</tr>';
+            <td class="pmfwbg" align="left" colspan="5">
+            <input type="submit" name="stoptrackunread" value="' . $l['pm_stop_tracking'] . '">
+            </td>
+            </tr>';
         } else {
 
             echo '<td class="pmfwbg" align="center" colspan="5">
-			' . $l['pm_no_messages'] . '
-			</td>';
+            ' . $l['pm_no_messages'] . '
+            </td>';
         }
 
-        echo '</table>	
+        echo '</table>
 
 </td>
 </tr>
@@ -1064,7 +1064,7 @@ function sendsaved_theme() {
 <table width="100%" cellpadding="0" cellspacing="0"><tr>
 <td class="ucpcbgl"></td>
 <td class="ucpcbg">' . $pm['pm_subject'] . '</td>
-<td class="ucpcbgr"></td>		
+<td class="ucpcbgr"></td>
 </tr>
 </table>
 </td>
@@ -1074,31 +1074,31 @@ function sendsaved_theme() {
 <td class="cbgbor">
 
 <table width="100%" cellpadding="2" cellspacing="0">
-	
-	<tr>
-	<td class="pmsender" width="21%">
-	<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">
-	' . $pm['sender'] . '
-	</a>
-	</td>
-	<td class="pmdate" width="80%">	
-	<div style="float:right">
-	' . ((!$pm['pm_folder']) ? '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm&reply=' . $pm['pmid'] . '">
-	' . $l['pm_reply'] . '</a> | ' : '') . '
-	<a href="' . $globals['index_url'] . 'act=usercp&ucpact=delpm&pm=' . $pm['pmid'] . '&folder=' . $pm['pm_folder'] . '">
-	' . $l['pm_delete'] . '
-	</a>
-	</div>
-	<img src="' . $theme['images'] . 'postedon.png">&nbsp;' . $pm['pm_time'] . '
-	
-	</td>
-	</tr>
-	';
+
+    <tr>
+    <td class="pmsender" width="21%">
+    <a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">
+    ' . $pm['sender'] . '
+    </a>
+    </td>
+    <td class="pmdate" width="80%">
+    <div style="float:right">
+    ' . ((!$pm['pm_folder']) ? '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm&reply=' . $pm['pmid'] . '">
+    ' . $l['pm_reply'] . '</a> | ' : '') . '
+    <a href="' . $globals['index_url'] . 'act=usercp&ucpact=delpm&pm=' . $pm['pmid'] . '&folder=' . $pm['pm_folder'] . '">
+    ' . $l['pm_delete'] . '
+    </a>
+    </div>
+    <img src="' . $theme['images'] . 'postedon.png">&nbsp;' . $pm['pm_time'] . '
+
+    </td>
+    </tr>
+    ';
 
 
         //The PM Sender Info
         echo '<tr>
-	<td class="pmsenderinfo" valign="top">';
+    <td class="pmsenderinfo" valign="top">';
 
         if (!empty($pm['avatarurl'])) {
 
@@ -1118,13 +1118,13 @@ function sendsaved_theme() {
         }
 
         echo '
-	' . (!empty($pm['post_gr_name']) ? '<div class="pisub">' . $l['pm_post_group'] . ' ' . $pm['post_gr_name'] . '</div>' : '') . '
-	' . (!empty($pm['posts']) ? '<div class="pisub">' . $l['pm_posts'] . ' ' . $pm['posts'] . '</div>' : '') . '	
-	<div class="pisub">' . $l['pm_status'] . ' ' . ($pm['status'] ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['pm_online'] . '" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['pm_offline'] . '" />') . '</div>
-	' . ( (empty($pm['users_text'])) ? '' : '<br />' . $pm['users_text'] ) . '
-	</td>
-	<td class="pm" align="left" valign="top">
-	' . $pm['pm_body'];
+    ' . (!empty($pm['post_gr_name']) ? '<div class="pisub">' . $l['pm_post_group'] . ' ' . $pm['post_gr_name'] . '</div>' : '') . '
+    ' . (!empty($pm['posts']) ? '<div class="pisub">' . $l['pm_posts'] . ' ' . $pm['posts'] . '</div>' : '') . '
+    <div class="pisub">' . $l['pm_status'] . ' ' . ($pm['status'] ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['pm_online'] . '" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['pm_offline'] . '" />') . '</div>
+    ' . ( (empty($pm['users_text'])) ? '' : '<br />' . $pm['users_text'] ) . '
+    </td>
+    <td class="pm" align="left" valign="top">
+    ' . $pm['pm_body'];
 
         if (!empty($pm['sig'])) {
 
@@ -1132,29 +1132,29 @@ function sendsaved_theme() {
         }
 
         echo '</td>
-	</tr>';
+    </tr>';
 
         echo '<tr>
-	<td class="ptip">
-	&nbsp;
-	</td>
-	<td class="specialrow">
-	<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '"><img src="' . $theme['images'] . 'profile.gif" title="' . $l['pm_view_profile'] . ' ' . $pm['sender'] . '" /></a>
-	
-	' . (!empty($pm['email']) ? '<a href="mailto:' . $pm['email'] . '"><img src="' . $theme['images'] . 'email.gif" title="' . $l['pm_send_email'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
-	
-	' . ($logged_in ? '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm&to=' . $pm['id'] . '"><img src="' . $theme['images'] . 'pmuser.gif" title="' . $l['pm_send_a_pm'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
-	
-	' . (!empty($pm['www']) ? '<a href="' . $pm['www'] . '" target="_blank"><img src="' . $theme['images'] . 'www.gif" title="' . $l['pm_visit_website'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
-	
-	' . (!empty($pm['msn']) ? '<a href="http://members.msn.com/' . $pm['msn'] . '" target="_blank"><img src="' . $theme['images'] . 'msn.gif" title="' . $l['pm_view_msn_profile'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
-	
-	' . (!empty($pm['aim']) ? '<a href="aim:goim?screenname=' . $pm['aim'] . '&message=Hello+From+' . $globals['sn'] . '" target="_blank"><img src="' . $theme['images'] . 'aim.gif" title="' . $l['pm_aim_sername'] . ' ' . $pm['sender'] . ' ' . $l['pm_identity_is'] . ' ' . $pm['aim'] . '" /></a>' : '') . '
-	
-	' . (!empty($pm['yim']) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $pm['yim'] . '&.src=pg" target="_blank"><img src="' . $theme['images'] . 'yim.gif" title="' . $l['pm_yim_identity'] . ' ' . $pm['sender'] . ' ' . $l['pm_identity_is'] . ' ' . $pm['yim'] . '" /></a>' : '') . '
-	
-	</td>
-	</tr>';
+    <td class="ptip">
+    &nbsp;
+    </td>
+    <td class="specialrow">
+    <a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '"><img src="' . $theme['images'] . 'profile.gif" title="' . $l['pm_view_profile'] . ' ' . $pm['sender'] . '" /></a>
+
+    ' . (!empty($pm['email']) ? '<a href="mailto:' . $pm['email'] . '"><img src="' . $theme['images'] . 'email.gif" title="' . $l['pm_send_email'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
+
+    ' . ($logged_in ? '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm&to=' . $pm['id'] . '"><img src="' . $theme['images'] . 'pmuser.gif" title="' . $l['pm_send_a_pm'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
+
+    ' . (!empty($pm['www']) ? '<a href="' . $pm['www'] . '" target="_blank"><img src="' . $theme['images'] . 'www.gif" title="' . $l['pm_visit_website'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
+
+    ' . (!empty($pm['msn']) ? '<a href="http://members.msn.com/' . $pm['msn'] . '" target="_blank"><img src="' . $theme['images'] . 'msn.gif" title="' . $l['pm_view_msn_profile'] . ' ' . $pm['sender'] . '" /></a>' : '') . '
+
+    ' . (!empty($pm['aim']) ? '<a href="aim:goim?screenname=' . $pm['aim'] . '&message=Hello+From+' . $globals['sn'] . '" target="_blank"><img src="' . $theme['images'] . 'aim.gif" title="' . $l['pm_aim_sername'] . ' ' . $pm['sender'] . ' ' . $l['pm_identity_is'] . ' ' . $pm['aim'] . '" /></a>' : '') . '
+
+    ' . (!empty($pm['yim']) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $pm['yim'] . '&.src=pg" target="_blank"><img src="' . $theme['images'] . 'yim.gif" title="' . $l['pm_yim_identity'] . ' ' . $pm['sender'] . ' ' . $l['pm_identity_is'] . ' ' . $pm['yim'] . '" /></a>' : '') . '
+
+    </td>
+    </tr>';
 
 
         //End of the table
@@ -1189,7 +1189,7 @@ function sendsaved_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="ucpcbgl"></td>
                                 <td class="ucpcbg"><?php echo $l['pm_prune_pm']; ?></td>
-                                <td class="ucpcbgr"></td>		
+                                <td class="ucpcbgr"></td>
                             </tr>
                         </table>
                     </td>
@@ -1267,7 +1267,7 @@ function sendsaved_theme() {
                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                 <td class="ucpcbgl"></td>
                                 <td class="ucpcbg"><?php echo $l['pm_empty_folder']; ?></td>
-                                <td class="ucpcbgr"></td>		
+                                <td class="ucpcbgr"></td>
                             </tr>
                         </table>
                     </td>

@@ -3,7 +3,7 @@
 //===========================================================
 // conpan_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -155,7 +155,7 @@ function coreset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editcoreset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -272,28 +272,28 @@ function mysqlset_theme() {
     if ($globals['charset'] != 'UTF-8') {
 
         echo '<br /><br />
-	
-	<form accept-charset="' . $globals['charset'] . '" action="" method="post" name="changecharsetform" onsubmit="return confirm(\'' . $l['confirm_utf8'] . '\');">
-	<table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-	<tr>
-		<td class="adcbg" colspan="2">
-		UTF-8
-		</td>
-	</tr>
-	
-	<tr>
-		<td class="adbg" colspan="2" align="left">' . $l['utf8_exp'] . '
-		</td>
-		</tr>		
-        	
+
+    <form accept-charset="' . $globals['charset'] . '" action="" method="post" name="changecharsetform" onsubmit="return confirm(\'' . $l['confirm_utf8'] . '\');">
+    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <tr>
+        <td class="adcbg" colspan="2">
+        UTF-8
+        </td>
+    </tr>
+
+    <tr>
+        <td class="adbg" colspan="2" align="left">' . $l['utf8_exp'] . '
+        </td>
+        </tr>
+
         <tr>
-		<td align="center" class="adbg" colspan="2">
-		<input type="submit" name="changecharset" value="' . $l['make_utf8'] . '" />
-		</td>
-		</tr>
-		
-	</table>
-	</form>';
+        <td align="center" class="adbg" colspan="2">
+        <input type="submit" name="changecharset" value="' . $l['make_utf8'] . '" />
+        </td>
+        </tr>
+
+    </table>
+    </form>';
     }
 
     adminfoot();
@@ -347,7 +347,7 @@ function onoff_theme() {
                     <font class="adexp"><?php echo $l['turn_board_off_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="maintenance"	<?php echo ($globals['maintenance'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="maintenance"    <?php echo ($globals['maintenance'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -380,7 +380,7 @@ function onoff_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editonoff" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -490,7 +490,7 @@ function mailset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editmailset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -548,7 +548,7 @@ function genset_theme() {
                     <font class="adexp"><?php echo $l['enable_notifications_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="notifications"	<?php echo ($globals['notifications'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="notifications"    <?php echo ($globals['notifications'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -558,7 +558,7 @@ function genset_theme() {
                     <font class="adexp"><?php echo $l['subscribe_auto_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="subscribeauto"	<?php echo ($globals['subscribeauto'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="subscribeauto"    <?php echo ($globals['subscribeauto'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -831,7 +831,7 @@ function genset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editgenset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -911,7 +911,7 @@ function shoutboxset_theme() {
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"  name="shoutboxtime" value="<?php echo (empty($_POST['shoutboxtime']) ? $globals['shoutboxtime'] : $_POST['shoutboxtime']); ?>" />
                 </td>
-            </tr>        
+            </tr>
 
             <tr>
                 <td class="adbg">
@@ -974,7 +974,7 @@ function shoutboxset_theme() {
                 <td align="center" class="adbg" colspan="2">
                     <input type="submit" name="delallshouts" value="<?php echo $l['delete']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -1224,8 +1224,8 @@ function banset_theme() {
                             continue;
 
                         echo '<tr>
-			<td class="adbg" align="center"><input type="text" name="ips[]" value="' . $v . '" size="20" /></td>
-			</tr>';
+            <td class="adbg" align="center"><input type="text" name="ips[]" value="' . $v . '" size="20" /></td>
+            </tr>';
                     }
                 }
             }

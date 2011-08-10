@@ -225,19 +225,19 @@ function editor_buttons($object = 'editor') {
 </div>
 <script type="text/javascript">
 Drag.init($(\'urlhandle\'), $(\'url\'));
-function url(){	
-	if(' . $object . '.on){
-		var linkurl = prompt("Enter the URL", "http://");
-		' . $object . '.insertlink(linkurl);
-		return;
-	}
-	$(\'urltext\').value = "";
-	$(\'linkurl\').value = "";
-	urlid = \'url\';
-	$(urlid).style.left=((getwidth()/2)-($(urlid).offsetWidth/2))+"px";
-	$(urlid).style.top=(scrolledy()+110)+"px";
-	showel(urlid);
-	smoothopaque(urlid, 0, 100, 10);
+function url(){
+    if(' . $object . '.on){
+        var linkurl = prompt("Enter the URL", "http://");
+        ' . $object . '.insertlink(linkurl);
+        return;
+    }
+    $(\'urltext\').value = "";
+    $(\'linkurl\').value = "";
+    urlid = \'url\';
+    $(urlid).style.left=((getwidth()/2)-($(urlid).offsetWidth/2))+"px";
+    $(urlid).style.top=(scrolledy()+110)+"px";
+    showel(urlid);
+    smoothopaque(urlid, 0, 100, 10);
 }
 </script>
 '; ?>
@@ -282,18 +282,18 @@ function url(){
 <script type="text/javascript">
 Drag.init($(\'ftphandle\'), $(\'ftp\'));
 function ftp(){
-	if(' . $object . '.on){
-		var ftpurl = prompt("Enter the FTP URL", "ftp://");
-		' . $object . '.insertlink(ftpurl);
-		return;
-	}
-	$(\'ftptext\').value = "";
-	$(\'ftplink\').value = "";
-	ftpid = \'ftp\';
-	$(ftpid).style.left=((getwidth()/2)-($(ftpid).offsetWidth/2))+"px";
-	$(ftpid).style.top=(scrolledy()+110)+"px";
-	showel(ftpid);
-	smoothopaque(ftpid, 0, 100, 10);
+    if(' . $object . '.on){
+        var ftpurl = prompt("Enter the FTP URL", "ftp://");
+        ' . $object . '.insertlink(ftpurl);
+        return;
+    }
+    $(\'ftptext\').value = "";
+    $(\'ftplink\').value = "";
+    ftpid = \'ftp\';
+    $(ftpid).style.left=((getwidth()/2)-($(ftpid).offsetWidth/2))+"px";
+    $(ftpid).style.top=(scrolledy()+110)+"px";
+    showel(ftpid);
+    smoothopaque(ftpid, 0, 100, 10);
 }
 </script>
 '; ?>
@@ -338,20 +338,20 @@ function ftp(){
 <script type="text/javascript">
 Drag.init($(\'emailhandle\'), $(\'email\'));
 function email(){
-	if(' . $object . '.on){
-		var emailadd = prompt("Enter the email address", "");
-		if(emailadd){
-			' . $object . '.insertlink("mailto:"+emailadd);
-		}
-		return;
-	}
-	$(\'addressee\').value = "";
-	$(\'emailadd\').value = "";
-	emailid = \'email\';
-	$(emailid).style.left=((getwidth()/2)-($(emailid).offsetWidth/2))+"px";
-	$(emailid).style.top=(scrolledy()+110)+"px";
-	showel(emailid);
-	smoothopaque(emailid, 0, 100, 10);
+    if(' . $object . '.on){
+        var emailadd = prompt("Enter the email address", "");
+        if(emailadd){
+            ' . $object . '.insertlink("mailto:"+emailadd);
+        }
+        return;
+    }
+    $(\'addressee\').value = "";
+    $(\'emailadd\').value = "";
+    emailid = \'email\';
+    $(emailid).style.left=((getwidth()/2)-($(emailid).offsetWidth/2))+"px";
+    $(emailid).style.top=(scrolledy()+110)+"px";
+    showel(emailid);
+    smoothopaque(emailid, 0, 100, 10);
 }
 </script>
 '; ?>
@@ -419,8 +419,8 @@ function editor_smileys($object = 'editor', $showsmileys) {
         }
 
         echo '<script type="text/javascript">
-		aefsmileys = new Array(' . implode(',', $js_smileys) . ');
-		</script>';
+        aefsmileys = new Array(' . implode(',', $js_smileys) . ');
+        </script>';
 
         //Now these are purely for JavaScript Processing
         foreach ($smileys as $sk => $sv) {
@@ -437,8 +437,8 @@ function editor_smileys($object = 'editor', $showsmileys) {
         }
 
         echo '<tr>
-			<td width="18%" class="ntlc">Smileys</td>
-			<td class="ntrc">';
+            <td width="18%" class="ntlc">Smileys</td>
+            <td class="ntrc">';
 
         echo implode('&nbsp;', $emoticons);
 
@@ -467,17 +467,17 @@ function editor_smileys($object = 'editor', $showsmileys) {
 <script type="text/javascript">
 Drag.init($(\'popupemothandle\'), $(\'popupemot\'));
 function popupemot(){
-	var winid = \'popupemot\';
-	$(winid).style.left=((getwidth()/2)-($(winid).offsetWidth/2))+"px";
-	$(winid).style.top=(scrolledy()+110)+"px";
-	showel(winid);
-	smoothopaque(winid, 0, 100, 10);
+    var winid = \'popupemot\';
+    $(winid).style.left=((getwidth()/2)-($(winid).offsetWidth/2))+"px";
+    $(winid).style.top=(scrolledy()+110)+"px";
+    showel(winid);
+    smoothopaque(winid, 0, 100, 10);
 }
 </script>';
         }
 
         echo '</td>
-			</tr>';
+            </tr>';
     }
 }
 ?>

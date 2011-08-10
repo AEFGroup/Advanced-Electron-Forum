@@ -4,7 +4,7 @@
 //===========================================================
 // theme_registry.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -59,7 +59,7 @@ if (!defined('AEF')) {
   // Note : 1) 'Not Compulsory' keys are not necessary
   // e.g. 'user' key if not set will set user option
   //      false.
-  // 		Similarly for 'exp', if it is not there then
+  //         Similarly for 'exp', if it is not there then
   //      no explanation will be echoed.
   /////////////////////////////////////////////////////
 
@@ -138,13 +138,13 @@ $theme['registry']['footer']['shownumqueries'] = array('type' => 'checkbox',
     'exp' => 'This will show the number of queries used to make a page.',
     'value' => true);
 
-//Show the amount of time required to load the page				
+//Show the amount of time required to load the page
 $theme['registry']['footer']['showntimetaken'] = array('type' => 'checkbox',
     'shortexp' => 'Show Time Taken :',
     'exp' => 'This will show the number of seconds taken to make a page.',
     'value' => true);
 
-//Show the amount of time required to load the page				
+//Show the amount of time required to load the page
 $theme['registry']['footer']['copyright'] = array('type' => 'text',
     'shortexp' => 'Copyright :',
     'exp' => 'You can add your Copyright at the bottom.(HTML is allowed)',

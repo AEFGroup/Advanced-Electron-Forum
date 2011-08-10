@@ -53,50 +53,50 @@ function MainIndex_theme() {
             }
 
             //Echo the link and the Category Name
-            echo '<br /><table width="100%" cellpadding="0" cellspacing="0" >			
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="cbgl"></td>
-	<td class="cbg">
-	<a href="' . $globals['ind'] . '#cid' . $categories[$c]['cid'] . '" name="cid' . $categories[$c]['cid'] . '">' . $categories[$c]['name'] . '</a>
-	</td>
-	<td class="cbg" align="right">
-	<a href="javascript:slider.slide(\'cat' . $c . '\')" ><img id="icat' . $categories[$c]['cid'] . '" src="' . $theme['images'] . 'expanded.gif" alt="" /></a>
-	</td>	
-	<td class="cbgr"></td>
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td width="100%">
-	<div id="cat' . $categories[$c]['cid'] . '" class="cathide">
-	<table width="100%" cellpadding="2" cellspacing="1" class="cbgbor" id="tcat' . $categories[$c]['cid'] . '">
-	<tr align="center">
-	<td class="cbg1" width="6%">&nbsp;</td>
-	<td class="cbg1" width="48%">' . $l['heading_board'] . '</td>
-	<td class="cbg1" width="10%">' . $l['heading_topics'] . '</td>
-	<td class="cbg1" width="9%">' . $l['heading_posts'] . '</td>
-	<td class="cbg1" width="27%">' . $l['heading_last_post'] . '</td>
-	</tr>';
+            echo '<br /><table width="100%" cellpadding="0" cellspacing="0" >
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="cbgl"></td>
+    <td class="cbg">
+    <a href="' . $globals['ind'] . '#cid' . $categories[$c]['cid'] . '" name="cid' . $categories[$c]['cid'] . '">' . $categories[$c]['name'] . '</a>
+    </td>
+    <td class="cbg" align="right">
+    <a href="javascript:slider.slide(\'cat' . $c . '\')" ><img id="icat' . $categories[$c]['cid'] . '" src="' . $theme['images'] . 'expanded.gif" alt="" /></a>
+    </td>
+    <td class="cbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td width="100%">
+    <div id="cat' . $categories[$c]['cid'] . '" class="cathide">
+    <table width="100%" cellpadding="2" cellspacing="1" class="cbgbor" id="tcat' . $categories[$c]['cid'] . '">
+    <tr align="center">
+    <td class="cbg1" width="6%">&nbsp;</td>
+    <td class="cbg1" width="48%">' . $l['heading_board'] . '</td>
+    <td class="cbg1" width="10%">' . $l['heading_topics'] . '</td>
+    <td class="cbg1" width="9%">' . $l['heading_posts'] . '</td>
+    <td class="cbg1" width="27%">' . $l['heading_last_post'] . '</td>
+    </tr>';
 
             //The main forum loop of a category
             foreach ($forums[$c] as $f => $v) {
 
                 echo '<tr>
-	<td class="miimg" align="center">
-	<img src="' . (($forums[$c][$f]['fimage']) ? $forums[$c][$f]['fimage'] : (($forums[$c][$f]['is_read']) ? $theme['images'] . 'not.png' : $theme['images'] . 'new.png')) . '" alt="" />
-	</td>
-	
-	<td class="mifor">
-	<font class="forlink">
-	<a href="' . (($forums[$c][$f]['fredirect']) ? $forums[$c][$f]['fredirect'] : forumlink($v['fid'], $v['fname']) ) . '">' . $forums[$c][$f]['fname'] . '</a>
-	</font><br />
-	<font class="desc">
-	' . $forums[$c][$f]['description'] . '&nbsp;
-	</font><br />';
+    <td class="miimg" align="center">
+    <img src="' . (($forums[$c][$f]['fimage']) ? $forums[$c][$f]['fimage'] : (($forums[$c][$f]['is_read']) ? $theme['images'] . 'not.png' : $theme['images'] . 'new.png')) . '" alt="" />
+    </td>
+
+    <td class="mifor">
+    <font class="forlink">
+    <a href="' . (($forums[$c][$f]['fredirect']) ? $forums[$c][$f]['fredirect'] : forumlink($v['fid'], $v['fname']) ) . '">' . $forums[$c][$f]['fname'] . '</a>
+    </font><br />
+    <font class="desc">
+    ' . $forums[$c][$f]['description'] . '&nbsp;
+    </font><br />';
 
                 //Make the moderators array if there are any
                 if (isset($forums[$c][$f]['moderators'])) {
@@ -129,15 +129,15 @@ function MainIndex_theme() {
                 }
 
                 echo '</td>
-	
-	<td class="mitop">
-	' . $forums[$c][$f]['ft_topic'] . '
-	</td>
-	
-	<td class="miposts">
-	' . $forums[$c][$f]['ft_posts'] . '</td>
-	
-	<td class="milp">';
+
+    <td class="mitop">
+    ' . $forums[$c][$f]['ft_topic'] . '
+    </td>
+
+    <td class="miposts">
+    ' . $forums[$c][$f]['ft_posts'] . '</td>
+
+    <td class="milp">';
 
                 if (empty($forums[$c][$f]['tid'])) {
 
@@ -150,20 +150,20 @@ function MainIndex_theme() {
                 }
 
                 echo '</td>
-	</tr>';
+    </tr>';
             }//end the forums loop
             //The end of the table
             echo '
-	</table>
-	</div>
-	
-	</td>			
-	</tr>
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="15" alt="" /></td>
-	</tr>
-	
-	</table>';
+    </table>
+    </div>
+
+    </td>
+    </tr>
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="15" alt="" /></td>
+    </tr>
+
+    </table>';
         }//End of IF
     }//End of categories Loop
 
@@ -172,10 +172,10 @@ function MainIndex_theme() {
     if (!empty($js_cat)) {
 
         echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-		slider = new slider();
-		slider.elements = new Array(\'' . implode('\', \'', $js_cat) . '\');
-		addonload(\'slider.init();\');
-		// ]]></script>';
+        slider = new slider();
+        slider.elements = new Array(\'' . implode('\', \'', $js_cat) . '\');
+        addonload(\'slider.init();\');
+        // ]]></script>';
     }
 
 //The row before the Statistics
@@ -194,7 +194,7 @@ function MainIndex_theme() {
 //The Statistics Center
     echo '<br /><br />
 <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-	
+
 <tr>
 <td align="center" colspan="2" class="cbg">' . $l['statistics'] . '</td>
 </tr>';
@@ -323,7 +323,7 @@ function MainIndex_theme() {
 </div>
 
 <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-	Drag.init($("newpm_h"), $("newpm"));
+    Drag.init($("newpm_h"), $("newpm"));
 // ]]></script>';
     }
 
