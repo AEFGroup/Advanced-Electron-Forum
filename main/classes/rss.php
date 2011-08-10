@@ -4,7 +4,7 @@
 //===========================================================
 // rss.php(classes)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -20,56 +20,50 @@
 //===========================================================
 //////////////////////////////////////////////////////////////
 
-if(!defined('AEF')){
+if (!defined('AEF')) {
 
-	die('Hacking Attempt');
-
+    die('Hacking Attempt');
 }
 
+class rss {
 
-class rss{
-	
-	//The Heading of the RSS
-	function start($ver = '1.0', $enc = 'UTF-8', $rss_ver = '0.92', $title = '', $link = '', $desc = ''){
-	
-		$str = '<?xml version="'.$ver.'" encoding="'.$enc.'"?>
-<rss version="'.$rss_ver.'" xml:lang="en-US">
-	<channel>
-		<title>'.$title.'</title>
-		<link>'.$link.'</link>
-		<description><![CDATA['.$desc.']]></description>';
-						
-		return $str;
-	
-	}
-	
-	//The end	
-	function close(){
-	
-		$str = '
-	</channel>
+    //The Heading of the RSS
+    function start($ver = '1.0', $enc = 'UTF-8', $rss_ver = '0.92', $title = '', $link = '', $desc = '') {
+
+        $str = '<?xml version="' . $ver . '" encoding="' . $enc . '"?>
+<rss version="' . $rss_ver . '" xml:lang="en-US">
+    <channel>
+        <title>' . $title . '</title>
+        <link>' . $link . '</link>
+        <description><![CDATA[' . $desc . ']]></description>';
+
+        return $str;
+    }
+
+    //The end
+    function close() {
+
+        $str = '
+    </channel>
 </rss>';
-						
-		return $str;
-		
-	}
-	
-	//Add an ITEM
-	function item($title, $link, $desc, $category, $pubDate){
-	
-		return '
-		<item>
-			<title><![CDATA['.$title.']]></title>
-			<link>'.$link.'</link>
-			<description><![CDATA['.$desc.']]></description>
-			<category><![CDATA['.$category.']]></category>
-			<pubDate>'.$pubDate.'</pubDate>
-			<guid>'.$link.'</guid>
-		</item>';
-	
-	}
-	
-}
 
+        return $str;
+    }
+
+    //Add an ITEM
+    function item($title, $link, $desc, $category, $pubDate) {
+
+        return '
+        <item>
+            <title><![CDATA[' . $title . ']]></title>
+            <link>' . $link . '</link>
+            <description><![CDATA[' . $desc . ']]></description>
+            <category><![CDATA[' . $category . ']]></category>
+            <pubDate>' . $pubDate . '</pubDate>
+            <guid>' . $link . '</guid>
+        </item>';
+    }
+
+}
 
 ?>

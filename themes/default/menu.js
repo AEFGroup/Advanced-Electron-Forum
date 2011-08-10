@@ -12,25 +12,25 @@ else if(/MSIE/.test(n)) bypixels = 2;
 /////DD added expandall() and contractall() functions/////
 
 function slash_expandall(){
-if (typeof menu!="undefined"){
-	for(i=0; i<Math.max(titles.length, submenus.length); i++){
-		titles[i].className="title";
-		arrows[i].src = umimages+"expanded.gif";
-		submenus[i].style.display="";
-		submenus[i].style.height = heights[i]+"px";
-	}
-}
+    if (typeof menu!="undefined"){
+        for(i=0; i<Math.max(titles.length, submenus.length); i++){
+            titles[i].className="title";
+            arrows[i].src = umimages+"expanded.gif";
+            submenus[i].style.display="";
+            submenus[i].style.height = heights[i]+"px";
+        }
+    }
 }
 
 function slash_contractall(){
-if (typeof menu!="undefined"){
-	for(i=0; i<Math.max(titles.length, submenus.length); i++){
-		titles[i].className="titlehidden";
-		arrows[i].src = umimages+"collapsed.gif";
-		submenus[i].style.display="none";
-		submenus[i].style.height = 0;
-	}
-}
+    if (typeof menu!="undefined"){
+        for(i=0; i<Math.max(titles.length, submenus.length); i++){
+            titles[i].className="titlehidden";
+            arrows[i].src = umimages+"collapsed.gif";
+            submenus[i].style.display="none";
+            submenus[i].style.height = 0;
+        }
+    }
 }
 
 
@@ -49,9 +49,9 @@ function init(){
         submenus[i].style.height = submenus[i].offsetHeight+"px";
     }
     if(remember)
-				restore()
-		else if (contractall_default) //DD added code
-				slash_contractall() //DD added code
+        restore()
+    else if (contractall_default) //DD added code
+        slash_contractall() //DD added code
 }
 
 function restore() {

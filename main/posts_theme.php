@@ -174,12 +174,12 @@ function posts_theme() {
         foreach ($poll['options'] as $opk => $opt) {
 
             $showthis .= '<tr><td align="right">
-						<b>' . $opt['poo_option'] . '</b>
-						(' . $opt['poo_votes'] . ')
-						</td>
-						<td align="left">
-			<img src="' . $theme['images'] . 'poll.gif" width="' . $poll['options'][$opk]['width'] . '" height="10" alt="" /> (' . $opt['percentage'] . '%)
-						</td></tr>';
+                        <b>' . $opt['poo_option'] . '</b>
+                        (' . $opt['poo_votes'] . ')
+                        </td>
+                        <td align="left">
+            <img src="' . $theme['images'] . 'poll.gif" width="' . $poll['options'][$opk]['width'] . '" height="10" alt="" /> (' . $opt['percentage'] . '%)
+                        </td></tr>';
         }
 
         $showthis .= '<tr><td colspan="2"><br /><b>' . $l['total_votes'] . '</b> : ' . $poll['votes'] . '</td></tr></table>';
@@ -188,24 +188,24 @@ function posts_theme() {
     } elseif (!empty($poll['what_to_show']) && ($poll['what_to_show'] == 1)) {
 
         $showthis = '<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="poll_vote">
-					<table cellpadding="3" cellspacing="3">';
+                    <table cellpadding="3" cellspacing="3">';
 
         foreach ($poll['options'] as $opk => $opt) {
 
             $showthis .= '<tr><td align="right">
-						' . $opt['poo_option'] . '
-						<input type="radio" name="uservote" value="' . $opt['pooid'] . '" />
-						</td>
-						</tr>';
+                        ' . $opt['poo_option'] . '
+                        <input type="radio" name="uservote" value="' . $opt['pooid'] . '" />
+                        </td>
+                        </tr>';
         }
 
         $showthis .= '<tr>
-					<td>
-					<input type="submit" name="vote_poll" value="' . $l['submit_vote'] . '" /><br />
-					</td>
-					</tr>					
-					</table>
-					</form>';
+                    <td>
+                    <input type="submit" name="vote_poll" value="' . $l['submit_vote'] . '" /><br />
+                    </td>
+                    </tr>
+                    </table>
+                    </form>';
     } elseif (!empty($poll['what_to_show']) && ($poll['what_to_show'] == 3)) {
 
         $showthis = '<table cellpadding="3" cellspacing="3">';
@@ -217,25 +217,25 @@ function posts_theme() {
     if (!empty($poll['what_to_show'])) {
 
         echo'<br /><table width="100%" class="cbor" cellpadding="1" cellspacing="1">
-			<tr>
-			<td class="ptcbg" colspan="2">' . $l['poll'] . '</td>	
-			</tr>
-			
-			' . (!empty($adpolloptions) ? '<tr>
-			<td class="ptcbg1" colspan="2" align="right" style="padding:4px;">' . implode('&nbsp;|&nbsp;', $adpolloptions) . '
-			</td></tr>' : '') . '
-									
-			<tr>
-			<td class="ptwbg" colspan="2"><b>' . $l['the_poll_question'] . ' : </b>' . $poll['qt'] . '</td>	
-			</tr>
-			
-			<tr>
-			<td class="ptwbg" align="center">' . $showthis . '</td>
-			' . (!empty($polloptions) ? '<td class="ptwbg" align="center" width="25%" valign="top">' . implode('<br />', $polloptions) . '</td>' : '') . '	
-			</tr>
-			
-			</table>
-			<br /><br />';
+            <tr>
+            <td class="ptcbg" colspan="2">' . $l['poll'] . '</td>
+            </tr>
+
+            ' . (!empty($adpolloptions) ? '<tr>
+            <td class="ptcbg1" colspan="2" align="right" style="padding:4px;">' . implode('&nbsp;|&nbsp;', $adpolloptions) . '
+            </td></tr>' : '') . '
+
+            <tr>
+            <td class="ptwbg" colspan="2"><b>' . $l['the_poll_question'] . ' : </b>' . $poll['qt'] . '</td>
+            </tr>
+
+            <tr>
+            <td class="ptwbg" align="center">' . $showthis . '</td>
+            ' . (!empty($polloptions) ? '<td class="ptwbg" align="center" width="25%" valign="top">' . implode('<br />', $polloptions) . '</td>' : '') . '
+            </tr>
+
+            </table>
+            <br /><br />';
     }
 
 
@@ -261,7 +261,7 @@ createmenu("pagejump", [
         echo $links;
     }
 
-    //Can he post reply 
+    //Can he post reply
     if (!empty($user['can_reply_to_this_topic'])) {
 
         echo '<br /><a href="' . $globals['ind'] . 'act=post&amp;topid=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'buttons/reply.png" alt="" /></a>';
@@ -284,9 +284,9 @@ createmenu("pagejump", [
         if ($user['can_edit_this_topic']) {
 
             echo '
-function qet(){ 
-	var qet = \'<form accept-charset="' . $globals['charset'] . '" action="' . $globals['ind'] . 'act=edittopic&amp;topid=' . $topic['tid'] . '"  method="post" name="edittopicform"><table width="100%" cellpadding="2" cellspacing="1" align="center"><tr><td width="25%" class="etlc">' . $l['edit_title'] . '<\/td><td class="etrc"><input type="text" size="30" name="toptitle" value="' . $topic['topic'] . '" \/><\/td><\/tr><tr><td class="etlc">' . $l['edit_description'] . '<\/td><td class="etrc"><input type="text" size="30" name="topdesc" value="' . $topic['description'] . '" \/><\/td><\/tr><tr><td colspan="2" class="etrc" style="text-align:center"><input type="hidden" name="topic_icon" value="' . $topic['type_image'] . '" \/><input type="submit" name="edittopic" value="' . $l['edit_submit_button'] . '" \/><\/td><\/tr><\/table><\/form>\';
-	domwindow("qet", qet, "", "' . $l['quick_edit_topic'] . '");
+function qet(){
+    var qet = \'<form accept-charset="' . $globals['charset'] . '" action="' . $globals['ind'] . 'act=edittopic&amp;topid=' . $topic['tid'] . '"  method="post" name="edittopicform"><table width="100%" cellpadding="2" cellspacing="1" align="center"><tr><td width="25%" class="etlc">' . $l['edit_title'] . '<\/td><td class="etrc"><input type="text" size="30" name="toptitle" value="' . $topic['topic'] . '" \/><\/td><\/tr><tr><td class="etlc">' . $l['edit_description'] . '<\/td><td class="etrc"><input type="text" size="30" name="topdesc" value="' . $topic['description'] . '" \/><\/td><\/tr><tr><td colspan="2" class="etrc" style="text-align:center"><input type="hidden" name="topic_icon" value="' . $topic['type_image'] . '" \/><input type="submit" name="edittopic" value="' . $l['edit_submit_button'] . '" \/><\/td><\/tr><\/table><\/form>\';
+    domwindow("qet", qet, "", "' . $l['quick_edit_topic'] . '");
 };
 ';
         }
@@ -303,7 +303,7 @@ function qet(){
     }
 
     echo '<br /><br /><table width="100%" cellpadding="4" cellspacing="0" class="cbgbor">
-	<tr>' . (empty($board['rss_topic']) ? '' : '<td class="ptcbgrss"><a href="' . $globals['ind'] . 'act=feeds&amp;topic=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'feeds.gif" alt="" /></a></td>') . '<td class="ptcbg1" align="right">';
+    <tr>' . (empty($board['rss_topic']) ? '' : '<td class="ptcbgrss"><a href="' . $globals['ind'] . 'act=feeds&amp;topic=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'feeds.gif" alt="" /></a></td>') . '<td class="ptcbg1" align="right">';
 
     //Mark as unread
     if ($logged_in) {
@@ -361,11 +361,11 @@ function qet(){
 <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 Drag.init($("qrhandle"), $("quickreply"));
 function showquickreply(){
-	qrid = \'quickreply\';
-	$(qrid).style.left=((getwidth()/2)-($(qrid).offsetWidth/2))+"px";
-	$(qrid).style.top=(scrolledy()+110)+"px";
-	showel(qrid);
-	smoothopaque(qrid, 0, 100, 10);
+    qrid = \'quickreply\';
+    $(qrid).style.left=((getwidth()/2)-($(qrid).offsetWidth/2))+"px";
+    $(qrid).style.top=(scrolledy()+110)+"px";
+    showel(qrid);
+    smoothopaque(qrid, 0, 100, 10);
 }
 // ]]></script>';
     }
@@ -392,60 +392,60 @@ function showquickreply(){
     echo implode(' | ', $top_opt);
 
     echo '</td></tr>
-	</table>';
+    </table>';
 
     $show_mod = (($user['can_del_own_post'] && $user['can_del_own_post']) || $user['can_merge_posts'] ? 1 : 0);
 
     if ($show_mod) {
 
         echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-	function deleteconfirm(){
-		if($("selectedposts").value == "delete"){
-			var conf = confirm("' . $l['del_sel_conf'] . '");
-			if(conf == true){
-				return true;
-			}else{
-				return false;
-			}
-		}else{
-			return true;
-		}
-	}
-	// ]]></script>
-	<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="postmod" onsubmit="return deleteconfirm();">';
+    function deleteconfirm(){
+        if($("selectedposts").value == "delete"){
+            var conf = confirm("' . $l['del_sel_conf'] . '");
+            if(conf == true){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return true;
+        }
+    }
+    // ]]></script>
+    <form accept-charset="' . $globals['charset'] . '" method="post" action="" name="postmod" onsubmit="return deleteconfirm();">';
     }
 
     foreach ($post as $p => $pv) {
 
         //The first row that is Headers
         echo '<br /><table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="pcbgl"></td>
-	<td class="pcbg"><b>' . ($post[$p]['post_count'] == 0 ? '&nbsp;' . $title . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')' : $post[$p]['post_title']) . '</b></td>
-	<td class="pcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	<table width="100%" cellpadding="1" cellspacing="0">
-	<tr>
-	<td class="posterbg" width="22%">
-	
-	<a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($pv['id'], $pv['username'])) . '">
-	' . $post[$p]['username'] . '
-	</a>
-	</td>
-	
-	<td class="postdate" align="right">
-	<div style="float:left">
-	<a name="p' . $post[$p]['pid'] . '"></a>
-	<img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '" alt="' . $l['posted_on'] . '" /> <a href="' . topiclink($tid, $topic['topic'], $pg) . '#p' . $p . '">#</a>
-	' . $post[$p]['pdate'];
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="pcbgl"></td>
+    <td class="pcbg"><b>' . ($post[$p]['post_count'] == 0 ? '&nbsp;' . $title . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')' : $post[$p]['post_title']) . '</b></td>
+    <td class="pcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+    <table width="100%" cellpadding="1" cellspacing="0">
+    <tr>
+    <td class="posterbg" width="22%">
+
+    <a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($pv['id'], $pv['username'])) . '">
+    ' . $post[$p]['username'] . '
+    </a>
+    </td>
+
+    <td class="postdate" align="right">
+    <div style="float:left">
+    <a name="p' . $post[$p]['pid'] . '"></a>
+    <img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '" alt="' . $l['posted_on'] . '" /> <a href="' . topiclink($tid, $topic['topic'], $pg) . '#p' . $p . '">#</a>
+    ' . $post[$p]['pdate'];
 
         echo (($post[$p]['post_count']) ? ' | ' . $l['post_num_prefix'] . ': ' . $post[$p]['post_count'] : '');
 
@@ -484,10 +484,10 @@ function showquickreply(){
         }
 
         echo implode(' | ', $post_opt) . '</td>
-	</tr>';
+    </tr>';
 
         echo '<tr>
-	<td class="posterinfo" valign="top">';
+    <td class="posterinfo" valign="top">';
 
         if (!empty($post[$p]['avatarurl'])) {
 
@@ -507,15 +507,15 @@ function showquickreply(){
         }
 
         echo '
-	' . (!empty($post[$p]['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $post[$p]['post_gr_name'] . '</div>' : '') . '
-	' . (!empty($post[$p]['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $post[$p]['posts'] . '</div>' : '') . '	
-	<div class="pisub">' . $l['prefix_status'] . ' ' . ($post[$p]['status'] ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['online'] . '" alt="" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['offline'] . '" alt="" />') . '</div>
-	' . ( (empty($post[$p]['users_text'])) ? '' : '<br />' . $post[$p]['users_text'] ) . '
-	</td>
-	<td class="post" align="left" valign="top">
-	' . wordwrap($post[$p]['post'], 80, " ", 1) . '
-	' . (!empty($attachments[$post[$p]['pid']]) ? '<br /><br />-----------------------<br />' . implode('<br />', $attachments[$post[$p]['pid']]) : '') . '
-	' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '');
+    ' . (!empty($post[$p]['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $post[$p]['post_gr_name'] . '</div>' : '') . '
+    ' . (!empty($post[$p]['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $post[$p]['posts'] . '</div>' : '') . '
+    <div class="pisub">' . $l['prefix_status'] . ' ' . ($post[$p]['status'] ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['online'] . '" alt="" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['offline'] . '" alt="" />') . '</div>
+    ' . ( (empty($post[$p]['users_text'])) ? '' : '<br />' . $post[$p]['users_text'] ) . '
+    </td>
+    <td class="post" align="left" valign="top">
+    ' . wordwrap($post[$p]['post'], 80, " ", 1) . '
+    ' . (!empty($attachments[$post[$p]['pid']]) ? '<br /><br />-----------------------<br />' . implode('<br />', $attachments[$post[$p]['pid']]) : '') . '
+    ' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '');
 
         if (!empty($post[$p]['sig'])) {
 
@@ -523,39 +523,39 @@ function showquickreply(){
         }
 
         echo '</td>
-	</tr>';
+    </tr>';
 
         echo '<tr>
-	<td class="ptip">
-	<b>' . $l['ip'] . ':</b> ' . ((isset($post[$p]['poster_ip'])) ? $post[$p]['poster_ip'] : '--' ) . '
-	</td>
-	<td class="specialrow">
-	&nbsp;<a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($pv['id'], $pv['username'])) . '"><img src="' . $theme['images'] . 'profile.gif" title="' . $l['view_profile_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;
-	
-	' . (!empty($post[$p]['email']) ? '<a href="mailto:' . $post[$p]['email'] . '"><img src="' . $theme['images'] . 'email.gif" title="' . $l['send_email_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . ($logged_in ? '<a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm&amp;to=' . $post[$p]['id'] . '"><img src="' . $theme['images'] . 'pmuser.gif" title="' . $l['send_pm_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['www']) ? '<a href="' . $post[$p]['www'] . '" target="_blank"><img src="' . $theme['images'] . 'www.gif" title="' . $l['visit_website_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['msn']) ? '<a href="http://members.msn.com/' . $post[$p]['msn'] . '" target="_blank"><img src="' . $theme['images'] . 'msn.gif" title="' . $l['view_msn_profile'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['aim']) ? '<a href="aim:goim?screenname=' . $post[$p]['aim'] . '&amp;message=' . $l['aim_hello'] . '" target="_blank"><img src="' . $theme['images'] . 'aim.gif" title="' . $l['aim_username_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['aim'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['yim']) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $post[$p]['yim'] . '&amp;.src=pg" target="_blank"><img src="' . $theme['images'] . 'yim.gif" title="' . $l['yim_identity_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['yim'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	</td>
-	</tr>
-	
-	</table>
+    <td class="ptip">
+    <b>' . $l['ip'] . ':</b> ' . ((isset($post[$p]['poster_ip'])) ? $post[$p]['poster_ip'] : '--' ) . '
+    </td>
+    <td class="specialrow">
+    &nbsp;<a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($pv['id'], $pv['username'])) . '"><img src="' . $theme['images'] . 'profile.gif" title="' . $l['view_profile_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;
 
-	</td>
-	</tr>
-	
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10" alt="" /></td>
-	</tr>
-	</table>';
+    ' . (!empty($post[$p]['email']) ? '<a href="mailto:' . $post[$p]['email'] . '"><img src="' . $theme['images'] . 'email.gif" title="' . $l['send_email_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . ($logged_in ? '<a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm&amp;to=' . $post[$p]['id'] . '"><img src="' . $theme['images'] . 'pmuser.gif" title="' . $l['send_pm_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['www']) ? '<a href="' . $post[$p]['www'] . '" target="_blank"><img src="' . $theme['images'] . 'www.gif" title="' . $l['visit_website_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['msn']) ? '<a href="http://members.msn.com/' . $post[$p]['msn'] . '" target="_blank"><img src="' . $theme['images'] . 'msn.gif" title="' . $l['view_msn_profile'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['aim']) ? '<a href="aim:goim?screenname=' . $post[$p]['aim'] . '&amp;message=' . $l['aim_hello'] . '" target="_blank"><img src="' . $theme['images'] . 'aim.gif" title="' . $l['aim_username_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['aim'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['yim']) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $post[$p]['yim'] . '&amp;.src=pg" target="_blank"><img src="' . $theme['images'] . 'yim.gif" title="' . $l['yim_identity_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['yim'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    </td>
+    </tr>
+
+    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10" alt="" /></td>
+    </tr>
+    </table>';
     }
 
     if (!empty($globals['prenextopic'])) {
@@ -566,20 +566,20 @@ function showquickreply(){
     if ($show_mod) {
 
         echo '<br /><div style="text-align:right;">' . $l['with_selected'] . ' : <select name="withselected" id="selectedposts">
-	' . (($user['can_del_own_post'] && $user['can_del_own_post']) ? '<option value="delete">' . $l['delete_posts'] . '</option>' : '') . '
-	' . ($user['can_merge_posts'] ? '<option value="merge">' . $l['merge_posts'] . '</option>' : '') . '
-	</select>&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="submit" name="withselsubmit" value="' . $l['submit_go'] . '" />&nbsp;&nbsp;&nbsp;&nbsp;
-	</div>
-	</form>';
+    ' . (($user['can_del_own_post'] && $user['can_del_own_post']) ? '<option value="delete">' . $l['delete_posts'] . '</option>' : '') . '
+    ' . ($user['can_merge_posts'] ? '<option value="merge">' . $l['merge_posts'] . '</option>' : '') . '
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="withselsubmit" value="' . $l['submit_go'] . '" />&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    </form>';
     }
 
     echo '<br /><br /><table width="100%" cellpadding="4" cellspacing="0" class="cbgbor">
-	<tr><td class="ptcbg1" align="right">';
+    <tr><td class="ptcbg1" align="right">';
     echo implode(' | ', $top_opt);
 
     echo '</td></tr>
-	</table><br />';
+    </table><br />';
 
     if (!empty($topicpages)) {
 
@@ -602,17 +602,17 @@ function showquickreply(){
     if (!empty($users_who_read)) {
 
         echo '<br /><br />
-		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-			
-			<tr>
-			<td colspan="2" class="cbg1" align="left">' . $l['users_who_read'] . '</td>
-			</tr>
-			
-			<tr>
-			<td align="center" class="miposts" width="5%">
-			<img src="' . $theme['images'] . 'online.gif" alt="" />
-			</td>
-			<td class="mifor">';
+        <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+            <tr>
+            <td colspan="2" class="cbg1" align="left">' . $l['users_who_read'] . '</td>
+            </tr>
+
+            <tr>
+            <td align="center" class="miposts" width="5%">
+            <img src="' . $theme['images'] . 'online.gif" alt="" />
+            </td>
+            <td class="mifor">';
 
         foreach ($users_who_read as $u => $uv) {
 
@@ -620,29 +620,29 @@ function showquickreply(){
         }
 
         echo implode(', ', $users_who_read) . '</td>
-			</tr>
-					
-		</table>';
+            </tr>
+
+        </table>';
     }
 
     echo '<br /><br />
-	<table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-		
-		<tr>
-		<td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
-		</tr>
-		
-		<tr>
-		<td align="center" class="miposts" width="5%">
-		<img src="' . $theme['images'] . 'online.gif" alt="" />
-		</td>
-		<td class="mifor">
-		' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] : '.' ) . '
-		' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '		
-		</td>
-		</tr>
-				
-	</table>';
+    <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+        <tr>
+        <td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
+        </tr>
+
+        <tr>
+        <td align="center" class="miposts" width="5%">
+        <img src="' . $theme['images'] . 'online.gif" alt="" />
+        </td>
+        <td class="mifor">
+        ' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] : '.' ) . '
+        ' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '
+        </td>
+        </tr>
+
+    </table>';
 
     //The defualt footers
     aeffooter();
@@ -769,12 +769,12 @@ function thread_theme() {
         foreach ($poll['options'] as $opk => $opt) {
 
             $showthis .= '<tr><td align="right">
-						<b>' . $opt['poo_option'] . '</b>
-						(' . $opt['poo_votes'] . ')
-						</td>
-						<td align="left">
-			<img src="' . $theme['images'] . 'poll.gif" width="' . $poll['options'][$opk]['width'] . '" height="10" alt="" /> (' . $opt['percentage'] . '%)
-						</td></tr>';
+                        <b>' . $opt['poo_option'] . '</b>
+                        (' . $opt['poo_votes'] . ')
+                        </td>
+                        <td align="left">
+            <img src="' . $theme['images'] . 'poll.gif" width="' . $poll['options'][$opk]['width'] . '" height="10" alt="" /> (' . $opt['percentage'] . '%)
+                        </td></tr>';
         }
 
         $showthis .= '<tr><td colspan="2"><br /><b>' . $l['total_votes'] . '</b> : ' . $poll['votes'] . '</td></tr></table>';
@@ -783,24 +783,24 @@ function thread_theme() {
     } elseif (!empty($poll['what_to_show']) && ($poll['what_to_show'] == 1)) {
 
         $showthis = '<form accept-charset="' . $globals['charset'] . '" method="post" action="" name="poll_vote">
-					<table cellpadding="3" cellspacing="3">';
+                    <table cellpadding="3" cellspacing="3">';
 
         foreach ($poll['options'] as $opk => $opt) {
 
             $showthis .= '<tr><td align="right">
-						' . $opt['poo_option'] . '
-						<input type="radio" name="uservote" value="' . $opt['pooid'] . '" />
-						</td>
-						</tr>';
+                        ' . $opt['poo_option'] . '
+                        <input type="radio" name="uservote" value="' . $opt['pooid'] . '" />
+                        </td>
+                        </tr>';
         }
 
         $showthis .= '<tr>
-					<td>
-					<input type="submit" name="vote_poll" value="' . $l['submit_vote'] . '" /><br />
-					</td>
-					</tr>					
-					</table>
-					</form>';
+                    <td>
+                    <input type="submit" name="vote_poll" value="' . $l['submit_vote'] . '" /><br />
+                    </td>
+                    </tr>
+                    </table>
+                    </form>';
     } elseif (!empty($poll['what_to_show']) && ($poll['what_to_show'] == 3)) {
 
         $showthis = '<table cellpadding="3" cellspacing="3">';
@@ -812,29 +812,29 @@ function thread_theme() {
     if (!empty($poll['what_to_show'])) {
 
         echo'<br /><table width="100%" class="cbor" cellpadding="1" cellspacing="1">
-			<tr>
-			<td class="ptcbg" colspan="2">' . $l['poll'] . '</td>	
-			</tr>
-			
-			' . (!empty($adpolloptions) ? '<tr>
-			<td class="ptcbg1" colspan="2" align="right" style="padding:4px;">' . implode('&nbsp;|&nbsp;', $adpolloptions) . '
-			</td></tr>' : '') . '
-									
-			<tr>
-			<td class="ptwbg" colspan="2"><b>' . $l['the_poll_question'] . ' : </b>' . $poll['qt'] . '</td>	
-			</tr>
-			
-			<tr>
-			<td class="ptwbg" align="center">' . $showthis . '</td>
-			' . (!empty($polloptions) ? '<td class="ptwbg" align="center" width="25%" valign="top">' . implode('<br />', $polloptions) . '</td>' : '') . '	
-			</tr>
-			
-			</table>
-			<br /><br />';
+            <tr>
+            <td class="ptcbg" colspan="2">' . $l['poll'] . '</td>
+            </tr>
+
+            ' . (!empty($adpolloptions) ? '<tr>
+            <td class="ptcbg1" colspan="2" align="right" style="padding:4px;">' . implode('&nbsp;|&nbsp;', $adpolloptions) . '
+            </td></tr>' : '') . '
+
+            <tr>
+            <td class="ptwbg" colspan="2"><b>' . $l['the_poll_question'] . ' : </b>' . $poll['qt'] . '</td>
+            </tr>
+
+            <tr>
+            <td class="ptwbg" align="center">' . $showthis . '</td>
+            ' . (!empty($polloptions) ? '<td class="ptwbg" align="center" width="25%" valign="top">' . implode('<br />', $polloptions) . '</td>' : '') . '
+            </tr>
+
+            </table>
+            <br /><br />';
     }
 
 
-    //Can he post reply 
+    //Can he post reply
     if (!empty($user['can_reply_to_this_topic'])) {
 
         echo '<br /><a href="' . $globals['ind'] . 'act=post&amp;topid=' . $topic['tid'] . '&amp;par_id=' . $pid . '"><img src="' . $theme['images'] . 'buttons/reply.png" alt="" /></a>';
@@ -864,7 +864,7 @@ createmenu("modopt", [
     }
 
     echo '<br /><br /><table width="100%" cellpadding="4" cellspacing="0" class="cbgbor">
-	<tr>' . (empty($board['rss_topic']) ? '' : '<td class="ptcbgrss"><a href="' . $globals['ind'] . 'act=feeds&amp;topic=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'feeds.gif" alt="" /></a></td>') . '<td class="ptcbg1" align="right">';
+    <tr>' . (empty($board['rss_topic']) ? '' : '<td class="ptcbgrss"><a href="' . $globals['ind'] . 'act=feeds&amp;topic=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'feeds.gif" alt="" /></a></td>') . '<td class="ptcbg1" align="right">';
 
     //Mark as unread
     if ($logged_in) {
@@ -922,11 +922,11 @@ createmenu("modopt", [
 <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 Drag.init($("qrhandle"), $("quickreply"));
 function showquickreply(){
-	qrid = \'quickreply\';
-	$(qrid).style.left=((getwidth()/2)-($(qrid).offsetWidth/2))+"px";
-	$(qrid).style.top=(scrolledy()+110)+"px";
-	showel(qrid);
-	smoothopaque(qrid, 0, 100, 10);
+    qrid = \'quickreply\';
+    $(qrid).style.left=((getwidth()/2)-($(qrid).offsetWidth/2))+"px";
+    $(qrid).style.top=(scrolledy()+110)+"px";
+    showel(qrid);
+    smoothopaque(qrid, 0, 100, 10);
 }
 // ]]></script>';
     }
@@ -951,38 +951,38 @@ function showquickreply(){
     echo implode(' | ', $top_opt);
 
     echo '</td></tr>
-	</table>';
+    </table>';
 
     $p = $pid; //Just getting bored to write $pid
     //The first row that is Headers
     echo '<br /><table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="pcbgl"></td>
-	<td class="pcbg"><b>' . ($post[$p]['post_count'] == 0 || empty($post[$p]['post_title']) ? '&nbsp;' . $title . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')' : $post[$p]['post_title']) . '</b></td>
-	<td class="pcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	<table width="100%" cellpadding="1" cellspacing="0">
-	<tr>
-	<td class="posterbg" width="22%">
-	
-	<a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($post[$p]['id'], $post[$p]['username'])) . '">
-	' . $post[$p]['username'] . '
-	</a>
-	</td>
-	
-	<td class="postdate" align="right">
-	<div style="float:left">
-	<a name="p' . $post[$p]['pid'] . '"></a>
-	<img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '" alt="" />
-	' . $post[$p]['pdate'];
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="pcbgl"></td>
+    <td class="pcbg"><b>' . ($post[$p]['post_count'] == 0 || empty($post[$p]['post_title']) ? '&nbsp;' . $title . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')' : $post[$p]['post_title']) . '</b></td>
+    <td class="pcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+    <table width="100%" cellpadding="1" cellspacing="0">
+    <tr>
+    <td class="posterbg" width="22%">
+
+    <a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($post[$p]['id'], $post[$p]['username'])) . '">
+    ' . $post[$p]['username'] . '
+    </a>
+    </td>
+
+    <td class="postdate" align="right">
+    <div style="float:left">
+    <a name="p' . $post[$p]['pid'] . '"></a>
+    <img src="' . $theme['images'] . 'postedon.png" title="' . $l['posted_on'] . '" alt="" />
+    ' . $post[$p]['pdate'];
 
     echo (($post[$p]['post_count']) ? ' | ' . $l['post_num_prefix'] . ': ' . $post[$p]['post_count'] : '');
 
@@ -1015,10 +1015,10 @@ function showquickreply(){
     }
 
     echo implode(' | ', $post_opt) . '</td>
-	</tr>';
+    </tr>';
 
     echo '<tr>
-	<td class="posterinfo" valign="top">';
+    <td class="posterinfo" valign="top">';
 
     if (!empty($post[$p]['avatarurl'])) {
 
@@ -1038,15 +1038,15 @@ function showquickreply(){
     }
 
     echo '
-	' . (!empty($post[$p]['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $post[$p]['post_gr_name'] . '</div>' : '') . '
-	' . (!empty($post[$p]['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $post[$p]['posts'] . '</div>' : '') . '	
-	<div class="pisub">' . $l['prefix_status'] . ' ' . ($post[$p]['status'] ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['online'] . '" alt="" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['offline'] . '" alt="" />') . '</div>
-	' . ( (empty($post[$p]['users_text'])) ? '' : '<br />' . $post[$p]['users_text'] ) . '
-	</td>
-	<td class="post" align="left" valign="top">
-	' . $post[$p]['post'] . '
-	' . (!empty($attachments[$post[$p]['pid']]) ? '<br /><br />-----------------------<br />' . implode('<br />', $attachments[$post[$p]['pid']]) : '') . '
-	' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '');
+    ' . (!empty($post[$p]['post_gr_name']) ? '<div class="pisub">' . $l['prefix_post_group'] . ' ' . $post[$p]['post_gr_name'] . '</div>' : '') . '
+    ' . (!empty($post[$p]['posts']) ? '<div class="pisub">' . $l['prefix_posts'] . ' ' . $post[$p]['posts'] . '</div>' : '') . '
+    <div class="pisub">' . $l['prefix_status'] . ' ' . ($post[$p]['status'] ? '<img src="' . $theme['images'] . 'online.png" title="' . $l['online'] . '" alt="" />' : '<img src="' . $theme['images'] . 'offline.png" title="' . $l['offline'] . '" alt="" />') . '</div>
+    ' . ( (empty($post[$p]['users_text'])) ? '' : '<br />' . $post[$p]['users_text'] ) . '
+    </td>
+    <td class="post" align="left" valign="top">
+    ' . $post[$p]['post'] . '
+    ' . (!empty($attachments[$post[$p]['pid']]) ? '<br /><br />-----------------------<br />' . implode('<br />', $attachments[$post[$p]['pid']]) : '') . '
+    ' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '');
 
     if (!empty($post[$p]['sig'])) {
 
@@ -1054,39 +1054,39 @@ function showquickreply(){
     }
 
     echo '</td>
-	</tr>';
+    </tr>';
 
     echo '<tr>
-	<td class="ptip">
-	<b>' . $l['ip'] . ':</b> ' . ((isset($post[$p]['poster_ip'])) ? $post[$p]['poster_ip'] : '--' ) . '
-	</td>
-	<td class="specialrow">
-	&nbsp;<a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($post[$p]['id'], $post[$p]['username'])) . '"><img src="' . $theme['images'] . 'profile.gif" title="' . $l['view_profile_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;
-	
-	' . (!empty($post[$p]['email']) ? '<a href="mailto:' . $post[$p]['email'] . '"><img src="' . $theme['images'] . 'email.gif" title="' . $l['send_email_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . ($logged_in ? '<a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm&amp;to=' . $post[$p]['id'] . '"><img src="' . $theme['images'] . 'pmuser.gif" title="' . $l['send_pm_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['www']) ? '<a href="' . $post[$p]['www'] . '" target="_blank"><img src="' . $theme['images'] . 'www.gif" title="' . $l['visit_website_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['msn']) ? '<a href="http://members.msn.com/' . $post[$p]['msn'] . '" target="_blank"><img src="' . $theme['images'] . 'msn.gif" title="' . $l['view_msn_profile'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['aim']) ? '<a href="aim:goim?screenname=' . $post[$p]['aim'] . '&amp;message=' . $l['aim_hello'] . '" target="_blank"><img src="' . $theme['images'] . 'aim.gif" title="' . $l['aim_username_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['aim'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	' . (!empty($post[$p]['yim']) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $post[$p]['yim'] . '&amp;.src=pg" target="_blank"><img src="' . $theme['images'] . 'yim.gif" title="' . $l['yim_identity_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['yim'] . '" alt="" /></a>&nbsp;' : '') . '
-	
-	</td>
-	</tr>
-	
-	</table>
+    <td class="ptip">
+    <b>' . $l['ip'] . ':</b> ' . ((isset($post[$p]['poster_ip'])) ? $post[$p]['poster_ip'] : '--' ) . '
+    </td>
+    <td class="specialrow">
+    &nbsp;<a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($post[$p]['id'], $post[$p]['username'])) . '"><img src="' . $theme['images'] . 'profile.gif" title="' . $l['view_profile_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;
 
-	</td>
-	</tr>
-	
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10" alt="" /></td>
-	</tr>
-	</table>';
+    ' . (!empty($post[$p]['email']) ? '<a href="mailto:' . $post[$p]['email'] . '"><img src="' . $theme['images'] . 'email.gif" title="' . $l['send_email_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . ($logged_in ? '<a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm&amp;to=' . $post[$p]['id'] . '"><img src="' . $theme['images'] . 'pmuser.gif" title="' . $l['send_pm_to'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['www']) ? '<a href="' . $post[$p]['www'] . '" target="_blank"><img src="' . $theme['images'] . 'www.gif" title="' . $l['visit_website_of'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['msn']) ? '<a href="http://members.msn.com/' . $post[$p]['msn'] . '" target="_blank"><img src="' . $theme['images'] . 'msn.gif" title="' . $l['view_msn_profile'] . ' ' . $post[$p]['username'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['aim']) ? '<a href="aim:goim?screenname=' . $post[$p]['aim'] . '&amp;message=' . $l['aim_hello'] . '" target="_blank"><img src="' . $theme['images'] . 'aim.gif" title="' . $l['aim_username_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['aim'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    ' . (!empty($post[$p]['yim']) ? '<a href="http://edit.yahoo.com/config/send_webmesg?.target=' . $post[$p]['yim'] . '&amp;.src=pg" target="_blank"><img src="' . $theme['images'] . 'yim.gif" title="' . $l['yim_identity_is'] . ' ' . $post[$p]['username'] . ' ' . $l['is'] . ' ' . $post[$p]['yim'] . '" alt="" /></a>&nbsp;' : '') . '
+
+    </td>
+    </tr>
+
+    </table>
+
+    </td>
+    </tr>
+
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10" alt="" /></td>
+    </tr>
+    </table>';
 
     //The post ends here
     ///////////////////
@@ -1094,22 +1094,22 @@ function showquickreply(){
     ///////////////////
 
     echo '<br /><br /><table width="100%" cellpadding="0" cellspacing="0">
-	<tr>
-	<td>
-	<table width="100%" cellpadding="0" cellspacing="0"><tr>
-	<td class="pcbgl"></td>
-	<td class="pcbg"><b>' . $l['threads'] . '</b></td>
-	<td class="pcbgr"></td>		
-	</tr>
-	</table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="cbgbor">
-	<table width="100%" cellpadding="1" cellspacing="0">
-	<tr>
-	<td class="post" width="22%">';
+    <tr>
+    <td>
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <td class="pcbgl"></td>
+    <td class="pcbg"><b>' . $l['threads'] . '</b></td>
+    <td class="pcbgr"></td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+
+    <tr>
+    <td class="cbgbor">
+    <table width="100%" cellpadding="1" cellspacing="0">
+    <tr>
+    <td class="post" width="22%">';
 
     //The first post title
     echo '<img src="' . $theme['images'] . 'postedon.png" alt="" />&nbsp;<b><a href="' . (isset($post[$fpid]['is_guest']) ? 'mailto:' . $post[$fpid]['email'] : userlink($post[$fpid]['id'], $post[$fpid]['username'])) . '">' . $post[$fpid]['username'] . '</a></b>&nbsp;&nbsp;&nbsp;<i>' . ($pid == $fpid ? '<b>' : '') . '<a href="' . $globals['ind'] . 'tid=' . $tid . '">' . $title . '</a>' . ($pid == $fpid ? '</b>' : '') . '</i>' . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')<br />';
@@ -1158,13 +1158,13 @@ function showquickreply(){
 
 
     echo '</td></tr></table>
-	</td>
-	</tr>
-	
-	<tr>
-	<td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10" alt="" /></td>
-	</tr>
-	</table>';
+    </td>
+    </tr>
+
+    <tr>
+    <td><img src="' . $theme['images'] . 'cbot.png" width="100%" height="10" alt="" /></td>
+    </tr>
+    </table>';
 
     if (!empty($globals['prenextopic'])) {
 
@@ -1172,11 +1172,11 @@ function showquickreply(){
     }
 
     echo '<br /><br /><table width="100%" cellpadding="4" cellspacing="0" class="cbgbor">
-	<tr><td class="ptcbg1" align="right">';
+    <tr><td class="ptcbg1" align="right">';
     echo implode(' | ', $top_opt);
 
     echo '</td></tr>
-	</table><br />';
+    </table><br />';
 
 
     //Can he post reply
@@ -1193,17 +1193,17 @@ function showquickreply(){
     if (!empty($users_who_read)) {
 
         echo '<br /><br />
-		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-			
-			<tr>
-			<td colspan="2" class="cbg1" align="left">' . $l['users_who_read'] . '</td>
-			</tr>
-			
-			<tr>
-			<td align="center" class="miposts" width="5%">
-			<img src="' . $theme['images'] . 'online.gif" alt="" />
-			</td>
-			<td class="mifor">';
+        <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+            <tr>
+            <td colspan="2" class="cbg1" align="left">' . $l['users_who_read'] . '</td>
+            </tr>
+
+            <tr>
+            <td align="center" class="miposts" width="5%">
+            <img src="' . $theme['images'] . 'online.gif" alt="" />
+            </td>
+            <td class="mifor">';
 
         foreach ($users_who_read as $u => $uv) {
 
@@ -1211,29 +1211,29 @@ function showquickreply(){
         }
 
         echo implode(', ', $users_who_read) . '</td>
-			</tr>
-					
-		</table>';
+            </tr>
+
+        </table>';
     }
 
     echo '<br /><br />
-	<table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-		
-		<tr>
-		<td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
-		</tr>
-		
-		<tr>
-		<td align="center" class="miposts" width="5%">
-		<img src="' . $theme['images'] . 'online.gif" alt="" />
-		</td>
-		<td class="mifor">
-		' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] : '.' ) . '
-		' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '		
-		</td>
-		</tr>
-				
-		</table>';
+    <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+        <tr>
+        <td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
+        </tr>
+
+        <tr>
+        <td align="center" class="miposts" width="5%">
+        <img src="' . $theme['images'] . 'online.gif" alt="" />
+        </td>
+        <td class="mifor">
+        ' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] : '.' ) . '
+        ' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '
+        </td>
+        </tr>
+
+        </table>';
 
     //The defualt footers
     aeffooter();
@@ -1299,19 +1299,19 @@ function printtopic_theme() {
 
     echo '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
-	<title>' . ((empty($title)) ? $globals['sn'] : $title) . '</title>
-	<link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
-	</head>
-	<body>';
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
+    <title>' . ((empty($title)) ? $globals['sn'] : $title) . '</title>
+    <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
+    </head>
+    <body>';
 
 
     echo '<center><h1>' . $globals['sn'] . '</h1></center>
-	<hr />
-	<font size="4">' . $l['topic'] . ' : <b>' . $title . '</font></b>
-	<hr /><br /><br />';
+    <hr />
+    <font size="4">' . $l['topic'] . ' : <b>' . $title . '</font></b>
+    <hr /><br /><br />';
 
     if (!empty($topicpages)) {
 
@@ -1331,24 +1331,24 @@ function printtopic_theme() {
     foreach ($post as $p => $pv) {
 
         echo'<table width="100%" cellpadding="4" cellspacing="3" border="1" align="center">
-	
-	<tr>
-	<td>
-	<a name="p' . $post[$p]['pid'] . '"></a>
-	' . $l['posted_by'] . ': <b>' . $post[$p]['username'] . '</b> ' . $l['on'] . ' ' . $post[$p]['pdate'] . (($post[$p]['post_count']) ? ' | ' . $l['post_num_prefix'] . ': ' . $post[$p]['post_count'] : '') . '
-	</td>
-	</tr>
-	
-	<tr>
-	<td align="left" valign="top">
-	' . $post[$p]['post'] . '
-	' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '') . '
-	' . (!empty($post[$p]['sig']) ? '<br /><br />-----------------------<br />' . $post[$p]['sig'] : '') . '
-	</td>
-	</tr>
-	
-	</table>
-	<br />';
+
+    <tr>
+    <td>
+    <a name="p' . $post[$p]['pid'] . '"></a>
+    ' . $l['posted_by'] . ': <b>' . $post[$p]['username'] . '</b> ' . $l['on'] . ' ' . $post[$p]['pdate'] . (($post[$p]['post_count']) ? ' | ' . $l['post_num_prefix'] . ': ' . $post[$p]['post_count'] : '') . '
+    </td>
+    </tr>
+
+    <tr>
+    <td align="left" valign="top">
+    ' . $post[$p]['post'] . '
+    ' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '') . '
+    ' . (!empty($post[$p]['sig']) ? '<br /><br />-----------------------<br />' . $post[$p]['sig'] : '') . '
+    </td>
+    </tr>
+
+    </table>
+    <br />';
     }
 
     echo '<center>' . copyright() . '</center>
