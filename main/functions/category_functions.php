@@ -4,7 +4,7 @@
 //===========================================================
 // forum_functions.php(functions)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -51,8 +51,8 @@ function delete_categories_fn($cids) {
     // DELETE the Categories
     ////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['categories'] . " 
-					WHERE cid IN ($cids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['categories'] . "
+                    WHERE cid IN ($cids_str)", false);
 
     //How many were deleted ?
     $deleted = mysql_affected_rows($conn);
@@ -65,8 +65,8 @@ function delete_categories_fn($cids) {
 
     //Bring the forums of these categories out
     $qresult = makequery("SELECT fid
-			FROM " . $dbtables['forums'] . "
-			WHERE cat_id IN ($cids_str)");
+            FROM " . $dbtables['forums'] . "
+            WHERE cat_id IN ($cids_str)");
 
     //Were there any forums
     if (mysql_num_rows($qresult) > 0) {

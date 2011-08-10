@@ -4,7 +4,7 @@
 //===========================================================
 // theme_functions.php(functions)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -39,9 +39,9 @@ function theme_registry_fn($theme_id, $uservar = false) {
     ///////////////////////////
 
     $qresult = makequery("SELECT * FROM " . $dbtables['themes'] . " t
-						LEFT JOIN " . $dbtables['theme_registry'] . " tr ON (tr.thid = '$theme_id'
-																AND tr.uid = 0)
-						WHERE t.thid = '$theme_id'");
+                        LEFT JOIN " . $dbtables['theme_registry'] . " tr ON (tr.thid = '$theme_id'
+                                                                AND tr.uid = 0)
+                        WHERE t.thid = '$theme_id'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -83,9 +83,9 @@ function theme_registry_fn($theme_id, $uservar = false) {
     if ($uservar) {
 
         $qresult = makequery("SELECT * FROM " . $dbtables['themes'] . " t
-						LEFT JOIN " . $dbtables['theme_registry'] . " tr ON (tr.thid = '$theme_id'
-																AND tr.uid = " . ($logged_in ? $user['id'] : -1) . ")
-						WHERE t.thid = '$theme_id'");
+                        LEFT JOIN " . $dbtables['theme_registry'] . " tr ON (tr.thid = '$theme_id'
+                                                                AND tr.uid = " . ($logged_in ? $user['id'] : -1) . ")
+                        WHERE t.thid = '$theme_id'");
 
         if (mysql_num_rows($qresult) > 0) {
 

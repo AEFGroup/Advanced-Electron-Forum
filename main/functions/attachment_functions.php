@@ -4,7 +4,7 @@
 //===========================================================
 // attachment_functions.php(functions)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -206,17 +206,17 @@ function attach_fn($fid, $tid, $pid) {
             // INSERT the attachment
             /////////////////////////
 
-            $qresult = makequery("INSERT INTO " . $dbtables['attachments'] . " 
-					SET at_original_file = '" . $name[$k] . "',
-					at_file = '" . $encname[$k] . "',
-					at_mimetype_id = '" . $mimetype[$k] . "',
-					at_size = '" . $size[$k] . "',
-					at_fid = '$fid',
-					at_pid = '$pid',
-					at_time = '" . time() . "',
-					at_mid = '$member',
-					at_width = '" . $width[$k] . "',
-					at_height = '" . $height[$k] . "'");
+            $qresult = makequery("INSERT INTO " . $dbtables['attachments'] . "
+                    SET at_original_file = '" . $name[$k] . "',
+                    at_file = '" . $encname[$k] . "',
+                    at_mimetype_id = '" . $mimetype[$k] . "',
+                    at_size = '" . $size[$k] . "',
+                    at_fid = '$fid',
+                    at_pid = '$pid',
+                    at_time = '" . time() . "',
+                    at_mid = '$member',
+                    at_width = '" . $width[$k] . "',
+                    at_height = '" . $height[$k] . "'");
 
             $atid = mysql_insert_id($conn);
 
@@ -247,9 +247,9 @@ function attach_fn($fid, $tid, $pid) {
     // UPDATE the posts table for num_attachments
     /////////////////////////////////////////////
 
-    $qresult = makequery("UPDATE " . $dbtables['posts'] . " 
-					SET num_attachments = num_attachments + '$uploaded'
-					WHERE pid = '$pid'", false);
+    $qresult = makequery("UPDATE " . $dbtables['posts'] . "
+                    SET num_attachments = num_attachments + '$uploaded'
+                    WHERE pid = '$pid'", false);
 
     if (mysql_affected_rows($conn) < 1) {
 
@@ -266,9 +266,9 @@ function attach_fn($fid, $tid, $pid) {
     // UPDATE the topics table for has_attach
     //////////////////////////////////////////
 
-    $qresult = makequery("UPDATE " . $dbtables['topics'] . " 
-					SET has_attach = has_attach + '$uploaded'
-					WHERE tid = '$tid'", false);
+    $qresult = makequery("UPDATE " . $dbtables['topics'] . "
+                    SET has_attach = has_attach + '$uploaded'
+                    WHERE tid = '$tid'", false);
 
     if (mysql_affected_rows($conn) < 1) {
 
@@ -323,8 +323,8 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
             // DELETE the attachment
             /////////////////////////
 
-            $qresult = makequery("DELETE FROM " . $dbtables['attachments'] . " 
-							WHERE atid = '" . $v['atid'] . "'", false);
+            $qresult = makequery("DELETE FROM " . $dbtables['attachments'] . "
+                            WHERE atid = '" . $v['atid'] . "'", false);
 
 
 
@@ -351,9 +351,9 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
         // UPDATE the posts table for num_attachments
         /////////////////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['posts'] . " 
-					SET num_attachments = num_attachments - '$deleted'
-					WHERE pid = '$pid'", false);
+        $qresult = makequery("UPDATE " . $dbtables['posts'] . "
+                    SET num_attachments = num_attachments - '$deleted'
+                    WHERE pid = '$pid'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -369,9 +369,9 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
     // UPDATE the topics table for has_attach
     //////////////////////////////////////////
 
-    $qresult = makequery("UPDATE " . $dbtables['topics'] . " 
-					SET has_attach = has_attach - '$deleted'
-					WHERE tid = '$tid'", false);
+    $qresult = makequery("UPDATE " . $dbtables['topics'] . "
+                    SET has_attach = has_attach - '$deleted'
+                    WHERE tid = '$tid'", false);
 
     if (mysql_affected_rows($conn) < 1) {
 

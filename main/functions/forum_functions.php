@@ -4,7 +4,7 @@
 //===========================================================
 // forum_functions.php(functions)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -61,9 +61,9 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
     if ($get_mod) {
 
         $qresult = makequery("SELECT m.*, u.username, u.id , f.fid , c.order
-					FROM " . $dbtables['moderators'] . " m, " . $dbtables['users'] . " u,
-					" . $dbtables['forums'] . " f, " . $dbtables['categories'] . " c
-					WHERE m.mod_mem_id = u.id AND mod_fid = f.fid AND f.cat_id = c.cid");
+                    FROM " . $dbtables['moderators'] . " m, " . $dbtables['users'] . " u,
+                    " . $dbtables['forums'] . " f, " . $dbtables['categories'] . " c
+                    WHERE m.mod_mem_id = u.id AND mod_fid = f.fid AND f.cat_id = c.cid");
 
 
         if (mysql_num_rows($qresult) > 0) {
@@ -104,19 +104,19 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
     }//End of if($get_mod)
     //Get out the boards according to the user
     $qresult = makequery("SELECT cat.*, f.*, fp.*, t.*, p.*, u.username
-		" . (($logged_in) ? ", rf.*, rb.rb_time" : "") . ", th.th_folder
-		FROM " . $dbtables['categories'] . " cat 
-		LEFT JOIN " . $dbtables['forums'] . " f ON (cat.cid = f.cat_id)
-		LEFT JOIN " . $dbtables['forumpermissions'] . " fp ON (fp.fpfid = f.fid 
-					" . (($logged_in) ? "AND fp.fpugid = " . $user['member_group'] . "" : "") . ")
-		LEFT JOIN " . $dbtables['posts'] . " p ON (p.post_fid = f.fid AND p.pid = f.f_last_pid)
-		LEFT JOIN " . $dbtables['topics'] . " t ON (p.post_tid = t.tid)
-		LEFT JOIN " . $dbtables['users'] . " u ON (p.poster_id = u.id)
-		" . (($logged_in) ? "LEFT JOIN " . $dbtables['read_forums'] . " rf ON (f.fid = rf.rf_fid 
-                                                            			AND rf.rf_uid = '" . $user['id'] . "')
-		LEFT JOIN " . $dbtables['read_board'] . " rb ON (rb.rb_uid = '" . $user['id'] . "')" : "") . "
-		LEFT JOIN " . $dbtables['themes'] . " th ON (th.thid = f.id_skin)
-		ORDER BY cat.order ASC , f.par_board_id ASC , f.forum_order ASC");
+        " . (($logged_in) ? ", rf.*, rb.rb_time" : "") . ", th.th_folder
+        FROM " . $dbtables['categories'] . " cat
+        LEFT JOIN " . $dbtables['forums'] . " f ON (cat.cid = f.cat_id)
+        LEFT JOIN " . $dbtables['forumpermissions'] . " fp ON (fp.fpfid = f.fid
+                    " . (($logged_in) ? "AND fp.fpugid = " . $user['member_group'] . "" : "") . ")
+        LEFT JOIN " . $dbtables['posts'] . " p ON (p.post_fid = f.fid AND p.pid = f.f_last_pid)
+        LEFT JOIN " . $dbtables['topics'] . " t ON (p.post_tid = t.tid)
+        LEFT JOIN " . $dbtables['users'] . " u ON (p.poster_id = u.id)
+        " . (($logged_in) ? "LEFT JOIN " . $dbtables['read_forums'] . " rf ON (f.fid = rf.rf_fid
+                                                                        AND rf.rf_uid = '" . $user['id'] . "')
+        LEFT JOIN " . $dbtables['read_board'] . " rb ON (rb.rb_uid = '" . $user['id'] . "')" : "") . "
+        LEFT JOIN " . $dbtables['themes'] . " th ON (th.thid = f.id_skin)
+        ORDER BY cat.order ASC , f.par_board_id ASC , f.forum_order ASC");
 
     //Where are the boards ?
     if (mysql_num_rows($qresult) < 1) {
@@ -341,7 +341,7 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
 ///////////////////////////////////////
 // Deletes the array of Forum id given
 // Note: 1) Assumes the Forum exists
-///////////////////////////////////////	
+///////////////////////////////////////
 
 function delete_forums_fn($fids) {
 
@@ -364,8 +364,8 @@ function delete_forums_fn($fids) {
     //DELETE the Forums
     ////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['forums'] . " 
-					WHERE fid IN ($fids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['forums'] . "
+                    WHERE fid IN ($fids_str)", false);
 
     //How many were deleted ?
     $deleted = mysql_affected_rows($conn);
@@ -378,8 +378,8 @@ function delete_forums_fn($fids) {
 
     //Bring the topics of the forums out
     $qresult = makequery("SELECT tid
-			FROM " . $dbtables['topics'] . "
-			WHERE t_bid IN ($fids_str)");
+            FROM " . $dbtables['topics'] . "
+            WHERE t_bid IN ($fids_str)");
 
     //Were there any topics
     if (mysql_num_rows($qresult) > 0) {
@@ -413,32 +413,32 @@ function delete_forums_fn($fids) {
     // DELETE the Forum Permissions
     ////////////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['forumpermissions'] . " 
-					WHERE fpfid IN ($fids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['forumpermissions'] . "
+                    WHERE fpfid IN ($fids_str)", false);
 
 
     ////////////////////////////////////////
     // DELETE the Marked Read Forum History
     ////////////////////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['mark_read'] . " 
-					WHERE mr_fid IN ($fids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['mark_read'] . "
+                    WHERE mr_fid IN ($fids_str)", false);
 
 
     /////////////////////////
     // DELETE the Moderators
     /////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['moderators'] . " 
-					WHERE mod_fid IN ($fids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['moderators'] . "
+                    WHERE mod_fid IN ($fids_str)", false);
 
 
     ////////////////////////////
     // DELETE the notifications
     ////////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['notify_forum'] . " 
-					WHERE notify_fid IN ($fids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['notify_forum'] . "
+                    WHERE notify_fid IN ($fids_str)", false);
 
 
     //Looks like everything went well
@@ -449,7 +449,7 @@ function delete_forums_fn($fids) {
 // Reorders the first level In-Boards
 // of Forum id given and the Category
 // given
-///////////////////////////////////////	
+///////////////////////////////////////
 
 function reorderchildren_fn($par, $cat) {
 
@@ -460,10 +460,10 @@ function reorderchildren_fn($par, $cat) {
     ////////////////////////
 
     $qresult = makequery("SELECT fid
-					FROM " . $dbtables['forums'] . "
-					WHERE par_board_id = '$par'
-					AND cat_id = '$cat'
-					ORDER BY forum_order ASC");
+                    FROM " . $dbtables['forums'] . "
+                    WHERE par_board_id = '$par'
+                    AND cat_id = '$cat'
+                    ORDER BY forum_order ASC");
 
     //Did we find some children
     if (mysql_num_rows($qresult) < 1) {
@@ -487,9 +487,9 @@ function reorderchildren_fn($par, $cat) {
     for ($i = 1; $i <= count($fids); $i++) {
 
         $qresult = makequery("UPDATE " . $dbtables['forums'] . " SET
-							forum_order = '$i'
-							WHERE fid = '" . $fids[$i] . "'
-							LIMIT 1", false);
+                            forum_order = '$i'
+                            WHERE fid = '" . $fids[$i] . "'
+                            LIMIT 1", false);
     }//End of main for loop
 
     return true;
@@ -512,9 +512,9 @@ function read_forum_fn($fid, $view_time) {
         /////////////////////////////////
 
         $qresult = makequery("REPLACE INTO " . $dbtables['read_forums'] . "
-					SET rf_uid = '" . $user['id'] . "', 
-					rf_fid = '$fid', 
-					rf_time = '$view_time'", false);
+                    SET rf_uid = '" . $user['id'] . "',
+                    rf_fid = '$fid',
+                    rf_time = '$view_time'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -539,10 +539,10 @@ function is_mod_fn() {
     is_mod_fn_lang();
 
     ///////////////////////////////////////////
-    // We need to check is the user 
+    // We need to check is the user
     // a moderator of this board.
     // If it is load the moderator permissions
-    ///////////////////////////////////////////	
+    ///////////////////////////////////////////
 
     $is_mod = false;
 
@@ -568,8 +568,8 @@ function is_mod_fn() {
 
         //First take out the Forum Permissions
         $qresult = makequery("SELECT * FROM " . $dbtables['forumpermissions'] . "
-					WHERE fpfid = '" . $board['fid'] . "'
-					AND fpugid = '3'");
+                    WHERE fpfid = '" . $board['fid'] . "'
+                    AND fpugid = '3'");
 
         if (mysql_num_rows($qresult) > 0) {
 
@@ -584,9 +584,9 @@ function is_mod_fn() {
 
         //Then take out the User Permissions
         $qresult = makequery("SELECT ug.*, p.*
-			FROM " . $dbtables['user_groups'] . " ug 
-			LEFT JOIN " . $dbtables['permissions'] . " p ON (p.member_group_id = '3')
-			WHERE ug.member_group = '3'");
+            FROM " . $dbtables['user_groups'] . " ug
+            LEFT JOIN " . $dbtables['permissions'] . " p ON (p.member_group_id = '3')
+            WHERE ug.member_group = '3'");
 
         if (mysql_num_rows($qresult) < 1) {
 
@@ -651,10 +651,10 @@ function last_post_forum_fn($fid) {
     global $logged_in, $dbtables, $globals, $user, $conn, $l, $board;
 
     //SELECT the Last post of that FORUM
-    $qresult = makequery("SELECT * FROM " . $dbtables['posts'] . " 
-					WHERE post_fid = '$fid'
-					ORDER BY pid DESC
-					LIMIT 0, 1");
+    $qresult = makequery("SELECT * FROM " . $dbtables['posts'] . "
+                    WHERE post_fid = '$fid'
+                    ORDER BY pid DESC
+                    LIMIT 0, 1");
 
     if (mysql_num_rows($qresult) < 1) {
         return array('pid' => 0);

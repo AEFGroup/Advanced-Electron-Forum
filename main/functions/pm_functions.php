@@ -4,7 +4,7 @@
 //===========================================================
 // pm_functions.php(functions)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -47,13 +47,13 @@ function sendpm_fn($to, $subject, $body, $track, $saveinsentitems) {
     $time = time();
 
     //Make the QUERY
-    $qresult = makequery("INSERT INTO " . $dbtables['pm'] . " 
-			SET pm_from = '" . $user['id'] . "', 
-			pm_to = '$to', 
-			pm_time = '$time', 
-			pm_subject = '$subject', 
-			pm_body = '$body', 
-			pm_track = '$track'");
+    $qresult = makequery("INSERT INTO " . $dbtables['pm'] . "
+            SET pm_from = '" . $user['id'] . "',
+            pm_to = '$to',
+            pm_time = '$time',
+            pm_subject = '$subject',
+            pm_body = '$body',
+            pm_track = '$track'");
 
     $pmid = mysql_insert_id($conn);
 
@@ -66,13 +66,13 @@ function sendpm_fn($to, $subject, $body, $track, $saveinsentitems) {
     // UPDATE The Recievers PM count
     ////////////////////////////////
     //Make the QUERY
-    $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-			SET pm = pm + 1 , 
-			unread_pm = unread_pm + 1 
-			WHERE id = '$to'", false);
+    $qresult = makequery("UPDATE " . $dbtables['users'] . "
+            SET pm = pm + 1 ,
+            unread_pm = unread_pm + 1
+            WHERE id = '$to'", false);
 
 
-    //Were things deleted			
+    //Were things deleted
     if (mysql_affected_rows($conn) < 1) {
 
         return false;
@@ -91,14 +91,14 @@ function sendpm_fn($to, $subject, $body, $track, $saveinsentitems) {
         // Sent Items Folder ID is '1'
         ///////////////////////////////
         //Make the QUERY
-        $qresult = makequery("INSERT INTO " . $dbtables['pm'] . " 
-				SET pm_from = '" . $user['id'] . "', 
-				pm_to = '$to', 
-				pm_time = '$time', 
-				pm_subject = '$subject', 
-				pm_body = '$body', 
-				pm_track = '$track',
-				pm_folder = '1'");
+        $qresult = makequery("INSERT INTO " . $dbtables['pm'] . "
+                SET pm_from = '" . $user['id'] . "',
+                pm_to = '$to',
+                pm_time = '$time',
+                pm_subject = '$subject',
+                pm_body = '$body',
+                pm_track = '$track',
+                pm_folder = '1'");
 
 
         $pmid_s = mysql_insert_id($conn);
@@ -113,11 +113,11 @@ function sendpm_fn($to, $subject, $body, $track, $saveinsentitems) {
         // UPDATE The Senders PM count
         ////////////////////////////////
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET pm = pm + 1 
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET pm = pm + 1
+                WHERE id = '" . $user['id'] . "'", false);
 
-        //Were things deleted			
+        //Were things deleted
         if (mysql_affected_rows($conn) < 1) {
 
             return false;

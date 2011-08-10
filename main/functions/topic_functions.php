@@ -4,7 +4,7 @@
 //===========================================================
 // topic_functions.php(functions)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -56,7 +56,7 @@ function delete_topics_fn($tids, $param = array()) {
     ///////////////////////////////////
     /////////////////////////////
     // Define the necessary VARS
-    /////////////////////////////	
+    /////////////////////////////
 
     $topics = array();
 
@@ -84,8 +84,8 @@ function delete_topics_fn($tids, $param = array()) {
 
     //Bring the topics out
     $qresult = makequery("SELECT tid, t_bid, poll_id, has_attach
-			FROM " . $dbtables['topics'] . "
-			WHERE tid IN ($tids_str)");
+            FROM " . $dbtables['topics'] . "
+            WHERE tid IN ($tids_str)");
 
     if (mysql_num_rows($qresult) < 1 || (mysql_num_rows($qresult) != count($tids))) {
 
@@ -118,8 +118,8 @@ function delete_topics_fn($tids, $param = array()) {
 
     //Bring the pids out
     $qresult = makequery("SELECT pid, num_attachments
-			FROM " . $dbtables['posts'] . "
-			WHERE post_tid IN ($tids_str)");
+            FROM " . $dbtables['posts'] . "
+            WHERE post_tid IN ($tids_str)");
 
     //Nearly impossible
     if (mysql_num_rows($qresult) < 1) {
@@ -158,9 +158,9 @@ function delete_topics_fn($tids, $param = array()) {
 
         //Bring the poster count out
         $qresult = makequery("SELECT poster_id AS id, COUNT(ptime) AS num
-				FROM " . $dbtables['posts'] . "
-				WHERE post_tid IN ($tids_str) AND poster_id != '-1'
-				GROUP BY poster_id");
+                FROM " . $dbtables['posts'] . "
+                WHERE post_tid IN ($tids_str) AND poster_id != '-1'
+                GROUP BY poster_id");
 
         //Make an empty array
         $posters = array();
@@ -178,9 +178,9 @@ function delete_topics_fn($tids, $param = array()) {
         //Loop through the posters as there may be many
         foreach ($posters as $pk => $pv) {
 
-            $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-							SET posts = posts - " . $pv['num'] . "
-							WHERE id = '" . $pv['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                            SET posts = posts - " . $pv['num'] . "
+                            WHERE id = '" . $pv['id'] . "'", false);
 
             /* if(mysql_affected_rows($conn) < 1){
 
@@ -195,8 +195,8 @@ function delete_topics_fn($tids, $param = array()) {
     // DELETE the topics
     /////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['topics'] . " 
-					WHERE tid IN ($tids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['topics'] . "
+                    WHERE tid IN ($tids_str)", false);
 
     //How many were deleted ?
     $deleted = mysql_affected_rows($conn);
@@ -212,7 +212,7 @@ function delete_topics_fn($tids, $param = array()) {
     ///////////////////
 
     $qresult = makequery("DELETE FROM " . $dbtables['posts'] . "
-					WHERE post_tid IN ($tids_str)", false);
+                    WHERE post_tid IN ($tids_str)", false);
 
     //How many were deleted ?
     $deleted_p = mysql_affected_rows($conn);
@@ -233,9 +233,9 @@ function delete_topics_fn($tids, $param = array()) {
 
         //Bring the atids out
         $qresult = makequery("SELECT atid, at_file
-				FROM " . $dbtables['attachments'] . "
-				WHERE at_pid IN ($at_pids_str)
-				ORDER BY at_pid ASC");
+                FROM " . $dbtables['attachments'] . "
+                WHERE at_pid IN ($at_pids_str)
+                ORDER BY at_pid ASC");
 
         //Loop through the table
         for ($i = 1; $i <= mysql_num_rows($qresult); $i++) {
@@ -262,9 +262,9 @@ function delete_topics_fn($tids, $param = array()) {
 
         //Bring the poids out
         $qresult = makequery("SELECT poid
-				FROM " . $dbtables['polls'] . "
-				WHERE poll_tid IN ($po_tids_str)
-				ORDER BY poid ASC");
+                FROM " . $dbtables['polls'] . "
+                WHERE poll_tid IN ($po_tids_str)
+                ORDER BY poid ASC");
 
         //Loop through the table
         for ($i = 1; $i <= mysql_num_rows($qresult); $i++) {
@@ -285,16 +285,16 @@ function delete_topics_fn($tids, $param = array()) {
     // DELETE the notifications
     ////////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['notify_topic'] . " 
-					WHERE notify_tid IN ($tids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['notify_topic'] . "
+                    WHERE notify_tid IN ($tids_str)", false);
 
 
     ////////////////////////////
     // DELETE from read_topics
     ////////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['read_topics'] . " 
-					WHERE rt_tid IN ($tids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['read_topics'] . "
+                    WHERE rt_tid IN ($tids_str)", false);
 
 
     ///////////////////////////////////////
@@ -307,9 +307,9 @@ function delete_topics_fn($tids, $param = array()) {
 
         //Bring the topic count out
         $qresult = makequery("SELECT t_bid, COUNT(t_bid) AS ntopic
-						FROM " . $dbtables['topics'] . "
-						WHERE t_bid IN ($fids_str)
-						GROUP BY t_bid");
+                        FROM " . $dbtables['topics'] . "
+                        WHERE t_bid IN ($fids_str)
+                        GROUP BY t_bid");
 
         //Make an empty array
         $ntopic = array();
@@ -329,9 +329,9 @@ function delete_topics_fn($tids, $param = array()) {
 
         //Bring the post count out
         $qresult = makequery("SELECT post_fid, COUNT(post_fid) AS nposts
-						FROM " . $dbtables['posts'] . "						
-						WHERE post_fid IN ($fids_str)
-						GROUP BY post_fid");
+                        FROM " . $dbtables['posts'] . "
+                        WHERE post_fid IN ($fids_str)
+                        GROUP BY post_fid");
 
         //Make an empty array
         $nposts = array();
@@ -352,10 +352,10 @@ function delete_topics_fn($tids, $param = array()) {
         //Loop through the posters as there may be many
         foreach ($fids as $f) {
 
-            $qresult = makequery("UPDATE " . $dbtables['forums'] . " 
-						SET ntopic = '" . (empty($ntopic[$f]) ? 0 : $ntopic[$f]) . "',
-						nposts = '" . (empty($nposts[$f]) ? 0 : $nposts[$f]) . "'
-						WHERE fid = '$f'", false);
+            $qresult = makequery("UPDATE " . $dbtables['forums'] . "
+                        SET ntopic = '" . (empty($ntopic[$f]) ? 0 : $ntopic[$f]) . "',
+                        nposts = '" . (empty($nposts[$f]) ? 0 : $nposts[$f]) . "'
+                        WHERE fid = '$f'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -400,8 +400,8 @@ function delete_attach($attachments) {
     // DELETE the attachment
     /////////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['attachments'] . " 
-					WHERE atid IN ($atids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['attachments'] . "
+                    WHERE atid IN ($atids_str)", false);
 
 
 
@@ -458,8 +458,8 @@ function delete_poll($poids) {
     // DELETE the polls
     ////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['polls'] . " 
-					WHERE poid IN ($poids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['polls'] . "
+                    WHERE poid IN ($poids_str)", false);
 
 
 
@@ -474,8 +474,8 @@ function delete_poll($poids) {
     // DELETE the options
     //////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['poll_options'] . " 
-					WHERE poo_poid IN ($poids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['poll_options'] . "
+                    WHERE poo_poid IN ($poids_str)", false);
 
 
 
@@ -490,8 +490,8 @@ function delete_poll($poids) {
     // DELETE the voters
     //////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['poll_voters'] . " 
-					WHERE pv_poid IN ($poids_str)", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['poll_voters'] . "
+                    WHERE pv_poid IN ($poids_str)", false);
 
 
 
@@ -565,7 +565,7 @@ function checkdescription_fn($description) {
     // 1 - Allow Shouting
     // 2 - Max Length
     // 3 - Min Length
-    //////////////////////////////////	
+    //////////////////////////////////
     //Check the Max Length
     if ($globals['maxdescchars'] && (aefstrlen($description) > $globals['maxdescchars'])) {
 
@@ -606,7 +606,7 @@ function checkpost_fn($post) {
     // 3 - Max Emoticons
     // 4 - Max Images
     // 5 - Max Flash
-    //////////////////////////////////	
+    //////////////////////////////////
 
     $emotused = 0;
 
@@ -700,9 +700,9 @@ function read_topic_fn($tid, $view_time) {
         /////////////////////////////////
 
         $qresult = makequery("REPLACE INTO " . $dbtables['read_topics'] . "
-					SET rt_uid = '" . $user['id'] . "', 
-					rt_tid = '$tid', 
-					rt_time = '$view_time'", false);
+                    SET rt_uid = '" . $user['id'] . "',
+                    rt_tid = '$tid',
+                    rt_time = '$view_time'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -724,10 +724,10 @@ function first_post_topic_fn($tid) {
     global $logged_in, $dbtables, $globals, $user, $conn, $l, $board;
 
     //SELECT the Last post of that TOPIC
-    $qresult = makequery("SELECT * FROM " . $dbtables['posts'] . " 
-					WHERE post_tid = '$tid'
-					ORDER BY pid ASC
-					LIMIT 0, 1");
+    $qresult = makequery("SELECT * FROM " . $dbtables['posts'] . "
+                    WHERE post_tid = '$tid'
+                    ORDER BY pid ASC
+                    LIMIT 0, 1");
 
     if (mysql_num_rows($qresult) < 1) {
         return array('pid' => 0,
@@ -745,10 +745,10 @@ function last_post_topic_fn($tid) {
     global $logged_in, $dbtables, $globals, $user, $conn, $l, $board;
 
     //SELECT the Last post of that TOPIC
-    $qresult = makequery("SELECT * FROM " . $dbtables['posts'] . " 
-					WHERE post_tid = '$tid'
-					ORDER BY pid DESC
-					LIMIT 0, 1");
+    $qresult = makequery("SELECT * FROM " . $dbtables['posts'] . "
+                    WHERE post_tid = '$tid'
+                    ORDER BY pid DESC
+                    LIMIT 0, 1");
 
     if (mysql_num_rows($qresult) < 1) {
         return array('pid' => 0,
