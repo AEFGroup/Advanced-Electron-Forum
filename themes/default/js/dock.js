@@ -11,7 +11,7 @@ function dock(id){
     var img, sizes = [];
     if(typeof(id) != 'string'){
         id = 'dock';
-    }	
+    }
     this.init = function(){
         var self = this;
         this.dock = $(id);
@@ -25,19 +25,19 @@ function dock(id){
         this.dock.style.height = sizes[3]+"px";
         //Set the height
         this.dock.style.width = (sizes[0]*(img.length-1))+"px";
-	
+
         for (i=0; i<img.length; i++) {
             img[i].now = {
-                left : 0, 
-                top : 0, 
+                left : 0,
+                top : 0,
                 size : sizes[0]
             };
             img[i].target = {
-                left : 0, 
-                top : 0, 
+                left : 0,
+                top : 0,
                 size : sizes[0]
             };
-			
+
             //Mouseover Event
             img[i].onmouseover = function(e) {
                 e = window.event ? event : e;
@@ -49,13 +49,13 @@ function dock(id){
                     }
                 }
             };
-			
+
             //Mouseout Event
             img[i].onmouseout = function(){
                 self.process(-1);
             };
         }
-		
+
         //Process
         this.process(-1);
         var process = function(){
@@ -63,26 +63,26 @@ function dock(id){
         };
         setTimeout(process, this.speed);
     };
-	
+
     this.dockify = function(){
         var self = this;
         for (i=0; i<img.length; i++){
             img[i].now.left = ((this.pace-1)*img[i].now.left+img[i].target.left)/this.pace;
             img[i].style.left = Math.floor(img[i].now.left)+'px';
-	
+
             img[i].now.top = ((this.pace-1)*img[i].now.top+img[i].target.top)/this.pace;
             img[i].style.top = Math.floor(img[i].now.top)+'px';
-	
+
             img[i].now.size = ((this.pace-1)*img[i].now.size+img[i].target.size)/this.pace;
             img[i].style.width = Math.floor(img[i].now.size)+'px';
             img[i].style.height = Math.floor(img[i].now.size)+'px';
-        }	
+        }
         var process = function(){
             self.dockify();
         };
         setTimeout(process ,this.speed);
     };
-	
+
     this.process = function(m){
         for(i=0; i<img.length; i++){
             img[i].target.size = sizes[0];
@@ -99,9 +99,9 @@ function dock(id){
         }else{
             img[0].target.left = 0;
         }
-		
+
         for(i=1; i<img.length; i++){
             img[i].target.left = img[i-1].target.left + img[i-1].target.size;
-        }	
-    };	
+        }
+    };
 };

@@ -3,7 +3,7 @@
 //===========================================================
 // attachments_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -123,7 +123,7 @@ function attset_theme() {
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="maxattachsizepost" value="<?php echo (empty($_POST['maxattachsizepost']) ? $globals['maxattachsizepost'] : $_POST['maxattachsizepost']); ?>" />
                 </td>
-            </tr>		
+            </tr>
 
             <tr>
                 <td class="adbg">
@@ -177,7 +177,7 @@ function attset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editattset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -245,31 +245,31 @@ function attmime_theme() {
         if (empty($mimetypes)) {
 
             echo '<tr>
-	<td class="adbg" colspan="5">
-	' . $l['no_allowed_extensions_found'] . '
-	</td>
-	</tr>';
+    <td class="adbg" colspan="5">
+    ' . $l['no_allowed_extensions_found'] . '
+    </td>
+    </tr>';
         } else {
 
             foreach ($mimetypes as $mk => $mv) {
 
                 echo '<tr>
-	<td class="adbg" align="center">
-	<img src="' . $globals['url'] . '/mimetypes/' . $mimetypes[$mk]['atmt_icon'] . '">
-	</td>
-	<td class="adbg">
-	.' . $mimetypes[$mk]['atmt_ext'] . '
-	</td>
-	<td class="adbg">
-	' . $mimetypes[$mk]['atmt_mimetype'] . '
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=attach&seadact=editmime&atmtid=' . $mimetypes[$mk]['atmtid'] . '">' . $l['edit'] . '</a>
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=attach&seadact=delmime&atmtid=' . $mimetypes[$mk]['atmtid'] . '">' . $l['delete'] . '</a>
-	</td>
-	</tr>';
+    <td class="adbg" align="center">
+    <img src="' . $globals['url'] . '/mimetypes/' . $mimetypes[$mk]['atmt_icon'] . '">
+    </td>
+    <td class="adbg">
+    .' . $mimetypes[$mk]['atmt_ext'] . '
+    </td>
+    <td class="adbg">
+    ' . $mimetypes[$mk]['atmt_mimetype'] . '
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=attach&seadact=editmime&atmtid=' . $mimetypes[$mk]['atmtid'] . '">' . $l['edit'] . '</a>
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=attach&seadact=delmime&atmtid=' . $mimetypes[$mk]['atmtid'] . '">' . $l['delete'] . '</a>
+    </td>
+    </tr>';
             }
         }
         ?>
@@ -281,7 +281,7 @@ function attmime_theme() {
             <td align="center" class="adbg">
                 <input type="button" value="<?php echo $l['add_new_type']; ?>"  onclick="javascript:window.location='<?php echo $globals['index_url'] . 'act=admin&adact=attach&seadact=addmime'; ?>'" />
             </td>
-        </tr>	
+        </tr>
     </table>
 
     <?php
@@ -400,7 +400,7 @@ function editmime_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editmime" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -521,7 +521,7 @@ function addmime_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="addmime" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

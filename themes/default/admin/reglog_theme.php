@@ -3,7 +3,7 @@
 //===========================================================
 // reglog_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -72,7 +72,7 @@ function regset_theme() {
                     <font class="adexp"><?php echo $l['new_reg_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="allow_reg"	<?php echo ($globals['allow_reg'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="allow_reg"    <?php echo ($globals['allow_reg'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -97,7 +97,7 @@ function regset_theme() {
                     <font class="adexp"><?php echo $l['welcome_email_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="wel_email"	<?php echo ($globals['wel_email'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="wel_email"    <?php echo ($globals['wel_email'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -180,7 +180,7 @@ function regset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editregset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -294,7 +294,7 @@ function agerest_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editagerestset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -361,7 +361,7 @@ function reserved_theme() {
                     <font class="adexp"><?php echo $l['match_whole_words_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="reserved_match_whole"	<?php echo ($globals['reserved_match_whole'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="reserved_match_whole"    <?php echo ($globals['reserved_match_whole'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -371,7 +371,7 @@ function reserved_theme() {
                     <font class="adexp"><?php echo $l['case_insens_match_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="reserved_match_insensitive"	<?php echo ($globals['reserved_match_insensitive'] ? 'checked="checked"' : ''); ?> />
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="reserved_match_insensitive"    <?php echo ($globals['reserved_match_insensitive'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -384,7 +384,7 @@ function reserved_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editreserved" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -484,7 +484,7 @@ function logset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editlogset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

@@ -8,7 +8,7 @@ function edittopic_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="edittopicform">
 
@@ -18,7 +18,7 @@ function edittopic_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['edittopic_heading'] . $topic['topic']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -48,19 +48,19 @@ function edittopic_theme() {
                         <?php
                         //Topic Icons
                         echo '<tr>
-			<td width="18%" class="etlc">' . $l['edit_topic_icons'] . '</td>
-			<td class="etrc">';
+            <td width="18%" class="etlc">' . $l['edit_topic_icons'] . '</td>
+            <td class="etrc">';
 
                         //Topic Icons loop
                         foreach ($globals['topic_icons'] as $ik => $iv) {
 
                             echo '<input type="radio" name="topic_icon" value="' . $ik . '" ' . ( (isset($_POST['topic_icon']) && (int) $_POST['topic_icon'] == $ik ) ? 'checked="checked"' : ($topic['type_image'] == $ik ? 'checked="checked"' : '' ) ) . ' />
-			<img src="' . $theme['images'] . 'icons/' . $globals['topic_icons'][$ik][0] . '" title="' . $globals['topic_icons'][$ik][1] . '" />&nbsp;&nbsp;&nbsp;';
+            <img src="' . $theme['images'] . 'icons/' . $globals['topic_icons'][$ik][0] . '" title="' . $globals['topic_icons'][$ik][1] . '" />&nbsp;&nbsp;&nbsp;';
                         }
 
 
                         echo '<br />
-			<input type="radio" name="topic_icon" value="0" ' . ( (isset($_POST['topic_icon']) && (int) $_POST['topic_icon'] == 0 ) ? 'checked="checked"' : (!isset($_POST['topic_icon']) && empty($topic['type_image']) ? 'checked="checked"' : '') ) . ' />' . $l['topic_icons_none'] . '&nbsp;&nbsp;&nbsp;';
+            <input type="radio" name="topic_icon" value="0" ' . ( (isset($_POST['topic_icon']) && (int) $_POST['topic_icon'] == 0 ) ? 'checked="checked"' : (!isset($_POST['topic_icon']) && empty($topic['type_image']) ? 'checked="checked"' : '') ) . ' />' . $l['topic_icons_none'] . '&nbsp;&nbsp;&nbsp;';
 
                         echo '</td></tr>';
                         ?>

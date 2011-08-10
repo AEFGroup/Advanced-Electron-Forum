@@ -8,7 +8,7 @@ function report_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '100%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="reportingapost">
         <br />

@@ -30,7 +30,7 @@ function monthview_theme() {
     aefheader($l['<title>']);
 
     echo '<link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/calendar.css" />
-	<br />
+    <br />
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 
 <tr>
@@ -48,14 +48,14 @@ function monthview_theme() {
 
 </td>
 </tr>
-		
+
 <tr>
 <td>
 
 
 <table width="100%" cellpadding="1" cellspacing="0" align="center" class="cbgbor">
-	
-	<tr>';
+
+    <tr>';
 
     //The calendar days
     for ($x = 0; $x < 7; $x++) {
@@ -63,8 +63,8 @@ function monthview_theme() {
         echo '<td class="cbg1" align="center" width="14%">' . $l['days'][$x] . '</td>';
     }
 
-    echo '</tr>		
-	<tr>';
+    echo '</tr>
+    <tr>';
 
     $offset = datify(mktime(0, 0, 0, $month, 1, $year), false, false, 'w');
 
@@ -87,7 +87,7 @@ function monthview_theme() {
         $thisday = datify(mktime(0, 0, 0, $month, $d, $year), false, false, 'Ymd');
 
         echo '<td valign="top" class="' . ($thisday == $today ? 'todaybox' : 'daybox') . '">
-			<div class="' . ($thisday == $today ? 'topdayon' : 'topday') . '">' . $d . '</div>';
+            <div class="' . ($thisday == $today ? 'topdayon' : 'topday') . '">' . $d . '</div>';
 
         //Any Happy Birthdays on this day!!!
         if (!empty($birthdays[$d])) {
@@ -134,24 +134,24 @@ function monthview_theme() {
     }
 
     echo '</tr>
-	<tr>
-	<td class="nextprev" align="left" colspan="3">
-		&nbsp;&nbsp;&laquo; <a href="' . $globals['index_url'] . 'act=calendar&date=' . $prevyear . $prevmonth . '01">' . $l['months'][$prevmonth] . ' ' . $prevyear . '</a>
-	</td>
-	<td class="nextprev" align="center">
-		<a href="' . $globals['index_url'] . 'act=calendar&date=' . $year . $month . '01">' . $l['months'][$month] . ' ' . $year . '</a>
-	</td>
-	<td class="nextprev" align="right" colspan="3">
-		<a href="' . $globals['index_url'] . 'act=calendar&date=' . $nextyear . $nextmonth . '01">' . $l['months'][$nextmonth] . ' ' . $nextyear . ' &raquo;</a>&nbsp;&nbsp;
-	</td>
-	</tr>
-	
-	<tr>
-	<td class="currentmonth" colspan="7" align="center">
-		<a href="' . $globals['index_url'] . 'act=calendar">' . $l['current_month'] . '</a>
-	</td>
-	</tr>
-	</table>
+    <tr>
+    <td class="nextprev" align="left" colspan="3">
+        &nbsp;&nbsp;&laquo; <a href="' . $globals['index_url'] . 'act=calendar&date=' . $prevyear . $prevmonth . '01">' . $l['months'][$prevmonth] . ' ' . $prevyear . '</a>
+    </td>
+    <td class="nextprev" align="center">
+        <a href="' . $globals['index_url'] . 'act=calendar&date=' . $year . $month . '01">' . $l['months'][$month] . ' ' . $year . '</a>
+    </td>
+    <td class="nextprev" align="right" colspan="3">
+        <a href="' . $globals['index_url'] . 'act=calendar&date=' . $nextyear . $nextmonth . '01">' . $l['months'][$nextmonth] . ' ' . $nextyear . ' &raquo;</a>&nbsp;&nbsp;
+    </td>
+    </tr>
+
+    <tr>
+    <td class="currentmonth" colspan="7" align="center">
+        <a href="' . $globals['index_url'] . 'act=calendar">' . $l['current_month'] . '</a>
+    </td>
+    </tr>
+    </table>
 
 </td>
 </tr>

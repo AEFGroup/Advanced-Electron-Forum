@@ -1,7 +1,7 @@
 /********************************
 * Slashdot Menu script- By DimX
 *********************************/
-		
+
 function SDMenu(id) {
     if (!document.getElementById || !document.getElementsByTagName)
         return false;
@@ -48,7 +48,7 @@ SDMenu.prototype.expandMenu = function(submenu) {
     for (var i = 0; i < links.length; i++)
         fullHeight += links[i].offsetHeight;
     var moveBy = Math.round(this.speed * links.length);
-	
+
     var mainInstance = this;
     var intId = setInterval(function() {
         var curHeight = submenu.offsetHeight;

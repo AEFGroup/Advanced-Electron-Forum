@@ -3,7 +3,7 @@
 //===========================================================
 // recyclebin_theme.php(admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -82,19 +82,19 @@ function recyclebin_theme() {
                     <b><?php echo $l['forum']; ?></b><br />
                     <?php echo $l['forum_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
                     <select name="rbfid" style="font-family:Verdana; font-size:11px">
 
                         <?php
                         echo '<option value="0" ' . ((isset($_POST['rbfid']) && trim($_POST['rbfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : '') . '>
-			' . $l['none'] . '
-			</option>';
+            ' . $l['none'] . '
+            </option>';
 
                         foreach ($mother_options as $i => $iv) {
 
                             echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['rbfid']) && trim($_POST['rbfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : (($mother_options[$i][0] == (int) $globals['recyclebin']) ? 'selected="selected"' : '' ) ) . '>
-			' . $mother_options[$i][1] . '
-			</option>';
+            ' . $mother_options[$i][1] . '
+            </option>';
                         }//End of for loop
                         ?>
                     </select>
@@ -103,7 +103,7 @@ function recyclebin_theme() {
 
             <tr>
                 <td class="adbg" height="30" colspan="2" align="center">
-                    <input type="submit" name="setrecyclebin" value="<?php echo $l['submit']; ?>" />		
+                    <input type="submit" name="setrecyclebin" value="<?php echo $l['submit']; ?>" />
                 </td>
             </tr>
 

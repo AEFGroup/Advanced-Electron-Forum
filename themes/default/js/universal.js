@@ -78,7 +78,7 @@ function check(field, checker){
             field[i].checked = true;
         }
     }else{
-        for(i = 0; i < field.length; i++){  
+        for(i = 0; i < field.length; i++){
             field[i].checked = false;
         }
     }
@@ -104,7 +104,7 @@ function scrolledy(){
     }else if(document.documentElement && typeof(document.documentElement.scrollTop)!='undefined'){
         return document.documentElement.scrollTop;
     }else{
-        return 0;	
+        return 0;
     }
 };
 
@@ -132,7 +132,7 @@ function smoothopaque(elid, startop, endop, inc){
                 setTimeout(slowopacity, 1);
             }
         }
-        setopacity(el, op);		
+        setopacity(el, op);
     };
 };
 
@@ -180,10 +180,10 @@ function AJAX(url, evalthis){
             }
         }
     }
-	
+
     if(req){
         try{
-            req.onreadystatechange = function(){				
+            req.onreadystatechange = function(){
                 // only if req shows "loaded"
                 if (req.readyState==4) {
                     //only if OK

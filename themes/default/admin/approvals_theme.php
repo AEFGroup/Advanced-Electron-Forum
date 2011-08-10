@@ -3,7 +3,7 @@
 //===========================================================
 // approvals_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -28,7 +28,7 @@ function manval_theme() {
 
     global $globals, $theme, $members, $error, $l, $count;
 
-    //Admin Headers includes Global Headers  
+    //Admin Headers includes Global Headers
     adminhead($l['cp_validating']);
     ?>
 
@@ -58,9 +58,9 @@ function manval_theme() {
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" method="get" action="<?php echo $globals['index_url']; ?>" name="sortform" >
-        <table width="100%" class="cbor" cellpadding="6" cellspacing="1">		
+        <table width="100%" class="cbor" cellpadding="6" cellspacing="1">
             <tr>
-                <td>		
+                <td>
                     <input type="hidden" name="act" value="admin" />
                     <input type="hidden" name="adact" value="approvals" />
                     <input type="hidden" name="seadact" value="manval" />
@@ -76,7 +76,7 @@ function manval_theme() {
                         <option value="1" <?php echo (!empty($_GET['order']) && trim($_GET['order']) == 1 ? ' selected="selected"' : ''); ?> ><?php echo $l['ascending']; ?></option>
                         <option value="2" <?php echo (!empty($_GET['order']) && trim($_GET['order']) == 2 ? ' selected="selected"' : ''); ?> ><?php echo $l['descending']; ?></option>
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php echo $l['page']; ?> <select name="mpg">	
+                    <?php echo $l['page']; ?> <select name="mpg">
                         <?php
                         if (empty($count)) {
 
@@ -92,8 +92,8 @@ function manval_theme() {
                         ?>
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="<?php echo $l['go']; ?>" />
-                </td>				
-            </tr>		
+                </td>
+            </tr>
         </table>
     </form>
 
@@ -102,47 +102,47 @@ function manval_theme() {
         <!-- Begin
         //var checkflag = "false";
         function check(field, checker) {
-                	
+
             //alert(checker);
-                	
+
             if (checker.value == "0") {
-                		
+
                 for (i = 0; i < field.length; i++) {
-                		 
+
                     field[i].checked = true;}
                 //checkflag = "true";
                 checker.value = "1";
-                		  
+
             }else{
-                		
+
                 for (i = 0; i < field.length; i++) {
-                			  
-                    field[i].checked = false; 
-                				
+
+                    field[i].checked = false;
+
                 }
-                			
+
                 //checkflag = "false";
                 checker.value = "0";
-                		
+
             }
-                		
+
         }
         //  End -->
     </script>
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="manvalform">
 
-        <table width="100%" class="cbor" cellpadding="6" cellspacing="1">		
+        <table width="100%" class="cbor" cellpadding="6" cellspacing="1">
             <tr>
-                <td align="right">		
+                <td align="right">
                     <?php echo $l['with_selected']; ?> <select name="dothis">
                         <option value="1" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 1 ? ' selected="selected"' : ''); ?> ><?php echo $l['activate']; ?></option>
                         <option value="2" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 2 ? ' selected="selected"' : ''); ?> ><?php echo $l['activate_send_mail']; ?></option>
                         <option value="3" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 3 ? ' selected="selected"' : ''); ?> ><?php echo $l['delete']; ?></option>
                         <option value="4" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 4 ? ' selected="selected"' : ''); ?> ><?php echo $l['delete_send_mail']; ?></option>
                     </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="<?php echo $l['go']; ?>" />		
-                </td>				
-            </tr>		
+                    <input type="submit" value="<?php echo $l['go']; ?>" />
+                </td>
+            </tr>
         </table>
 
         <br />
@@ -150,59 +150,59 @@ function manval_theme() {
         <?php
         //The first row that is Headers
         echo'<table width="100%" class="cbor" cellpadding="6" cellspacing="1">
-	
-	<tr>
-	<td class="ttcbg" width="10%" align="center">' . $l['id'] . '</td>
-	<td class="ttcbg" width="20%" align="center">' . $l['username'] . '</td>
-	<td class="ttcbg" width="35%" align="center">' . $l['email'] . '</td>
-	<td class="ttcbg" width="30%" align="center">' . $l['registered_on'] . '</td>
-	<td class="ttcbg" width="5%" align="center">
-	<input type=checkbox onClick="check(document.getElementsByName(\'uid[]\'), this)" value="0">
-	</td>
-	</tr>';
+
+    <tr>
+    <td class="ttcbg" width="10%" align="center">' . $l['id'] . '</td>
+    <td class="ttcbg" width="20%" align="center">' . $l['username'] . '</td>
+    <td class="ttcbg" width="35%" align="center">' . $l['email'] . '</td>
+    <td class="ttcbg" width="30%" align="center">' . $l['registered_on'] . '</td>
+    <td class="ttcbg" width="5%" align="center">
+    <input type=checkbox onClick="check(document.getElementsByName(\'uid[]\'), this)" value="0">
+    </td>
+    </tr>';
 
         if (empty($members)) {
 
             echo '<tr>
-		
-		<td class="ucpflc" colspan="5">
-		' . $l['no_members_activate_accounts'] . '
-		</td>
-		
-		</tr>';
+
+        <td class="ucpflc" colspan="5">
+        ' . $l['no_members_activate_accounts'] . '
+        </td>
+
+        </tr>';
         } else {
 
 
             foreach ($members as $m => $mv) {
 
                 echo '<tr>
-		
-		<td class="ucpflc">
-		<a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['id'] . '</a>
-		</td>
-		
-		<td class="ucpflc">
-		<a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
-		</td>
-		
-		<td class="ucpflc">
-		<a href="mailto:' . $members[$m]['email'] . '">' . $members[$m]['email'] . '</a>
-		</td>
-		
-		<td class="ucpflc" align="left">
-		' . date("F j, Y", $members[$m]['r_time']) . '
-		</td>
-		
-		<td class="ucpflc">
-		<input type=checkbox name="uid[]" value="' . $members[$m]['id'] . '">
-		</td>';
+
+        <td class="ucpflc">
+        <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['id'] . '</a>
+        </td>
+
+        <td class="ucpflc">
+        <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
+        </td>
+
+        <td class="ucpflc">
+        <a href="mailto:' . $members[$m]['email'] . '">' . $members[$m]['email'] . '</a>
+        </td>
+
+        <td class="ucpflc" align="left">
+        ' . date("F j, Y", $members[$m]['r_time']) . '
+        </td>
+
+        <td class="ucpflc">
+        <input type=checkbox name="uid[]" value="' . $members[$m]['id'] . '">
+        </td>';
 
                 echo '</tr>';
             }
         }
 
-        echo '</table>	
-	</form>';
+        echo '</table>
+    </form>';
 
         adminfoot();
     }
@@ -240,9 +240,9 @@ function manval_theme() {
         error_handle($error, '100%');
         ?>
         <form accept-charset="<?php echo $globals['charset']; ?>" method="get" action="<?php echo $globals['index_url']; ?>" name="sortform" >
-            <table width="100%" class="cbor" cellpadding="6" cellspacing="1">		
+            <table width="100%" class="cbor" cellpadding="6" cellspacing="1">
                 <tr>
-                    <td>		
+                    <td>
                         <input type="hidden" name="act" value="admin" />
                         <input type="hidden" name="adact" value="approvals" />
                         <input type="hidden" name="seadact" value="awapp" />
@@ -258,7 +258,7 @@ function manval_theme() {
                             <option value="1" <?php echo (!empty($_GET['order']) && trim($_GET['order']) == 1 ? ' selected="selected"' : ''); ?> ><?php echo $l['ascending']; ?></option>
                             <option value="2" <?php echo (!empty($_GET['order']) && trim($_GET['order']) == 2 ? ' selected="selected"' : ''); ?> ><?php echo $l['descending']; ?></option>
                         </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                	Page : <select name="mpg">	
+                        Page : <select name="mpg">
                             <?php
                             if (empty($count)) {
 
@@ -274,8 +274,8 @@ function manval_theme() {
                             ?>
                         </select>&nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="submit" value="<?php echo $l['go']; ?>" />
-                    </td>				
-                </tr>		
+                    </td>
+                </tr>
             </table>
         </form>
 
@@ -284,47 +284,47 @@ function manval_theme() {
             <!-- Begin
             //var checkflag = "false";
             function check(field, checker) {
-                	
+
                 //alert(checker);
-                	
+
                 if (checker.value == "0") {
-                		
+
                     for (i = 0; i < field.length; i++) {
-                		 
+
                         field[i].checked = true;}
                     //checkflag = "true";
                     checker.value = "1";
-                		  
+
                 }else{
-                		
+
                     for (i = 0; i < field.length; i++) {
-                			  
-                        field[i].checked = false; 
-                				
+
+                        field[i].checked = false;
+
                     }
-                			
+
                     //checkflag = "false";
                     checker.value = "0";
-                		
+
                 }
-                		
+
             }
             //  End -->
         </script>
         <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="awappform">
 
-            <table width="100%" class="cbor" cellpadding="6" cellspacing="1">		
+            <table width="100%" class="cbor" cellpadding="6" cellspacing="1">
                 <tr>
-                    <td align="right">		
+                    <td align="right">
                         <?php echo $l['with_selected']; ?> <select name="dothis">
                             <option value="1" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 1 ? ' selected="selected"' : ''); ?> ><?php echo $l['activate']; ?></option>
                             <option value="2" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 2 ? ' selected="selected"' : ''); ?> ><?php echo $l['activate_send_mail']; ?></option>
                             <option value="3" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 3 ? ' selected="selected"' : ''); ?> ><?php echo $l['delete']; ?></option>
                             <option value="4" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 4 ? ' selected="selected"' : ''); ?> ><?php echo $l['delete_send_mail']; ?></option>
                         </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" value="<?php echo $l['go']; ?>" />		
-                    </td>				
-                </tr>		
+                        <input type="submit" value="<?php echo $l['go']; ?>" />
+                    </td>
+                </tr>
             </table>
 
             <br />
@@ -332,59 +332,59 @@ function manval_theme() {
             <?php
             //The first row that is Headers
             echo'<table width="100%" class="cbor" cellpadding="6" cellspacing="1">
-	
-	<tr>
-	<td class="ttcbg" width="10%">' . $l['id'] . '</td>
-	<td class="ttcbg" width="20%" align="center">' . $l['username'] . '</td>
-	<td class="ttcbg" width="35%" align="center">' . $l['email'] . '</td>
-	<td class="ttcbg" width="30%" align="center">' . $l['registered_on'] . '</td>
-	<td class="ttcbg" width="5%" align="center">
-	<input type=checkbox onClick="check(document.getElementsByName(\'uid[]\'), this)" value="0">
-	</td>
-	</tr>';
+
+    <tr>
+    <td class="ttcbg" width="10%">' . $l['id'] . '</td>
+    <td class="ttcbg" width="20%" align="center">' . $l['username'] . '</td>
+    <td class="ttcbg" width="35%" align="center">' . $l['email'] . '</td>
+    <td class="ttcbg" width="30%" align="center">' . $l['registered_on'] . '</td>
+    <td class="ttcbg" width="5%" align="center">
+    <input type=checkbox onClick="check(document.getElementsByName(\'uid[]\'), this)" value="0">
+    </td>
+    </tr>';
 
             if (empty($members)) {
 
                 echo '<tr>
-		
-		<td class="ucpflc" colspan="5">
-		' . $l['no_approval_required'] . '
-		</td>
-		
-		</tr>';
+
+        <td class="ucpflc" colspan="5">
+        ' . $l['no_approval_required'] . '
+        </td>
+
+        </tr>';
             } else {
 
 
                 foreach ($members as $m => $mv) {
 
                     echo '<tr>
-		
-		<td class="ucpflc">
-		<a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['id'] . '</a>
-		</td>
-		
-		<td class="ucpflc">
-		<a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
-		</td>
-		
-		<td class="ucpflc">
-		<a href="mailto:' . $members[$m]['email'] . '">' . $members[$m]['email'] . '</a>
-		</td>
-		
-		<td class="ucpflc" align="left">
-		' . date("F j, Y", $members[$m]['r_time']) . '
-		</td>
-		
-		<td class="ucpflc">
-		<input type=checkbox name="uid[]" value="' . $members[$m]['id'] . '">
-		</td>';
+
+        <td class="ucpflc">
+        <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['id'] . '</a>
+        </td>
+
+        <td class="ucpflc">
+        <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
+        </td>
+
+        <td class="ucpflc">
+        <a href="mailto:' . $members[$m]['email'] . '">' . $members[$m]['email'] . '</a>
+        </td>
+
+        <td class="ucpflc" align="left">
+        ' . date("F j, Y", $members[$m]['r_time']) . '
+        </td>
+
+        <td class="ucpflc">
+        <input type=checkbox name="uid[]" value="' . $members[$m]['id'] . '">
+        </td>';
 
                     echo '</tr>';
                 }
             }
 
-            echo '</table>	
-	</form>';
+            echo '</table>
+    </form>';
 
             adminfoot();
         }
@@ -422,9 +422,9 @@ function manval_theme() {
             error_handle($error, '100%');
             ?>
             <form accept-charset="<?php echo $globals['charset']; ?>" method="get" action="<?php echo $globals['index_url']; ?>" name="sortform" >
-                <table width="100%" class="cbor" cellpadding="6" cellspacing="1">		
+                <table width="100%" class="cbor" cellpadding="6" cellspacing="1">
                     <tr>
-                        <td>		
+                        <td>
                             <input type="hidden" name="act" value="admin" />
                             <input type="hidden" name="adact" value="approvals" />
                             <input type="hidden" name="seadact" value="coppaapp" />
@@ -440,7 +440,7 @@ function manval_theme() {
                                 <option value="1" <?php echo (!empty($_GET['order']) && trim($_GET['order']) == 1 ? ' selected="selected"' : ''); ?> ><?php echo $l['ascending']; ?></option>
                                 <option value="2" <?php echo (!empty($_GET['order']) && trim($_GET['order']) == 2 ? ' selected="selected"' : ''); ?> ><?php echo $l['descending']; ?></option>
                             </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                	Page : <select name="mpg">	
+                            Page : <select name="mpg">
                                 <?php
                                 if (empty($count)) {
 
@@ -456,8 +456,8 @@ function manval_theme() {
                                 ?>
                             </select>&nbsp;&nbsp;&nbsp;&nbsp;
                             <input type="submit" value="<?php echo $l['go']; ?>" />
-                        </td>				
-                    </tr>		
+                        </td>
+                    </tr>
                 </table>
             </form>
 
@@ -466,47 +466,47 @@ function manval_theme() {
                 <!-- Begin
                 //var checkflag = "false";
                 function check(field, checker) {
-                	
+
                     //alert(checker);
-                	
+
                     if (checker.value == "0") {
-                		
+
                         for (i = 0; i < field.length; i++) {
-                		 
+
                             field[i].checked = true;}
                         //checkflag = "true";
                         checker.value = "1";
-                		  
+
                     }else{
-                		
+
                         for (i = 0; i < field.length; i++) {
-                			  
-                            field[i].checked = false; 
-                				
+
+                            field[i].checked = false;
+
                         }
-                			
+
                         //checkflag = "false";
                         checker.value = "0";
-                		
+
                     }
-                		
+
                 }
                 //  End -->
             </script>
             <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="coppaappform">
 
-                <table width="100%" class="cbor" cellpadding="6" cellspacing="1">		
+                <table width="100%" class="cbor" cellpadding="6" cellspacing="1">
                     <tr>
-                        <td align="right">		
+                        <td align="right">
                             <?php echo $l['with_selected']; ?> <select name="dothis">
                                 <option value="1" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 1 ? ' selected="selected"' : ''); ?> ><?php echo $l['activate']; ?></option>
                                 <option value="2" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 2 ? ' selected="selected"' : ''); ?> ><?php echo $l['activate_send_mail']; ?></option>
                                 <option value="3" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 3 ? ' selected="selected"' : ''); ?> ><?php echo $l['delete']; ?></option>
                                 <option value="4" <?php echo (!empty($_GET['dothis']) && trim($_GET['dothis']) == 4 ? ' selected="selected"' : ''); ?> ><?php echo $l['delete_send_mail']; ?></option>
                             </select>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="submit" value="<?php echo $l['go']; ?>" />		
-                        </td>				
-                    </tr>		
+                            <input type="submit" value="<?php echo $l['go']; ?>" />
+                        </td>
+                    </tr>
                 </table>
 
                 <br />
@@ -514,59 +514,59 @@ function manval_theme() {
                 <?php
                 //The first row that is Headers
                 echo'<table width="100%" class="cbor" cellpadding="6" cellspacing="1">
-	
-	<tr>
-	<td class="ttcbg" width="10%">' . $l['id'] . '</td>
-	<td class="ttcbg" width="20%" align="center">' . $l['username'] . '</td>
-	<td class="ttcbg" width="35%" align="center">' . $l['email'] . '</td>
-	<td class="ttcbg" width="30%" align="center">' . $l['registered_on'] . '</td>
-	<td class="ttcbg" width="5%" align="center">
-	<input type=checkbox onClick="check(document.getElementsByName(\'uid[]\'), this)" value="0">
-	</td>
-	</tr>';
+
+    <tr>
+    <td class="ttcbg" width="10%">' . $l['id'] . '</td>
+    <td class="ttcbg" width="20%" align="center">' . $l['username'] . '</td>
+    <td class="ttcbg" width="35%" align="center">' . $l['email'] . '</td>
+    <td class="ttcbg" width="30%" align="center">' . $l['registered_on'] . '</td>
+    <td class="ttcbg" width="5%" align="center">
+    <input type=checkbox onClick="check(document.getElementsByName(\'uid[]\'), this)" value="0">
+    </td>
+    </tr>';
 
                 if (empty($members)) {
 
                     echo '<tr>
-		
-		<td class="ucpflc" colspan="5">
-		' . $l['no_members_require_coppa'] . '
-		</td>
-		
-		</tr>';
+
+        <td class="ucpflc" colspan="5">
+        ' . $l['no_members_require_coppa'] . '
+        </td>
+
+        </tr>';
                 } else {
 
 
                     foreach ($members as $m => $mv) {
 
                         echo '<tr>
-		
-		<td class="ucpflc">
-		<a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['id'] . '</a>
-		</td>
-		
-		<td class="ucpflc">
-		<a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
-		</td>
-		
-		<td class="ucpflc">
-		<a href="mailto:' . $members[$m]['email'] . '">' . $members[$m]['email'] . '</a>
-		</td>
-		
-		<td class="ucpflc" align="left">
-		' . date("F j, Y", $members[$m]['r_time']) . '
-		</td>
-		
-		<td class="ucpflc">
-		<input type=checkbox name="uid[]" value="' . $members[$m]['id'] . '">
-		</td>';
+
+        <td class="ucpflc">
+        <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['id'] . '</a>
+        </td>
+
+        <td class="ucpflc">
+        <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
+        </td>
+
+        <td class="ucpflc">
+        <a href="mailto:' . $members[$m]['email'] . '">' . $members[$m]['email'] . '</a>
+        </td>
+
+        <td class="ucpflc" align="left">
+        ' . date("F j, Y", $members[$m]['r_time']) . '
+        </td>
+
+        <td class="ucpflc">
+        <input type=checkbox name="uid[]" value="' . $members[$m]['id'] . '">
+        </td>';
 
                         echo '</tr>';
                     }
                 }
 
-                echo '</table>	
-	</form>';
+                echo '</table>
+    </form>';
 
                 adminfoot();
             }

@@ -3,7 +3,7 @@
 //===========================================================
 // forumpermissions.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -64,16 +64,16 @@ function fpermissionsmanage_theme() {
     fpermissions_global();
 
     echo '<table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-		<tr><td class="adcbg">' . $l['edit_forum'] . '</td></tr>';
+        <tr><td class="adcbg">' . $l['edit_forum'] . '</td></tr>';
 
     //The for loop for the categories
     foreach ($categories as $c => $cv) {
 
         echo '<tr>
-		<td class="adcbg2" height="18" colspan="3">
-		<b>' . $categories[$c]['name'] . '</b>
-		</td>
-		</tr>';
+        <td class="adcbg2" height="18" colspan="3">
+        <b>' . $categories[$c]['name'] . '</b>
+        </td>
+        </tr>';
 
         if (isset($forums[$c])) {
 
@@ -88,8 +88,8 @@ function fpermissionsmanage_theme() {
                 }
 
                 echo '<tr>
-				
-				<td class="adbg" width="65%" height="' . (($forums[$c][$f]['in_board'] == 1) ? '18' : '25') . '" >' . $dasher . (($forums[$c][$f]['in_board'] == 1) ? '|--' : '') . $forums[$c][$f]['fname'];
+
+                <td class="adbg" width="65%" height="' . (($forums[$c][$f]['in_board'] == 1) ? '18' : '25') . '" >' . $dasher . (($forums[$c][$f]['in_board'] == 1) ? '|--' : '') . $forums[$c][$f]['fname'];
 
                 //Are there any forumpermission sets for this forum
                 if (!empty($fpermissions[$forums[$c][$f]['fid']])) {
@@ -105,17 +105,17 @@ function fpermissionsmanage_theme() {
                 }
 
                 echo '</td>
-				
-				</tr>';
+
+                </tr>';
             }//End of forums loop
         } else {
             echo '<tr>
-				
-				<td class="adbg" width="65%" height="18">
-				' . $l['short'] . '
-				</td>
-				
-				</tr>';
+
+                <td class="adbg" width="65%" height="18">
+                ' . $l['short'] . '
+                </td>
+
+                </tr>';
         }
     }//End of Categories loop
 
@@ -148,8 +148,8 @@ function editfpermissions_theme() {
                     <b><?php echo $l['start_topics']; ?></b><br />
                     <?php echo $l['start_topics_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                    <input type="checkbox" name="can_post_topic" <?php echo (isset($_POST['can_post_topic']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_post_topic']) ? 'checked="checked"' : '') ); ?> />		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="can_post_topic" <?php echo (isset($_POST['can_post_topic']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_post_topic']) ? 'checked="checked"' : '') ); ?> />
                 </td>
             </tr>
 
@@ -158,8 +158,8 @@ function editfpermissions_theme() {
                     <b><?php echo $l['reply_topics']; ?></b><br />
                     <?php echo $l['reply_topics_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                    <input type="checkbox" name="can_reply" <?php echo (isset($_POST['can_reply']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_reply']) ? 'checked="checked"' : '') ); ?> />		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="can_reply" <?php echo (isset($_POST['can_reply']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_reply']) ? 'checked="checked"' : '') ); ?> />
                 </td>
             </tr>
 
@@ -168,8 +168,8 @@ function editfpermissions_theme() {
                     <b><?php echo $l['vote_polls']; ?></b><br />
                     <?php echo $l['vote_polls_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                    <input type="checkbox" name="can_vote_polls" <?php echo (isset($_POST['can_vote_polls']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_vote_polls']) ? 'checked="checked"' : '') ); ?> />		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="can_vote_polls" <?php echo (isset($_POST['can_vote_polls']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_vote_polls']) ? 'checked="checked"' : '') ); ?> />
                 </td>
             </tr>
 
@@ -178,8 +178,8 @@ function editfpermissions_theme() {
                     <b><?php echo $l['start_polls']; ?></b><br />
                     <?php echo $l['start_polls_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                    <input type="checkbox" name="can_post_polls" <?php echo (isset($_POST['can_post_polls']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_post_polls']) ? 'checked="checked"' : '') ); ?> />		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="can_post_polls" <?php echo (isset($_POST['can_post_polls']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_post_polls']) ? 'checked="checked"' : '') ); ?> />
                 </td>
             </tr>
 
@@ -188,8 +188,8 @@ function editfpermissions_theme() {
                     <b><?php echo $l['attach_files']; ?></b><br />
                     <?php echo $l['attach_files_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                    <input type="checkbox" name="can_attach" <?php echo (isset($_POST['can_attach']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_attach']) ? 'checked="checked"' : '') ); ?> />		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="can_attach" <?php echo (isset($_POST['can_attach']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_attach']) ? 'checked="checked"' : '') ); ?> />
                 </td>
             </tr>
 
@@ -198,15 +198,15 @@ function editfpermissions_theme() {
                     <b><?php echo $l['download_attach']; ?></b><br />
                     <?php echo $l['download_attach_exp']; ?>
                 </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                    <input type="checkbox" name="can_view_attach" <?php echo (isset($_POST['can_view_attach']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_view_attach']) ? 'checked="checked"' : '') ); ?> />		
+                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" name="can_view_attach" <?php echo (isset($_POST['can_view_attach']) ? 'checked="checked"' : (($fpermissions[$fpfid][$fpugid]['can_view_attach']) ? 'checked="checked"' : '') ); ?> />
                 </td>
             </tr>
 
             <tr>
                 <td class="adbg" height="30" colspan="2" align="center">
                     <input type="submit" name="editfpermissions" value="<?php echo $l['submit_changes']; ?>" />&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" name="deletefpermissions" value="<?php echo $l['delete_perm']; ?>" />		
+                    <input type="submit" name="deletefpermissions" value="<?php echo $l['delete_perm']; ?>" />
                 </td>
             </tr>
 
@@ -241,15 +241,15 @@ function editfpermissions_theme() {
                         <b><?php echo $l['forum']; ?></b><br />
                         <?php echo $l['forum_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
                         <select name="fpfid" style="font-family:Verdana; font-size:11px">
 
                             <?php
                             foreach ($mother_options as $i => $iv) {
 
                                 echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['fpfid']) && trim($_POST['fpfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : '') . '>
-			' . $mother_options[$i][1] . '
-			</option>';
+            ' . $mother_options[$i][1] . '
+            </option>';
                             }//End of for loop
                             ?>
                         </select>
@@ -261,7 +261,7 @@ function editfpermissions_theme() {
                         <b><?php echo $l['user_group']; ?></b><br />
                         <?php echo $l['user_group_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;	
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
 
                         <select name="fpugid" style="font-family:Verdana; font-size:11px">
 
@@ -269,8 +269,8 @@ function editfpermissions_theme() {
                             foreach ($user_group as $ug => $uv) {
 
                                 echo '<option value="' . $ug . '" ' . ((isset($_POST['fpugid']) && trim($_POST['fpugid']) == $ug ) ? 'selected="selected"' : '') . '>
-			' . $user_group[$ug]['mem_gr_name'] . '
-			</option>';
+            ' . $user_group[$ug]['mem_gr_name'] . '
+            </option>';
                             }//End of for loop
                             ?>
                         </select>
@@ -282,8 +282,8 @@ function editfpermissions_theme() {
                         <b><?php echo $l['start_topics']; ?></b><br />
                         <?php echo $l['start_topics_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                        <input type="checkbox" name="can_post_topic" <?php echo (isset($_POST['can_post_topic']) ? 'checked="checked"' : '' ); ?> />		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="can_post_topic" <?php echo (isset($_POST['can_post_topic']) ? 'checked="checked"' : '' ); ?> />
                     </td>
                 </tr>
 
@@ -292,8 +292,8 @@ function editfpermissions_theme() {
                         <b><?php echo $l['reply_topics']; ?></b><br />
                         <?php echo $l['reply_topics_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                        <input type="checkbox" name="can_reply" <?php echo (isset($_POST['can_reply']) ? 'checked="checked"' : '' ); ?> />		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="can_reply" <?php echo (isset($_POST['can_reply']) ? 'checked="checked"' : '' ); ?> />
                     </td>
                 </tr>
 
@@ -302,8 +302,8 @@ function editfpermissions_theme() {
                         <b><?php echo $l['vote_polls']; ?></b><br />
                         <?php echo $l['vote_polls_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                        <input type="checkbox" name="can_vote_polls" <?php echo (isset($_POST['can_vote_polls']) ? 'checked="checked"' : '' ); ?> />		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="can_vote_polls" <?php echo (isset($_POST['can_vote_polls']) ? 'checked="checked"' : '' ); ?> />
                     </td>
                 </tr>
 
@@ -312,8 +312,8 @@ function editfpermissions_theme() {
                         <b><?php echo $l['start_polls']; ?></b><br />
                         <?php echo $l['start_polls_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                        <input type="checkbox" name="can_post_polls" <?php echo (isset($_POST['can_post_polls']) ? 'checked="checked"' : '' ); ?> />		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="can_post_polls" <?php echo (isset($_POST['can_post_polls']) ? 'checked="checked"' : '' ); ?> />
                     </td>
                 </tr>
 
@@ -322,8 +322,8 @@ function editfpermissions_theme() {
                         <b><?php echo $l['attach_files']; ?></b><br />
                         <?php echo $l['attach_files_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                        <input type="checkbox" name="can_attach" <?php echo (isset($_POST['can_attach']) ? 'checked="checked"' : '' ); ?> />		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="can_attach" <?php echo (isset($_POST['can_attach']) ? 'checked="checked"' : '' ); ?> />
                     </td>
                 </tr>
 
@@ -332,14 +332,14 @@ function editfpermissions_theme() {
                         <b><?php echo $l['download_attach']; ?></b><br />
                         <?php echo $l['download_attach_exp']; ?>
                     </td>
-                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;		
-                        <input type="checkbox" name="can_view_attach" <?php echo (isset($_POST['can_view_attach']) ? 'checked="checked"' : '' ); ?> />		
+                    <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" name="can_view_attach" <?php echo (isset($_POST['can_view_attach']) ? 'checked="checked"' : '' ); ?> />
                     </td>
                 </tr>
 
                 <tr>
                     <td class="adbg" height="30" colspan="2" align="center">
-                        <input type="submit" name="createfpermissions" value="<?php echo $l['create_forum_perm']; ?>" />		
+                        <input type="submit" name="createfpermissions" value="<?php echo $l['create_forum_perm']; ?>" />
                     </td>
                 </tr>
 

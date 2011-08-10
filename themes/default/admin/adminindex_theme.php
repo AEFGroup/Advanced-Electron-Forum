@@ -3,7 +3,7 @@
 //===========================================================
 // adminindex_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -60,13 +60,13 @@ function adminindex_theme() {
 
             <td width="60%">
 
-                <table width="100%" cellpadding="0" cellspacing="0">			
+                <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                     <td class="tthl"></td>
                                     <td class="tthc" align="left"><b><?php echo $l['news']; ?></b></td>
-                                    <td class="tthr"></td>		
+                                    <td class="tthr"></td>
                                 </tr>
                             </table>
                         </td>
@@ -83,13 +83,13 @@ function adminindex_theme() {
 
             <td>
 
-                <table width="100%" cellpadding="0" cellspacing="0">			
+                <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                     <td class="tthl"></td>
                                     <td class="tthc" align="left"><b><?php echo $l['board_info']; ?></b></td>
-                                    <td class="tthr"></td>		
+                                    <td class="tthr"></td>
                                 </tr>
                             </table>
                         </td>
@@ -118,24 +118,24 @@ function adminindex_theme() {
                 <img src="<?php echo $theme['images']; ?>admin/support.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['support']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="http://www.anelectron.com/"><?php echo $l['anelectron_com']; ?></a></td></tr>
                     <tr><td><a href="http://faq.anelectron.com/"><?php echo $l['faq']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
             <td width="10%">
                 <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['control_panel']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=coreset"><?php echo $l['core_settings']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=mysqlset"><?php echo $l['mysql_config']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
         </tr>
@@ -146,24 +146,24 @@ function adminindex_theme() {
                 <img src="<?php echo $theme['images']; ?>admin/categories.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['categories']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=categories"><?php echo $l['manage_categories']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=categories&seadact=createcat"><?php echo $l['create_new']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
             <td width="10%">
                 <img src="<?php echo $theme['images']; ?>admin/forums.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['forums']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=forums"><?php echo $l['manage_forums']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=fpermissions"><?php echo $l['forum_permissions']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
         </tr>
@@ -175,24 +175,24 @@ function adminindex_theme() {
                 <img src="<?php echo $theme['images']; ?>admin/users.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['users']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=users&seadact=proacc"><?php echo $l['profile_account']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=ug&seadact=manug"><?php echo $l['manage_user_groups']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
             <td width="10%">
                 <img src="<?php echo $theme['images']; ?>admin/emailpm.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['email_pm']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=mailset"><?php echo $l['mail_settings']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=users&seadact=pmset"><?php echo $l['pm_settings']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
         </tr>
@@ -203,29 +203,29 @@ function adminindex_theme() {
                 <img src="<?php echo $theme['images']; ?>admin/topicposts.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['topics_posts']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=tpp&seadact=topics"><?php echo $l['topic_settings']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=tpp&seadact=posts"><?php echo $l['post_settings']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
             <td width="10%">
                 <img src="<?php echo $theme['images']; ?>admin/smileys.png">
             </td>
 
-            <td width="40%" valign="top">	
+            <td width="40%" valign="top">
                 <font class="adgreen"><?php echo $l['smileys']; ?></font><br />
                 <table cellpadding="0" cellspacing="0" class="adlink">
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=smileys&seadact=smman"><?php echo $l['manage_smileys']; ?></a></td></tr>
                     <tr><td><a href="<?php echo $globals['index_url']; ?>act=admin&adact=smileys&seadact=smset"><?php echo $l['smiley_settings']; ?></a></td></tr>
-                </table>	
+                </table>
             </td>
 
         </tr>
 
-    </table>		
+    </table>
     <?php
     //Admin footers includes Global footers
     adminfoot();

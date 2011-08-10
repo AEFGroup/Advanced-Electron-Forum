@@ -3,7 +3,7 @@
 //===========================================================
 // smilies_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -95,7 +95,7 @@ function smset_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editsmset" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -169,37 +169,37 @@ function smman_theme() {
         if (empty($smileys)) {
 
             echo '<tr>
-	<td class="adbg" colspan="5">
-	' . $l['no_smileys_found'] . '
-	</td>
-	</tr>';
+    <td class="adbg" colspan="5">
+    ' . $l['no_smileys_found'] . '
+    </td>
+    </tr>';
         } else {
 
             foreach ($smileys as $sk => $sv) {
 
                 echo '<tr>
-	<td class="adbg" align="center">
-	' . $smileyimages[$sk] . '
-	</td>
-	<td class="adbg">
-	' . $smileys[$sk]['smcode'] . '
-	</td>
-	<td class="adbg">
-	' . $smileys[$sk]['smfile'] . '
-	</td>
-	<td class="adbg">
-	' . $smileys[$sk]['smtitle'] . '
-	</td>
-	<td class="adbg">
-	' . ($smileys[$sk]['smstatus'] ? $l['popup'] : $l['form']) . '
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=smileys&seadact=editsm&smid=' . $smileys[$sk]['smid'] . '">' . $l['edit'] . '</a>
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=smileys&seadact=delsm&smid=' . $smileys[$sk]['smid'] . '">' . $l['delete'] . '</a>
-	</td>
-	</tr>';
+    <td class="adbg" align="center">
+    ' . $smileyimages[$sk] . '
+    </td>
+    <td class="adbg">
+    ' . $smileys[$sk]['smcode'] . '
+    </td>
+    <td class="adbg">
+    ' . $smileys[$sk]['smfile'] . '
+    </td>
+    <td class="adbg">
+    ' . $smileys[$sk]['smtitle'] . '
+    </td>
+    <td class="adbg">
+    ' . ($smileys[$sk]['smstatus'] ? $l['popup'] : $l['form']) . '
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=smileys&seadact=editsm&smid=' . $smileys[$sk]['smid'] . '">' . $l['edit'] . '</a>
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=smileys&seadact=delsm&smid=' . $smileys[$sk]['smid'] . '">' . $l['delete'] . '</a>
+    </td>
+    </tr>';
             }
         }
         ?>
@@ -211,7 +211,7 @@ function smman_theme() {
             <td align="center" class="adbg">
                 <input type="button" value="<?php echo $l['add_new_smiley']; ?>"  onclick="javascript:window.location='<?php echo $globals['index_url'] . 'act=admin&adact=smileys&seadact=addsm'; ?>'" />
             </td>
-        </tr>	
+        </tr>
     </table>
 
     <?php
@@ -313,7 +313,7 @@ function smreorder_theme() {
                     ?>
                     <input type="submit" name="smreorder" value="<?php echo $l['re_order']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -431,7 +431,7 @@ function editsm_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editsm" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -559,7 +559,7 @@ function addsm_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="addsm" value="<?php echo $l['submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

@@ -17,7 +17,7 @@ returned = new Array();
 //Handles the key input
 function handlesuggest(e, elid){
     pkey = ((window.event) ? window.event.keyCode : e.which);//alert(pkey);
-	
+
     //The onkeydown event will handle certain things
     if(pkey == 9 || pkey == 13 || pkey == 27 || pkey == 38 || pkey == 40){
         return;
@@ -45,7 +45,7 @@ function handlesuggest(e, elid){
 
 function handlekeys(e){
     var hkey = ((window.event) ? window.event.keyCode : e.which);
-	
+
     switch(hkey){
         //keydown
         case 40://alert('down');
@@ -86,7 +86,7 @@ function handlesuggestresponse(elid, r_txt){
         hidesuggest();//Nothing found
     }else{
         makesuggesttable(elid, sugdivid, returned);
-    }	
+    }
 };
 
 function makesuggesttable(elid, divid, r_returned){
@@ -128,10 +128,10 @@ function insertsuggested(val, elid){
 
 function suggestmovedown(){
     if(returned.length > 0 && isvisible(sugdivid)){
-        saindex++;	
+        saindex++;
         if(typeof(returned[saindex]) == 'undefined'){
             saindex = 0;
-        }		
+        }
         sugaon();
     }
 };
@@ -141,7 +141,7 @@ function suggestmoveup(){
         saindex--;
         if(typeof(returned[saindex]) == 'undefined'){
             saindex = returned.length - 1;
-        }		
+        }
         sugaon();
     }
 };
@@ -159,7 +159,7 @@ function sugaon(){
                 $('sa'+x).className = 'suga';
             }
         }
-		
+
         $('sa'+saindex).className = 'sugaon';
     }
 };

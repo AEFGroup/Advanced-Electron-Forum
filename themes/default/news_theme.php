@@ -10,7 +10,7 @@ function shownews_theme() {
 
     $npages = ceil($numarticles / $globals['newsperpage']);
 
-    $pg = ($page / $globals['newsperpage']) + 1; //Current Page	
+    $pg = ($page / $globals['newsperpage']) + 1; //Current Page
 
     $newspages = array();
 
@@ -155,13 +155,13 @@ createmenu("pagejump", [
         if ($show_mod) {
 
             echo '<br /><br /><div style="text-align:right;">With Selected : <select name="withselected">
-	' . (empty($user['can_delete_news']) ? '' : '<option value="delete">' . $l['delete_news'] . '</option>') . '
-	' . (empty($user['can_approve_news']) ? '' : '<option value="approve">' . $l['approve_news'] . '</option>') . '
-	' . (empty($user['can_approve_news']) ? '' : '<option value="unapprove">' . $l['unapprove_news'] . '</option>') . '
-	</select>&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="submit" name="withselsubmit" value="' . $l['submit_go'] . '">&nbsp;&nbsp;&nbsp;&nbsp;
-	</form>
-	</div>';
+    ' . (empty($user['can_delete_news']) ? '' : '<option value="delete">' . $l['delete_news'] . '</option>') . '
+    ' . (empty($user['can_approve_news']) ? '' : '<option value="approve">' . $l['approve_news'] . '</option>') . '
+    ' . (empty($user['can_approve_news']) ? '' : '<option value="unapprove">' . $l['unapprove_news'] . '</option>') . '
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="withselsubmit" value="' . $l['submit_go'] . '">&nbsp;&nbsp;&nbsp;&nbsp;
+    </form>
+    </div>';
         }
     } else {
 
@@ -198,7 +198,7 @@ function submitnews_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['submitnews_heading']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -274,7 +274,7 @@ function editnews_theme() {
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['editnews_heading']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>

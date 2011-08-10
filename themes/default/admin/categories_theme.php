@@ -3,7 +3,7 @@
 //===========================================================
 // categories_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -122,28 +122,28 @@ Drag.init($("delcatpromptha"), $("delcatprompt"));
         foreach ($categories as $c => $cv) {
 
             echo '
-		<tr>
-		<td class="adbg" width="55%" height="30">
-		<b>
-		<a href="' . $globals['index_url'] . 'act=admin&adact=categories&seadact=editcat&editcat=' . $categories[$c]['cid'] . '">
-		' . $categories[$c]['name'] . '<br />		
-		</a>
-		</b>
-		</td>
-		
-		<td class="adbg" align="center">
-		<a href="' . $globals['index_url'] . 'act=admin&adact=categories&seadact=editcat&editcat=' . $categories[$c]['cid'] . '">
-		' . $l['edit'] . '
-		</a>
-		</td>
-		
-		<td class="adbg" align="center">
-		<a href="javascript:confirmdelete(' . $categories[$c]['cid'] . ');">
-		' . $l['delete'] . '
-		</a>
-		</td>
-		
-		</tr>';
+        <tr>
+        <td class="adbg" width="55%" height="30">
+        <b>
+        <a href="' . $globals['index_url'] . 'act=admin&adact=categories&seadact=editcat&editcat=' . $categories[$c]['cid'] . '">
+        ' . $categories[$c]['name'] . '<br />
+        </a>
+        </b>
+        </td>
+
+        <td class="adbg" align="center">
+        <a href="' . $globals['index_url'] . 'act=admin&adact=categories&seadact=editcat&editcat=' . $categories[$c]['cid'] . '">
+        ' . $l['edit'] . '
+        </a>
+        </td>
+
+        <td class="adbg" align="center">
+        <a href="javascript:confirmdelete(' . $categories[$c]['cid'] . ');">
+        ' . $l['delete'] . '
+        </a>
+        </td>
+
+        </tr>';
         }
         ?>
     </table>
@@ -189,7 +189,7 @@ function editcat_theme() {
                     <?php echo $l['category_name_exp']; ?>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="50" maxlength="" name="catname" 
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="50" maxlength="" name="catname"
                                                    <?php echo ( (isset($_POST['catname'])) ? 'value="' . $_POST['catname'] . '"' : 'value="' . $editcategory['name'] . '"' ); ?>/>
                 </td>
             </tr>
@@ -200,7 +200,7 @@ function editcat_theme() {
                     <?php echo $l['collapsable_exp']; ?>
                 </td>
                 <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="catcollapse" 
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="catcollapse"
                     <?php
                     if ($editcategory['collapsable']) {
                         echo 'checked';
@@ -381,7 +381,7 @@ function catreorder_theme() {
                     ?>
                     <input type="submit" name="catreorder" value="<?php echo $l['re_order']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

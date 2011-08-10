@@ -247,7 +247,7 @@ function js_reorder() {
             var tot_height = 0;
             var width = $(reorder_holder).offsetWidth;
             var top = init_pos[1];
-                            	
+                                                	
             //Find the prerequisites
             for(x in reo_r){
                 tot_height = tot_height + $(reo_ha+reo_r[x]).offsetHeight + 10;
@@ -255,7 +255,7 @@ function js_reorder() {
             }
             $(reorder_holder).style.height = tot_height+'px';//Make it long
             tot_height = (tot_height + init_pos[1]);
-                            	
+                                                	
             //Initialize the Drag
             for(x in reo_r){
                 Drag.init($(reo_ho+reo_r[x]), $(reo_ha+reo_r[x]), init_pos[0], init_pos[0], (init_pos[1]-10), tot_height);
@@ -286,7 +286,7 @@ function js_reorder() {
             for(x in reo_arr_pos){
                 reo_r[x] = find_reokey(reo_arr, reo_arr_pos[x]);
             }
-                            	
+                                                	
             //Re-position Vars
             var init_pos = findelpos($(reorder_holder));
             var top = init_pos[1];

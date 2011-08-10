@@ -3,7 +3,7 @@
 //===========================================================
 // adminlogin_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -35,14 +35,14 @@ function adminlogin_theme() {
     ?>
 
     <form action="" method="post" name="adminloginform" >
-        <br />	
+        <br />
         <table width="60%" cellpadding="0" cellspacing="0" align="center">
             <tr>
                 <td>
                     <table width="100%" cellpadding="0" cellspacing="0"><tr>
                             <td class="pcbgl"></td>
                             <td class="pcbg" align="left"><?php echo $l['security_login']; ?></td>
-                            <td class="pcbgr"></td>		
+                            <td class="pcbgr"></td>
                         </tr>
                     </table>
                 </td>
@@ -81,7 +81,7 @@ function adminlogin_theme() {
                             <td colspan="2" class="etrc" style="text-align:center">
                                 <input type="submit" name="adminlogin" value="<?php echo $l['submit']; ?>" />
                             </td>
-                        </tr>	
+                        </tr>
 
                     </table>
 

@@ -3,7 +3,7 @@
 //===========================================================
 // usergroups_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -80,21 +80,21 @@ function manug_theme() {
         foreach ($user_group as $uk => $uv) {
 
             echo '<tr>
-	<td class="adbg" align="left">
-	<font color="' . $user_group[$uk]['mem_gr_colour'] . '">' . $user_group[$uk]['mem_gr_name'] . '</font>
-	</td>
-	<td class="adbg">';
+    <td class="adbg" align="left">
+    <font color="' . $user_group[$uk]['mem_gr_colour'] . '">' . $user_group[$uk]['mem_gr_name'] . '</font>
+    </td>
+    <td class="adbg">';
             for ($i = 1; $i <= $user_group[$uk]['image_count']; $i++) {
                 echo '<img src="' . $theme['images'] . $user_group[$uk]['image_name'] . '" />';
             }
             echo '</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=editug&ugid=' . $user_group[$uk]['member_group'] . '">' . $l['ugr_edit'] . '</a>
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=delug&ugid=' . $user_group[$uk]['member_group'] . '">' . $l['ugr_delete'] . '</a>
-	</td>
-	</tr>';
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=editug&ugid=' . $user_group[$uk]['member_group'] . '">' . $l['ugr_edit'] . '</a>
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=delug&ugid=' . $user_group[$uk]['member_group'] . '">' . $l['ugr_delete'] . '</a>
+    </td>
+    </tr>';
         }
         ?>
 
@@ -130,24 +130,24 @@ function manug_theme() {
         foreach ($post_group as $pk => $pv) {
 
             echo '<tr>
-	<td class="adbg" align="left">
-	<font color="' . $post_group[$pk]['mem_gr_colour'] . '">' . $post_group[$pk]['mem_gr_name'] . '</font>
-	</td>
-	<td class="adbg">';
+    <td class="adbg" align="left">
+    <font color="' . $post_group[$pk]['mem_gr_colour'] . '">' . $post_group[$pk]['mem_gr_name'] . '</font>
+    </td>
+    <td class="adbg">';
             for ($i = 1; $i <= $post_group[$pk]['image_count']; $i++) {
                 echo '<img src="' . $theme['images'] . $post_group[$pk]['image_name'] . '" />';
             }
             echo '</td>
-	<td class="adbg" align="center">
-	' . $post_group[$pk]['post_count'] . '
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=editug&ugid=' . $post_group[$pk]['member_group'] . '">' . $l['ugr_edit'] . '</a>
-	</td>
-	<td class="adbg" align="center">
-	<a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=delug&ugid=' . $post_group[$pk]['member_group'] . '">' . $l['ugr_delete'] . '</a>
-	</td>
-	</tr>';
+    <td class="adbg" align="center">
+    ' . $post_group[$pk]['post_count'] . '
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=editug&ugid=' . $post_group[$pk]['member_group'] . '">' . $l['ugr_edit'] . '</a>
+    </td>
+    <td class="adbg" align="center">
+    <a href="' . $globals['index_url'] . 'act=admin&adact=ug&seadact=delug&ugid=' . $post_group[$pk]['member_group'] . '">' . $l['ugr_delete'] . '</a>
+    </td>
+    </tr>';
         }
         ?>
 
@@ -173,7 +173,7 @@ function manug_theme() {
                     </select>&nbsp;&nbsp;<input type="submit" value="<?php echo $l['ugr_add_new_ug']; ?>" />
                 </form>
             </td>
-        </tr>	
+        </tr>
     </table>
 
     <?php
@@ -266,23 +266,23 @@ function editug_theme() {
             <?php
             if (!in_array($user_group['member_group'], array(-3, -1, 0, 1, 3))) {
                 echo '<tr>
-		<td class="adbg">
-		<b>' . $l['ugr_post_based'] . '</b><br />
-		<font class="adexp">' . $l['ugr_post_based_exp'] . '</font>
-		</td>
-		<td class="adbg" align="left">
-		&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="post_based" ' . (isset($_POST['post_based']) || $user_group['post_count'] != -1 ? 'checked="checked"' : '' ) . ' />
-		</td>
-		</tr>';
+        <td class="adbg">
+        <b>' . $l['ugr_post_based'] . '</b><br />
+        <font class="adexp">' . $l['ugr_post_based_exp'] . '</font>
+        </td>
+        <td class="adbg" align="left">
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="post_based" ' . (isset($_POST['post_based']) || $user_group['post_count'] != -1 ? 'checked="checked"' : '' ) . ' />
+        </td>
+        </tr>';
                 echo '<tr>
-		<td class="adbg">
-		<b>' . $l['ugr_num_posts'] . '</b><br />
-		<font class="adexp">' . $l['ugr_num_posts_exp'] . '</font>
-		</td>
-		<td class="adbg" align="left">
-		&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="post_count" value="' . (empty($_POST['post_count']) ? $user_group['post_count'] : $_POST['post_count']) . '" />
-		</td>
-		</tr>';
+        <td class="adbg">
+        <b>' . $l['ugr_num_posts'] . '</b><br />
+        <font class="adexp">' . $l['ugr_num_posts_exp'] . '</font>
+        </td>
+        <td class="adbg" align="left">
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="post_count" value="' . (empty($_POST['post_count']) ? $user_group['post_count'] : $_POST['post_count']) . '" />
+        </td>
+        </tr>';
             }
             ?>
 
@@ -401,46 +401,46 @@ function editug_theme() {
         if ($user_group['member_group'] != 1) {
 
             echo '<table width="100%" cellpadding="2" cellspacing="1" class="cbor">
-		<tr>
-		<td class="adcbg" colspan="2">
-		' . $l['ugr_perms'] . '
-		</td>
-		</tr>';
+        <tr>
+        <td class="adcbg" colspan="2">
+        ' . $l['ugr_perms'] . '
+        </td>
+        </tr>';
 
             foreach ($permissions as $k => $v) {
 
                 echo '<tr>
-	<td class="adcbg2" colspan="2">
-	' . $k . '
-	</td>
-	</tr>';
+    <td class="adcbg2" colspan="2">
+    ' . $k . '
+    </td>
+    </tr>';
 
                 foreach ($v as $pk => $pv) {
 
                     echo '<tr>
-	<td class="adbg" width="50%">
-	' . $pv[1] . ' :<br />
-	' . (empty($pv[2]) ? '' : '<font class="adexp">' . $pv[2] . '</font>') . '
-	</td>
-	<td class="adbg" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func($pv[0], $pk) . '
-	</td>
-	</tr>';
+    <td class="adbg" width="50%">
+    ' . $pv[1] . ' :<br />
+    ' . (empty($pv[2]) ? '' : '<font class="adexp">' . $pv[2] . '</font>') . '
+    </td>
+    <td class="adbg" align="left">
+    &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func($pv[0], $pk) . '
+    </td>
+    </tr>';
                 }
             }
 
             echo '<tr>
-	<td class="adbg" width="50%" valign="top">
-	' . $l['ugr_mess_to_group'] . '
-	</td>
-	<td class="adbg" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;<textarea cols="30" rows="5" name="group_message">' . (empty($_POST['group_message']) ? $user_group['group_message'] : $_POST['group_message']) . '</textarea>
-	</td>
-	</tr>
-	
-	
-	</table>	
-	<br /><br />';
+    <td class="adbg" width="50%" valign="top">
+    ' . $l['ugr_mess_to_group'] . '
+    </td>
+    <td class="adbg" align="left">
+    &nbsp;&nbsp;&nbsp;&nbsp;<textarea cols="30" rows="5" name="group_message">' . (empty($_POST['group_message']) ? $user_group['group_message'] : $_POST['group_message']) . '</textarea>
+    </td>
+    </tr>
+
+
+    </table>
+    <br /><br />';
         }
         ?>
 
@@ -450,7 +450,7 @@ function editug_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editug" value="<?php echo $l['ugr_submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -689,46 +689,46 @@ function addug_theme() {
 
         //No you cant do it for admins
         echo '<table width="100%" cellpadding="2" cellspacing="1" class="cbor">
-		<tr>
-		<td class="adcbg" colspan="2">
-		' . $l['ugr_perms'] . '
-		</td>
-		</tr>';
+        <tr>
+        <td class="adcbg" colspan="2">
+        ' . $l['ugr_perms'] . '
+        </td>
+        </tr>';
 
         foreach ($permissions as $k => $v) {
 
             echo '<tr>
-	<td class="adcbg2" colspan="2">
-	' . $k . '
-	</td>
-	</tr>';
+    <td class="adcbg2" colspan="2">
+    ' . $k . '
+    </td>
+    </tr>';
 
             foreach ($v as $pk => $pv) {
 
                 echo '<tr>
-	<td class="adbg" width="50%">
-	' . $pv[1] . ' :<br />
-	' . (empty($pv[2]) ? '' : '<font class="adexp">' . $pv[2] . '</font>') . '
-	</td>
-	<td class="adbg" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func($pv[0], $pk) . '
-	</td>
-	</tr>';
+    <td class="adbg" width="50%">
+    ' . $pv[1] . ' :<br />
+    ' . (empty($pv[2]) ? '' : '<font class="adexp">' . $pv[2] . '</font>') . '
+    </td>
+    <td class="adbg" align="left">
+    &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func($pv[0], $pk) . '
+    </td>
+    </tr>';
             }
         }
 
         echo '<tr>
-	<td class="adbg" width="50%" valign="top">
-	' . $l['ugr_mess_to_group'] . '
-	</td>
-	<td class="adbg" align="left">
-	&nbsp;&nbsp;&nbsp;&nbsp;<textarea cols="30" rows="5" name="group_message">' . (empty($_POST['group_message']) ? $user_group['group_message'] : $_POST['group_message']) . '</textarea>
-	</td>
-	</tr>
-	
-	
-	</table>	
-	<br /><br />';
+    <td class="adbg" width="50%" valign="top">
+    ' . $l['ugr_mess_to_group'] . '
+    </td>
+    <td class="adbg" align="left">
+    &nbsp;&nbsp;&nbsp;&nbsp;<textarea cols="30" rows="5" name="group_message">' . (empty($_POST['group_message']) ? $user_group['group_message'] : $_POST['group_message']) . '</textarea>
+    </td>
+    </tr>
+
+
+    </table>
+    <br /><br />';
         ?>
 
 
@@ -737,7 +737,7 @@ function addug_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="addug" value="<?php echo $l['ugr_submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>

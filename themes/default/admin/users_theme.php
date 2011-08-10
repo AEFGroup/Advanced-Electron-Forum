@@ -3,7 +3,7 @@
 //===========================================================
 // users_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -164,7 +164,7 @@ function proacc_theme() {
                     <font class="adexp"><?php echo $l['usr_allow_uchanges_exp']; ?></font>
                 </td>
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="change_username"	<?php echo ($globals['change_username'] ? 'checked="checked"' : ''); ?> />
+                    <input type="checkbox" name="change_username"    <?php echo ($globals['change_username'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -185,7 +185,7 @@ function proacc_theme() {
                     <b><?php echo $l['usr_enable_sig']; ?></b>
                 </td>
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="enablesig"	<?php echo ($globals['enablesig'] ? 'checked="checked"' : ''); ?> />
+                    <input type="checkbox" name="enablesig"    <?php echo ($globals['enablesig'] ? 'checked="checked"' : ''); ?> />
                 </td>
             </tr>
 
@@ -208,7 +208,7 @@ function proacc_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editproacc" value="<?php echo $l['usr_submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -437,7 +437,7 @@ function ppicset_theme() {
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" size="40"  name="ppictypes" value="<?php echo (empty($_POST['ppictypes']) ? $globals['ppictypes'] : $_POST['ppictypes']); ?>" />
                 </td>
-            </tr>       
+            </tr>
 
             <tr>
                 <td class="adbg">
@@ -558,7 +558,7 @@ function pmset_theme() {
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" size="40"  name="pmnumshowinfolders" value="<?php echo (empty($_POST['pmnumshowinfolders']) ? $globals['pmnumshowinfolders'] : $_POST['pmnumshowinfolders']); ?>" />
                 </td>
-            </tr>		
+            </tr>
 
         </table>
 

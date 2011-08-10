@@ -58,7 +58,7 @@ function hideshow_fixedshoutbox(){
         hide_fixedshoutbox();//Hide the SHB
         setcookie(shbcontainer, '1', 365);//Set a cookie
         clearTimeout(shouttimeout);//Clear the timeout
-    }	
+    }
 };
 
 //Just hides the fixed shoutbox
@@ -103,7 +103,7 @@ function shout(){
     clearTimeout(shouttimeout);
     shout_totimeout = 5000;
     $('addshoutbut').disabled = true;
-    AJAX(indexurl+'&act=shoutbox&shoutact=addshout&shout='+theshout, 'addshoutresponse(re)');	
+    AJAX(indexurl+'&act=shoutbox&shoutact=addshout&shout='+theshout, 'addshoutresponse(re)');
 };
 
 function addshoutresponse(addedshout){
@@ -120,7 +120,7 @@ function deleteshout(num_id){
 function delshoutresponse(id, delresp){
     var response = eval(delresp);
     if(response){
-        $('aefshid'+id).style.display = "none";	
+        $('aefshid'+id).style.display = "none";
     }
 }
 

@@ -7,8 +7,8 @@
 
 function slideitout(elid, endheight, inc, time){
     startheight = $(elid).offsetHeight;
-    setTimeout(startsliding, time);	
-    function startsliding(){	
+    setTimeout(startsliding, time);
+    function startsliding(){
         startheight = startheight + inc;
         if(startheight < endheight){
             diff = endheight - startheight;
@@ -24,8 +24,8 @@ function slideitout(elid, endheight, inc, time){
 
 function pullitin(elid, dec, time){
     height = $(elid).offsetHeight;
-    setTimeout(startsliding, time);	
-    function startsliding(){	
+    setTimeout(startsliding, time);
+    function startsliding(){
         height = height - dec;
         if(height > 1){
             if(height > dec){
@@ -43,7 +43,7 @@ function slider(){
     this.img_collapsed = imgurl+'collapsed.gif';
     this.img_expanded = imgurl+'expanded.gif';
     this.elements = new Array();
-	
+
     this.slide = function(id){
         var height = $(id).offsetHeight;
         if(height > 1){
@@ -56,9 +56,9 @@ function slider(){
             removecookie(id);
         }
     };
-	
+
     //Init it
-    this.init = function(){		
+    this.init = function(){
         var elements = this.elements;
         for(id in elements){
             if(getcookie(elements[id]) == 1){

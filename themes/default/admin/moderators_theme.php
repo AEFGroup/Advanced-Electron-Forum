@@ -3,7 +3,7 @@
 //===========================================================
 // moderators_theme.php(admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -64,16 +64,16 @@ function managemoderators_theme() {
     moderators_global();
 
     echo '<table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-		<tr><td class="adcbg" colspan="2">' . $l['edit_mods'] . '</td></tr>';
+        <tr><td class="adcbg" colspan="2">' . $l['edit_mods'] . '</td></tr>';
 
     //The for loop for the categories
     foreach ($categories as $c => $cv) {
 
         echo '<tr>
-		<td class="adcbg2" height="18" colspan="3">
-		<b>' . $categories[$c]['name'] . '</b>
-		</td>
-		</tr>';
+        <td class="adcbg2" height="18" colspan="3">
+        <b>' . $categories[$c]['name'] . '</b>
+        </td>
+        </tr>';
 
         if (isset($forums[$c])) {
 
@@ -88,8 +88,8 @@ function managemoderators_theme() {
                 }
 
                 echo '<tr>
-				
-				<td class="adbg" width="85%" height="' . (($forums[$c][$f]['in_board'] == 1) ? '18' : '25') . '" >' . $dasher . (($forums[$c][$f]['in_board'] == 1) ? '|--' : '') . $forums[$c][$f]['fname'];
+
+                <td class="adbg" width="85%" height="' . (($forums[$c][$f]['in_board'] == 1) ? '18' : '25') . '" >' . $dasher . (($forums[$c][$f]['in_board'] == 1) ? '|--' : '') . $forums[$c][$f]['fname'];
 
                 //Are there any moderators for this forum
                 if (!empty($forums[$c][$f]['moderators'])) {
@@ -105,25 +105,25 @@ function managemoderators_theme() {
                 }
 
                 echo '</td>
-				
-				<td class="adbg" align="center">
-				<a href="' . $globals['index_url'] . 'act=admin&adact=moderators&seadact=edit&forum=' . $forums[$c][$f]['fid'] . '">' . $l['edit'] . '</a>
-				</td>
-				
-				</tr>';
+
+                <td class="adbg" align="center">
+                <a href="' . $globals['index_url'] . 'act=admin&adact=moderators&seadact=edit&forum=' . $forums[$c][$f]['fid'] . '">' . $l['edit'] . '</a>
+                </td>
+
+                </tr>';
             }//End of forums loop
         } else {
             echo '<tr>
-				
-				<td class="adbg" width="85%" height="18">
-				--
-				</td>
-				
-				<td class="adbg" align="center">
-				-
-				</td>
-				
-				</tr>';
+
+                <td class="adbg" width="85%" height="18">
+                --
+                </td>
+
+                <td class="adbg" align="center">
+                -
+                </td>
+
+                </tr>';
         }
     }//End of Categories loop
 
@@ -171,7 +171,7 @@ function editmoderators_theme() {
                     <b><?php echo $l['mods_usernames']; ?></b><br />
                     <?php echo $l['mods_usernames_exp']; ?>
                 </td>
-                <td class="adbg" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;		
+                <td class="adbg" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" name="modusernames" <?php echo (isset($_POST['modusernames']) ? 'value="' . $_POST['modusernames'] . '"' : ((!empty($mods)) ? 'value="' . (implode('; ', $mods)) . '"' : '' ) ); ?> size="40" onkeyup="handlesuggest(event, 'modusernames')" onkeydown="handlekeys(event)" autocomplete=off style="position:absolute" onblur="setTimeout(hidesuggest, 1000);" suggesturl="<?php echo $globals['index_url']; ?>act=suggest" id="modusernames" />
                 </td>
             </tr>
@@ -179,7 +179,7 @@ function editmoderators_theme() {
             <tr>
                 <td class="adbg" height="30" colspan="2" align="center">
                     <input type="submit" name="editmoderators" value="<?php echo $l['submit_changes']; ?>" />
-                    <input type="submit" name="deletemoderators" value="<?php echo $l['delete_mods']; ?>" />		
+                    <input type="submit" name="deletemoderators" value="<?php echo $l['delete_mods']; ?>" />
                 </td>
             </tr>
 

@@ -3,7 +3,7 @@
 //===========================================================
 // tpp_theme.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -273,7 +273,7 @@ function manage_topics_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="edittopset" value="<?php echo $l['tpp_submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -463,7 +463,7 @@ function manage_posts_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editpostset" value="<?php echo $l['tpp_submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -527,7 +527,7 @@ function manage_polls_theme() {
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="maxpollqtlen"
                                                    <?php echo 'value="' . $globals['maxpollqtlen'] . '"'; ?> />
                 </td>
-            </tr>	
+            </tr>
 
         </table>
 
@@ -538,7 +538,7 @@ function manage_polls_theme() {
                 <td align="center" class="adbg">
                     <input type="submit" name="editpollset" value="<?php echo $l['tpp_submit']; ?>" />
                 </td>
-            </tr>	
+            </tr>
         </table>
 
     </form>
@@ -611,13 +611,13 @@ function manage_words_theme() {
             foreach ($from as $k => $v) {
 
                 echo '<tr>
-		<td class="adbg" align="center">
-		<input type="text" name="from[]" value="' . $from[$k] . '" />
-		</td>
-		<td class="adbg" align="center">
-		<input type="text" name="to[]" value="' . $to[$k] . '" />
-		</td>
-		</tr>';
+        <td class="adbg" align="center">
+        <input type="text" name="from[]" value="' . $from[$k] . '" />
+        </td>
+        <td class="adbg" align="center">
+        <input type="text" name="to[]" value="' . $to[$k] . '" />
+        </td>
+        </tr>';
             }
             ?>
 
@@ -697,7 +697,7 @@ function manage_bbc_theme() {
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_hr"
                                                    <?php echo ($globals['bbc_hr']) ? 'checked="checked"' : ''; ?> />
                 </td>
-            </tr>		
+            </tr>
 
             <tr>
                 <td width="50%" class="adbg">

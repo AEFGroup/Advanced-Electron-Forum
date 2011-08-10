@@ -47,13 +47,13 @@ function profile_theme() {
     }
     ?>
     <br /><br /><br />
-    <table width="100%" cellpadding="0" cellspacing="0">			
+    <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td>
                 <table width="100%" cellpadding="0" cellspacing="0"><tr>
                         <td class="cbgl"></td>
                         <td class="cbg"><?php echo $l['profile_heading'] . ' ' . $member['username']; ?></td>
-                        <td class="cbgr"></td>		
+                        <td class="cbgr"></td>
                     </tr>
                 </table>
             </td>
@@ -119,13 +119,13 @@ function profile_theme() {
             <td width="50%" valign="top">
                 <!--Information Table-->
 
-                <table width="100%" cellpadding="0" cellspacing="0">			
+                <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                     <td class="cbgl"></td>
                                     <td class="cbg"><?php echo $l['information_heading']; ?></td>
-                                    <td class="cbgr"></td>		
+                                    <td class="cbgr"></td>
                                 </tr>
                             </table>
                         </td>
@@ -257,13 +257,13 @@ function profile_theme() {
 
                 <!--Contact Table-->
 
-                <table width="100%" cellpadding="0" cellspacing="0">			
+                <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                     <td class="cbgl"></td>
                                     <td class="cbg"><?php echo $l['contact_heading']; ?></td>
-                                    <td class="cbgr"></td>		
+                                    <td class="cbgr"></td>
                                 </tr>
                             </table>
                         </td>
@@ -370,13 +370,13 @@ function profile_theme() {
             <td colspan="2">
                 <br />
                 <!--Signature Table-->
-                <table width="100%" cellpadding="0" cellspacing="0">			
+                <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                         <td>
                             <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                     <td class="cbgl"></td>
                                     <td class="cbg"><?php echo $l['members_signature_heading']; ?></td>
-                                    <td class="cbgr"></td>		
+                                    <td class="cbgr"></td>
                                 </tr>
                             </table>
                         </td>

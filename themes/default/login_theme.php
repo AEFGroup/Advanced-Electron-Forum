@@ -8,7 +8,7 @@ function mainlogin_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <table width="100%">
 
@@ -80,13 +80,13 @@ function mainlogin_theme() {
                         if ($globals['anon_login']) {
 
                             echo '<tr>
-	<td align="right">
-	<input type="checkbox" name="anonymously" ' . ( (isset($_POST['anonymously'])) ? 'checked="checked"' : '' ) . ' />
-	</td>
-	<td align="left">
-	' . $l['anon_sign_in'] . '
-	</td>
-	</tr>';
+    <td align="right">
+    <input type="checkbox" name="anonymously" ' . ( (isset($_POST['anonymously'])) ? 'checked="checked"' : '' ) . ' />
+    </td>
+    <td align="left">
+    ' . $l['anon_sign_in'] . '
+    </td>
+    </tr>';
                         }
                         ?>
 
@@ -118,7 +118,7 @@ function fpass_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="fpassform">
         <table width="50%" cellpadding="3" cellspacing="5" class="cbor" align="center" style="background-color: #e8eefa">
@@ -148,17 +148,17 @@ function fpass_theme() {
             if ($globals['fpass_sec_conf']) {
 
                 echo '
-	<tr>
-	<td align="left" valign="top">
-	<b>' . $l['security_code'] . '</b><br />
-	<font class="ucpfexp">' . $l['security_code_exp'] . '</font>
-	</td>
-	<td align="left">
-	<img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />
-	<input type="text" size="20" name="sec_conf" />
-	</td>
-	</tr>
-	';
+    <tr>
+    <td align="left" valign="top">
+    <b>' . $l['security_code'] . '</b><br />
+    <font class="ucpfexp">' . $l['security_code_exp'] . '</font>
+    </td>
+    <td align="left">
+    <img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />
+    <input type="text" size="20" name="sec_conf" />
+    </td>
+    </tr>
+    ';
             }
             ?>
 
@@ -196,7 +196,7 @@ function answer_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="answerform">
         <table width="50%" cellpadding="3" cellspacing="5" class="cbor" align="center" style="background-color: #e8eefa">
@@ -253,7 +253,7 @@ function reset_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="resetform">
         <table width="50%" cellpadding="3" cellspacing="5" class="cbor" align="center" style="background-color: #e8eefa">
@@ -312,7 +312,7 @@ function fuser_theme() {
     aefheader($l['<title>']);
 
     error_handle($error, '90%');
-    ?>	
+    ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="fuserform">
         <table width="50%" cellpadding="3" cellspacing="5" class="cbor" align="center" style="background-color: #e8eefa">
@@ -342,17 +342,17 @@ function fuser_theme() {
             if ($globals['fpass_sec_conf']) {
 
                 echo '
-	<tr>
-	<td align="left" valign="top">
-	<b>' . $l['security_code'] . '</b><br />
-	<font class="ucpfexp">' . $l['security_code_exp'] . '</font>
-	</td>
-	<td align="left">
-	<img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />
-	<input type="text" size="20" name="sec_conf" />
-	</td>
-	</tr>
-	';
+    <tr>
+    <td align="left" valign="top">
+    <b>' . $l['security_code'] . '</b><br />
+    <font class="ucpfexp">' . $l['security_code_exp'] . '</font>
+    </td>
+    <td align="left">
+    <img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />
+    <input type="text" size="20" name="sec_conf" />
+    </td>
+    </tr>
+    ';
             }
             ?>
 
