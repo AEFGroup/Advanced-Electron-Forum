@@ -141,7 +141,6 @@ function emailpmset() {
         //Redirect
         redirect('act=usercp');
     } else {
-
         $theme['call_theme_func'] = 'emailpmset_theme';
     }//End of Main IF
 }
