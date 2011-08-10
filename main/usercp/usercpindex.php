@@ -20,37 +20,32 @@
 //===========================================================
 //////////////////////////////////////////////////////////////
 
-if(!defined('AEF')){
+if (!defined('AEF')) {
 
-	die('Hacking Attempt');
-
+    die('Hacking Attempt');
 }
 
+function usercpindex() {
 
-function usercpindex(){
+    global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
 
-global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
-	
-	if(!load_lang('usercp/usercpindex')){
-		
-		return false;
-			
-	}
-	
-	//The name of the file
-	$theme['init_theme'] = 'usercp/usercpindex';
-	
-	//The name of the Page
-	$theme['init_theme_name'] = 'User Control Panel';
-	
-	//Array of functions to initialize
-	$theme['init_theme_func'] = array('usercpindex_theme');
-	
-	$theme['call_theme_func'] = 'usercpindex_theme';
-	
-	return true;
+    if (!load_lang('usercp/usercpindex')) {
 
+        return false;
+    }
+
+    //The name of the file
+    $theme['init_theme'] = 'usercp/usercpindex';
+
+    //The name of the Page
+    $theme['init_theme_name'] = 'User Control Panel';
+
+    //Array of functions to initialize
+    $theme['init_theme_func'] = array('usercpindex_theme');
+
+    $theme['call_theme_func'] = 'usercpindex_theme';
+
+    return true;
 }
-
 
 ?>
