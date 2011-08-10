@@ -214,11 +214,11 @@ function forumset_theme() {
                                 <font class="ucpfexp"><?php echo $l['uset_language_exp']; ?></font>
                             </td>
                             <td class="ucpfrc">
-                                &nbsp;&nbsp;&nbsp;<select name="language" />
+                                <select name="language">
                                 <?php
                                 foreach ($lang_folders as $k => $v) {
 
-                                    echo '<option value="' . $v . '" ' . (empty($_POST['language']) && $user['language'] == $v ? 'selected="selected"' : (trim($_POST['language']) == $v ? 'selected="selected"' : '') ) . '>' . aefucfirst($v) . '</option>';
+                                    echo '<option value="' . $v . '" ' . ($user['language'] == $v ? 'selected="selected"' : (trim($user['language']) == $v ? 'selected="selected"' : '') ) . '>' . aefucfirst($v) . '</option>';
                                 }
                                 ?>
                                 </select>
