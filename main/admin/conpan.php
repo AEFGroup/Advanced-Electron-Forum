@@ -25,6 +25,9 @@ if (!defined('AEF')) {
     die('Hacking Attempt');
 }
 
+//some needed administration functions !
+require_once('admin_functions.php');
+
 function conpan() {
 
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
