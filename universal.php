@@ -22,11 +22,11 @@
 
 /* Database Connection */
 
-$globals['user'] = '';
-$globals['password'] = '';
-$globals['database'] = '';
-$globals['dbprefix'] = '';
-$globals['server'] = '';
+$globals['user'] = 'root';
+$globals['password'] = '199407';
+$globals['database'] = 'aef';
+$globals['dbprefix'] = 'aef_';
+$globals['server'] = 'localhost';
 
 /* Ending - Database Connection */
 
@@ -34,15 +34,15 @@ $globals['server'] = '';
 
 /* Core Settings */
 
-$globals['url'] = '';
-$globals['sn'] = '';
-$globals['board_email'] = '';
-$globals['server_url'] = '';
-$globals['mainfiles'] = '';
-$globals['themesdir'] = '';
+$globals['url'] = 'http://localhost/AEF';
+$globals['sn'] = 'My Board';
+$globals['board_email'] = 'test@test.t';
+$globals['server_url'] = '/srv/www/htdocs/AEF';
+$globals['mainfiles'] = '/srv/www/htdocs/AEF/main';
+$globals['themesdir'] = '/srv/www/htdocs/AEF/themes';
 $globals['gzip'] = 1;
-$globals['cookie_name'] = '';
-$globals['installed'] = '0';
+$globals['cookie_name'] = 'AEFCookies2575';
+$globals['installed'] = '1';
 
 /* Ending - Core Settings */
 ?>
