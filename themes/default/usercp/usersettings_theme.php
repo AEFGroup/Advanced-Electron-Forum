@@ -214,7 +214,7 @@ function forumset_theme() {
                                 <font class="ucpfexp"><?php echo $l['uset_language_exp']; ?></font>
                             </td>
                             <td class="ucpfrc">
-                                <select name="language">
+                                <select name="language" id="languageselector">
                                 <?php
                                 foreach ($lang_folders as $k => $v) {
 
