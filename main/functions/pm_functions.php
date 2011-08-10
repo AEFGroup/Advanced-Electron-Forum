@@ -20,10 +20,9 @@
 //===========================================================
 //////////////////////////////////////////////////////////////
 
-if(!defined('AEF')){
+if (!defined('AEF')) {
 
-	die('Hacking Attempt');
-
+    die('Hacking Attempt');
 }
 
 ////////////////////////////////////
@@ -37,105 +36,94 @@ if(!defined('AEF')){
 // 5) $saveinsentitems - Save it or no.
 ////////////////////////////////////
 
-function sendpm_fn($to, $subject, $body, $track, $saveinsentitems){
+function sendpm_fn($to, $subject, $body, $track, $saveinsentitems) {
 
-global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
+    global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
 
-	////////////////////////
-	// INSERT the PM first
-	////////////////////////
-	
-	$time = time();
-	
-	//Make the QUERY
-	$qresult = makequery("INSERT INTO ".$dbtables['pm']." 
-			SET pm_from = '".$user['id']."', 
+    ////////////////////////
+    // INSERT the PM first
+    ////////////////////////
+
+    $time = time();
+
+    //Make the QUERY
+    $qresult = makequery("INSERT INTO " . $dbtables['pm'] . " 
+			SET pm_from = '" . $user['id'] . "', 
 			pm_to = '$to', 
 			pm_time = '$time', 
 			pm_subject = '$subject', 
 			pm_body = '$body', 
 			pm_track = '$track'");
-	
-	$pmid = mysql_insert_id($conn);
-				
-	if( empty($pmid) ){
-		
-		return false;
-		
-	}	
-	
-	////////////////////////////////
-	// UPDATE The Recievers PM count
-	////////////////////////////////
-	
-	//Make the QUERY
-	$qresult = makequery("UPDATE ".$dbtables['users']." 
+
+    $pmid = mysql_insert_id($conn);
+
+    if (empty($pmid)) {
+
+        return false;
+    }
+
+    ////////////////////////////////
+    // UPDATE The Recievers PM count
+    ////////////////////////////////
+    //Make the QUERY
+    $qresult = makequery("UPDATE " . $dbtables['users'] . " 
 			SET pm = pm + 1 , 
 			unread_pm = unread_pm + 1 
 			WHERE id = '$to'", false);
-	
-	
-	//Were things deleted			
-	if(mysql_affected_rows($conn) < 1){
-		
-		return false;
-		
-	}
-	
-		
-	/////////////////////////////////
-	// If the user has asked to save
-	// it in the 'Sent Items Folder'.
-	/////////////////////////////////
-	
-	if($saveinsentitems){
-		
-		///////////////////////////////
-		// INSERT the PM to Save first
-		// Sent Items Folder ID is '1'
-		///////////////////////////////
-		
-		//Make the QUERY
-		$qresult = makequery("INSERT INTO ".$dbtables['pm']." 
-				SET pm_from = '".$user['id']."', 
+
+
+    //Were things deleted			
+    if (mysql_affected_rows($conn) < 1) {
+
+        return false;
+    }
+
+
+    /////////////////////////////////
+    // If the user has asked to save
+    // it in the 'Sent Items Folder'.
+    /////////////////////////////////
+
+    if ($saveinsentitems) {
+
+        ///////////////////////////////
+        // INSERT the PM to Save first
+        // Sent Items Folder ID is '1'
+        ///////////////////////////////
+        //Make the QUERY
+        $qresult = makequery("INSERT INTO " . $dbtables['pm'] . " 
+				SET pm_from = '" . $user['id'] . "', 
 				pm_to = '$to', 
 				pm_time = '$time', 
 				pm_subject = '$subject', 
 				pm_body = '$body', 
 				pm_track = '$track',
 				pm_folder = '1'");
-		
-		
-		$pmid_s = mysql_insert_id($conn);
-				
-		if( empty($pmid_s) ){
-			
-			return false;
-			
-		}	
-		
-				
-		////////////////////////////////
-		// UPDATE The Senders PM count
-		////////////////////////////////
-		
-		//Make the QUERY
-		$qresult = makequery("UPDATE ".$dbtables['users']." 
+
+
+        $pmid_s = mysql_insert_id($conn);
+
+        if (empty($pmid_s)) {
+
+            return false;
+        }
+
+
+        ////////////////////////////////
+        // UPDATE The Senders PM count
+        ////////////////////////////////
+        //Make the QUERY
+        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
 				SET pm = pm + 1 
-				WHERE id = '".$user['id']."'", false);
-	
-		//Were things deleted			
-		if(mysql_affected_rows($conn) < 1){
-			
-			return false;
-			
-		}
-			
-	}//End of if($saveinsentitems)
-	
+				WHERE id = '" . $user['id'] . "'", false);
 
-}//End of function
+        //Were things deleted			
+        if (mysql_affected_rows($conn) < 1) {
 
+            return false;
+        }
+    }//End of if($saveinsentitems)
+}
 
-
+//End of function
 ?>

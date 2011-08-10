@@ -108,7 +108,7 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
 		FROM " . $dbtables['categories'] . " cat 
 		LEFT JOIN " . $dbtables['forums'] . " f ON (cat.cid = f.cat_id)
 		LEFT JOIN " . $dbtables['forumpermissions'] . " fp ON (fp.fpfid = f.fid 
-					" . (($logged_in) ?  "AND fp.fpugid = ". $user['member_group'] ."" : "") .")
+					" . (($logged_in) ? "AND fp.fpugid = " . $user['member_group'] . "" : "") . ")
 		LEFT JOIN " . $dbtables['posts'] . " p ON (p.post_fid = f.fid AND p.pid = f.f_last_pid)
 		LEFT JOIN " . $dbtables['topics'] . " t ON (p.post_tid = t.tid)
 		LEFT JOIN " . $dbtables['users'] . " u ON (p.poster_id = u.id)
@@ -173,7 +173,6 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
 
         unset($row);
     }//End of main for loop
-
     //Free the resources
     mysql_free_result($qresult);
 
