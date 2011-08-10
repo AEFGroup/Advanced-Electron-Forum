@@ -4,7 +4,7 @@
 //===========================================================
 // forums.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -667,33 +667,33 @@ function editforum() {
 
         /////////////////////////////////
         // Finally lets UPDATE the Forum
-        /////////////////////////////////		
+        /////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-					SET	cat_id = '$cat_id', 
-					par_board_id = '$par_board_id',
-					forum_order = '$forum_order', 
-					member_group = '$fmember_group',
-					fname = '$fname', 
-					description = '$description', 
-					fimage = '$fimage', 
-					fredirect = '$fredirect', 
-					status = '$status', 
-					allow_poll = '$allow_poll',
-					allow_html = '$allow_html',
-					id_skin = '$id_skin', 
-					override_skin = '$override_skin',
-					inc_mem_posts = '$inc_mem_posts', 
-					quick_reply = '$quick_reply',
-					quick_topic = '$quick_topic',
-					frulestitle = '$frulestitle',
-					frules = '$frules',
-					mod_topics = '$mod_topics',
-					mod_posts = '$mod_posts',
-					rss = '$rss',
-					rss_topic = '$rss_topic'
-					WHERE fid = '$fid'
-					LIMIT 1", false);
+                    SET    cat_id = '$cat_id',
+                    par_board_id = '$par_board_id',
+                    forum_order = '$forum_order',
+                    member_group = '$fmember_group',
+                    fname = '$fname',
+                    description = '$description',
+                    fimage = '$fimage',
+                    fredirect = '$fredirect',
+                    status = '$status',
+                    allow_poll = '$allow_poll',
+                    allow_html = '$allow_html',
+                    id_skin = '$id_skin',
+                    override_skin = '$override_skin',
+                    inc_mem_posts = '$inc_mem_posts',
+                    quick_reply = '$quick_reply',
+                    quick_topic = '$quick_topic',
+                    frulestitle = '$frulestitle',
+                    frules = '$frules',
+                    mod_topics = '$mod_topics',
+                    mod_posts = '$mod_posts',
+                    rss = '$rss',
+                    rss_topic = '$rss_topic'
+                    WHERE fid = '$fid'
+                    LIMIT 1", false);
 
         /* if(mysql_affected_rows($conn) < 1){
 
@@ -705,7 +705,7 @@ function editforum() {
 
 
         /////////////////////////////////
-        // If there are any changes then 
+        // If there are any changes then
         // UPDATE its In Boards parents.
         /////////////////////////////////
         //Update only if the old Parent is not the same.
@@ -714,16 +714,16 @@ function editforum() {
             foreach ($its_in_boards as $i => $iv) {
 
                 $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-						SET	cat_id = '$cat_id'
-						WHERE fid = '" . $its_in_boards[$i]['fid'] . "'
-						LIMIT 1", false);
+                        SET    cat_id = '$cat_id'
+                        WHERE fid = '" . $its_in_boards[$i]['fid'] . "'
+                        LIMIT 1", false);
             }
         }
 
 
         /////////////////////////////////
-        // If there are any changes then 
-        // UPDATE the Boards where it 
+        // If there are any changes then
+        // UPDATE the Boards where it
         // was located previously.
         /////////////////////////////////
         //If changes are to be made
@@ -735,8 +735,8 @@ function editforum() {
 
 
         /////////////////////////////////
-        // If there are any changes then 
-        // UPDATE the Boards where it 
+        // If there are any changes then
+        // UPDATE the Boards where it
         // is going to go.
         /////////////////////////////////
 
@@ -763,9 +763,9 @@ function editforum() {
                     $neworder = $o + 1;
 
                     $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-								SET " . $edit_field . " = '$neworder'
-								WHERE fid = '$orderfid' 
-								LIMIT 1", false);
+                                SET " . $edit_field . " = '$neworder'
+                                WHERE fid = '$orderfid'
+                                LIMIT 1", false);
 
                     if (mysql_affected_rows($conn) < 1) {
 
@@ -799,10 +799,10 @@ function editforum() {
 
                     $neworder = $o + 1;
 
-                    $qresult = makequery("UPDATE " . $dbtables['forums'] . " 
-								SET " . $edit_field . " = '$neworder'
-								WHERE fid = '$orderfid' 
-								LIMIT 1", false);
+                    $qresult = makequery("UPDATE " . $dbtables['forums'] . "
+                                SET " . $edit_field . " = '$neworder'
+                                WHERE fid = '$orderfid'
+                                LIMIT 1", false);
 
                     if (mysql_affected_rows($conn) < 1) {
 
@@ -816,7 +816,7 @@ function editforum() {
                 }//End of for loop
             } elseif ($forum_order > $board[$edit_field]) {
 
-                //A for loop to reorder the rest			
+                //A for loop to reorder the rest
                 for ($o = ($board[$edit_field] + 1); $o <= $forum_order; $o++) {
 
                     //Find the Child of the new parent whose order was the submitted one
@@ -831,9 +831,9 @@ function editforum() {
                     $neworder = $o - 1;
 
                     $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-								SET " . $edit_field . " = '$neworder'
-								WHERE fid = '$orderfid' 
-								LIMIT 1", false);
+                                SET " . $edit_field . " = '$neworder'
+                                WHERE fid = '$orderfid'
+                                LIMIT 1", false);
 
                     if (mysql_affected_rows($conn) < 1) {
 
@@ -1057,7 +1057,7 @@ function createforum() {
             //////////////////////////////////
             // This is a very important thing
             // to check for automated registrations
-            //////////////////////////////////	
+            //////////////////////////////////
 
             if (in_array($postedcode, $AEF_SESS['postcode'])) {
 
@@ -1349,31 +1349,31 @@ function createforum() {
 
         /////////////////////////////////
         // Finally lets UPDATE the Forum
-        /////////////////////////////////		
+        /////////////////////////////////
 
         $qresult = makequery("INSERT INTO " . $dbtables['forums'] . "
-					SET	cat_id = '$cat_id', 
-					par_board_id = '$par_board_id',
-					forum_order = '$forum_order', 
-					member_group = '$fmember_group',
-					fname = '$fname', 
-					description = '$description', 
-					fimage = '$fimage', 
-					fredirect = '$fredirect', 
-					status = '$status', 
-					allow_poll = '$allow_poll',
-					allow_html = '$allow_html',
-					id_skin = '$id_skin', 
-					override_skin = '$override_skin',
-					inc_mem_posts = '$inc_mem_posts', 
-					quick_reply = '$quick_reply',
-					quick_topic = '$quick_topic',
-					frulestitle = '$frulestitle',
-					frules = '$frules',
-					mod_topics = '$mod_topics',
-					mod_posts = '$mod_posts',
-					rss = '$rss',
-					rss_topic = '$rss_topic'", false);
+                    SET    cat_id = '$cat_id',
+                    par_board_id = '$par_board_id',
+                    forum_order = '$forum_order',
+                    member_group = '$fmember_group',
+                    fname = '$fname',
+                    description = '$description',
+                    fimage = '$fimage',
+                    fredirect = '$fredirect',
+                    status = '$status',
+                    allow_poll = '$allow_poll',
+                    allow_html = '$allow_html',
+                    id_skin = '$id_skin',
+                    override_skin = '$override_skin',
+                    inc_mem_posts = '$inc_mem_posts',
+                    quick_reply = '$quick_reply',
+                    quick_topic = '$quick_topic',
+                    frulestitle = '$frulestitle',
+                    frules = '$frules',
+                    mod_topics = '$mod_topics',
+                    mod_posts = '$mod_posts',
+                    rss = '$rss',
+                    rss_topic = '$rss_topic'", false);
 
         $fid = mysql_insert_id($conn);
 
@@ -1385,8 +1385,8 @@ function createforum() {
         }
 
         /////////////////////////////////
-        // If there are any changes then 
-        // UPDATE the Boards where it 
+        // If there are any changes then
+        // UPDATE the Boards where it
         // is going to go.
         /////////////////////////////////
 
@@ -1395,7 +1395,7 @@ function createforum() {
         //If POSTED Order is LESS than the DEFAULT ORDER
         if ($forum_order < $default) {
 
-            //A for loop to reorder the rest			
+            //A for loop to reorder the rest
             for ($o = $forum_order; $o < $default; $o++) {
 
                 //Find the Child of the new parent whose order was the submitted one
@@ -1410,9 +1410,9 @@ function createforum() {
                 $neworder = $o + 1;
 
                 $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-							SET " . $edit_field . " = '$neworder'
-							WHERE fid = '$orderfid' 
-							LIMIT 1", false);
+                            SET " . $edit_field . " = '$neworder'
+                            WHERE fid = '$orderfid'
+                            LIMIT 1", false);
 
                 if (mysql_affected_rows($conn) < 1) {
 
@@ -1470,7 +1470,7 @@ function ajax_getneworder() {
 
 //End of function
 ////////////////////////////////////////
-// Returns the Number of boards in the 
+// Returns the Number of boards in the
 // given parent / mother.
 ////////////////////////////////////////
 
@@ -1547,7 +1547,7 @@ function neworder($motherforumid) {
                 $children[$its_in_boards[$i]['fid']] = $its_in_boards[$i];
             }
         }
-    }//End of IF...ELSEIF Condition	
+    }//End of IF...ELSEIF Condition
 
     return count($children);
 }
@@ -1799,11 +1799,11 @@ function deleteforum() {
 
                 //UPDATE the In-Boards
                 $qresult = makequery("UPDATE " . $dbtables['forums'] . " SET
-							par_board_id = '$par_board_id',
-							cat_id = '$cat_id',
-							forum_order = '$forum_order'
-							WHERE fid = '" . $board['in_boards'][$k]['fid'] . "'
-							LIMIT 1", false);
+                            par_board_id = '$par_board_id',
+                            cat_id = '$cat_id',
+                            forum_order = '$forum_order'
+                            WHERE fid = '" . $board['in_boards'][$k]['fid'] . "'
+                            LIMIT 1", false);
 
                 $forum_order = $forum_order + 1;
             }
@@ -2004,9 +2004,9 @@ function forumreorder() {
 
         foreach ($forumreordered as $k => $v) {
 
-            $qresult = makequery("UPDATE " . $dbtables['forums'] . " 
-						SET `forum_order` = '$v'
-						WHERE fid = '$k'", false);
+            $qresult = makequery("UPDATE " . $dbtables['forums'] . "
+                        SET `forum_order` = '$v'
+                        WHERE fid = '$k'", false);
         }
 
         //Redirect
@@ -2019,7 +2019,7 @@ function forumreorder() {
     }
 }
 
-/* What each function does:- 
+/* What each function does:-
 
   function default_of() -
   Removes and Puts all the catgories in an array $categories and

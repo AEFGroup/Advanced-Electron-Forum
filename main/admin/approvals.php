@@ -4,7 +4,7 @@
 //===========================================================
 // approvals.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -149,8 +149,8 @@ function manval() {
 
     //Get the Number of pages that can be formed
     $qresult = makequery("SELECT COUNT(*) AS pages
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '2'");
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '2'");
 
     $temp = mysql_fetch_assoc($qresult);
 
@@ -161,10 +161,10 @@ function manval() {
 
     //Get out all the members who have to activate their accounts
     $qresult = makequery("SELECT u.id, u.username, u.email, u.r_time
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '2'
-				ORDER BY " . $sortby . " " . $order . "
-				LIMIT $page, " . $globals['maxmemberlist']);
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '2'
+                ORDER BY " . $sortby . " " . $order . "
+                LIMIT $page, " . $globals['maxmemberlist']);
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -301,8 +301,8 @@ function awapp() {
 
     //Get the Number of pages that can be formed
     $qresult = makequery("SELECT COUNT(*) AS pages
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '3'");
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '3'");
 
     $temp = mysql_fetch_assoc($qresult);
 
@@ -313,10 +313,10 @@ function awapp() {
 
     //Get out all the members who have to activate their accounts
     $qresult = makequery("SELECT u.id, u.username, u.email, u.r_time
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '3'
-				ORDER BY " . $sortby . " " . $order . "
-				LIMIT $page, " . $globals['maxmemberlist']);
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '3'
+                ORDER BY " . $sortby . " " . $order . "
+                LIMIT $page, " . $globals['maxmemberlist']);
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -452,8 +452,8 @@ function coppaapp() {
 
     //Get the Number of pages that can be formed
     $qresult = makequery("SELECT COUNT(*) AS pages
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '4'");
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '4'");
 
     $temp = mysql_fetch_assoc($qresult);
 
@@ -464,10 +464,10 @@ function coppaapp() {
 
     //Get out all the members who have to activate their accounts
     $qresult = makequery("SELECT u.id, u.username, u.email, u.r_time
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '4'
-				ORDER BY " . $sortby . " " . $order . "
-				LIMIT $page, " . $globals['maxmemberlist']);
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '4'
+                ORDER BY " . $sortby . " " . $order . "
+                LIMIT $page, " . $globals['maxmemberlist']);
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -544,9 +544,9 @@ function dothis($uids, $do, $act_status) {
 
     //Get all the users out
     $qresult = makequery("SELECT u.id, u.username, u.email
-				FROM " . $dbtables['users'] . " u
-				WHERE act_status = '$act_status'
-				AND u.id IN ($uids_str)");
+                FROM " . $dbtables['users'] . " u
+                WHERE act_status = '$act_status'
+                AND u.id IN ($uids_str)");
 
     //This is the clean array we have to use
     if (mysql_num_rows($qresult) < 1) {
@@ -582,8 +582,8 @@ function dothis($uids, $do, $act_status) {
         ////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['users'] . "
-						SET act_status = '1'
-						WHERE id IN ($uids_str)", false);
+                        SET act_status = '1'
+                        WHERE id IN ($uids_str)", false);
 
         if (mysql_affected_rows($conn) < count($users)) {
 
@@ -605,9 +605,9 @@ function dothis($uids, $do, $act_status) {
         $latestuser = $users[$lastkey];
 
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['registry'] . " 
-					SET regval = '" . $latestuser['username'] . "|" . $latestuser['id'] . "' 
-					WHERE name = 'latest_mem'");
+        $qresult = makequery("UPDATE " . $dbtables['registry'] . "
+                    SET regval = '" . $latestuser['username'] . "|" . $latestuser['id'] . "'
+                    WHERE name = 'latest_mem'");
 
 
         /* if(mysql_affected_rows($conn) < 1){
@@ -624,9 +624,9 @@ function dothis($uids, $do, $act_status) {
         // UPDATE The Total Member Count
         ////////////////////////////////
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['registry'] . " 
-					SET regval = '" . (((int) $globals['num_mem']) + count($users)) . "' 
-					WHERE name = 'num_mem'");
+        $qresult = makequery("UPDATE " . $dbtables['registry'] . "
+                    SET regval = '" . (((int) $globals['num_mem']) + count($users)) . "'
+                    WHERE name = 'num_mem'");
 
         /* if(mysql_affected_rows($conn) < 1){
 
@@ -664,7 +664,7 @@ function dothis($uids, $do, $act_status) {
         ////////////////////
 
         $qresult = makequery("DELETE FROM " . $dbtables['users'] . "
-						WHERE id IN ($uids_str)", false);
+                        WHERE id IN ($uids_str)", false);
 
         if (mysql_affected_rows($conn) < count($users)) {
 

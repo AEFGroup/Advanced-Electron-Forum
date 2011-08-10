@@ -4,7 +4,7 @@
 //===========================================================
 // categories.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -229,13 +229,13 @@ function editcat() {
 
         ////////////////////////////////////
         // Finally lets UPDATE the Category
-        ////////////////////////////////////		
+        ////////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['categories'] . "
-					SET name = '$catname', 
-					`order` = '$catorder',
-					collapsable = '$catcollapse'
-					WHERE cid = '$editcat'", false);
+                    SET name = '$catname',
+                    `order` = '$catorder',
+                    collapsable = '$catcollapse'
+                    WHERE cid = '$editcat'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -249,8 +249,8 @@ function editcat() {
 
 
         /////////////////////////////////////
-        // Lets Calculate the orders that are 
-        // to be changed of other categories 
+        // Lets Calculate the orders that are
+        // to be changed of other categories
         // if this order is changed.
         /////////////////////////////////////
         //If ORDER of Category to be edited is not same as POSTED Order
@@ -267,8 +267,8 @@ function editcat() {
                     $ordercid = array_search($o, $order);
 
                     $qresult = makequery("UPDATE " . $dbtables['categories'] . "
-							SET `order` = `order` - 1
-							WHERE cid = '$ordercid'", false);
+                            SET `order` = `order` - 1
+                            WHERE cid = '$ordercid'", false);
 
                     if (mysql_affected_rows($conn) < 1) {
 
@@ -292,8 +292,8 @@ function editcat() {
                     $ordercid = array_search($o, $order);
 
                     $qresult = makequery("UPDATE " . $dbtables['categories'] . "
-							SET `order` = `order` + 1
-							WHERE cid = '$ordercid'", false);
+                            SET `order` = `order` + 1
+                            WHERE cid = '$ordercid'", false);
 
                     if (mysql_affected_rows($conn) < 1) {
 
@@ -432,12 +432,12 @@ function createcat() {
 
         ////////////////////////////////////
         // Finally lets INSERT the Category
-        ////////////////////////////////////		
+        ////////////////////////////////////
 
         $qresult = makequery("INSERT INTO " . $dbtables['categories'] . "
-					SET name = '$catname',
-					`order` = '$catorder',
-					collapsable = '$catcollapse'");
+                    SET name = '$catname',
+                    `order` = '$catorder',
+                    collapsable = '$catcollapse'");
 
         $newcatid = mysql_insert_id($conn);
 
@@ -460,8 +460,8 @@ function createcat() {
 
 
         /////////////////////////////////////
-        // Lets Calculate the orders that are 
-        // to be changed of other categories 
+        // Lets Calculate the orders that are
+        // to be changed of other categories
         // if this order is changed.
         /////////////////////////////////////
         //If ORDER of Category to be edited is not same as POSTED Order
@@ -478,8 +478,8 @@ function createcat() {
                     $ordercid = array_search($o, $order);
 
                     $qresult = makequery("UPDATE " . $dbtables['categories'] . "
-							SET `order` = `order` + 1
-							WHERE cid = '$ordercid'", false);
+                            SET `order` = `order` + 1
+                            WHERE cid = '$ordercid'", false);
 
                     if (mysql_affected_rows($conn) < 1) {
 
@@ -616,9 +616,9 @@ function catreorder() {
 
         foreach ($catreordered as $k => $v) {
 
-            $qresult = makequery("UPDATE " . $dbtables['categories'] . " 
-						SET `order` = '$v'
-						WHERE cid = '$k'", false);
+            $qresult = makequery("UPDATE " . $dbtables['categories'] . "
+                        SET `order` = '$v'
+                        WHERE cid = '$k'", false);
         }
 
         //Redirect

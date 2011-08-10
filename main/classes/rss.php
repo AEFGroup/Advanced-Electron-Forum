@@ -4,7 +4,7 @@
 //===========================================================
 // rss.php(classes)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -32,19 +32,19 @@ class rss {
 
         $str = '<?xml version="' . $ver . '" encoding="' . $enc . '"?>
 <rss version="' . $rss_ver . '" xml:lang="en-US">
-	<channel>
-		<title>' . $title . '</title>
-		<link>' . $link . '</link>
-		<description><![CDATA[' . $desc . ']]></description>';
+    <channel>
+        <title>' . $title . '</title>
+        <link>' . $link . '</link>
+        <description><![CDATA[' . $desc . ']]></description>';
 
         return $str;
     }
 
-    //The end	
+    //The end
     function close() {
 
         $str = '
-	</channel>
+    </channel>
 </rss>';
 
         return $str;
@@ -54,14 +54,14 @@ class rss {
     function item($title, $link, $desc, $category, $pubDate) {
 
         return '
-		<item>
-			<title><![CDATA[' . $title . ']]></title>
-			<link>' . $link . '</link>
-			<description><![CDATA[' . $desc . ']]></description>
-			<category><![CDATA[' . $category . ']]></category>
-			<pubDate>' . $pubDate . '</pubDate>
-			<guid>' . $link . '</guid>
-		</item>';
+        <item>
+            <title><![CDATA[' . $title . ']]></title>
+            <link>' . $link . '</link>
+            <description><![CDATA[' . $desc . ']]></description>
+            <category><![CDATA[' . $category . ']]></category>
+            <pubDate>' . $pubDate . '</pubDate>
+            <guid>' . $link . '</guid>
+        </item>';
     }
 
 }

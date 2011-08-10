@@ -4,7 +4,7 @@
 //===========================================================
 // moderators.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -177,8 +177,8 @@ function editmoderators() {
         foreach ($moderators as $mk => $mv) {
 
             $qresult = makequery("REPLACE INTO " . $dbtables['moderators'] . "
-					SET	mod_mem_id = '" . $mv['id'] . "',
-					mod_fid = '$mod_fid'");
+                    SET    mod_mem_id = '" . $mv['id'] . "',
+                    mod_fid = '$mod_fid'");
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -207,10 +207,10 @@ function editmoderators() {
 
         //////////////////////////////////////
         // Lets DELETE the Forum Permissions
-        //////////////////////////////////////	
+        //////////////////////////////////////
 
         $qresult = makequery("DELETE FROM " . $dbtables['moderators'] . "
-					WHERE mod_fid = '$mod_fid'", false);
+                    WHERE mod_fid = '$mod_fid'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -235,7 +235,7 @@ function editmoderators() {
 
 ///////////////////////////////////
 // Check the Moderators of the forum.
-// It does the following : 
+// It does the following :
 // 1) Checks all the usernames
 // 2) If error calls form and Exits
 // 3) Returns array if everthing is fine
@@ -295,8 +295,8 @@ function check_modusernames($usernames, $callfunc = 'editmoderators_theme') {
 
 
     $qresult = makequery("SELECT u.id, u.username
-			FROM " . $dbtables['users'] . " u
-			WHERE ($final)");
+            FROM " . $dbtables['users'] . " u
+            WHERE ($final)");
 
     if (mysql_num_rows($qresult) < 1) {
 

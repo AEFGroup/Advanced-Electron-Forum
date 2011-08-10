@@ -4,7 +4,7 @@
 //===========================================================
 // usergroups.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -206,7 +206,7 @@ function editug() {
         'view_calendar' => 0
     );
 
-    //The yes/no ones				
+    //The yes/no ones
     $ugpermissions_yn = array('view_forum' => 0,
         'can_post_topic' => 0,
         'can_reply' => 0,
@@ -316,9 +316,9 @@ function editug() {
 
     //Get the user group
     $qresult = makequery("SELECT ug.*, p.* FROM " . $dbtables['user_groups'] . " ug
-						LEFT JOIN " . $dbtables['permissions'] . " p ON 
-														(ug.member_group = p.member_group_id)
-						WHERE member_group = '$member_group'");
+                        LEFT JOIN " . $dbtables['permissions'] . " p ON
+                                                        (ug.member_group = p.member_group_id)
+                        WHERE member_group = '$member_group'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -449,13 +449,13 @@ function editug() {
         // UPDATE the User Groups
         /////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['user_groups'] . " 
-						SET mem_gr_name = '$mem_gr_name',
-						mem_gr_colour = '$mem_gr_colour',
-						post_count = '$post_count',
-						image_name = '$image_name',
-						image_count = '$image_count'
-						WHERE member_group = '$member_group'", false);
+        $qresult = makequery("UPDATE " . $dbtables['user_groups'] . "
+                        SET mem_gr_name = '$mem_gr_name',
+                        mem_gr_colour = '$mem_gr_colour',
+                        post_count = '$post_count',
+                        image_name = '$image_name',
+                        image_count = '$image_count'
+                        WHERE member_group = '$member_group'", false);
 
 
         //We should not update the Admin permissions mask
@@ -475,9 +475,9 @@ function editug() {
             //Make an update
             if ($user_group['post_count'] == -1 && $post_count == -1) {
 
-                $qresult = makequery("UPDATE " . $dbtables['permissions'] . " 
-							SET " . $string . "
-							WHERE member_group_id = '$member_group'", false);
+                $qresult = makequery("UPDATE " . $dbtables['permissions'] . "
+                            SET " . $string . "
+                            WHERE member_group_id = '$member_group'", false);
 
 
                 //Free the resources
@@ -491,9 +491,9 @@ function editug() {
                 //INSERT the permissions set
             } elseif ($user_group['post_count'] != -1 && $post_count == -1) {
 
-                $qresult = makequery("INSERT INTO " . $dbtables['permissions'] . " 
-							SET member_group_id = '$member_group',
-							" . $string);
+                $qresult = makequery("INSERT INTO " . $dbtables['permissions'] . "
+                            SET member_group_id = '$member_group',
+                            " . $string);
 
                 $member_group_id = mysql_insert_id($conn);
 
@@ -519,23 +519,23 @@ function editug() {
     }
 }
 
-//Justs deletes the permission set and also updates the members in that group to users 
+//Justs deletes the permission set and also updates the members in that group to users
 function deleteugper($ugid) {
 
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
 
     //Delete the permission mask
-    $qresult = makequery("DELETE FROM " . $dbtables['permissions'] . " 
-					WHERE member_group_id = '$ugid'", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['permissions'] . "
+                    WHERE member_group_id = '$ugid'", false);
 
     //Free the resources
     @mysql_free_result($qresult);
 
 
     //UPDATE the users in that group
-    $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-						SET u_member_group = '0'
-						WHERE u_member_group = '$ugid'", false);
+    $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                        SET u_member_group = '0'
+                        WHERE u_member_group = '$ugid'", false);
 
 
     //Free the resources
@@ -561,7 +561,7 @@ function delug() {
 
     //Get the user group
     $qresult = makequery("SELECT * FROM " . $dbtables['user_groups'] . "
-						WHERE member_group = '$member_group'");
+                        WHERE member_group = '$member_group'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -582,7 +582,7 @@ function delug() {
         /////////////////////////
 
         $qresult = makequery("DELETE FROM " . $dbtables['user_groups'] . "
-						WHERE member_group = '$member_group'", false);
+                        WHERE member_group = '$member_group'", false);
 
 
         //Free the resources
@@ -710,7 +710,7 @@ function addug() {
         'view_calendar' => 0
     );
 
-    //The yes/no ones				
+    //The yes/no ones
     $ugpermissions_yn = array('view_forum' => 0,
         'can_post_topic' => 0,
         'can_reply' => 0,
@@ -805,7 +805,7 @@ function addug() {
 
     //Get the user group
     $qresult = makequery("SELECT * FROM " . $dbtables['permissions'] . "
-						WHERE member_group_id = '$ugid'");
+                        WHERE member_group_id = '$ugid'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -928,12 +928,12 @@ function addug() {
         // INSERT the User Groups
         /////////////////////////
 
-        $qresult = makequery("INSERT INTO " . $dbtables['user_groups'] . " 
-						SET mem_gr_name = '$mem_gr_name',
-						mem_gr_colour = '$mem_gr_colour',
-						post_count = '$post_count',
-						image_name = '$image_name',
-						image_count = '$image_count'");
+        $qresult = makequery("INSERT INTO " . $dbtables['user_groups'] . "
+                        SET mem_gr_name = '$mem_gr_name',
+                        mem_gr_colour = '$mem_gr_colour',
+                        post_count = '$post_count',
+                        image_name = '$image_name',
+                        image_count = '$image_count'");
 
 
         $member_group = mysql_insert_id($conn);
@@ -967,9 +967,9 @@ function addug() {
             //INSERT the permissions set
             ////////////////////////////
 
-            $qresult = makequery("INSERT INTO " . $dbtables['permissions'] . " 
-						SET member_group_id = '$member_group',
-						" . $string);
+            $qresult = makequery("INSERT INTO " . $dbtables['permissions'] . "
+                        SET member_group_id = '$member_group',
+                        " . $string);
 
             /* $member_group_id = mysql_insert_id($conn);
 

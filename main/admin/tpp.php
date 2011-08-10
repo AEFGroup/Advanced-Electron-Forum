@@ -4,7 +4,7 @@
 //===========================================================
 // tpp.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -196,7 +196,7 @@ function manage_topics() {
         }
 
 
-        //Check the Replies for Hot Topic 
+        //Check the Replies for Hot Topic
         if (!(isset($_POST['maxreplyhot'])) || (trim($_POST['maxreplyhot']) == "")) {
 
             $error[] = $l['tpp_no_replies_hot_topic'];
@@ -205,7 +205,7 @@ function manage_topics() {
             $maxreplyhot = (int) inputsec(htmlizer(trim($_POST['maxreplyhot'])));
         }
 
-        //Check the Replies for Very Hot Topic 
+        //Check the Replies for Very Hot Topic
         if (!(isset($_POST['maxreplyveryhot'])) || (trim($_POST['maxreplyveryhot']) == "")) {
 
             $error[] = $l['tpp_no_replies_veryhot'];
@@ -264,13 +264,13 @@ function manage_topics() {
         }
 
 
-        //Check if Disable Shouting in Topic Titles 
+        //Check if Disable Shouting in Topic Titles
         if (isset($_POST['disableshoutingtopics'])) {
 
             $disableshoutingtopics = 1;
         }
 
-        //Check if Disable Shouting in Topic Titles 
+        //Check if Disable Shouting in Topic Titles
         if (isset($_POST['disableshoutingtopics'])) {
 
             $disableshoutingdesc = 1;
@@ -445,7 +445,7 @@ function manage_posts() {
         }
 
 
-        //Check the Max Emoticons Allowed 
+        //Check the Max Emoticons Allowed
         if (!(isset($_POST['maxemotpost'])) || (trim($_POST['maxemotpost']) == "")) {
 
             $error[] = $l['tpp_no_max_emoticons'];
@@ -511,13 +511,13 @@ function manage_posts() {
             $last_posts_reply = (int) inputsec(htmlizer(trim($_POST['last_posts_reply'])));
         }
 
-        //Check if Remove Nested Quotes 
+        //Check if Remove Nested Quotes
         if (isset($_POST['removenestedquotes'])) {
 
             $removenestedquotes = 1;
         }
 
-        //Check if Attach Sig to Post 
+        //Check if Attach Sig to Post
         if (isset($_POST['attachsigtopost'])) {
 
             $attachsigtopost = 1;
@@ -837,7 +837,7 @@ function manage_bbc() {
             'bbc_parseHTML' => 0
         );
 
-        //Loop through			
+        //Loop through
         foreach ($bbcset as $k => $v) {
 
             //Check if Particular BBC setting is set

@@ -4,7 +4,7 @@
 //===========================================================
 // admin_functions.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -89,7 +89,7 @@ function modify_universal($array) {
 
 //End of function
 
-/* $temparr = array('url' => array('http://127.0.0.1/aef', 0), 
+/* $temparr = array('url' => array('http://127.0.0.1/aef', 0),
   'board_email' => array('pulgup1@gmail.com', 0),
   'maintenance' => array(1, 1)
   );
@@ -129,8 +129,8 @@ function modify_registry($array, $compare = 1) {
         ////////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['registry'] . "
-							SET regval = '$v'
-							WHERE name = '$k'", false);
+                            SET regval = '$v'
+                            WHERE name = '$k'", false);
 
         if (mysql_affected_rows($conn) < 1 && $compare) {
 

@@ -4,7 +4,7 @@
 //===========================================================
 // forumpermissions.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -103,8 +103,8 @@ function fpermissionsmanage() {
     ///////////////////////////////////
 
     $qresult = makequery("SELECT fp.*, ug.mem_gr_name
-						FROM " . $dbtables['forumpermissions'] . " fp
-						LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = fp.fpugid)", true);
+                        FROM " . $dbtables['forumpermissions'] . " fp
+                        LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = fp.fpugid)", true);
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -240,18 +240,18 @@ function editfpermissions() {
 
         //////////////////////////////////////////////
         // Finally lets UPDATE the Forum Permissions
-        //////////////////////////////////////////////	
+        //////////////////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['forumpermissions'] . "
-					SET	can_post_topic = '$can_post_topic',
-					can_reply = '$can_reply',
-					can_vote_polls = '$can_vote_polls',
-					can_post_polls = '$can_post_polls',
-					can_attach = '$can_attach',
-					can_view_attach = '$can_view_attach'
-					WHERE fpfid = '$fpfid'
-					AND fpugid = '$fpugid'
-					LIMIT 1", false);
+                    SET    can_post_topic = '$can_post_topic',
+                    can_reply = '$can_reply',
+                    can_vote_polls = '$can_vote_polls',
+                    can_post_polls = '$can_post_polls',
+                    can_attach = '$can_attach',
+                    can_view_attach = '$can_view_attach'
+                    WHERE fpfid = '$fpfid'
+                    AND fpugid = '$fpugid'
+                    LIMIT 1", false);
 
         /* if(mysql_affected_rows($conn) < 1){
 
@@ -274,12 +274,12 @@ function editfpermissions() {
 
         //////////////////////////////////////
         // Lets DELETE the Forum Permissions
-        //////////////////////////////////////	
+        //////////////////////////////////////
 
         $qresult = makequery("DELETE FROM " . $dbtables['forumpermissions'] . "
-					WHERE fpfid = '$fpfid'
-					AND fpugid = '$fpugid'
-					LIMIT 1", false);
+                    WHERE fpfid = '$fpfid'
+                    AND fpugid = '$fpugid'
+                    LIMIT 1", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -484,17 +484,17 @@ function createfpermissions() {
 
         //////////////////////////////////////////////
         // Finally lets INSERT the Forum Permissions
-        //////////////////////////////////////////////	
+        //////////////////////////////////////////////
 
         $qresult = makequery("INSERT INTO " . $dbtables['forumpermissions'] . "
-					SET	can_post_topic = '$can_post_topic',
-					can_reply = '$can_reply',
-					can_vote_polls = '$can_vote_polls',
-					can_post_polls = '$can_post_polls',
-					can_attach = '$can_attach',
-					can_view_attach = '$can_view_attach',
-					fpfid = '$fpfid',
-					fpugid = '$fpugid'", true);
+                    SET    can_post_topic = '$can_post_topic',
+                    can_reply = '$can_reply',
+                    can_vote_polls = '$can_vote_polls',
+                    can_post_polls = '$can_post_polls',
+                    can_attach = '$can_attach',
+                    can_view_attach = '$can_view_attach',
+                    fpfid = '$fpfid',
+                    fpugid = '$fpugid'", true);
 
 
         if (mysql_affected_rows($conn) < 1) {

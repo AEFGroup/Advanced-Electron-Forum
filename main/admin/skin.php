@@ -4,7 +4,7 @@
 //===========================================================
 // skin.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -216,7 +216,7 @@ function manskin() {
 
         //Bring out only the Board theme registry and not users
         $qresult = makequery("SELECT * FROM " . $dbtables['theme_registry'] . "
-							WHERE uid = 0");
+                            WHERE uid = 0");
 
         $thregistry = array();
 
@@ -267,9 +267,9 @@ function manskin() {
                 //////////////////////////////
 
                 $qresult = makequery("REPLACE INTO " . $dbtables['theme_registry'] . "
-								SET theme_registry = '$serialized_registry',
-								thid = '" . $k . "',
-								uid = 0");
+                                SET theme_registry = '$serialized_registry',
+                                thid = '" . $k . "',
+                                uid = 0");
             }
 
             unset($serialized_registry);
@@ -500,7 +500,7 @@ function import() {
         ////////////////////
 
         $qresult = makequery("INSERT INTO " . $dbtables['themes'] . "
-						SET th_name = '" . $registry['name'] . "'");
+                        SET th_name = '" . $registry['name'] . "'");
 
 
         $thid = mysql_insert_id($conn);
@@ -518,9 +518,9 @@ function import() {
         ///////////////////////////////
 
         $qresult = makequery("INSERT INTO " . $dbtables['theme_registry'] . "
-						SET thid = '" . $thid . "',
-						uid = 0,
-						theme_registry = '$serialized_registry'");
+                        SET thid = '" . $thid . "',
+                        uid = 0,
+                        theme_registry = '$serialized_registry'");
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -618,15 +618,15 @@ function uninstall() {
         // DELETE the theme
         ///////////////////
 
-        $qresult = makequery("DELETE FROM " . $dbtables['themes'] . " 
-					WHERE thid = '$theme_id'", false);
+        $qresult = makequery("DELETE FROM " . $dbtables['themes'] . "
+                    WHERE thid = '$theme_id'", false);
 
         /////////////////////////////
         // DELETE the theme_registry
         /////////////////////////////
 
-        $qresult = makequery("DELETE FROM " . $dbtables['theme_registry'] . " 
-					WHERE thid = '$theme_id'", false);
+        $qresult = makequery("DELETE FROM " . $dbtables['theme_registry'] . "
+                    WHERE thid = '$theme_id'", false);
 
 
         ////////////////////
@@ -634,8 +634,8 @@ function uninstall() {
         ////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['users'] . "
-						SET user_theme = '0'
-						WHERE user_theme = '$theme_id'", false);
+                        SET user_theme = '0'
+                        WHERE user_theme = '$theme_id'", false);
 
 
         //Redirect
@@ -760,8 +760,8 @@ function settings() {
         if (!empty($registry['name'])) {
 
             $qresult = makequery("UPDATE " . $dbtables['themes'] . "
-						SET th_name = '" . $registry['name'] . "'
-						WHERE thid = '$thid'");
+                        SET th_name = '" . $registry['name'] . "'
+                        WHERE thid = '$thid'");
 
             //There must be a name
         } else {
@@ -777,9 +777,9 @@ function settings() {
         //////////////////////////////
 
         $qresult = makequery("REPLACE INTO " . $dbtables['theme_registry'] . "
-						SET theme_registry = '$serialized_registry',
-						thid = '$thid',
-						uid = 0");
+                        SET theme_registry = '$serialized_registry',
+                        thid = '$thid',
+                        uid = 0");
 
         //Redirect
         redirect('act=admin&adact=skin&seadact=manskin');

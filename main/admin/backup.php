@@ -4,7 +4,7 @@
 //===========================================================
 // backup.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -264,7 +264,7 @@ function dbback() {
 
     if (isset($_POST['dbback'])) {
 
-        //r_print($_POST);		
+        //r_print($_POST);
         //Check the Avatar Directory
         if (!(isset($_POST['tables'])) || !is_array($_POST['tables'])) {
 
@@ -351,7 +351,7 @@ function dbback() {
 
         //////////////////////////////
         // Lets Start making the data
-        //////////////////////////////	
+        //////////////////////////////
         //AEF Headers
         $data = '-- ////////////////////////////////////////////////////////////' . $crlf .
                 '-- ===========================================================' . $crlf .
@@ -597,7 +597,7 @@ function tablestructure($table, $crlf) {
 
 
     //Autoincrement value
-    $qresult = makequery("SHOW TABLE STATUS	LIKE '" . strtr($table, array('_' => '\\_', '%' => '\\%')) . "'", false);
+    $qresult = makequery("SHOW TABLE STATUS    LIKE '" . strtr($table, array('_' => '\\_', '%' => '\\%')) . "'", false);
 
     $row = mysql_fetch_assoc($qresult);
 

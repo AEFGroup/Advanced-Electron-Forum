@@ -4,7 +4,7 @@
 //===========================================================
 // smilies.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -216,7 +216,7 @@ function editsm() {
 
     //Get the Mimetypes
     $qresult = makequery("SELECT * FROM " . $dbtables['smileys'] . "
-						WHERE smid = '$smid'");
+                        WHERE smid = '$smid'");
 
 
     if (mysql_num_rows($qresult) < 1) {
@@ -276,11 +276,11 @@ function editsm() {
         // UPDATE the Smiley
         ///////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['smileys'] . " 
-						SET smcode = '$smcode',
-						smtitle = '$smtitle',
-						smstatus = '$smstatus'
-						WHERE smid = '$smid'", false);
+        $qresult = makequery("UPDATE " . $dbtables['smileys'] . "
+                        SET smcode = '$smcode',
+                        smtitle = '$smtitle',
+                        smstatus = '$smstatus'
+                        WHERE smid = '$smid'", false);
 
 
         //Free the resources
@@ -319,8 +319,8 @@ function delsm() {
     // DELETE the Smiley
     ///////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['smileys'] . " 
-					WHERE smid = '$smid'", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['smileys'] . "
+                    WHERE smid = '$smid'", false);
 
 
     //Free the resources
@@ -407,9 +407,9 @@ function smreorder() {
 
         foreach ($smreordered as $k => $v) {
 
-            $qresult = makequery("UPDATE " . $dbtables['smileys'] . " 
-						SET smorder = '$v'
-						WHERE smid = '$k'", false);
+            $qresult = makequery("UPDATE " . $dbtables['smileys'] . "
+                        SET smorder = '$v'
+                        WHERE smid = '$k'", false);
         }
 
         //Redirect
@@ -606,12 +606,12 @@ function addsm() {
         // INSERT the Smiley
         ///////////////////////
 
-        $qresult = makequery("INSERT INTO " . $dbtables['smileys'] . " 
-						SET smcode = '$smcode',
-						smfile = '$smfile',
-						smtitle = '$smtitle',
-						smstatus = '$smstatus',
-						smfolder = '$smfolder'");
+        $qresult = makequery("INSERT INTO " . $dbtables['smileys'] . "
+                        SET smcode = '$smcode',
+                        smfile = '$smfile',
+                        smtitle = '$smtitle',
+                        smstatus = '$smstatus',
+                        smfolder = '$smfolder'");
 
 
         $smid = mysql_insert_id($conn);

@@ -4,7 +4,7 @@
 //===========================================================
 // recyclebin.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -115,9 +115,9 @@ function recyclebin() {
         ////////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['registry'] . "
-					SET	regval = '$rbfid'
-					WHERE name = 'recyclebin'
-					LIMIT 1", false);
+                    SET    regval = '$rbfid'
+                    WHERE name = 'recyclebin'
+                    LIMIT 1", false);
 
         /* if(mysql_affected_rows($conn) < 1){
 
@@ -135,16 +135,16 @@ function recyclebin() {
         // UPDATE the recycle bin forum
         /////////////////////////////////
         //////////////////////////////////
-        // NOTE : This is done for the 
-        // reason that when deleting a 
-        // topic or post the users post 
-        // count should not be deducted 
+        // NOTE : This is done for the
+        // reason that when deleting a
+        // topic or post the users post
+        // count should not be deducted
         // as it is already reduced.
         //////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-					SET	inc_mem_posts = '0'
-					WHERE fid = '$rbfid'", false);
+                    SET    inc_mem_posts = '0'
+                    WHERE fid = '$rbfid'", false);
 
         /* if(mysql_affected_rows($conn) < 1){
 
@@ -163,8 +163,8 @@ function recyclebin() {
         ////////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['forums'] . "
-					SET	inc_mem_posts = '1'
-					WHERE fid = '" . $globals['recyclebin'] . "'", false);
+                    SET    inc_mem_posts = '1'
+                    WHERE fid = '" . $globals['recyclebin'] . "'", false);
 
         /* if(mysql_affected_rows($conn) < 1){
 

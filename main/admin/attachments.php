@@ -4,7 +4,7 @@
 //===========================================================
 // attachments.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -122,7 +122,7 @@ function attset() {
 
     $attachmentshowimagemaxwidth = 0; //If image attachments are to be shown max width
 
-    $attachmentshowimagemaxheight = 0; //If image attachments are to be shown max height	
+    $attachmentshowimagemaxheight = 0; //If image attachments are to be shown max height
 
 
     if (isset($_POST['editattset'])) {
@@ -328,7 +328,7 @@ function editmime() {
 
     //Get the Mimetypes
     $qresult = makequery("SELECT * FROM " . $dbtables['attachment_mimetypes'] . "
-						WHERE atmtid = '$atmtid'");
+                        WHERE atmtid = '$atmtid'");
 
 
     if (mysql_num_rows($qresult) < 1) {
@@ -417,14 +417,14 @@ function editmime() {
         // UPDATE the Mimetype
         ///////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['attachment_mimetypes'] . " 
-						SET atmt_ext = '$atmt_ext',
-						atmt_mimetype = '$atmt_mimetype',
-						atmt_icon = '$atmt_icon',
-						atmt_posts = '$atmt_posts',
-						atmt_avatar = '$atmt_avatar',
-						atmt_isimage = '$atmt_isimage'
-						WHERE atmtid = '$atmtid'", false);
+        $qresult = makequery("UPDATE " . $dbtables['attachment_mimetypes'] . "
+                        SET atmt_ext = '$atmt_ext',
+                        atmt_mimetype = '$atmt_mimetype',
+                        atmt_icon = '$atmt_icon',
+                        atmt_posts = '$atmt_posts',
+                        atmt_avatar = '$atmt_avatar',
+                        atmt_isimage = '$atmt_isimage'
+                        WHERE atmtid = '$atmtid'", false);
 
 
         //Redirect
@@ -460,8 +460,8 @@ function delmime() {
     // DELETE the Mimetype
     ///////////////////////
 
-    $qresult = makequery("DELETE FROM " . $dbtables['attachment_mimetypes'] . " 
-					WHERE atmtid = '$atmtid'", false);
+    $qresult = makequery("DELETE FROM " . $dbtables['attachment_mimetypes'] . "
+                    WHERE atmtid = '$atmtid'", false);
 
 
     //Free the resources
@@ -575,12 +575,12 @@ function addmime() {
         ///////////////////////
 
         $qresult = makequery("INSERT INTO " . $dbtables['attachment_mimetypes'] . "
-						SET atmt_ext = '$atmt_ext',
-						atmt_mimetype = '$atmt_mimetype',
-						atmt_icon = '$atmt_icon',
-						atmt_posts = '$atmt_posts',
-						atmt_avatar = '$atmt_avatar',
-						atmt_isimage = '$atmt_isimage'");
+                        SET atmt_ext = '$atmt_ext',
+                        atmt_mimetype = '$atmt_mimetype',
+                        atmt_icon = '$atmt_icon',
+                        atmt_posts = '$atmt_posts',
+                        atmt_avatar = '$atmt_avatar',
+                        atmt_isimage = '$atmt_isimage'");
 
         $atmtid = mysql_insert_id($conn);
 

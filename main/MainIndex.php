@@ -124,15 +124,15 @@ function MainIndex() {
 
             //Bring the last posts
             $qresult = makequery("SELECT t.tid, t.topic, t.n_posts, p.pid, p.ptime,
-					u.id, u.username, f.fid, f.fname
-					FROM " . $dbtables['posts'] . " p
-					LEFT JOIN " . $dbtables['topics'] . " t ON (t.tid = p.post_tid)
-					LEFT JOIN " . $dbtables['forums'] . " f ON (f.fid = p.post_fid)
-					LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
-					WHERE p.post_fid IN (" . (empty($visible_forums) ? 0 : $visible_forums) . ")
+                    u.id, u.username, f.fid, f.fname
+                    FROM " . $dbtables['posts'] . " p
+                    LEFT JOIN " . $dbtables['topics'] . " t ON (t.tid = p.post_tid)
+                    LEFT JOIN " . $dbtables['forums'] . " f ON (f.fid = p.post_fid)
+                    LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
+                    WHERE p.post_fid IN (" . (empty($visible_forums) ? 0 : $visible_forums) . ")
                                                                                           AND EXISTS (SELECT * FROM  " . $dbtables['topics'] . " WHERE tid = t.tid)
-					ORDER BY ptime DESC
-					LIMIT 0, " . $globals['recent_posts']);
+                    ORDER BY ptime DESC
+                    LIMIT 0, " . $globals['recent_posts']);
 
             if (mysql_num_rows($qresult) > 0) {
 
@@ -156,16 +156,16 @@ function MainIndex() {
                 && $user['pm_notify']) {
 
             //Get the PM the user has requested to see.
-            $qresult = makequery("SELECT pm.*, ug.mem_gr_name, ug.image_name, ug.image_count, u.id, 					u.username AS sender, u.posts, u.u_member_group, s.uid AS status
-					FROM " . $dbtables['pm'] . " pm
-					LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
-					LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
-					LEFT JOIN " . $dbtables['sessions'] . " s ON (pm.pm_from = s.uid)
-					WHERE pm.pm_to = '" . $user['id'] . "'
-					AND pm.pm_folder = '0'
-					AND pm.pm_read_time = '0'
-					ORDER BY pm.pm_time DESC
-					LIMIT 0,1");
+            $qresult = makequery("SELECT pm.*, ug.mem_gr_name, ug.image_name, ug.image_count, u.id,                     u.username AS sender, u.posts, u.u_member_group, s.uid AS status
+                    FROM " . $dbtables['pm'] . " pm
+                    LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
+                    LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
+                    LEFT JOIN " . $dbtables['sessions'] . " s ON (pm.pm_from = s.uid)
+                    WHERE pm.pm_to = '" . $user['id'] . "'
+                    AND pm.pm_folder = '0'
+                    AND pm.pm_read_time = '0'
+                    ORDER BY pm.pm_time DESC
+                    LIMIT 0,1");
 
             if (mysql_num_rows($qresult) > 0) {
 
@@ -194,14 +194,14 @@ function MainIndex() {
 
         //Get who is active
         $qresult = makequery("SELECT DISTINCT s.uid, s.ip, u.id, u.username, s.anonymous,
-					ug.mem_gr_colour, st.active
-					FROM " . $dbtables['sessions'] . " s
-					LEFT JOIN " . $dbtables['users'] . " u ON (s.uid = u.id)
-					LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group =
-																ug.member_group)
-					LEFT JOIN " . $dbtables['stats'] . " st ON (timestamp = '$timestamp')
-					WHERE s.time > '$activetime'
-					ORDER BY s.time DESC, u.username ASC");
+                    ug.mem_gr_colour, st.active
+                    FROM " . $dbtables['sessions'] . " s
+                    LEFT JOIN " . $dbtables['users'] . " u ON (s.uid = u.id)
+                    LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group =
+                                                                ug.member_group)
+                    LEFT JOIN " . $dbtables['stats'] . " st ON (timestamp = '$timestamp')
+                    WHERE s.time > '$activetime'
+                    ORDER BY s.time DESC, u.username ASC");
 
         //Where is everybody ?
         if (mysql_num_rows($qresult) > 0) {
@@ -293,8 +293,8 @@ function MainIndex() {
 
                 //UPDATE the registry
                 $qresult = makequery("UPDATE " . $dbtables['registry'] . "
-							SET regval = '$totalactive|" . time() . "'
-							WHERE name = 'mostactive'", false);
+                            SET regval = '$totalactive|" . time() . "'
+                            WHERE name = 'mostactive'", false);
             }
         }
 
@@ -302,12 +302,12 @@ function MainIndex() {
         if (!empty($globals['users_visited_today'])) {
 
             //Get Who Visited Today
-            $qresult = makequery("SELECT DISTINCT u.id, u.username,	ug.mem_gr_colour
-						FROM " . $dbtables['users'] . " u
-						LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group =
-																	ug.member_group)
-						WHERE u.lastlogin_1 >= '$timestamp'
-						ORDER BY u.username ASC");
+            $qresult = makequery("SELECT DISTINCT u.id, u.username,    ug.mem_gr_colour
+                        FROM " . $dbtables['users'] . " u
+                        LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group =
+                                                                    ug.member_group)
+                        WHERE u.lastlogin_1 >= '$timestamp'
+                        ORDER BY u.username ASC");
 
             //Where is everybody ?
             if (mysql_num_rows($qresult) > 0) {
@@ -323,9 +323,9 @@ function MainIndex() {
 
             //Get the Non Posting Groups
             $qresult = makequery("SELECT DISTINCT member_group, mem_gr_name, mem_gr_colour
-						FROM " . $dbtables['user_groups'] . "
-						WHERE post_count = '-1' AND member_group >= 0
-						ORDER BY member_group ASC");
+                        FROM " . $dbtables['user_groups'] . "
+                        WHERE post_count = '-1' AND member_group >= 0
+                        ORDER BY member_group ASC");
 
             //Where is everybody ?
             if (mysql_num_rows($qresult) > 0) {
