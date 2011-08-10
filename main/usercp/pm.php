@@ -2349,7 +2349,11 @@ function deletepm($pmidarray, $pmfolder) {
 
 function countpm() {
 
+<<<<<<< HEAD
     global $user, $conn, $dbtables, $logged_in, $globals, $foldercount, $l;
+=======
+    global $user, $conn, $dbtables, $logged_in, $globals, $foldercount;
+>>>>>>> 3f17519d9cd73a711636914885fe717954072b0c
 
     /* Count the Number of PM's in each Folder */
 
