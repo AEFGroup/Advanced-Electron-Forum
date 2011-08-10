@@ -92,11 +92,11 @@ function aefheader($title = '') {
                         <img src="images/electron.png" />
                     </td>
                     <td align="left" valign="top" style="padding: 20px 10px 0px 30px;">
-    <?php
-}
+                        <?php
+                    }
 
-function aeffooter() {
-    ?></td>
+                    function aeffooter() {
+                        ?></td>
                 </tr>
             </table>
 
@@ -113,10 +113,10 @@ function aeffooter() {
                 function not_writable_theme() {
 
                     aefheader('AEF Setup');
-                    ?>
-    	The universal.php file is not writable and the setup could not CHMOD.<br />
-    	Please CHMOD it to 0777 for the setup of your AEF board. You may later revert it back to 0655.<br /><br />
-    	After CHMOD just access this page again to start the setup.
+                        ?>
+    The universal.php file is not writable and the setup could not CHMOD.<br />
+    Please CHMOD it to 0777 for the setup of your AEF board. You may later revert it back to 0655.<br /><br />
+    After CHMOD just access this page again to start the setup.
     <?php
     aeffooter();
 }
@@ -135,9 +135,9 @@ function startsetup() {
     aefheader('AEF Setup');
     ?><h1>Thank you for downloading AEF</h1>
     <br /><br />
-    	AEF 1.0.9 requires <b>PHP 5.0.0</b> or higher and <b>MySQL 4.0</b> or higher.
+    AEF 1.0.9 requires <b>PHP 5.0.0</b> or higher and <b>MySQL 4.0</b> or higher.
     <br /><br />
-    	You will also need the following MySQL information:<br />
+    You will also need the following MySQL information:<br />
     <ul>
         <li>Username
             <li>Password
@@ -145,36 +145,36 @@ function startsetup() {
                     <li>Hostname
                         </ul>
                         <br />
-    	Click the <b>Install</b> button to start the setup for your new AEF Board.
+                        Click the <b>Install</b> button to start the setup for your new AEF Board.
                         <br /><br /><br /><br />
                         <div class="setup"><a href="?act=setup">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
                         <br /><br /><br /><br /><br /><br />
-    <?php
-    aeffooter();
-}
+                        <?php
+                        aeffooter();
+                    }
 
-function setup_theme() {
+                    function setup_theme() {
 
-    global $url, $path, $error;
+                        global $url, $path, $error;
 
-    //Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON 
-    $_GET = cleanVARS($_GET);
-    $_POST = cleanVARS($_POST);
+                        //Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON
+                        $_GET = cleanVARS($_GET);
+                        $_POST = cleanVARS($_POST);
 
-    aefheader('AEF Setup');
+                        aefheader('AEF Setup');
 
-    error_handle($error, '100%', true);
-    ?>
+                        error_handle($error, '100%', true);
+                        ?>
 
                         <form action="" method="post" name="setupform">
-                            <br />	
+                            <br />
                             <table width="100%" cellpadding="0" cellspacing="0" align="center">
                                 <tr>
                                     <td>
                                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                                 <td class="pcbgl"></td>
                                                 <td class="pcbg" align="left">Board Settings</td>
-                                                <td class="pcbgr"></td>		
+                                                <td class="pcbgr"></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -238,14 +238,14 @@ function setup_theme() {
 
                             </table>
 
-                            <br />	
+                            <br />
                             <table width="100%" cellpadding="0" cellspacing="0" align="center">
                                 <tr>
                                     <td>
                                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                                 <td class="pcbgl"></td>
                                                 <td class="pcbg" align="left">MySQL Settings</td>
-                                                <td class="pcbgr"></td>		
+                                                <td class="pcbgr"></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -330,14 +330,14 @@ function setup_theme() {
 
                             </table>
 
-                            <br />	
+                            <br />
                             <table width="100%" cellpadding="0" cellspacing="0" align="center">
                                 <tr>
                                     <td>
                                         <table width="100%" cellpadding="0" cellspacing="0"><tr>
                                                 <td class="pcbgl"></td>
                                                 <td class="pcbg" align="left">Root Admin Account</td>
-                                                <td class="pcbgr"></td>		
+                                                <td class="pcbgr"></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -408,24 +408,24 @@ function setup_theme() {
                             </table>
 
                         </form>
-    <?php
-    aeffooter();
-    //echo '<pre>';print_r($_SERVER);
-}
+                        <?php
+                        aeffooter();
+                        //echo '<pre>';print_r($_SERVER);
+                    }
 
-function aftersetup() {
+                    function aftersetup() {
 
-    global $url;
+                        global $url;
 
-    aefheader('AEF Setup');
-    ?><h1>Congratulations, the board was installed successfully</h1>
+                        aefheader('AEF Setup');
+                        ?><h1>Congratulations, the board was installed successfully</h1>
                         <br /><br />
-    	Thank you for using AEF.<br /><br /><br />
-    	If you need any support you can always count on us. Just drop in at our <a href="http://www.anelectron.com/board">Support Board</a>.
+                        Thank you for using AEF.<br /><br /><br />
+                        If you need any support you can always count on us. Just drop in at our <a href="http://www.anelectron.com/board">Support Board</a>.
                         <br /><br />
-    	You can also customize AEF by installing new themes. If you know PHP or MySQL you could help us develop AEF. And if you are good at HTML or Java Scripting then try and make a theme.
+                        You can also customize AEF by installing new themes. If you know PHP or MySQL you could help us develop AEF. And if you are good at HTML or Java Scripting then try and make a theme.
                         <br /><br />
-    	In the meantime lets go check your new Board.
+                        In the meantime lets go check your new Board.
                         <br /><br /><br /><br />
                         <div class="setup"><a href="<?php echo $url; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lets see the new Board&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
                         <br /><br />
@@ -433,7 +433,7 @@ function aftersetup() {
                         <br /><br /><br /><br /><br /><br />
                         <?php
                         aeffooter();
-                        fclose(fopen("lock", 'w'))or die("couldn't create the lock file");
+                        fclose(fopen("lock", 'w')) or die("couldn't create the lock file");
                     }
 
                     function error_handle($error, $table_width = '100%', $center = false) {
@@ -442,10 +442,10 @@ function aftersetup() {
                         if (!empty($error)) {
 
                             echo '<table width="' . $table_width . '" cellpadding="2" cellspacing="1" class="error" ' . (($center) ? 'align="center"' : '' ) . '>
-			<tr>
-			<td>
-			The Following Errors were found :
-			<ul type="square">';
+            <tr>
+            <td>
+            The Following Errors were found :
+            <ul type="square">';
 
                             foreach ($error as $ek => $ev) {
 
@@ -454,10 +454,10 @@ function aftersetup() {
 
 
                             echo '</ul>
-			</td>
-			</tr>
-			</table>' . (($center) ? '</center>' : '' ) . '
-			<br />';
+            </td>
+            </tr>
+            </table>' . (($center) ? '</center>' : '' ) . '
+            <br />';
                         }
                     }
                     ?>

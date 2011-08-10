@@ -4,7 +4,7 @@
 //===========================================================
 // subscriptions.php(usercp)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -75,8 +75,8 @@ function topicsub() {
 
     //Count the subscriptions that you have
     $qresult = makequery("SELECT COUNT(nt.notify_tid) AS count
-			FROM " . $dbtables['notify_topic'] . " nt
-			WHERE nt.notify_mid = '" . $user['id'] . "'");
+            FROM " . $dbtables['notify_topic'] . " nt
+            WHERE nt.notify_mid = '" . $user['id'] . "'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -119,9 +119,9 @@ function topicsub() {
         // Finally lets QUERY to Unsubscribe
         ////////////////////////////////////
 
-        $qresult = makequery("DELETE FROM " . $dbtables['notify_topic'] . " 
-						WHERE notify_mid = '" . $user['id'] . "'
-						AND notify_tid IN ($tids_str)", false);
+        $qresult = makequery("DELETE FROM " . $dbtables['notify_topic'] . "
+                        WHERE notify_mid = '" . $user['id'] . "'
+                        AND notify_tid IN ($tids_str)", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -143,11 +143,11 @@ function topicsub() {
 
     //Get the PM in the Inbox of this user.
     $qresult = makequery("SELECT nt.*, t.topic
-			FROM " . $dbtables['notify_topic'] . " nt
-			LEFT JOIN " . $dbtables['topics'] . " t ON (nt.notify_tid = t.tid)
-			WHERE nt.notify_mid = '" . $user['id'] . "'
-			ORDER BY nt.notify_tid ASC
-			LIMIT $page, " . $globals['numsubinpage']);
+            FROM " . $dbtables['notify_topic'] . " nt
+            LEFT JOIN " . $dbtables['topics'] . " t ON (nt.notify_tid = t.tid)
+            WHERE nt.notify_mid = '" . $user['id'] . "'
+            ORDER BY nt.notify_tid ASC
+            LIMIT $page, " . $globals['numsubinpage']);
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -206,8 +206,8 @@ function forumsub() {
 
     //Count the subscriptions that you have
     $qresult = makequery("SELECT COUNT(nf.notify_fid) AS count
-			FROM " . $dbtables['notify_forum'] . " nf
-			WHERE nf.notify_mid = '" . $user['id'] . "'");
+            FROM " . $dbtables['notify_forum'] . " nf
+            WHERE nf.notify_mid = '" . $user['id'] . "'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -250,9 +250,9 @@ function forumsub() {
         // Finally lets QUERY to Unsubscribe
         ////////////////////////////////////
 
-        $qresult = makequery("DELETE FROM " . $dbtables['notify_forum'] . " 
-						WHERE notify_mid = '" . $user['id'] . "'
-						AND notify_fid IN ($fids_str)", false);
+        $qresult = makequery("DELETE FROM " . $dbtables['notify_forum'] . "
+                        WHERE notify_mid = '" . $user['id'] . "'
+                        AND notify_fid IN ($fids_str)", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -274,11 +274,11 @@ function forumsub() {
 
     //Get the Subscriptions
     $qresult = makequery("SELECT nf.*, f.fname
-			FROM " . $dbtables['notify_forum'] . " nf
-			LEFT JOIN " . $dbtables['forums'] . " f ON (nf.notify_fid = f.fid)
-			WHERE nf.notify_mid = '" . $user['id'] . "'
-			ORDER BY nf.notify_fid ASC
-			LIMIT $page, " . $globals['numsubinpage']);
+            FROM " . $dbtables['notify_forum'] . " nf
+            LEFT JOIN " . $dbtables['forums'] . " f ON (nf.notify_fid = f.fid)
+            WHERE nf.notify_mid = '" . $user['id'] . "'
+            ORDER BY nf.notify_fid ASC
+            LIMIT $page, " . $globals['numsubinpage']);
 
     if (mysql_num_rows($qresult) < 1) {
 

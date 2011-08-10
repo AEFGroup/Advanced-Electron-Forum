@@ -4,7 +4,7 @@
 //===========================================================
 // index.php(usercp)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -242,16 +242,16 @@ function unreadcheck() {
     if ($globals['pmon'] || $user['can_use_pm']) {
 
         //Get the PM the user has requested to Reply.
-        $qresult = makequery("SELECT COUNT(*) AS unread 
-					FROM " . $dbtables['pm'] . " 
-					WHERE pm_to = '" . $user['id'] . "'
-					AND pm_folder = '0'
-					AND pm_read_time = '0'");
+        $qresult = makequery("SELECT COUNT(*) AS unread
+                    FROM " . $dbtables['pm'] . "
+                    WHERE pm_to = '" . $user['id'] . "'
+                    AND pm_folder = '0'
+                    AND pm_read_time = '0'");
 
 
         if (mysql_num_rows($qresult) < 1) {
 
-            //Didnt get anyresult - Show a major error and return				
+            //Didnt get anyresult - Show a major error and return
             reporterror($l['ilegal_op'], $l['ilegal_op_exp']);
 
             return false;
@@ -264,9 +264,9 @@ function unreadcheck() {
         //If the unread in the users table is not equal to counted unread PM - UPDATE
         if ($user['unread_pm'] != $unread) {
 
-            $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-					SET unread_pm = '$unread' 
-					WHERE id = '" . $user['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                    SET unread_pm = '$unread'
+                    WHERE id = '" . $user['id'] . "'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 

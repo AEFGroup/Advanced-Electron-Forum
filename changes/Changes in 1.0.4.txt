@@ -1,13 +1,13 @@
 1) Modified key 'group_message' in permissions table from tinytext to text.
 
 2) Created table 'shouts' with the following query:
-	CREATE TABLE `shouts` (
-  	`shid` INT(10) NOT NULL AUTO_INCREMENT, 
-  	`shtime` INT(10) NOT NULL, 
-  	`shuid` MEDIUMINT(8) NOT NULL, 
-  	`shtext` TEXT NOT NULL,
- 	 PRIMARY KEY (`shid`)
-	);
+    CREATE TABLE `shouts` (
+      `shid` INT(10) NOT NULL AUTO_INCREMENT,
+      `shtime` INT(10) NOT NULL,
+      `shuid` MEDIUMINT(8) NOT NULL,
+      `shtext` TEXT NOT NULL,
+      PRIMARY KEY (`shid`)
+    );
 
 3) Registry Key 'shouts' now holds the number of shouts that will be shown on 'first load' or 'reload'.
 

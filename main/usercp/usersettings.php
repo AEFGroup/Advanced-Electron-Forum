@@ -4,7 +4,7 @@
 //===========================================================
 // usersettings.php(usercp)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -88,15 +88,15 @@ function emailpmset() {
         // Finally UPDATE the Users A/c
         ///////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET adminemail = '$adminemail', 
-				hideemail = '$hideemail',
-				subscribeauto = '$subscribeauto',
-				sendnewreply = '$sendnewreply',
-				pm_email_notify = '$pm_email_notify',
-				pm_notify = '$pm_notify',
-				saveoutgoingpm = '$saveoutgoingpm'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET adminemail = '$adminemail',
+                hideemail = '$hideemail',
+                subscribeauto = '$subscribeauto',
+                sendnewreply = '$sendnewreply',
+                pm_email_notify = '$pm_email_notify',
+                pm_notify = '$pm_notify',
+                saveoutgoingpm = '$saveoutgoingpm'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -118,15 +118,15 @@ function emailpmset() {
         // UPDATE the Users A/c
         ///////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET adminemail = '0', 
-				hideemail = '0',
-				subscribeauto = '0',
-				sendnewreply = '0',
-				pm_email_notify = '0',
-				pm_notify = '0',
-				saveoutgoingpm = '0'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET adminemail = '0',
+                hideemail = '0',
+                subscribeauto = '0',
+                sendnewreply = '0',
+                pm_email_notify = '0',
+                pm_notify = '0',
+                saveoutgoingpm = '0'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -275,22 +275,22 @@ function forumset() {
 
         $showimgs = ((empty($_POST['showimgs'])) ? 0 : ($_POST['showimgs'] == 1 ? 1 : ($_POST['showimgs'] == 2 ? 2 : 0))); //Show the images in the posts or PM's
 
-        $i_am_anon = ((empty($_POST['i_am_anon'])) ? 0 : ($_POST['i_am_anon'] == 1 ? 1 : ($_POST['i_am_anon'] == 2 ? 2 : 0))); //When i log-in should i be anonymous		
+        $i_am_anon = ((empty($_POST['i_am_anon'])) ? 0 : ($_POST['i_am_anon'] == 1 ? 1 : ($_POST['i_am_anon'] == 2 ? 2 : 0))); //When i log-in should i be anonymous
         ///////////////////////////////
         // Finally UPDATE the Users A/c
         ///////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET user_theme = '$user_theme',
-				showsigs = '$showsigs', 
-				showavatars = '$showavatars',
-				showsmileys = '$showsmileys',
-				autofastreply = '$autofastreply',
-				showimgs = '$showimgs',
-				i_am_anon = '$i_am_anon',
-				timezone = '$timezone',
-				language = '$language'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET user_theme = '$user_theme',
+                showsigs = '$showsigs',
+                showavatars = '$showavatars',
+                showsmileys = '$showsmileys',
+                autofastreply = '$autofastreply',
+                showimgs = '$showimgs',
+                i_am_anon = '$i_am_anon',
+                timezone = '$timezone',
+                language = '$language'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -312,16 +312,16 @@ function forumset() {
         // UPDATE the Users A/c
         ///////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET user_theme = '0',
-				showsigs = '0', 
-				showavatars = '0',
-				showsmileys = '0',
-				autofastreply = '0',
-				showimgs = '0',
-				i_am_anon = '0',
-				language = ''
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET user_theme = '0',
+                showsigs = '0',
+                showavatars = '0',
+                showsmileys = '0',
+                autofastreply = '0',
+                showimgs = '0',
+                i_am_anon = '0',
+                language = ''
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -433,9 +433,9 @@ function themeset() {
         //////////////////////////////
 
         $qresult = makequery("REPLACE INTO " . $dbtables['theme_registry'] . "
-						SET theme_registry = '$serialized_registry',
-						thid = '$thid',
-						uid = " . $user['id']);
+                        SET theme_registry = '$serialized_registry',
+                        thid = '$thid',
+                        uid = " . $user['id']);
 
         //Redirect
         redirect('act=usercp');
@@ -448,8 +448,8 @@ function themeset() {
         //////////////////////////////
 
         $qresult = makequery("DELETE FROM " . $dbtables['theme_registry'] . "
-						WHERE thid = '$thid' AND
-						uid = " . $user['id']);
+                        WHERE thid = '$thid' AND
+                        uid = " . $user['id']);
 
         //Redirect
         redirect('act=usercp');

@@ -4,7 +4,7 @@
 //===========================================================
 // pm.php(usercp)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -122,12 +122,12 @@ function inbox() {
 
     //Get the PM in the Inbox of this user.
     $qresult = makequery("SELECT pm.*, u.username AS sender
-			FROM " . $dbtables['pm'] . " pm 
-			LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
-			WHERE pm.pm_to = '" . $user['id'] . "'
-			AND pm_folder = '0'
-			ORDER BY pm.pmid DESC
-			LIMIT $page, " . $globals['pmnumshowinfolders']);
+            FROM " . $dbtables['pm'] . " pm
+            LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
+            WHERE pm.pm_to = '" . $user['id'] . "'
+            AND pm_folder = '0'
+            ORDER BY pm.pmid DESC
+            LIMIT $page, " . $globals['pmnumshowinfolders']);
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -212,12 +212,12 @@ function sentitems() {
 
     //Get the PM in the sentitems of this user.
     $qresult = makequery("SELECT pm.*, u.username AS reciever
-			FROM " . $dbtables['pm'] . " pm 
-			LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
-			WHERE pm.pm_from = '" . $user['id'] . "'
-			AND pm_folder = '1'
-			ORDER BY pm.pmid DESC
-			LIMIT $page, " . $globals['pmnumshowinfolders']);
+            FROM " . $dbtables['pm'] . " pm
+            LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
+            WHERE pm.pm_from = '" . $user['id'] . "'
+            AND pm_folder = '1'
+            ORDER BY pm.pmid DESC
+            LIMIT $page, " . $globals['pmnumshowinfolders']);
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -302,11 +302,11 @@ function drafts() {
 
     //Get the PM in the drafts of this user.
     $qresult = makequery("SELECT pm.*
-			FROM " . $dbtables['pm'] . " pm 
-			WHERE pm.pm_from = '" . $user['id'] . "'
-			AND pm_folder = '2'
-			ORDER BY pm.pmid DESC
-			LIMIT $page, " . $globals['pmnumshowinfolders']);
+            FROM " . $dbtables['pm'] . " pm
+            WHERE pm.pm_from = '" . $user['id'] . "'
+            AND pm_folder = '2'
+            ORDER BY pm.pmid DESC
+            LIMIT $page, " . $globals['pmnumshowinfolders']);
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -352,7 +352,7 @@ function trackpm() {
     // Define the necessary VARS
     /////////////////////////////
 
-    $read = array(); // Array Holding read PM's	
+    $read = array(); // Array Holding read PM's
 
     $unread = array(); // Array Holding unread PM's
 
@@ -405,11 +405,11 @@ function trackpm() {
         $var = implode(',', $pmids);
 
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['pm'] . " 
-					SET pm_track = '0' 
-					WHERE pmid IN ($var)
-					AND pm_folder = '0'
-					AND pm_from = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['pm'] . "
+                    SET pm_track = '0'
+                    WHERE pmid IN ($var)
+                    AND pm_folder = '0'
+                    AND pm_from = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -427,15 +427,15 @@ function trackpm() {
     }
 
     //Get the PM that is Read by reciever first.
-    $qresult = makequery("SELECT pm.pmid, pm.pm_to, pm_subject, pm.pm_time, pm.pm_read_time, 
-			u.username AS reciever
-			FROM " . $dbtables['pm'] . " pm 
-			LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
-			WHERE pm.pm_from = '" . $user['id'] . "'
-			AND pm.pm_folder = '0'
-			AND pm.pm_track = '1'
-			AND pm.pm_read_time != '0'
-			ORDER BY pm.pm_read_time DESC");
+    $qresult = makequery("SELECT pm.pmid, pm.pm_to, pm_subject, pm.pm_time, pm.pm_read_time,
+            u.username AS reciever
+            FROM " . $dbtables['pm'] . " pm
+            LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
+            WHERE pm.pm_from = '" . $user['id'] . "'
+            AND pm.pm_folder = '0'
+            AND pm.pm_track = '1'
+            AND pm.pm_read_time != '0'
+            ORDER BY pm.pm_read_time DESC");
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -451,15 +451,15 @@ function trackpm() {
     @mysql_free_result($qresult);
 
     //Get the PM that is Unread by reciever first.
-    $qresult = makequery("SELECT pm.pmid, pm.pm_to, pm_subject, pm.pm_time, pm.pm_read_time, 
-			u.username AS reciever
-			FROM " . $dbtables['pm'] . " pm 
-			LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
-			WHERE pm.pm_from = '" . $user['id'] . "'
-			AND pm.pm_folder = '0'
-			AND pm.pm_track = '1'
-			AND pm.pm_read_time = '0'
-			ORDER BY pm.pmid ASC");
+    $qresult = makequery("SELECT pm.pmid, pm.pm_to, pm_subject, pm.pm_time, pm.pm_read_time,
+            u.username AS reciever
+            FROM " . $dbtables['pm'] . " pm
+            LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
+            WHERE pm.pm_from = '" . $user['id'] . "'
+            AND pm.pm_folder = '0'
+            AND pm.pm_track = '1'
+            AND pm.pm_read_time = '0'
+            ORDER BY pm.pmid ASC");
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -534,11 +534,11 @@ function writepm() {
 
         //Get the PM the user has requested to Reply.
         $qresult = makequery("SELECT pm.*, u.id, u.username AS sender
-				FROM " . $dbtables['pm'] . " pm 
-				LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id) 
-				WHERE pm.pm_to = '" . $user['id'] . "' 
-				AND pmid = '$replypm'
-				AND pm_folder = '0'");
+                FROM " . $dbtables['pm'] . " pm
+                LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
+                WHERE pm.pm_to = '" . $user['id'] . "'
+                AND pmid = '$replypm'
+                AND pm_folder = '0'");
 
         if (mysql_num_rows($qresult) < 1) {
 
@@ -556,8 +556,8 @@ function writepm() {
 
         //Get the PM the user has requested to Reply.
         $qresult = makequery("SELECT u.username
-				FROM " . $dbtables['users'] . " u
-				WHERE u.id = '$pmto'");
+                FROM " . $dbtables['users'] . " u
+                WHERE u.id = '$pmto'");
 
         if (mysql_num_rows($qresult) > 0) {
 
@@ -606,7 +606,7 @@ function writepm() {
             //////////////////////////////////
             // This is a very important thing
             // to check for automated registrations
-            //////////////////////////////////	
+            //////////////////////////////////
 
             if (in_array($postedcode, $AEF_SESS['postcode'])) {
 
@@ -696,7 +696,7 @@ function writepm() {
             /* Check Additional Options */
 
             ///////////////////////////////////
-            // Check the following Additional Options : 
+            // Check the following Additional Options :
             // 1) Track the PM
             // 2) Save a copy in 'Sent Items' Folder
             ///////////////////////////////////
@@ -779,11 +779,11 @@ function writepm() {
             $temp_rec_id = implode(";", $rec_id);
 
             //Make the QUERY
-            $qresult = makequery("INSERT INTO " . $dbtables['pm'] . " 
-					SET pm_from = '" . $user['id'] . "', 
-					pm_time = '$time', pm_subject = '$pmsubject', 
-					pm_body = '$pmbody', pm_folder = '2',
-					pm_to_text = '$temp_rec||||$temp_rec_id'");
+            $qresult = makequery("INSERT INTO " . $dbtables['pm'] . "
+                    SET pm_from = '" . $user['id'] . "',
+                    pm_time = '$time', pm_subject = '$pmsubject',
+                    pm_body = '$pmbody', pm_folder = '2',
+                    pm_to_text = '$temp_rec||||$temp_rec_id'");
 
 
             $pmid = mysql_insert_id($conn);
@@ -802,9 +802,9 @@ function writepm() {
             // UPDATE The Senders PM count
             ////////////////////////////////
             //Make the QUERY
-            $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-					SET pm = pm + 1 
-					WHERE id = '" . $user['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                    SET pm = pm + 1
+                    WHERE id = '" . $user['id'] . "'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -880,10 +880,10 @@ function sendsaved() {
 
     //Get the PM in the drafts of this user.
     $qresult = makequery("SELECT pm.*
-			FROM " . $dbtables['pm'] . " pm 
-			WHERE pm.pm_from = '" . $user['id'] . "'
-			AND pm.pm_folder = '2'
-			AND pm.pmid = '$pmid'");
+            FROM " . $dbtables['pm'] . " pm
+            WHERE pm.pm_from = '" . $user['id'] . "'
+            AND pm.pm_folder = '2'
+            AND pm.pmid = '$pmid'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -945,7 +945,7 @@ function sendsaved() {
             //////////////////////////////////
             // This is a very important thing
             // to check for refresh
-            //////////////////////////////////	
+            //////////////////////////////////
 
             if (in_array($postedcode, $AEF_SESS['postcode'])) {
 
@@ -1036,7 +1036,7 @@ function sendsaved() {
             /* Check Additional Options */
 
             ///////////////////////////////////
-            // Check the following Additional Options : 
+            // Check the following Additional Options :
             // 1) Track the PM
             // 2) Save a copy in 'Sent Items' Folder
             ///////////////////////////////////
@@ -1112,9 +1112,9 @@ function sendsaved() {
             // Delete the Saved PM in Drafts
             ////////////////////////////////
             //Make the QUERY
-            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm.pm_from = '" . $user['id'] . "'
-					AND pm.pmid = '$pmid'", false);
+            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm.pm_from = '" . $user['id'] . "'
+                    AND pm.pmid = '$pmid'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -1132,9 +1132,9 @@ function sendsaved() {
             // UPDATE the Users PM Count
             ////////////////////////////////
             //Make the QUERY
-            $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-					SET pm = pm - 1 
-					WHERE id = '" . $user['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                    SET pm = pm - 1
+                    WHERE id = '" . $user['id'] . "'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -1161,12 +1161,12 @@ function sendsaved() {
             $temp_rec_id = implode(";", $rec_id);
 
             //Make the QUERY
-            $qresult = makequery("UPDATE " . $dbtables['pm'] . " 
-					SET pm_time = '$time', pm_subject = '$pmsubject', 
-					pm_body = '$pmbody', pm_folder = '2',
-					pm_to_text = '$temp_rec||||$temp_rec_id'
-					WHERE pmid = '$pmid'
-					AND pm_from = '" . $user['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['pm'] . "
+                    SET pm_time = '$time', pm_subject = '$pmsubject',
+                    pm_body = '$pmbody', pm_folder = '2',
+                    pm_to_text = '$temp_rec||||$temp_rec_id'
+                    WHERE pmid = '$pmid'
+                    AND pm_from = '" . $user['id'] . "'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -1197,7 +1197,7 @@ function sendsaved() {
 
 ///////////////////////////////////
 // Check the Recipients of the PM.
-// It does the following : 
+// It does the following :
 // 1) Checks all the usernames
 // 2) If error calls form and Exits
 // 3) Returns array if everthing is fine
@@ -1254,9 +1254,9 @@ function check_recipients($posted_recievers, $callfunc = 'writepm_theme') {
     $final = implode(" OR ", $or);
 
 
-    $qresult = makequery("SELECT u.id, u.username, u.pm, u.unread_pm, p.max_stored_pm 
-			FROM " . $dbtables['users'] . " u, " . $dbtables['permissions'] . " p
-			WHERE ($final) AND p.member_group_id = u.u_member_group");
+    $qresult = makequery("SELECT u.id, u.username, u.pm, u.unread_pm, p.max_stored_pm
+            FROM " . $dbtables['users'] . " u, " . $dbtables['permissions'] . " p
+            WHERE ($final) AND p.member_group_id = u.u_member_group");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -1403,17 +1403,17 @@ function showpm($folder = 0) {
     // 1) The PM belongs to him
     ////////////////////////////////////////
     //Get the PM the user has requested to see.
-    $qresult = makequery("SELECT pm.*, ug.mem_gr_name, ug.image_name, ug.image_count, u.id, 
-			u.username AS sender, u.email, u.posts, u.u_member_group,u.users_text,
-			u.sig, u.avatar, u.avatar_type, u.avatar_width, u.avatar_height, u.location,
-			u.www , u.timezone , u.icq , u.aim , u.yim , u.msn , u.email , u.hideemail,
-			s.uid AS status
-			FROM " . $dbtables['pm'] . " pm 
-			LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id) 
-			LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
-			LEFT JOIN " . $dbtables['sessions'] . " s ON (pm.pm_from = s.uid)
-			WHERE " . (($folder) ? "pm.pm_from" : "pm.pm_to") . " = '" . $user['id'] . "' 
-			AND pmid='$pmid'");
+    $qresult = makequery("SELECT pm.*, ug.mem_gr_name, ug.image_name, ug.image_count, u.id,
+            u.username AS sender, u.email, u.posts, u.u_member_group,u.users_text,
+            u.sig, u.avatar, u.avatar_type, u.avatar_width, u.avatar_height, u.location,
+            u.www , u.timezone , u.icq , u.aim , u.yim , u.msn , u.email , u.hideemail,
+            s.uid AS status
+            FROM " . $dbtables['pm'] . " pm
+            LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
+            LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
+            LEFT JOIN " . $dbtables['sessions'] . " s ON (pm.pm_from = s.uid)
+            WHERE " . (($folder) ? "pm.pm_from" : "pm.pm_to") . " = '" . $user['id'] . "'
+            AND pmid='$pmid'");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -1555,10 +1555,10 @@ function showpm($folder = 0) {
         $time = time();
 
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['pm'] . " 
-				SET pm_read_time = '$time' 
-				WHERE pmid = '$pmid'
-				AND pm_to = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['pm'] . "
+                SET pm_read_time = '$time'
+                WHERE pmid = '$pmid'
+                AND pm_to = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -1575,9 +1575,9 @@ function showpm($folder = 0) {
         // UPDATE Users New PM Count if not read
         ////////////////////////////////////////
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET unread_pm = unread_pm - 1 
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET unread_pm = unread_pm - 1
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -1607,7 +1607,7 @@ function searchpm() {
 
     $error = array();
 
-    $search = array('/%/', '/_/', '/\s/'); //Array of things that should be replaced for search	
+    $search = array('/%/', '/_/', '/\s/'); //Array of things that should be replaced for search
 
     $replace = array('\\%', '\_', '%'); //Array of things that replaces
 
@@ -1703,44 +1703,44 @@ function searchpm() {
 
             //Get the PM in the from the folder
             $qresult = makequery("SELECT pm.*, f.id, f.username AS sender
-					FROM " . $dbtables['pm'] . " pm 
-					LEFT JOIN " . $dbtables['users'] . " f ON (pm.pm_from = f.id)
-					WHERE pm.pm_to = '" . $user['id'] . "'
-					AND pm_folder = '0'
-					" . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
-					" . (empty($hasthewords) ? '' : "AND pm_body LIKE '%" . $hasthewords . "%'") . "
-					" . (empty($doesnthave) ? '' : "AND pm_body NOT LIKE '%" . $doesnthave . "%'") . "
-					" . (empty($from) ? '' : "AND f.username = '$from'") . "
-					ORDER BY pm.pmid DESC");
+                    FROM " . $dbtables['pm'] . " pm
+                    LEFT JOIN " . $dbtables['users'] . " f ON (pm.pm_from = f.id)
+                    WHERE pm.pm_to = '" . $user['id'] . "'
+                    AND pm_folder = '0'
+                    " . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
+                    " . (empty($hasthewords) ? '' : "AND pm_body LIKE '%" . $hasthewords . "%'") . "
+                    " . (empty($doesnthave) ? '' : "AND pm_body NOT LIKE '%" . $doesnthave . "%'") . "
+                    " . (empty($from) ? '' : "AND f.username = '$from'") . "
+                    ORDER BY pm.pmid DESC");
 
             //Search the sent items
         } elseif ($folder == 1) {
 
             //Get the PM in the sentitems of this user.
             $qresult = makequery("SELECT pm.*, t.id, t.username AS receiver
-					FROM " . $dbtables['pm'] . " pm 
-					LEFT JOIN " . $dbtables['users'] . " t ON (pm.pm_to = t.id)
-					WHERE pm.pm_from = '" . $user['id'] . "'
-					AND pm_folder = '1'
-					" . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
-					" . (empty($hasthewords) ? '' : "AND pm_body LIKE '%" . $hasthewords . "%'") . "
-					" . (empty($doesnthave) ? '' : "AND pm_body NOT LIKE '%" . $doesnthave . "%'") . "
-					" . (empty($to) ? '' : "AND t.username = '$to'") . "
-					ORDER BY pm.pmid DESC");
+                    FROM " . $dbtables['pm'] . " pm
+                    LEFT JOIN " . $dbtables['users'] . " t ON (pm.pm_to = t.id)
+                    WHERE pm.pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '1'
+                    " . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
+                    " . (empty($hasthewords) ? '' : "AND pm_body LIKE '%" . $hasthewords . "%'") . "
+                    " . (empty($doesnthave) ? '' : "AND pm_body NOT LIKE '%" . $doesnthave . "%'") . "
+                    " . (empty($to) ? '' : "AND t.username = '$to'") . "
+                    ORDER BY pm.pmid DESC");
 
             //Search the drafts
         } elseif ($folder == 2) {
 
             //Get the PM in the drafts of this user.
             $qresult = makequery("SELECT pm.*
-					FROM " . $dbtables['pm'] . " pm 
-					WHERE pm.pm_from = '" . $user['id'] . "'
-					AND pm_folder = '2'
-					" . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
-					" . (empty($hasthewords) ? '' : "AND pm_body LIKE '%" . $hasthewords . "%'") . "
-					" . (empty($doesnthave) ? '' : "AND pm_body NOT LIKE '%" . $doesnthave . "%'") . "
-					" . (empty($to) ? '' : "AND pm.pm_to_text LIKE '%" . $to . "%'") . "
-					ORDER BY pm.pmid DESC");
+                    FROM " . $dbtables['pm'] . " pm
+                    WHERE pm.pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '2'
+                    " . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
+                    " . (empty($hasthewords) ? '' : "AND pm_body LIKE '%" . $hasthewords . "%'") . "
+                    " . (empty($doesnthave) ? '' : "AND pm_body NOT LIKE '%" . $doesnthave . "%'") . "
+                    " . (empty($to) ? '' : "AND pm.pm_to_text LIKE '%" . $to . "%'") . "
+                    ORDER BY pm.pmid DESC");
         }
 
 
@@ -1894,10 +1894,10 @@ function prunepm() {
         if ($prunefolder == 0) {
 
             //Delete them
-            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm_to = '" . $user['id'] . "'
-					AND pm_folder = '0'
-					AND pm_time < $time", false);
+            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm_to = '" . $user['id'] . "'
+                    AND pm_folder = '0'
+                    AND pm_time < $time", false);
 
             /* if(mysql_affected_rows($conn) < 1){
 
@@ -1920,10 +1920,10 @@ function prunepm() {
         } elseif ($prunefolder == 1) {
 
             //Delete them
-            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm_from = '" . $user['id'] . "'
-					AND pm_folder = '1'
-					AND pm_time < $time", false);
+            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '1'
+                    AND pm_time < $time", false);
 
             /* if(mysql_affected_rows($conn) < 1){
 
@@ -1946,10 +1946,10 @@ function prunepm() {
         } elseif ($prunefolder == 2) {
 
             //Delete them
-            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm_from = '" . $user['id'] . "'
-					AND pm_folder = '2'
-					AND pm_time < $time", false);
+            $qresult = makequery("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '2'
+                    AND pm_time < $time", false);
 
             /* if(mysql_affected_rows($conn) < 1){
 
@@ -1977,22 +1977,22 @@ function prunepm() {
             $makequery = array();
 
             //Inbox
-            $makequery[0] = array("DELETE FROM " . $dbtables['pm'] . " 
-							WHERE pm_to = '" . $user['id'] . "'
-							AND pm_folder = '0'
-							AND pm_time < $time", $l['pm_no_prune_inbox']);
+            $makequery[0] = array("DELETE FROM " . $dbtables['pm'] . "
+                            WHERE pm_to = '" . $user['id'] . "'
+                            AND pm_folder = '0'
+                            AND pm_time < $time", $l['pm_no_prune_inbox']);
 
             //Sent Items
-            $makequery[1] = array("DELETE FROM " . $dbtables['pm'] . " 
-							WHERE pm_from = '" . $user['id'] . "'
-							AND pm_folder = '1'
-							AND pm_time < $time", $l['pm_no_prune_sentitems']);
+            $makequery[1] = array("DELETE FROM " . $dbtables['pm'] . "
+                            WHERE pm_from = '" . $user['id'] . "'
+                            AND pm_folder = '1'
+                            AND pm_time < $time", $l['pm_no_prune_sentitems']);
 
             //Drafts
-            $makequery[2] = array("DELETE FROM " . $dbtables['pm'] . " 
-							WHERE pm_from = '" . $user['id'] . "'
-							AND pm_folder = '2'
-							AND pm_time < $time", $l['pm_no_prune_drafts']);
+            $makequery[2] = array("DELETE FROM " . $dbtables['pm'] . "
+                            WHERE pm_from = '" . $user['id'] . "'
+                            AND pm_folder = '2'
+                            AND pm_time < $time", $l['pm_no_prune_drafts']);
 
 
             //The Loop
@@ -2012,9 +2012,9 @@ function prunepm() {
         // UPDATE the users PM Count
         /////////////////////////////
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET pm = pm - $affectedrows 
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET pm = pm - $affectedrows
+                WHERE id = '" . $user['id'] . "'", false);
 
         //Redirect
         redirect("act=usercp&ucpact=$redirect");
@@ -2084,19 +2084,19 @@ function emptyfolders() {
         $makequery = array();
 
         //Inbox
-        $makequery[0] = array("DELETE FROM " . $dbtables['pm'] . " 
-						WHERE pm_to = '" . $user['id'] . "'
-						AND pm_folder = '0'", $l['pm_no_empty_inbox'], 0);
+        $makequery[0] = array("DELETE FROM " . $dbtables['pm'] . "
+                        WHERE pm_to = '" . $user['id'] . "'
+                        AND pm_folder = '0'", $l['pm_no_empty_inbox'], 0);
 
         //Sent Items
-        $makequery[1] = array("DELETE FROM " . $dbtables['pm'] . " 
-						WHERE pm_from = '" . $user['id'] . "'
-						AND pm_folder = '1'", $l['pm_no_empty_sentitems'], 0);
+        $makequery[1] = array("DELETE FROM " . $dbtables['pm'] . "
+                        WHERE pm_from = '" . $user['id'] . "'
+                        AND pm_folder = '1'", $l['pm_no_empty_sentitems'], 0);
 
         //Drafts
-        $makequery[2] = array("DELETE FROM " . $dbtables['pm'] . " 
-						WHERE pm_from = '" . $user['id'] . "'
-						AND pm_folder = '2'", $l['pm_no_empty_drafts'], 0);
+        $makequery[2] = array("DELETE FROM " . $dbtables['pm'] . "
+                        WHERE pm_from = '" . $user['id'] . "'
+                        AND pm_folder = '2'", $l['pm_no_empty_drafts'], 0);
 
 
         //Empty the Inbox
@@ -2130,12 +2130,12 @@ function emptyfolders() {
                 $qresult = makequery($makequery[$i][0], false);
 
                 //No need to error check that it affected
-                // any rows as there may be no PM deleted	
+                // any rows as there may be no PM deleted
                 //Affected Rows
                 $affectedrows = $affectedrows + mysql_affected_rows($conn);
             }//End of if($makequery[$i][2])
-        }//End of loop		
-        //echo $affectedrows;	
+        }//End of loop
+        //echo $affectedrows;
         /////////////////////////////
         // UPDATE the users PM Count
         /////////////////////////////
@@ -2143,9 +2143,9 @@ function emptyfolders() {
         if ($affectedrows >= 1) {
 
             //Make the QUERY
-            $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-					SET pm = pm - $affectedrows 
-					WHERE id = '" . $user['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                    SET pm = pm - $affectedrows
+                    WHERE id = '" . $user['id'] . "'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -2239,22 +2239,22 @@ function deletepm($pmidarray, $pmfolder) {
 
 
     //Inbox
-    $makequery[0] = array("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm_to = '" . $user['id'] . "'
-					AND pm_folder = '0'
-					AND pmid IN ($pmids)", $l['pm_no_delete_inbox'], 0);
+    $makequery[0] = array("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm_to = '" . $user['id'] . "'
+                    AND pm_folder = '0'
+                    AND pmid IN ($pmids)", $l['pm_no_delete_inbox'], 0);
 
     //Sent Items
-    $makequery[1] = array("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm_from = '" . $user['id'] . "'
-					AND pm_folder = '1'
-				AND pmid IN ($pmids)", $l['pm_no_delete_sentitems'], 0);
+    $makequery[1] = array("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '1'
+                AND pmid IN ($pmids)", $l['pm_no_delete_sentitems'], 0);
 
     //Drafts
-    $makequery[2] = array("DELETE FROM " . $dbtables['pm'] . " 
-					WHERE pm_from = '" . $user['id'] . "'
-					AND pm_folder = '2'
-					AND pmid IN ($pmids)", $l['pm_no_delete_drafts'], 0);
+    $makequery[2] = array("DELETE FROM " . $dbtables['pm'] . "
+                    WHERE pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '2'
+                    AND pmid IN ($pmids)", $l['pm_no_delete_drafts'], 0);
 
 
     //Empty the Inbox
@@ -2323,9 +2323,9 @@ function deletepm($pmidarray, $pmfolder) {
     if ($affectedrows >= 1) {
 
         //Make the QUERY
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET pm = pm - $affectedrows 
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET pm = pm - $affectedrows
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -2358,22 +2358,22 @@ function countpm() {
     $countquery = array();
 
     //Inbox
-    $countquery[0] = array("SELECT COUNT(*) AS pms 
-					FROM " . $dbtables['pm'] . " 
-					WHERE pm_to = '" . $user['id'] . "'
-					AND pm_folder = '0'", $l['pm_no_count_inbox']);
+    $countquery[0] = array("SELECT COUNT(*) AS pms
+                    FROM " . $dbtables['pm'] . "
+                    WHERE pm_to = '" . $user['id'] . "'
+                    AND pm_folder = '0'", $l['pm_no_count_inbox']);
 
     //Sent Items
-    $countquery[1] = array("SELECT COUNT(*) AS pms 
-					FROM " . $dbtables['pm'] . " 
-					WHERE pm_from = '" . $user['id'] . "'
-					AND pm_folder = '1'", $l['pm_no_count_sentitems']);
+    $countquery[1] = array("SELECT COUNT(*) AS pms
+                    FROM " . $dbtables['pm'] . "
+                    WHERE pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '1'", $l['pm_no_count_sentitems']);
 
     //Drafts
-    $countquery[2] = array("SELECT COUNT(*) AS pms 
-					FROM " . $dbtables['pm'] . " 
-					WHERE pm_from = '" . $user['id'] . "'
-					AND pm_folder = '2'", $l['pm_no_count_drafts']);
+    $countquery[2] = array("SELECT COUNT(*) AS pms
+                    FROM " . $dbtables['pm'] . "
+                    WHERE pm_from = '" . $user['id'] . "'
+                    AND pm_folder = '2'", $l['pm_no_count_drafts']);
 
 
     //The Loop

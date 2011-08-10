@@ -4,7 +4,7 @@
 //===========================================================
 // index.php(usercp)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -313,7 +313,7 @@ function profile() {
         }
 
 
-        /* echo 'Year :'.$dobyear.'<br />';			
+        /* echo 'Year :'.$dobyear.'<br />';
           echo 'Month:'.$dobmonth.'<br />';
           echo 'Day :'.$dobday.'<br />';
           echo 'Title :'.$title.'<br />';
@@ -331,19 +331,19 @@ function profile() {
         // Finally make the UPDATE QUERY
         /////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET birth_date = '$dobyear-$dobmonth-$dobday',
-				customtitle = '$title',
-				location = '$location',
-				gender = '$gender',
-				users_text = '$privatetext',
-				icq = '$icq',
-				yim = '$yim',
-				msn = '$msn',
-				aim = '$aim',
-				gmail = '$gmail',
-				www = '$www'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET birth_date = '$dobyear-$dobmonth-$dobday',
+                customtitle = '$title',
+                location = '$location',
+                gender = '$gender',
+                users_text = '$privatetext',
+                icq = '$icq',
+                yim = '$yim',
+                msn = '$msn',
+                aim = '$aim',
+                gmail = '$gmail',
+                www = '$www'
+                WHERE id = '" . $user['id'] . "'", false);
 
 
         if (mysql_affected_rows($conn) < 1) {
@@ -417,7 +417,7 @@ function account() {
 
         /////////////////////////////////
         // Current Password is very much
-        // necessary before processing 
+        // necessary before processing
         /////////////////////////////////
 
         if (!(isset($_POST['currentpass'])) || strlen(trim($_POST['currentpass'])) == 0) {
@@ -619,7 +619,7 @@ function account() {
             // 1 - Max Length(for DB)
             // 2 - Email In Data Base
             // 3 - Email Expression
-            //////////////////////////////////	
+            //////////////////////////////////
 
             if ($user['email'] != $email) {
 
@@ -657,7 +657,7 @@ function account() {
         }
 
 
-        /* echo 'Real Name :'.$realname.'<br />';			
+        /* echo 'Real Name :'.$realname.'<br />';
           echo 'New Password:'.$newpass.'<br />';
           echo 'Confirm New Password :'.$confnewpass.'<br />';
           echo 'Secret Question :'.$secretqt.'<br />';
@@ -671,14 +671,14 @@ function account() {
         // Finally make the UPDATE QUERY
         /////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET realname = '$realname',
-				" . ((empty($globals['change_username'])) ? "" : "username='$username',") . "				
-				" . ((empty($newpass)) ? "" : "password='$newpass',") . "
-				secret_question = '$secretqt',
-				" . ((empty($answer)) ? "" : "secret_answer='$answer',") . "
-				email = '$email'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET realname = '$realname',
+                " . ((empty($globals['change_username'])) ? "" : "username='$username',") . "
+                " . ((empty($newpass)) ? "" : "password='$newpass',") . "
+                secret_question = '$secretqt',
+                " . ((empty($answer)) ? "" : "secret_answer='$answer',") . "
+                email = '$email'
+                WHERE id = '" . $user['id'] . "'", false);
 
         /* if(mysql_affected_rows($conn) < 1){
 
@@ -761,9 +761,9 @@ function signature() {
         // Finally make the UPDATE QUERY
         /////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET sig = '$signature'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET sig = '$signature'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -820,7 +820,7 @@ function avatar() {
 
         $avatarwidth = 0; //The avatar width
 
-        $avatarheight = 0; //The Avatar Height		
+        $avatarheight = 0; //The Avatar Height
         //Check the Avatar Type was posted
         if (!(isset($_POST['avatartype'])) || strlen(trim($_POST['avatartype'])) < 1) {
 
@@ -870,7 +870,7 @@ function avatar() {
 
                     /////////////////////////////////////////////////
                     //Check the dimensions are right and not too much
-                    /////////////////////////////////////////////////				
+                    /////////////////////////////////////////////////
                     //The error reposting is to be stopped by '@'
                     $avsize = @getimagesize($avfile);
                     /* echo '<pre>';
@@ -1008,7 +1008,7 @@ function avatar() {
 
             /////////////////////////////////////////////
             // First check if the $_FILES is empty dont
-            // do any changes. 
+            // do any changes.
             /////////////////////////////////////////////
 
             if (empty($_FILES['uploadavatar']['tmp_name']) &&
@@ -1064,7 +1064,7 @@ function avatar() {
                 /////////////////////////////////////////////////
                 //Check the dimensions are right and not too much
                 //This also checks if it is a Image or not
-                /////////////////////////////////////////////////				
+                /////////////////////////////////////////////////
                 //The error reposting is to be stopped by '@'
                 $avsize = @getimagesize($avatartemp);
                 /* echo '<pre>';
@@ -1142,12 +1142,12 @@ function avatar() {
         // Finally make the UPDATE QUERY
         /////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET avatar = '$avatar', 
-				avatar_type = '$avatartype',
-				avatar_width = '$avatarwidth',
-				avatar_height = '$avatarheight'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET avatar = '$avatar',
+                avatar_type = '$avatartype',
+                avatar_width = '$avatarwidth',
+                avatar_height = '$avatarheight'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -1165,12 +1165,12 @@ function avatar() {
         //The user wants to delete his avatar
     } elseif (isset($_POST['removeavatar'])) {
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET avatar = '', 
-				avatar_type = '0',
-				avatar_width = '0',
-				avatar_height = '0'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET avatar = '',
+                avatar_type = '0',
+                avatar_width = '0',
+                avatar_height = '0'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -1268,7 +1268,7 @@ function personalpic() {
 
         $ppicwidth = 0; //The Personal Picture width
 
-        $ppicheight = 0; //The Personal Picture Height		
+        $ppicheight = 0; //The Personal Picture Height
         //Check the Personal Picture Type was posted
         if (!(isset($_POST['ppictype'])) || strlen(trim($_POST['ppictype'])) < 1) {
 
@@ -1384,7 +1384,7 @@ function personalpic() {
 
             /////////////////////////////////////////////
             // First check if the $_FILES is empty dont
-            // do any changes. 
+            // do any changes.
             /////////////////////////////////////////////
 
             if (empty($_FILES['uploadppic']['tmp_name']) &&
@@ -1440,7 +1440,7 @@ function personalpic() {
                 /////////////////////////////////////////////////
                 //Check the dimensions are right and not too much
                 //This also checks if it is a Image or not
-                /////////////////////////////////////////////////				
+                /////////////////////////////////////////////////
                 //The error reposting is to be stopped by '@'
                 $ppsize = @getimagesize($ppictemp);
                 /* echo '<pre>';
@@ -1509,12 +1509,12 @@ function personalpic() {
 
 
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET ppic = '$ppic', 
-				ppic_type = '$ppictype',
-				ppic_width = '$ppicwidth',
-				ppic_height = '$ppicheight'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET ppic = '$ppic',
+                ppic_type = '$ppictype',
+                ppic_width = '$ppicwidth',
+                ppic_height = '$ppicheight'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -1532,12 +1532,12 @@ function personalpic() {
         //The user wants to delete his Personal Picture
     } elseif (isset($_POST['removeppic'])) {
 
-        $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-				SET ppic = '', 
-				ppic_type = '0',
-				ppic_width = '0',
-				ppic_height = '0'
-				WHERE id = '" . $user['id'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                SET ppic = '',
+                ppic_type = '0',
+                ppic_width = '0',
+                ppic_height = '0'
+                WHERE id = '" . $user['id'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 

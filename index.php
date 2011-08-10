@@ -4,7 +4,7 @@
 //===========================================================
 // index.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -70,7 +70,7 @@ $start_time = microtime_float(); //the clocks ticking
 //////////////////////////////////////////
 
 $qresult = makequery("SELECT r.*
-		FROM " . $dbtables['registry'] . " r");
+        FROM " . $dbtables['registry'] . " r");
 
 
 if ((mysql_num_rows($qresult) > 0)) {
@@ -183,7 +183,7 @@ $actionsArray = array(
     'editprofile' => array('edit.php', 'editprofile'),
     'members' => array('members.php', 'members'),
     'active' => array('active.php', 'active'),
-    /* 'stats'   			=> array('stats.php', 'stats'), */
+    /* 'stats'               => array('stats.php', 'stats'), */
     'unread' => array('unread.php', 'unread'),
     'search' => array('search.php', 'search'),
     'downloadattach' => array('attachments.php', 'download'),
@@ -237,7 +237,7 @@ save_session();
 //I Finished first
 $end_time = microtime_float();
 
-//Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON 
+//Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON
 $_GET = cleanVARS($_GET);
 $_POST = cleanVARS($_POST);
 

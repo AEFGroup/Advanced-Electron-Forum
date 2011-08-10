@@ -4,7 +4,7 @@
 //===========================================================
 // reply.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -140,10 +140,10 @@ function reply() {
     }
 
     //Bring the topic
-    $qresult = makequery("SELECT t.* 
-			FROM " . $dbtables['topics'] . " t
-			WHERE t.tid='$tid'
-			LIMIT 0 , 1");
+    $qresult = makequery("SELECT t.*
+            FROM " . $dbtables['topics'] . " t
+            WHERE t.tid='$tid'
+            LIMIT 0 , 1");
 
     if (mysql_num_rows($qresult) < 1) {
 
@@ -287,10 +287,10 @@ function reply() {
         if (!empty($qpid)) {
 
             $qresult = makequery("SELECT p.post, p.ptime, u.username
-			FROM " . $dbtables['posts'] . " p
-			LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
-			WHERE p.pid = '$qpid'
-			LIMIT 0 , 1");
+            FROM " . $dbtables['posts'] . " p
+            LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
+            WHERE p.pid = '$qpid'
+            LIMIT 0 , 1");
 
             if (mysql_num_rows($qresult) > 0) {
 
@@ -356,13 +356,13 @@ function reply() {
 
         //Bring the last posts
         $qresult = makequery("SELECT DISTINCT p.*, per.allow_html, u.id, u.username
-				FROM " . $dbtables['posts'] . " p
-				LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
-				LEFT JOIN " . $dbtables['permissions'] . " per ON (per.member_group_id = 
-																u.u_member_group)
-				WHERE p.post_tid = '$tid'
-				ORDER BY ptime DESC
-				LIMIT 0, " . $globals['last_posts_reply']);
+                FROM " . $dbtables['posts'] . " p
+                LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
+                LEFT JOIN " . $dbtables['permissions'] . " per ON (per.member_group_id =
+                                                                u.u_member_group)
+                WHERE p.post_tid = '$tid'
+                ORDER BY ptime DESC
+                LIMIT 0, " . $globals['last_posts_reply']);
 
         if (mysql_num_rows($qresult) < 1) {
 
@@ -431,32 +431,101 @@ function reply() {
 
     //If the user is submitting the post
     if (isset($_POST['submitpost']) || isset($_POST['previewpost'])) {
-        
-            //Is postcode posted
-            if (!(isset($_POST['postcode'])) || strlen(trim($_POST['postcode'])) < 16) {
 
-                $error[] = $l['no_security_code'];
+        //Is postcode posted
+        if (!(isset($_POST['postcode'])) || strlen(trim($_POST['postcode'])) < 16) {
+
+            $error[] = $l['no_security_code'];
+        } else {
+
+            $postedcode = inputsec(strtolower(htmlizer(trim($_POST['postcode']))));
+
+            //////////////////////////////////
+            // This is a very important thing
+            // to check for automated posting
+            //////////////////////////////////
+
+            if (in_array($postedcode, $AEF_SESS['postcode'])) {
+
+                $error[] = $l['wrong_security_code'];
+            }
+        }
+
+        //When was the last time you posted
+        if (!empty($AEF_SESS['last_post'])) {
+
+            if ((time() - $AEF_SESS['last_post']) < $globals['timepostfromuser']) {
+
+                $error[] = $l['last_post_time'];
+            }
+        }
+
+        //on error call the form
+        if (!empty($error)) {
+            $theme['call_theme_func'] = 'reply_theme';
+            return false;
+        }
+
+        //For Guests their names and email is important
+        if (!$logged_in) {
+
+            //The name field
+            if (!(isset($_POST['gposter_name'])) || strlen(trim($_POST['gposter_name'])) < 1) {
+
+                $error[] = $l['guest_no_name'];
             } else {
 
-                $postedcode = inputsec(strtolower(htmlizer(trim($_POST['postcode']))));
+                $gposter_name = inputsec(htmlizer(trim($_POST['gposter_name'])));
 
-                //////////////////////////////////
-                // This is a very important thing
-                // to check for automated posting
-                //////////////////////////////////	
+                $len = aefstrlen($gposter_name);
 
-                if (in_array($postedcode, $AEF_SESS['postcode'])) {
+                //Max Length
+                if ($len > $globals['max_uname']) {
 
-                    $error[] = $l['wrong_security_code'];
+                    $error[] = lang_vars($l['max_name_length_crossed'], array($globals['max_uname']));
                 }
-            }
 
-            //When was the last time you posted
-            if (!empty($AEF_SESS['last_post'])) {
+                //Min Length
+                if ($len < $globals['min_uname']) {
 
-                if ((time() - $AEF_SESS['last_post']) < $globals['timepostfromuser']) {
+                    $error[] = lang_vars($l['min_name_length_crossed'], array($globals['min_uname']));
+                }
 
-                    $error[] = $l['last_post_time'];
+                if (preg_match("/\s/i", $gposter_name)) {
+
+                    $error[] = $l['space_in_name'];
+                }
+
+                //on error call the form
+                if (!empty($error)) {
+                    $theme['call_theme_func'] = 'reply_theme';
+                    return false;
+                }
+
+                //Check in the Database
+                if (usernameindb($gposter_name)) {
+
+                    $error[] = lang_vars($l['name_in_use'], array($gposter_name));
+                }
+
+
+                $reserved = explode("\n", $globals['reserved_names']);
+
+                for ($i = 0; $i < count($reserved); $i++) {
+
+                    if (!empty($reserved[$i])) {
+
+                        $reserved[$i] = trim($reserved[$i]);
+
+                        $pattern = '/' . (($globals['reserved_match_whole']) ? '\b' : '') . $reserved[$i] . (($globals['reserved_match_whole']) ? '\b' : '') . '/' . (($globals['reserved_match_insensitive']) ? 'i' : '');
+
+                        if (preg_match($pattern, $gposter_name)) {
+
+                            $error[] = lang_vars($l['reserved_names'], array($reserved[$i]));
+
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -466,117 +535,48 @@ function reply() {
                 return false;
             }
 
-            //For Guests their names and email is important
-            if (!$logged_in) {
 
-                //The name field
-                if (!(isset($_POST['gposter_name'])) || strlen(trim($_POST['gposter_name'])) < 1) {
+            //The email address
+            if (!(isset($_POST['gposter_email'])) || strlen(trim($_POST['gposter_email'])) < 1) {
 
-                    $error[] = $l['guest_no_name'];
-                } else {
+                $error[] = $l['guest_no_email'];
+            } else {
 
-                    $gposter_name = inputsec(htmlizer(trim($_POST['gposter_name'])));
+                $gposter_email = inputsec(htmlizer(trim($_POST['gposter_email'])));
 
-                    $len = aefstrlen($gposter_name);
+                //////////////////////////////////
+                // Email must undergo following
+                // restriction checks
+                // 1 - Max Length(for DB)
+                // 2 - Email In Data Base
+                // 3 - Email Expression
+                //////////////////////////////////
+                //Max Length
+                if (aefstrlen($gposter_email) > 100) {
 
-                    //Max Length
-                    if ($len > $globals['max_uname']) {
-
-                        $error[] = lang_vars($l['max_name_length_crossed'], array($globals['max_uname']));
-                    }
-
-                    //Min Length
-                    if ($len < $globals['min_uname']) {
-
-                        $error[] = lang_vars($l['min_name_length_crossed'], array($globals['min_uname']));
-                    }
-
-                    if (preg_match("/\s/i", $gposter_name)) {
-
-                        $error[] = $l['space_in_name'];
-                    }
-
-                    //on error call the form
-                    if (!empty($error)) {
-                        $theme['call_theme_func'] = 'reply_theme';
-                        return false;
-                    }
-
-                    //Check in the Database
-                    if (usernameindb($gposter_name)) {
-
-                        $error[] = lang_vars($l['name_in_use'], array($gposter_name));
-                    }
-
-
-                    $reserved = explode("\n", $globals['reserved_names']);
-
-                    for ($i = 0; $i < count($reserved); $i++) {
-
-                        if (!empty($reserved[$i])) {
-
-                            $reserved[$i] = trim($reserved[$i]);
-
-                            $pattern = '/' . (($globals['reserved_match_whole']) ? '\b' : '') . $reserved[$i] . (($globals['reserved_match_whole']) ? '\b' : '') . '/' . (($globals['reserved_match_insensitive']) ? 'i' : '');
-
-                            if (preg_match($pattern, $gposter_name)) {
-
-                                $error[] = lang_vars($l['reserved_names'], array($reserved[$i]));
-
-                                break;
-                            }
-                        }
-                    }
+                    $error[] = $l['guest_email_big'];
                 }
 
-                //on error call the form
-                if (!empty($error)) {
-                    $theme['call_theme_func'] = 'reply_theme';
-                    return false;
+                //Also confirm its validity
+                if (!emailvalidation($gposter_email)) {
+
+                    $error[] = $l['guest_email_invalid'];
                 }
 
+                //Check is it there in the Data Base
+                if (emailindb($gposter_email)) {
 
-                //The email address
-                if (!(isset($_POST['gposter_email'])) || strlen(trim($_POST['gposter_email'])) < 1) {
-
-                    $error[] = $l['guest_no_email'];
-                } else {
-
-                    $gposter_email = inputsec(htmlizer(trim($_POST['gposter_email'])));
-
-                    //////////////////////////////////
-                    // Email must undergo following
-                    // restriction checks
-                    // 1 - Max Length(for DB)
-                    // 2 - Email In Data Base
-                    // 3 - Email Expression
-                    //////////////////////////////////	
-                    //Max Length
-                    if (aefstrlen($gposter_email) > 100) {
-
-                        $error[] = $l['guest_email_big'];
-                    }
-
-                    //Also confirm its validity
-                    if (!emailvalidation($gposter_email)) {
-
-                        $error[] = $l['guest_email_invalid'];
-                    }
-
-                    //Check is it there in the Data Base
-                    if (emailindb($gposter_email)) {
-
-                        $error[] = $l['email_in_use'];
-                    }
-                }
-
-                //on error call the form
-                if (!empty($error)) {
-                    $theme['call_theme_func'] = 'reply_theme';
-                    return false;
+                    $error[] = $l['email_in_use'];
                 }
             }
-        
+
+            //on error call the form
+            if (!empty($error)) {
+                $theme['call_theme_func'] = 'reply_theme';
+                return false;
+            }
+        }
+
 
         //Check if the damn field Title exists.
         if (!(isset($_POST['posttitle'])) || strlen(trim($_POST['posttitle'])) < 1) {
@@ -774,10 +774,10 @@ function reply() {
 
         /////////////////////////////////
         // Finally lets start the queries
-        // Effects of a new topic : 
+        // Effects of a new topic :
         // 1 - Put in posts table
-        // 2 - Update topics table for 
-        //	   last_post_id
+        // 2 - Update topics table for
+        //       last_post_id
         // 3 - Update users post count
         // 4 - Update forums post count
         /////////////////////////////////
@@ -785,18 +785,18 @@ function reply() {
         // INSERT the post now
         ///////////////////////
 
-        $qresult = makequery("INSERT INTO " . $dbtables['posts'] . " 
-						SET post_tid = '$tid',
-						post_fid = '$fid',
-						ptime = '$ptime',
-						poster_id = '$t_mem_id',
-						poster_ip = '$poster_ip',
-						post = '$post',
-						use_smileys = '$use_smileys',
-						gposter_name = '$gposter_name',
-						gposter_email = '$gposter_email',
-						post_title = '$post_title',
-						par_id = '$par_id'");
+        $qresult = makequery("INSERT INTO " . $dbtables['posts'] . "
+                        SET post_tid = '$tid',
+                        post_fid = '$fid',
+                        ptime = '$ptime',
+                        poster_id = '$t_mem_id',
+                        poster_ip = '$poster_ip',
+                        post = '$post',
+                        use_smileys = '$use_smileys',
+                        gposter_name = '$gposter_name',
+                        gposter_email = '$gposter_email',
+                        post_title = '$post_title',
+                        par_id = '$par_id'");
 
         $pid = mysql_insert_id($conn);
 
@@ -815,13 +815,13 @@ function reply() {
         // UPDATE the topics table for last_post_id
         /////////////////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['topics'] . " 
-						SET t_status = $t_status,
-						n_posts = n_posts + 1,
-						t_sticky = $t_sticky,
-						last_post_id = '$pid',
-						mem_id_last_post = '$mem_id_last_post'
-						WHERE tid = '$tid'", false);
+        $qresult = makequery("UPDATE " . $dbtables['topics'] . "
+                        SET t_status = $t_status,
+                        n_posts = n_posts + 1,
+                        t_sticky = $t_sticky,
+                        last_post_id = '$pid',
+                        mem_id_last_post = '$mem_id_last_post'
+                        WHERE tid = '$tid'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -840,9 +840,9 @@ function reply() {
         //Not for guests and should we increase
         if ($logged_in && $board['inc_mem_posts']) {
 
-            $qresult = makequery("UPDATE " . $dbtables['users'] . " 
-							SET posts = posts + 1
-							WHERE id = '" . $user['id'] . "'", false);
+            $qresult = makequery("UPDATE " . $dbtables['users'] . "
+                            SET posts = posts + 1
+                            WHERE id = '" . $user['id'] . "'", false);
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -860,10 +860,10 @@ function reply() {
         // UPDATE the forums post count
         ////////////////////////////////
 
-        $qresult = makequery("UPDATE " . $dbtables['forums'] . " 
-						SET nposts = nposts + 1,
-						f_last_pid = '$pid'
-						WHERE fid = '" . $board['fid'] . "'", false);
+        $qresult = makequery("UPDATE " . $dbtables['forums'] . "
+                        SET nposts = nposts + 1,
+                        f_last_pid = '$pid'
+                        WHERE fid = '" . $board['fid'] . "'", false);
 
         if (mysql_affected_rows($conn) < 1) {
 
@@ -906,9 +906,9 @@ function reply() {
             // REPLACE the users row if there
             //////////////////////////////////
 
-            $qresult = makequery("REPLACE INTO " . $dbtables['notify_topic'] . " 
-							SET notify_mid = '" . $user['id'] . "',
-							notify_tid = '$tid'");
+            $qresult = makequery("REPLACE INTO " . $dbtables['notify_topic'] . "
+                            SET notify_mid = '" . $user['id'] . "',
+                            notify_tid = '$tid'");
 
             if (mysql_affected_rows($conn) < 1) {
 
@@ -957,15 +957,15 @@ function reply() {
 
             //Send Notifications
             $qresult = makequery("SELECT u.email
-						FROM " . $dbtables['notify_topic'] . " nt
-						LEFT JOIN " . $dbtables['users'] . " u ON (u.id = nt.notify_mid)
-						WHERE notify_tid = '$tid'");
+                        FROM " . $dbtables['notify_topic'] . " nt
+                        LEFT JOIN " . $dbtables['users'] . " u ON (u.id = nt.notify_mid)
+                        WHERE notify_tid = '$tid'");
 
             //////////////////////////////////////
-            // Note :  There may not even be a 
+            // Note :  There may not even be a
             // single notification to send .
-            //////////////////////////////////////	
-            //Found some recievers		
+            //////////////////////////////////////
+            //Found some recievers
             if (mysql_num_rows($qresult) > 0) {
 
                 $notifyemails = array();
