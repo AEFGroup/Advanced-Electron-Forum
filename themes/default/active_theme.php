@@ -54,21 +54,21 @@ function active_theme() {
     <td class="aclcbg" width="40%" align="center">' . $l['activity_header'] . '</td>
     </tr>';
 
-    foreach ($active as $index => $activeUser) {
+    foreach ($active as $index => $activeSession) {
 
         echo '<tr>
 
         <td class="ttsub">
-        ' . (empty($activeUser['username']) ? 'Guest' : (($activeUser['uid'] < -100) ? $activeUser['username'] : '<a href="' . $globals['index_url'] . 'mid=' . $activeUser['id'] . '">' . $activeUser['username'] . '</a>' ) ) . '
-        ' . (empty($activeUser['ip']) ? '' : '<div style="float:right">( ' . $activeUser['ip'] . ' )</div>') . '
+        ' . (empty($activeSession['username']) ? 'Guest' : (($activeSession['uid'] < -100) ? $activeSession['username'] : '<a style="color: ' . $activeSession['mem_gr_colour'] . '" href="' . $globals['index_url'] . 'mid=' . $activeSession['id'] . '">' . $activeSession['username'] . '</a>' ) ) . '
+        ' . (empty($activeSession['ip']) ? '' : '<div style="float:right">( ' . $activeSession['ip'] . ' )</div>') . '
         </td>
 
         <td class="ttstar" align="center">
-        ' . $activeUser['time'] . '
+        ' . $activeSession['time'] . '
         </td>
 
         <td class="ttrep" align="left">
-        ' . $activeUser['activity'] . '
+        ' . $activeSession['activity'] . '
         </td>
         </tr>';
     }

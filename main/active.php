@@ -150,11 +150,12 @@ function active() {
 
     //Get the Pids of the page.
     $qresult = makequery("SELECT s.uid, s.time, s.ip, s.last_activity, s.activity, s.anonymous,
-                u.id, u.username, t.tid, t.topic, f.fid, f.fname
+                u.id, u.username, t.tid, t.topic, f.fid, f.fname, ug.mem_gr_colour
                 FROM " . $dbtables['sessions'] . " s
                 LEFT JOIN " . $dbtables['users'] . " u ON (s.uid = u.id)
                 LEFT JOIN " . $dbtables['forums'] . " f ON (f.fid = s.viewing_board)
                 LEFT JOIN " . $dbtables['topics'] . " t ON (t.tid = s.viewing_topic)
+                LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group = ug.member_group)
                 WHERE s.time > '$activetime'
                 GROUP BY s.uid, s.ip
                 ORDER BY s.time DESC
