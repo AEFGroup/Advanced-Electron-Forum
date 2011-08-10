@@ -124,11 +124,12 @@ function MainIndex() {
 
             //Bring the last posts
             $qresult = makequery("SELECT t.tid, t.topic, t.n_posts, p.pid, p.ptime,
-                    u.id, u.username, f.fid, f.fname
+                    u.id, u.username, f.fid, f.fname, ug.mem_gr_colour
                     FROM " . $dbtables['posts'] . " p
                     LEFT JOIN " . $dbtables['topics'] . " t ON (t.tid = p.post_tid)
                     LEFT JOIN " . $dbtables['forums'] . " f ON (f.fid = p.post_fid)
                     LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
+                    LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group = ug.member_group)
                     WHERE p.post_fid IN (" . (empty($visible_forums) ? 0 : $visible_forums) . ")
                                                                                           AND EXISTS (SELECT * FROM  " . $dbtables['topics'] . " WHERE tid = t.tid)
                     ORDER BY ptime DESC
