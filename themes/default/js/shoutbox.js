@@ -26,13 +26,13 @@ function show_shoutbox(){
         showel(shbid);
         smoothopaque(shbid, 0, 100, 10);
     }
-};
+}
 
 //Hides the floating shoutbox
 function hide_shoutbox(){
     hideel(shbid);
     clearTimeout(shouttimeout);
-};
+}
 
 //When the shout box is fixed call this instead of show_shoutbox()
 function init_fixedshoutbox(){
@@ -44,7 +44,7 @@ function init_fixedshoutbox(){
         shout_totimeout = 20000;
         load_shouts();//Load the shout box
     }
-};
+}
 
 //Hides or shows the fixed shoutbox
 function hideshow_fixedshoutbox(){
@@ -59,23 +59,23 @@ function hideshow_fixedshoutbox(){
         setcookie(shbcontainer, '1', 365);//Set a cookie
         clearTimeout(shouttimeout);//Clear the timeout
     }
-};
+}
 
 //Just hides the fixed shoutbox
 function hide_fixedshoutbox(){
     $(shbcontainer).style.display = "none";//Hide the box
     $(shbimgcollapser).src = imgurl+'collapsed.gif';
-};
+}
 
 //Just shows the fixed shoutbox
 function show_fixedshoutbox(){
     $(shbcontainer).style.display = "block";//Show the box
     $(shbimgcollapser).src = imgurl+'expanded.gif';
-};
+}
 
 function load_shouts(){
     AJAX(indexurl+'act=shoutbox&last='+last_shoutid, 'handleshoutresponse(re)');
-};
+}
 
 function handleshoutresponse(resp_txt){
     var shouts = eval(resp_txt);
@@ -91,7 +91,8 @@ function handleshoutresponse(resp_txt){
     }
     $('shouts').innerHTML = shout + $('shouts').innerHTML;
     shouttimeout = setTimeout('load_shouts()', shout_totimeout);
-};
+    return true;
+}
 
 function shout(){
     var theshout = $('addshout').value;
@@ -104,7 +105,8 @@ function shout(){
     shout_totimeout = 5000;
     $('addshoutbut').disabled = true;
     AJAX(indexurl+'&act=shoutbox&shoutact=addshout&shout='+theshout, 'addshoutresponse(re)');
-};
+    return true;
+}
 
 function addshoutresponse(addedshout){
     var response = eval(addedshout);
@@ -115,7 +117,7 @@ function addshoutresponse(addedshout){
 
 function deleteshout(num_id){
     AJAX(indexurl+'act=shoutbox&shoutact=deleteshout&shoutid='+num_id, 'delshoutresponse('+num_id+', re)');
-};
+}
 
 function delshoutresponse(id, delresp){
     var response = eval(delresp);
@@ -130,7 +132,7 @@ function handleshoutkeys(e){
     if(hkey == 13){
         shout();
     }
-};
+}
 
 function reloadshoutbox(){
     clearTimeout(shouttimeout);//Very important
