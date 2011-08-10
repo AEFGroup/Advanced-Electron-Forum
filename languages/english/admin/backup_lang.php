@@ -4,7 +4,7 @@
 //===============================================================
 // backup_lang.php(languages/english/admin)
 //===============================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // Extract text from admin files by oxlo (16th January 2008).
@@ -30,8 +30,8 @@ $l['errors_compressing_data'] = 'There were some errors while compressing the da
 $l['backup_ok'] = 'Successfully backed up';
 $l['backup_created_ok'] = 'Backup created successfully';
 $l['backup_created_ok_exp'] = 'The backup was created successfully.<br />You may now return to the <a href="'.$globals['index_url'].'act=admin">Admin Index</a> or the <a href="'.$globals['index_url'].'act=admin&adact=backup">Backup Tools</a>.<br /><br />
-		
-		Thankyou!';
+
+        Thankyou!';
 $l['errors_writing'] = 'There were some errors while writing the file on the server.';
 $l['no_tables_specified'] = 'The tables to be exported was not specified.';
 $l['tables_invalid'] = 'The tables you specified are invalid.';

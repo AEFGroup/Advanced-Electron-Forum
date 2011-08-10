@@ -1,9 +1,10 @@
 <?php
+
 //////////////////////////////////////////////////////////////
 //===========================================================
 // conpan.php(Admin)
 //===========================================================
-// AEF : Advanced Electron Forum 
+// AEF : Advanced Electron Forum
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -1104,7 +1105,7 @@ function updates() {
 
         $compressedfile = $globals['server_url'] . '/' . basename($info['link']);
 
-        //Get the file	
+        //Get the file
         if (!get_web_file($info['link'], $compressedfile)) {
 
             $error[] = $l['errors_downloading'];
@@ -1155,17 +1156,17 @@ function changecharset($charset = 'utf8') {
     $charsets = array('utf8' => 'utf8_general_ci');
 
     $qresult = makequery("ALTER DATABASE " . $globals['database'] . "
-							CHARACTER SET " . $charset . "
-							DEFAULT CHARACTER SET " . $charset . "
-							COLLATE " . $charsets[$charset] . "
-							DEFAULT COLLATE " . $charsets[$charset], false);
+                            CHARACTER SET " . $charset . "
+                            DEFAULT CHARACTER SET " . $charset . "
+                            COLLATE " . $charsets[$charset] . "
+                            DEFAULT COLLATE " . $charsets[$charset], false);
 
     foreach ($dbtables as $table) {
 
         //ALTER The Table
         $qresult = makequery("ALTER TABLE `" . $table . "`
-								DEFAULT CHARACTER SET " . $charset . "
-								COLLATE " . $charsets[$charset], false);
+                                DEFAULT CHARACTER SET " . $charset . "
+                                COLLATE " . $charsets[$charset], false);
 
         //Take out the fields
         $qresult = makequery("SHOW COLUMNS FROM " . $table, false);
@@ -1187,9 +1188,9 @@ function changecharset($charset = 'utf8') {
             }
             //r_print($row);
             $qresult = makequery("ALTER TABLE `" . $table . "`
-								CHANGE `" . $row['Field'] . "` `" . $row['Field'] . "` " . $row['Type'] . "
-								CHARACTER SET " . $charset . "
-								COLLATE " . $charsets[$charset] . " NOT NULL", false);
+                                CHANGE `" . $row['Field'] . "` `" . $row['Field'] . "` " . $row['Type'] . "
+                                CHARACTER SET " . $charset . "
+                                COLLATE " . $charsets[$charset] . " NOT NULL", false);
         }
     }
 

@@ -29,10 +29,10 @@ $queries = array();
 if (!empty($utf8)) {
 
     $queries[] = "ALTER DATABASE " . $database . "
-							CHARACTER SET utf8
-							DEFAULT CHARACTER SET utf8
-							COLLATE utf8_general_ci
-							DEFAULT COLLATE utf8_general_ci";
+                            CHARACTER SET utf8
+                            DEFAULT CHARACTER SET utf8
+                            COLLATE utf8_general_ci
+                            DEFAULT COLLATE utf8_general_ci";
 }
 
 //Apps - Applications #1
@@ -69,16 +69,15 @@ $queries[] = "CREATE TABLE " . $dbprefix . "attachment_mimetypes (
 
 //Data for Attacment Mimetypes #4
 $queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (1, 'png', 'image/png', 'png.png', 1, 1, 1)";
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (2, 'jpg', 'image/jpeg', 'jpg.png', 1, 1, 1)";#5
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (3, 'gif', 'image/gif', 'gif.png', 1, 1, 1)";#6
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (4, 'bmp', 'image/bitmap', 'bmp.png', 1, 1, 1)";#7
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (5, 'tiff', 'image/tiff', 'tiff.png', 1, 1, 1)";#8
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (6, 'txt', 'plain/text', 'txt.png', 1, 0, 0)";#9
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (7, 'jpeg', 'image/jpeg', 'jpg.png', 1, 1, 1)";#10
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (8, 'doc', 'application/msword', 'doc.png', 1, 0, 0)";#11
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (9, 'mpg', 'video/mpeg', 'mpg.png', 1, 0, 0)";#12
-$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (10, 'zip', 'application/zip', 'zip.png', 1, 0, 0)";#13
-
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (2, 'jpg', 'image/jpeg', 'jpg.png', 1, 1, 1)"; #5
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (3, 'gif', 'image/gif', 'gif.png', 1, 1, 1)"; #6
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (4, 'bmp', 'image/bitmap', 'bmp.png', 1, 1, 1)"; #7
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (5, 'tiff', 'image/tiff', 'tiff.png', 1, 1, 1)"; #8
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (6, 'txt', 'plain/text', 'txt.png', 1, 0, 0)"; #9
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (7, 'jpeg', 'image/jpeg', 'jpg.png', 1, 1, 1)"; #10
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (8, 'doc', 'application/msword', 'doc.png', 1, 0, 0)"; #11
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (9, 'mpg', 'video/mpeg', 'mpg.png', 1, 0, 0)"; #12
+$queries[] = "INSERT INTO " . $dbprefix . "attachment_mimetypes VALUES (10, 'zip', 'application/zip', 'zip.png', 1, 0, 0)"; #13
 //Attachments #14
 $queries[] = "CREATE TABLE " . $dbprefix . "attachments (
   atid mediumint(8) NOT NULL auto_increment,
@@ -158,8 +157,7 @@ $queries[] = "CREATE TABLE " . $dbprefix . "forums (
   PRIMARY KEY  (`fid`)
 ) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
 
-$queries[] = "INSERT INTO " . $dbprefix . "forums VALUES (1, 1, 0, 1, '-1,0,2,3', 'Generals', 'Talk about anything you like in general!', '', '', 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, '', '', 0, 0, 10, 10, '')";#20
-
+$queries[] = "INSERT INTO " . $dbprefix . "forums VALUES (1, 1, 0, 1, '-1,0,2,3', 'Generals', 'Talk about anything you like in general!', '', '', 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, '', '', 0, 0, 10, 10, '')"; #20
 //Forgot Passwords #21
 $queries[] = "CREATE TABLE " . $dbprefix . "fpass (
   fpuid mediumint(8) NOT NULL default '0',
@@ -788,14 +786,14 @@ $queries[] = "CREATE TABLE " . $dbprefix . "users (
 
 //Admin Account
 $queries[] = "INSERT INTO " . $dbprefix . "users
-				SET username = '$ad_username',
-				password = '$ad_pass',
-				salt = '$salt',
-				email = '$ad_email',
-				r_time = '" . time() . "',
-				r_ip = '" . $_SERVER['REMOTE_ADDR'] . "',
-				u_member_group = '1',
-				act_status = '1'";
+                SET username = '$ad_username',
+                password = '$ad_pass',
+                salt = '$salt',
+                email = '$ad_email',
+                r_time = '" . time() . "',
+                r_ip = '" . $_SERVER['REMOTE_ADDR'] . "',
+                u_member_group = '1',
+                act_status = '1'";
 
 function make_mysql($queries_r) {
 

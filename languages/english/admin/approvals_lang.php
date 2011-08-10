@@ -29,32 +29,32 @@ $l['error'] = 'Error';
 $l['errors_updating'] = 'There were some errors in updating the users activation status.';
 $l['subject_mail_activated'] = 'Welcome to ';
 $l['body_mail_activated'] = ',
-   Congratulations your account at '.$globals['sn'].' has been activated by the Admin.
-			
-You may now login to your account at '.$globals['mail_url'].'act=login
+   Congratulations your account at ' . $globals['sn'] . ' has been activated by the Admin.
+            
+You may now login to your account at ' . $globals['mail_url'] . 'act=login
 and start Posting into threads and topics on the Forum.
 Alternatively, you may change your Account Settings or 
-Profile through the UserCP at '.$globals['mail_url'].'act=usercp
+Profile through the UserCP at ' . $globals['mail_url'] . 'act=usercp
 
 Please keep this email for your records.
 
 Enjoy!
 
-The '.$globals['sn'].' Team
+The ' . $globals['sn'] . ' Team
 
-'.$globals['url'].'/
+' . $globals['url'] . '/
 
 User ID: ';
 
 $l['errors_deleting'] = 'There were some errors in deleting the users.';
 $l['subject_mail_account_deleted'] = 'Account Rejected/Deleted at ';
 $l['body_mail_account_deleted'] = ',
-   Your account at '.$globals['sn'].' has been deleted/rejected by the Admin.			
-You cannot use your account at '.$globals['sn'].'.
+   Your account at ' . $globals['sn'] . ' has been deleted/rejected by the Admin.            
+You cannot use your account at ' . $globals['sn'] . '.
 
-The '.$globals['sn'].' Team
+The ' . $globals['sn'] . ' Team
 
-'.$globals['url'].'/';
+' . $globals['url'] . '/';
 
 //Theme Strings
 $l['cp_validating'] = 'Administration Center - Manage Validating';
@@ -87,5 +87,4 @@ $l['cp_coppa'] = 'Administration Center - COPPA Users Awaiting Approval';
 $l['coppa_users_awaiting_approval'] = 'COPPA Users Awaiting Approval';
 $l['members_require_coppa_admins_approval'] = 'Below is a list of members on the board who require Admins Approval for their age restrictions';
 $l['no_members_require_coppa'] = 'There are no members who fall below age and require Admin approval.';
-
 ?>

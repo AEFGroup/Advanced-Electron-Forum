@@ -8,14 +8,14 @@ $globals['activetoday'] = 0;//The MAX users online today - STATS
 $globals['newuser'] = 0;//New users registered in this page - STATS
 
 2) Added permission 'can_del_own_account' - Self delete
-		'can_del_other_account' - Anyones account
-		'can_ban_user' - Ban a user
+        'can_del_other_account' - Anyones account
+        'can_ban_user' - Ban a user
 
-3) Added news table. 
+3) Added news table.
    Also Added permission 'can_submit_news' - For submiting news
-		'can_approve_news' - Approve submitted news
-		'can_edit_news' - Edit a news article
-		'can_delete_news' - Delete a news article
+        'can_approve_news' - Approve submitted news
+        'can_edit_news' - Edit a news article
+        'can_delete_news' - Delete a news article
    Also $globals['enablenews']
 
 4) Added permission 'group_message' - For custom group message
@@ -24,7 +24,7 @@ $globals['newuser'] = 0;//New users registered in this page - STATS
 5) Added field 'par_id' in posts table.
 
 6) Added permission field 'can_shout' - to see and to shout.
-			'can_del_shout' - to delete shout.
+            'can_del_shout' - to delete shout.
 Also $globals['enableshoutbox'], $globals['shouts'], $globals['shoutboxtime'](in min).
 
 7) Removed the fields in_board, board_level, in_board_order from forums table. But in_board, board_level fields are added in the array of $forums for ease and backward compatibilty.

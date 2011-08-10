@@ -1,55 +1,55 @@
 .topday{
-background: #e8eef7;
-padding: 4px;
-font-weight: bold;
-text-align: right;
-color: #6a6a6b;
+    background: #e8eef7;
+    padding: 4px;
+    font-weight: bold;
+    text-align: right;
+    color: #6a6a6b;
 }
-	
-.topdayon{	
-background: #bbccdd;
-padding: 4px;
-font-weight: bold;
-text-align: right;
-color: #6a6a6b;
+
+.topdayon{
+    background: #bbccdd;
+    padding: 4px;
+    font-weight: bold;
+    text-align: right;
+    color: #6a6a6b;
 }
 
 .daybox{
-background: #FFFFFF;
-border-right: 1px solid #ccddee;
-border-top: 1px solid #ccddee;
+    background: #FFFFFF;
+    border-right: 1px solid #ccddee;
+    border-top: 1px solid #ccddee;
 }
 
 .todaybox{
-background: #ffffcc;
-border-right: 1px solid #ccddee;
-border-top: 1px solid #ccddee;
+    background: #ffffcc;
+    border-right: 1px solid #ccddee;
+    border-top: 1px solid #ccddee;
 }
 
 .bdays{
-padding: 4px;
-padding-left: 0px;
-font-size: 10px;
-color: purple;
+    padding: 4px;
+    padding-left: 0px;
+    font-size: 10px;
+    color: purple;
 }
 
 .bdays a:link, .bdays a:visited, .bdays a:active {
-color: #364c52;
-text-decoration: none;	
+    color: #364c52;
+    text-decoration: none;
 }
 
 .bdays a:hover {
-color: #68A7DA;
-text-decoration: underline;
+    color: #68A7DA;
+    text-decoration: underline;
 }
 
 .nextprev{
-color: #000000;
-background-color: rgb(240, 240, 240);
-height:40px;
+    color: #000000;
+    background-color: rgb(240, 240, 240);
+    height:40px;
 }
 
 .currentmonth{
-background-color: rgb(225, 230, 238);
-height:40px;
+    background-color: rgb(225, 230, 238);
+    height:40px;
 }
