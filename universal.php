@@ -30,8 +30,6 @@ $globals['server'] = '';
 
 /* Ending - Database Connection */
 
-
-
 /* Core Settings */
 
 $globals['url'] = '';
@@ -45,4 +43,3 @@ $globals['cookie_name'] = '';
 $globals['installed'] = '0';
 
 /* Ending - Core Settings */
-?>
