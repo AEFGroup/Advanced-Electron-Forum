@@ -210,10 +210,10 @@ function forumset_theme() {
                         </tr>
 
                         <tr>
-                            <td class="ucpflc"><b><?php echo $l['uset_language']; ?></b><br />
+                            <td class="ucpflc" width="60%"><b><?php echo $l['uset_language']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['uset_language_exp']; ?></font>
                             </td>
-                            <td class="ucpfrc">
+                            <td class="ucpfrc" align="center">
                                 <select name="language" id="languageselector">
                                 <?php
                                 foreach ($lang_folders as $k => $v) {
