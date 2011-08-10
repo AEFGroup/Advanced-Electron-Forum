@@ -3,7 +3,7 @@ Database Changes:
 1) Added Registry Key 'who_read_topic' - Default 0. Show the users who have read this topic.
 
 2) Added Permissions 'approve_topics'
-	'approve_posts'
+    'approve_posts'
 
 3) Changed Smiley Code to ':D' of Smiley having id 2.
 

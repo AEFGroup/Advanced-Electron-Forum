@@ -45,5 +45,4 @@ $globals['cookie_name'] = '';
 $globals['installed'] = '0';
 
 /* Ending - Core Settings */
-
 ?>

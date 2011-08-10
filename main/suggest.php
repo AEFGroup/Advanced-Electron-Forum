@@ -20,81 +20,72 @@
 //===========================================================
 //////////////////////////////////////////////////////////////
 
-if(!defined('AEF')){
+if (!defined('AEF')) {
 
-	die('Hacking Attempt');
-
+    die('Hacking Attempt');
 }
-
 
 ///////////////////////////////////////
 // Suggests the usernames of the board
 ///////////////////////////////////////
 
 
-function suggest(){
+function suggest() {
 
-global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
-global $usernames;
+    global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
+    global $usernames;
 
-	//The name of the file
-	$theme['init_theme'] = 'suggest';
-	
-	//The name of the Page
-	$theme['init_theme_name'] = 'Suggest';
-	
-	//Array of functions to initialize
-	$theme['init_theme_func'] = array('suggest_theme');
-	
-	$theme['call_theme_func'] = 'suggest_theme';
-	
-	//Stop the output buffer
-	$globals['stop_buffer_process'] = true;
-	
-	//Are stats enabled
-	if(empty($logged_in)){
-		
-		return false;
-	
-	}
-	
-	
-	if(!empty($_GET['q']) && trim($_GET['q']) != ''){
-	
-		$q = inputsec(htmlizer(trim($_GET['q'])));
-		
-		//Replace spaces and special characters
-		$q = preg_replace(array('/%/', '/_/', '/\s/'), 
-								array('\\%', '\_', '%'), $q);
-		
-	}else{
-	
-		return false;
-		
-	}
-	
-	
-	//Select the users profile	
-	$qresult = makequery("SELECT username FROM ".$dbtables['users']."
-			WHERE username LIKE '%$q%'
-			LIMIT 0,10");
-			
-	if(mysql_num_rows($qresult) < 1){
-	
-		return false;
-		
-	}
-	
-	$usernames = array();
-	
-	for($i = 1; $i <= mysql_num_rows($qresult); $i++){
-		
-		$row = mysql_fetch_assoc($qresult);
-		
-		$usernames[] = $row['username'];
-		
-	}	
-	
+    //The name of the file
+    $theme['init_theme'] = 'suggest';
+
+    //The name of the Page
+    $theme['init_theme_name'] = 'Suggest';
+
+    //Array of functions to initialize
+    $theme['init_theme_func'] = array('suggest_theme');
+
+    $theme['call_theme_func'] = 'suggest_theme';
+
+    //Stop the output buffer
+    $globals['stop_buffer_process'] = true;
+
+    //Are stats enabled
+    if (empty($logged_in)) {
+
+        return false;
+    }
+
+
+    if (!empty($_GET['q']) && trim($_GET['q']) != '') {
+
+        $q = inputsec(htmlizer(trim($_GET['q'])));
+
+        //Replace spaces and special characters
+        $q = preg_replace(array('/%/', '/_/', '/\s/'), array('\\%', '\_', '%'), $q);
+    } else {
+
+        return false;
+    }
+
+
+    //Select the users profile    
+    $qresult = makequery("SELECT username FROM " . $dbtables['users'] . "
+            WHERE username LIKE '%$q%'
+            LIMIT 0,10");
+
+    if (mysql_num_rows($qresult) < 1) {
+
+        return false;
+    }
+
+    $usernames = array();
+
+    for ($i = 1; $i <= mysql_num_rows($qresult); $i++) {
+
+        $row = mysql_fetch_assoc($qresult);
+
+        $usernames[] = $row['username'];
+    }
 }
 
 ?>

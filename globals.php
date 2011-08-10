@@ -20,15 +20,14 @@
 //===========================================================
 //////////////////////////////////////////////////////////////
 
-if(!defined('AEF')){
+if (!defined('AEF')) {
 
-	die('Hacking Attempt');
-
+    die('Hacking Attempt');
 }
 
 //URL's
-$globals['index_url'] = $globals['url'].'/index.php?';
-$globals['index'] = $globals['url'].'/index.php/';//For SEO
+$globals['index_url'] = $globals['url'] . '/index.php?';
+$globals['index'] = $globals['url'] . '/index.php/'; //For SEO
 $globals['mail_url'] = $globals['index_url'];
 
 /* Topic Icons */
@@ -49,29 +48,28 @@ $globals['topic_icons'][10] = array('add.png', 'Add');
 /* Some Global VARS are just used for convenience */
 //Should never be changed
 
-$globals['hf_loaded'] = 0;//If the Headers and footers file is loaded
-$globals['ahf_loaded'] = 0;//If the Admin Center Headers and footers file is loaded
-$globals['queries'] = 0;//Number of queries
-$globals['last_activity'] = '';//Last Activity of the user
-$globals['viewing_board'] = 0;//The board the user is Viewing Currently - Deprecated
-$globals['viewing_topic'] = 0;//The topic the user is Reading Currently - Deprecated
-$globals['activity_id'] = 0;//The id of whatever activity the user is doing
-$globals['activity_text'] = '';//The text of the activity link
-$globals['i_am_anon'] = 0;//I am anonymous
-$globals['tot_posts'] = 0;//Total Posts
-$globals['tot_topics'] = 0;//Total Topics
-$globals['newpost'] = 0;//New posts made by the user - STATS
-$globals['newtopic'] = 0;//New topics started by the user - STATS
-$globals['activetoday'] = 0;//The MAX users online today - STATS
-$globals['newuser'] = 0;//New users registered in this page - STATS
+$globals['hf_loaded'] = 0; //If the Headers and footers file is loaded
+$globals['ahf_loaded'] = 0; //If the Admin Center Headers and footers file is loaded
+$globals['queries'] = 0; //Number of queries
+$globals['last_activity'] = ''; //Last Activity of the user
+$globals['viewing_board'] = 0; //The board the user is Viewing Currently - Deprecated
+$globals['viewing_topic'] = 0; //The topic the user is Reading Currently - Deprecated
+$globals['activity_id'] = 0; //The id of whatever activity the user is doing
+$globals['activity_text'] = ''; //The text of the activity link
+$globals['i_am_anon'] = 0; //I am anonymous
+$globals['tot_posts'] = 0; //Total Posts
+$globals['tot_topics'] = 0; //Total Topics
+$globals['newpost'] = 0; //New posts made by the user - STATS
+$globals['newtopic'] = 0; //New topics started by the user - STATS
+$globals['activetoday'] = 0; //The MAX users online today - STATS
+$globals['newuser'] = 0; //New users registered in this page - STATS
 
 /* Ending - Some Global VARS are just used for convenience */
 
 
 //COOKIE Array Keys
-$cookie = array('reg',//Has just registered
-				'loguid',//Login User ID
-				'logpass'//Log In Temp Password
-				);
-
+$cookie = array('reg', //Has just registered
+    'loguid', //Login User ID
+    'logpass'//Log In Temp Password
+);
 ?>

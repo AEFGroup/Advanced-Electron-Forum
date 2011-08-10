@@ -45,5 +45,4 @@ $globals['cookie_name'] = 'AEFCookies2575';
 $globals['installed'] = '1';
 
 /* Ending - Core Settings */
-
 ?>
