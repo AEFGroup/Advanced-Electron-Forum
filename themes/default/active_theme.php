@@ -54,21 +54,21 @@ function active_theme() {
     <td class="aclcbg" width="40%" align="center">' . $l['activity_header'] . '</td>
     </tr>';
 
-    foreach ($active as $a => $av) {
+    foreach ($active as $index => $activeUser) {
 
         echo '<tr>
 
         <td class="ttsub">
-        ' . (empty($active[$a]['username']) ? 'Guest' : (($active[$a]['uid'] < -100) ? $active[$a]['username'] : '<a href="' . $globals['index_url'] . 'mid=' . $active[$a]['id'] . '">' . $active[$a]['username'] . '</a>' ) ) . '
-        ' . (empty($active[$a]['ip']) ? '' : '<br /><div style="float:right">( ' . $active[$a]['ip'] . ' )</div>') . '
+        ' . (empty($activeUser['username']) ? 'Guest' : (($activeUser['uid'] < -100) ? $activeUser['username'] : '<a href="' . $globals['index_url'] . 'mid=' . $activeUser['id'] . '">' . $activeUser['username'] . '</a>' ) ) . '
+        ' . (empty($activeUser['ip']) ? '' : '<div style="float:right">( ' . $activeUser['ip'] . ' )</div>') . '
         </td>
 
         <td class="ttstar" align="center">
-        ' . $active[$a]['time'] . '
+        ' . $activeUser['time'] . '
         </td>
 
         <td class="ttrep" align="left">
-        ' . $active[$a]['activity'] . '
+        ' . $activeUser['activity'] . '
         </td>
         </tr>';
     }
