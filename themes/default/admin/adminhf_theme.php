@@ -50,7 +50,7 @@ function adminhead($title = '') {
                     function init_admenu() {
                         admenu = new SDMenu("admenu");
                         admenu.init();
-                    };
+                    }
                 </script>
 
                 <div id="admenu" class="sdmenu">
@@ -267,7 +267,7 @@ function js_reorder() {
                 showel(reo_ha+reo_r[x]);
                 top = top + $(reo_ha+reo_r[x]).offsetHeight + 10;
             }
-        };
+        }
 
         //This will reorder
         function reorder(){
@@ -296,7 +296,7 @@ function js_reorder() {
                 top = top + $(reo_ha+reo_r[x]).offsetHeight + 10;
                 $(reo_hid+reo_r[x]).value = (parseInt(x) + 1);
             }
-        };
+        }
 
 
         function find_reokey(arr, val){
@@ -307,7 +307,8 @@ function js_reorder() {
                     return r[1];
                 }
             }
-        };
+            return null;
+        }
 
         //Tells if the position is already there - Like in_array
         function is_pos_there(arr, val){
