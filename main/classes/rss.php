@@ -35,7 +35,7 @@ class rss {
     <channel>
         <title>' . $title . '</title>
         <link>' . $link . '</link>
-        <description><![CDATA[' . $desc . ']]></description>';
+        <description>' . $desc . '</description>';
     }
 
     //The end
