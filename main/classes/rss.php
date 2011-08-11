@@ -44,8 +44,7 @@ class rss {
      */
     function start($xmlVersion = '1.0', $encoding = 'UTF-8', $rssVersion = '2.0', $title = '', $link = '', $desc = '') {
 
-        return '
-<?xml version="' . $xmlVersion . '" encoding="' . $encoding . '"?>
+        return '<?xml version="' . $xmlVersion . '" encoding="' . $encoding . '"?>
 <rss version="' . $rssVersion . '" xml:lang="en-US">
     <channel>
         <title>' . $title . '</title>
