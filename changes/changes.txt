@@ -38,3 +38,5 @@ Also $globals['enableshoutbox'], $globals['shouts'], $globals['shoutboxtime'](in
 11) Added table 'theme_registry'.
 
 12) Added table 'apps' - applications and 'apps_registry' for applications registry.
+
+13) Added column 'shucolor' to shouts. It's the shouter's group's color. I could have done this another way, but it would have used too many queries
