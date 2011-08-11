@@ -72,20 +72,20 @@ function inbox_theme() {
     //Check do we have some PM's or no
     if (!empty($inbox)) {
 
-        foreach ($inbox as $ik => $iv) {
+        foreach ($inbox as $inboxIndex => $inboxMessage) {
 
             echo '<tr>
             <td class="pmfwbg" align="left">
-            <input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
+            <input type=checkbox name="list[]" value="' . $inboxMessage['pmid'] . '">
             </td>
             <td class="pmfwbg" align="left">
-            <a href="' . $globals['index_url'] . 'mid=' . $iv['pm_from'] . '">' . $iv['sender'] . '</a>
+            <a style="color:' . $inboxMessage['colour'] . '" href="' . $globals['index_url'] . 'mid=' . $inboxMessage['pm_from'] . '">' . $inboxMessage['sender'] . '</a>
             </td>
             <td class="pmfwbg" align="left">
-            ' . ((empty($iv['pm_read_time'])) ? '<b>' : '') . '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=showpm&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>' . ((empty($iv['pm_read_time'])) ? '</b>' : '') . '
+            ' . ((empty($inboxMessage['pm_read_time'])) ? '<b>' : '') . '<a href="' . $globals['index_url'] . 'act=usercp&ucpact=showpm&pmid=' . $inboxMessage['pmid'] . '">' . $inboxMessage['pm_subject'] . '</a>' . ((empty($inboxMessage['pm_read_time'])) ? '</b>' : '') . '
             </td>
             <td class="pmfwbg" align="left">
-            ' . (datify($iv['pm_time'])) . '
+            ' . (datify($inboxMessage['pm_time'])) . '
             </td>
             </tr>';
         }
