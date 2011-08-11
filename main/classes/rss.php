@@ -28,10 +28,10 @@ if (!defined('AEF')) {
 class rss {
 
     //The Heading of the RSS
-    function start($ver = '1.0', $enc = 'UTF-8', $rss_ver = '0.92', $title = '', $link = '', $desc = '') {
+    function start($xmlVersion = '1.0', $encoding = 'UTF-8', $rssVersion = '2.0', $title = '', $link = '', $desc = '') {
 
-        $str = '<?xml version="' . $ver . '" encoding="' . $enc . '"?>
-<rss version="' . $rss_ver . '" xml:lang="en-US">
+        $str = '<?xml version="' . $xmlVersion . '" encoding="' . $encoding . '"?>
+<rss version="' . $rssVersion . '" xml:lang="en-US">
     <channel>
         <title>' . $title . '</title>
         <link>' . $link . '</link>
