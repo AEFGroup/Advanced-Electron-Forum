@@ -601,6 +601,7 @@ $queries[] = "CREATE TABLE " . $dbprefix . "shouts (
   shtime int(10) NOT NULL default '0',
   shuid mediumint(8) NOT NULL default '0',
   shtext text NOT NULL,
+  shucolor text NOT NULL,
   PRIMARY KEY  (shid)
 ) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
 

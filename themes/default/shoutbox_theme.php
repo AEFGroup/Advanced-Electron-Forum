@@ -28,7 +28,7 @@ function showshout_theme() {
 
             $sv['shtext'] = trim($sv['shtext']);
 
-            $shouts[$sk] = 'new Array(\'' . $sv['shid'] . '\', \'' . $sv['shtime'] . '\', \'' . $sv['shuid'] . '\', \'' . $sv['username'] . '\', \'' . $sv['shtext'] . '\')';
+            $shouts[$sk] = 'new Array(\'' . $sv['shid'] . '\', \'' . $sv['shtime'] . '\', \'' . $sv['shuid'] . '\', \'' . $sv['username'] . '\', \'' . $sv['shtext'] . '\', \'' . $sv['shucolor'] . '\')';
         }
 
         echo 'new Array(' . implode(', ', $shouts) . ');';

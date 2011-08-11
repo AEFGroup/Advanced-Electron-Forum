@@ -85,9 +85,9 @@ function handleshoutresponse(resp_txt){
     }
     //Ok add the new shouts
     var shout = '';
-    for(x in shouts){
-        last_shoutid = shouts[x][0];
-        shout = '<div class="shout" id="aefshid'+shouts[x][0]+'">'+((can_del_shout) ? '<a href="javascript:deleteshout('+shouts[x][0]+');"><img src="'+imgurl+'deleteshout.png" alt="Delete Shout" /></a>&nbsp;' : '')+'('+shouts[x][1]+')&nbsp;&nbsp;<a href="'+indexurl+'mid='+shouts[x][2]+'">'+shouts[x][3]+'</a>&nbsp;&nbsp;:&nbsp;'+shouts[x][4]+'</div>' + shout;
+    for(shoutIndex in shouts){
+        last_shoutid = shouts[shoutIndex][0];
+        shout = '<div class="shout" id="aefshid'+shouts[shoutIndex][0]+'">'+((can_del_shout) ? '<a href="javascript:deleteshout('+shouts[shoutIndex][0]+');"><img src="'+imgurl+'deleteshout.png" alt="Delete Shout" /></a>&nbsp;' : '')+'('+shouts[shoutIndex][1]+')&nbsp;&nbsp;<a style="color:' + shouts[shoutIndex][5] + '" href="'+indexurl+'mid='+shouts[shoutIndex][2]+'">'+shouts[shoutIndex][3]+'</a>&nbsp;&nbsp;:&nbsp;'+shouts[shoutIndex][4]+'</div>' + shout;
     }
     $('shouts').innerHTML = shout + $('shouts').innerHTML;
     shouttimeout = setTimeout('load_shouts()', shout_totimeout);

@@ -202,16 +202,28 @@ function addshout() {
 
         $shout = inputsec(htmlizer($_GET['shout']));
     } else {
-
         return false;
     }
 
     $uid = (empty($logged_in) ? -1 : $user['id']);
+    
+    $uColorRef = makequery("SELECT mem_gr_colour FROM " . $dbtables['user_groups'] . " WHERE member_group = " . $user['u_member_group'] . " LIMIT 1");
 
+    if (mysql_num_rows($uColorRef) == 0) {
+        return false;
+    }
+    
+    $assoc = mysql_fetch_assoc($uColorRef);
+    
+    $color = $assoc['mem_gr_colour'];
+    
+    @mysql_free_result($uColorRef); 
+    
     $qresult = makequery("INSERT INTO " . $dbtables['shouts'] . "
                     SET shtime = " . time() . ",
                     shuid = '$uid',
-                    shtext = '$shout'");
+                    shtext = '$shout',
+                    shucolor = '$color'");
 
     $shid = mysql_insert_id($conn);
 
