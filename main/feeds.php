@@ -91,7 +91,7 @@ function feeds() {
 
             $topic = mysql_fetch_assoc($qresult);
 
-            $title = $topic['topic'];
+            $title = "Topic: " . $topic['topic'];
 
             $desc = $topic['t_description'] . ' (' . $topic['n_posts'] . ' ' . $l['feed_replies'] . ', ' . $l['feed_read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')';
 
@@ -153,7 +153,7 @@ function feeds() {
 
             $board = board($fid);
 
-            $title = "Forum " . $board['fname'] . ' - ' . $globals['sn'];
+            $title = "Forum: " . $board['fname'] . ' - ' . $globals['sn'];
 
             $desc = $l['desc_forum'] . ' ' . $board['fname'];
 
