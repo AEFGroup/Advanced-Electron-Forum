@@ -283,7 +283,7 @@ function credits_theme() {
 
         <tr>
             <td class="adbg">
-                <?php echo $l['founder']; ?> - <a href="http://www.anelectron.com/board/index.php?mid=1">electron</a>, <a href="http://www.anelectron.com/board/index.php?mid=2">pulkit</a>
+                <?php echo $l['founder']; ?> - <a href="http://www.anelectron.com/board/index.php?mid=1">electron</a>, <a href="http://www.anelectron.com/board/index.php?mid=2">pulkit</a>, <a href="http://www.anelectron.com/board/index.php?mid=4721">SAFAD</a>
             </td>
         </tr>
 
@@ -295,7 +295,7 @@ function credits_theme() {
 
         <tr>
             <td class="adbg">
-                <?php echo $l['developer']; ?> - <a href="http://www.anelectron.com/board/index.php?mid=225">elwizard</a>, <a href="http://www.anelectron.com/board/index.php?mid=366">Lewtheo</a>, <a href="http://www.anelectron.com/board/index.php?mid=511">oxlo</a>
+                <?php echo $l['developer']; ?> - <a href="http://www.anelectron.com/board/index.php?mid=225">elwizard</a>, <a href="http://www.anelectron.com/board/index.php?mid=366">Lewtheo</a>, <a href="http://www.anelectron.com/board/index.php?mid=14088">Cruz Bishop</a>
             </td>
         </tr>
 
