@@ -1704,9 +1704,10 @@ function searchpm() {
         if ($folder == 0) {
 
             //Get the PM in the from the folder
-            $qresult = makequery("SELECT pm.*, f.id, f.username AS sender
+            $qresult = makequery("SELECT pm.*, f.id, f.username AS sender, ug.mem_gr_colour AS colour
                     FROM " . $dbtables['pm'] . " pm
                     LEFT JOIN " . $dbtables['users'] . " f ON (pm.pm_from = f.id)
+                    LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = f.u_member_group)    
                     WHERE pm.pm_to = '" . $user['id'] . "'
                     AND pm_folder = '0'
                     " . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
@@ -1719,9 +1720,10 @@ function searchpm() {
         } elseif ($folder == 1) {
 
             //Get the PM in the sentitems of this user.
-            $qresult = makequery("SELECT pm.*, t.id, t.username AS receiver
+            $qresult = makequery("SELECT pm.*, t.id, t.username AS receiver, ug.mem_gr_colour AS colour
                     FROM " . $dbtables['pm'] . " pm
                     LEFT JOIN " . $dbtables['users'] . " t ON (pm.pm_to = t.id)
+                    LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = t.u_member_group)
                     WHERE pm.pm_from = '" . $user['id'] . "'
                     AND pm_folder = '1'
                     " . (empty($subject) ? '' : "AND pm_subject LIKE '%" . $subject . "%'") . "
