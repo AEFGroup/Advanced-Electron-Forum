@@ -153,7 +153,7 @@ function feeds() {
 
             $board = board($fid);
 
-            $title = $board['fname'] . ' (' . $globals['sn'] . ')';
+            $title = "Forum " . $board['fname'] . ' - ' . $globals['sn'];
 
             $desc = $l['desc_forum'] . ' ' . $board['fname'];
 
