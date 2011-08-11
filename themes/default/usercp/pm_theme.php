@@ -200,20 +200,20 @@ function sentitems_theme() {
     //Check do we have some PM's or no
     if (!empty($sentitems)) {
 
-        foreach ($sentitems as $ik => $iv) {
+        foreach ($sentitems as $sentItemIndex => $sentItem) {
 
             echo '<tr>
             <td class="pmfwbg" align="left">
-            <input type=checkbox name="list[]" value="' . $iv['pmid'] . '">
+            <input type=checkbox name="list[]" value="' . $sentItem['pmid'] . '">
             </td>
             <td class="pmfwbg" align="left">
-            <a href="' . $globals['index_url'] . 'mid=' . $iv['pm_to'] . '">' . $iv['reciever'] . '</a>
+            <a style="color:' . $sentItem['colour'] . '" href="' . $globals['index_url'] . 'mid=' . $sentItem['pm_to'] . '">' . $sentItem['reciever'] . '</a>
             </td>
             <td class="pmfwbg" align="left">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=showsentpm&pmid=' . $iv['pmid'] . '">' . $iv['pm_subject'] . '</a>
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=showsentpm&pmid=' . $sentItem['pmid'] . '">' . $sentItem['pm_subject'] . '</a>
             </td>
             <td class="pmfwbg" align="left">
-            ' . (datify($iv['pm_time'])) . '
+            ' . (datify($sentItem['pm_time'])) . '
             </td>
             </tr>';
         }
