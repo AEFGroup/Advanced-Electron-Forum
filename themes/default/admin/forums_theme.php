@@ -228,7 +228,7 @@ function editforum_theme() {
                                 $('forder').selectedIndex = defaultorder - 1;
                                 LoadStatus('');
                             }
-                        };
+                        }
 
                         function PrintOrder(resp){
                             //Remove the old order list
@@ -239,31 +239,32 @@ function editforum_theme() {
                             //If there is some problem
                             if(isNaN(resp)){
                                 LoadStatus('<?php echo $l['retrieve_data']; ?>');
-                                var newopt = document.createElement('option');
-                                newopt.text = 'Last';
-                                newopt.value = 0;
+                                var newOption = document.createElement('option');
+                                newOption.text = 'Last';
+                                newOption.value = 0;
                                 try{
-                                    $('forder').add(newopt, null); // standards compliant; doesn't work in IE
-                                }catch(ex){
-                                    $('forder').add(newopt); // IE only
+                                    $('forder').add(newOption, null); // standards compliant; doesn't work in IE
+                                } catch(ex) {
+                                    $('forder').add(newOption); // IE only
                                 }
                                 return false;
                             }
                             //Create the new order list
                             for (var i = 1; i <= resp; i++) {
-                                var newopt = document.createElement('option');
-                                newopt.text = i;
-                                newopt.value = i;
+                                var newOption2 = document.createElement('option');
+                                newOption2.text = i;
+                                newOption2.value = i;
                                 try{
-                                    $('forder').add(newopt, null); // standards compliant; doesn't work in IE
-                                }catch(ex){
-                                    $('forder').add(newopt); // IE only
+                                    $('forder').add(newOption2, null); // standards compliant; doesn't work in IE
+                                } catch(ex) {
+                                    $('forder').add(newOption2); // IE only
                                 }
                             }
                             //This is to make the last row as selected
                             $('forder').selectedIndex = resp - 1;
                             LoadStatus('');
-                        };
+                            return true;
+                        }
 
                     </script>
                 </td>
