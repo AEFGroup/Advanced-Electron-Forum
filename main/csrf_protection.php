@@ -174,7 +174,8 @@ function csrf_ob_handler($buffer, $flags) {
     if ($GLOBALS['csrf']['frame-breaker']) {
         $buffer = str_ireplace('</head>', '<script type="text/javascript">if (top != self) {top.location.href = self.location.href;}</script></head>', $buffer);
     }
-    if ($js = $GLOBALS['csrf']['rewrite-js']) {
+    $js = $GLOBALS['csrf']['rewrite-js'];
+    if ($js != null) {
         $buffer = str_ireplace(
                 '</head>', '<script type="text/javascript">' .
                 'var csrfMagicToken = "' . $tokens . '";' .
