@@ -42,6 +42,7 @@ $l['pm_stop_tracking'] = 'Stop Tracking';
 $l['pm_unread_pm'] = 'Unread PM';
 $l['pm_date_sent'] = 'Date Sent';
 $l['pm_show_pms'] = 'Show PMs';
+$l['pm_group'] = 'Usergroup: ';
 $l['pm_post_group'] = 'Post Group: ';
 $l['pm_posts'] = 'Posts: ';
 $l['pm_status'] = 'Status: ';
