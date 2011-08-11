@@ -104,4 +104,4 @@ function dock(id){
             img[i].target.left = img[i-1].target.left + img[i-1].target.size;
         }
     };
-};
+}
