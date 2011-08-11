@@ -55,7 +55,7 @@ class rss {
 
         return '
         <item>
-            <title><![CDATA[' . $title . ']]></title>
+            <title>' . $title . '</title>
             <link>' . $link . '</link>
             <description><![CDATA[' . $desc . ']]></description>
             <category><![CDATA[' . $category . ']]></category>
