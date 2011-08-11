@@ -53,9 +53,9 @@ class rss {
 
         return '
         <item>
-            <title>' . $title . '</title>
+            <title><![CDATA[' . $title . ']]></title>
             <link>' . $link . '</link>
-            <description>' . $desc . '</description>
+            <description><![CDATA[' . $desc . ']]></description>
             <category>' . $category . '</category>
             <pubDate>' . $pubDate . '</pubDate>
             <guid>' . $link . '</guid>
