@@ -247,14 +247,14 @@ function credits_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['credtits_thanks']; ?></font><br />
+                <font class="adgreen"><?php echo $l['credits_thanks']; ?></font><br />
 
             </td>
         </tr>
 
         <tr>
             <td align="left" colspan="2" class="adbg">
-                <?php echo $l['credtits_exp']; ?>
+                <?php echo $l['credits_exp']; ?>
             </td>
         </tr>
 

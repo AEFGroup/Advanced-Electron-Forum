@@ -58,8 +58,8 @@ $l['manage_smileys'] = 'Manage Smileys';
 $l['smiley_settings'] = 'Smiley Settings';
 
 //Credits Theme Strings
-$l['credtits_thanks'] = 'Credtits and Thanks';
-$l['credtits_exp'] = 'We would like to thank the following people who have helped built AEF to what it is today!';
+$l['credits_thanks'] = 'Credits and Thanks';
+$l['credits_exp'] = 'We would like to thank the following people who have helped built AEF to what it is today!';
 $l['thanks'] = 'Thanks to all';
 $l['you'] = 'We would like to <font size="4">Thank You</font> for choosing AEF!';
 
