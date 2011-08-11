@@ -255,7 +255,7 @@ function feeds() {
 
     $rss = rssclass();
 
-    $str .= $rss->start('1.0', 'UTF-8', '0.92', $title, $link, $desc);
+    $str .= $rss->start('1.0', 'UTF-8', '2.0', $title, $link, $desc);
 
     //Are there any feeds
     if (empty($feeds)) {
