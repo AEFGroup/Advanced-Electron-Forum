@@ -76,6 +76,11 @@ function conpan() {
         case 'coreset':
             coreset();
             break;
+        
+        //Managing anti-spam settings
+        case 'spamset':
+            spamset();
+            break;
 
         //MySQL Settings
         case 'mysqlset':
@@ -117,6 +122,18 @@ function conpan() {
             banset();
             break;
     }
+}
+
+//Manages the spam (or, rather, anti-spam) settings
+function spamset() {
+    global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
+    global $error;
+    
+    //Define the needed variables
+    $akismet_key = $globals['akismet_key'];
+    
+    $theme['call_theme_func'] = 'spam_set_theme';
+    
 }
 
 //Function to manage core settings

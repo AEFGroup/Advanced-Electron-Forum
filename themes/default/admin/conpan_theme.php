@@ -24,6 +24,43 @@ if (!defined('AEF')) {
     die('Hacking Attempt');
 }
 
+function spam_set_theme() {
+    global $globals, $theme, $l, $error;
+
+    //Admin Headers includes Global Headers
+    adminhead($l['spam_settings']);
+    ?>
+
+    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+
+        <tr>
+            <td align="right" width="45%" class="adcbg1">
+                <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
+            </td>
+            <td align="left" class="adcbg1">
+
+                <font class="adgreen"><?php echo $l['spam_settings']; ?></font><br />
+
+            </td>
+        </tr>
+
+        <tr>
+            <td align="left" colspan="2" class="adbg">
+                <?php echo $l['spam_set_exp']; ?>
+            </td>
+        </tr>
+
+    </table>
+
+<br /><br />
+    <?php
+    error_handle($error, '100%');
+    ?>
+
+    <?php
+    adminfoot();
+}
+
 function coreset_theme() {
 
     global $globals, $theme, $l, $error;

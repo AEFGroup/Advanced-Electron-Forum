@@ -224,5 +224,6 @@ $l['specify_ip_exp'] = 'You can either specify a RANGE of IP Addresses to restri
 $l['add_more_ips'] = 'Add more IPs';
 
 $l['spam_settings'] = 'Anti-spam Settings';
+$l['spam_set_exp'] = 'This is the place for changing the external anti-spam settings such as Akismet.';
 
 ?>
