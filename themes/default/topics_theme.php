@@ -451,7 +451,7 @@ function qt(){
     </td>
 
     <td class="ttstar" align="center">
-    ' . (empty($topics[$t]['starter']) ? $l['guest'] : '<a href="' . userlink($tv['t_mem_id'], $tv['starter']) . '" title="' . $l['profile_of'] . ' ' . $topics[$t]['starter'] . '">' . $topics[$t]['starter'] . '</a>' ) . '
+    ' . (empty($topics[$t]['starter']) ? $l['guest'] : '<a style="color:' . $tv['starterColour'] . '" href="' . userlink($tv['t_mem_id'], $tv['starter']) . '" title="' . $l['profile_of'] . ' ' . $topics[$t]['starter'] . '">' . $topics[$t]['starter'] . '</a>' ) . '
     </td>
 
     <td class="ttrep" align="center">' . $topics[$t]['n_posts'] . '</td>
@@ -459,7 +459,7 @@ function qt(){
     <td class="ttviews" align="center">' . $topics[$t]['n_views'] . '</td>
 
     <td class="ttlpi">' . $topics[$t]['ptime'] . '<br />
-    ' . $l['by'] . ' <a href="' . userlink($tv['poster_id'], $tv['username']) . '" title="' . $l['profile_of'] . ' ' . $topics[$t]['username'] . '">' . $topics[$t]['username'] . '</a>&nbsp;&nbsp;<a href="' . topiclink($tv['tid'], $tv['topic'], $tv['last_page']) . '#p' . $topics[$t]['pid'] . '" title="' . $l['go_to_last_post'] . '"><img src="' . $theme['images'] . 'right.gif" alt="" /></a>
+    ' . $l['by'] . ' <a style="color:' . $tv['posterColour'] . '" href="' . userlink($tv['poster_id'], $tv['username']) . '" title="' . $l['profile_of'] . ' ' . $topics[$t]['username'] . '">' . $topics[$t]['username'] . '</a>&nbsp;&nbsp;<a href="' . topiclink($tv['tid'], $tv['topic'], $tv['last_page']) . '#p' . $topics[$t]['pid'] . '" title="' . $l['go_to_last_post'] . '"><img src="' . $theme['images'] . 'right.gif" alt="" /></a>
     </td>
     ' . ($show_mod ? '<td class="ttmod" width="3%"><input type="checkbox" name="tids[]" value="' . $topics[$t]['tid'] . '" /></td>' : '' ) . '
     </tr>';
