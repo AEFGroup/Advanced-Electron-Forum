@@ -65,7 +65,7 @@
  */
 class Akismet {   
 
-    private $wordPressAPIKey;
+    private $akismetKey;
     private $blogURL;
     private $comment;
     private $apiPort;
@@ -91,7 +91,7 @@ class Akismet {
      */
     public function __construct($blogURL, $wordPressAPIKey) {
         $this->blogURL = $blogURL;
-        $this->wordPressAPIKey = $wordPressAPIKey;
+        $this->akismetKey = $wordPressAPIKey;
 
         // Set some default values
         $this->apiPort = 80;
@@ -126,7 +126,7 @@ class Akismet {
      */
     public function isKeyValid() {
         // Check to see if the key is valid
-        $response = $this->sendRequest('key=' . $this->wordPressAPIKey . '&blog=' . $this->blogURL, $this->akismetServer, '/' . $this->akismetVersion . '/verify-key');
+        $response = $this->sendRequest('key=' . $this->akismetKey . '&blog=' . $this->blogURL, $this->akismetServer, '/' . $this->akismetVersion . '/verify-key');
         return $response[1] == 'valid';
     }
 
@@ -179,7 +179,7 @@ class Akismet {
      *  @throws        Will throw an exception if the API key passed to the constructor is invalid.
      */
     public function isCommentSpam() {
-        $response = $this->sendRequest($this->getQueryString(), $this->wordPressAPIKey . '.rest.akismet.com', '/' . $this->akismetVersion . '/comment-check');
+        $response = $this->sendRequest($this->getQueryString(), $this->akismetKey . '.rest.akismet.com', '/' . $this->akismetVersion . '/comment-check');
 
         if ($response[1] == 'invalid' && !$this->isKeyValid()) {
             throw new exception('The Wordpress API key passed to the Akismet constructor is invalid.  Please obtain a valid one from http://wordpress.com/api-keys/');
@@ -194,7 +194,7 @@ class Akismet {
      *     Using this function will make you a good citizen as it helps Akismet to learn from its mistakes.  This will improve the service for everybody.
      */
     public function submitSpam() {
-        $this->sendRequest($this->getQueryString(), $this->wordPressAPIKey . '.' . $this->akismetServer, '/' . $this->akismetVersion . '/submit-spam');
+        $this->sendRequest($this->getQueryString(), $this->akismetKey . '.' . $this->akismetServer, '/' . $this->akismetVersion . '/submit-spam');
     }
 
     /**
@@ -203,7 +203,7 @@ class Akismet {
      *     Using this function will make you a good citizen as it helps Akismet to learn from its mistakes.  This will improve the service for everybody.
      */
     public function submitHam() {
-        $this->sendRequest($this->getQueryString(), $this->wordPressAPIKey . '.' . $this->akismetServer, '/' . $this->akismetVersion . '/submit-ham');
+        $this->sendRequest($this->getQueryString(), $this->akismetKey . '.' . $this->akismetServer, '/' . $this->akismetVersion . '/submit-ham');
     }
 
     /**
