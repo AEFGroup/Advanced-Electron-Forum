@@ -66,7 +66,7 @@
 class Akismet {   
 
     private $akismetKey;
-    private $blogURL;
+    private $url;
     private $comment;
     private $apiPort;
     private $akismetServer;
@@ -90,7 +90,7 @@ class Akismet {
      *     @param    string    $akismetKey    WordPress API key.
      */
     public function __construct($url, $akismetKey) {
-        $this->blogURL = $url;
+        $this->url = $url;
         $this->akismetKey = $akismetKey;
 
         // Set some default values
@@ -126,7 +126,7 @@ class Akismet {
      */
     public function isKeyValid() {
         // Check to see if the key is valid
-        $response = $this->sendRequest('key=' . $this->akismetKey . '&blog=' . $this->blogURL, $this->akismetServer, '/' . $this->akismetVersion . '/verify-key');
+        $response = $this->sendRequest('key=' . $this->akismetKey . '&blog=' . $this->url, $this->akismetServer, '/' . $this->akismetVersion . '/verify-key');
         return $response[1] == 'valid';
     }
 
