@@ -90,6 +90,7 @@ class Akismet {
      *     @param    string    $akismetKey    WordPress API key.
      */
     public function __construct($url, $akismetKey) {
+        global $globals;
         $this->url = $url;
         $this->akismetKey = $akismetKey;
 
