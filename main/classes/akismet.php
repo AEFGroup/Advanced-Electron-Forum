@@ -89,10 +89,10 @@ class Akismet {
      *     @param    string    $url            The URL of your blog.
      *     @param    string    $akismetKey    WordPress API key.
      */
-    public function __construct($url, $akismetKey) {
+    public function __construct($url) {
         global $globals;
         $this->url = $url;
-        $this->akismetKey = $akismetKey;
+        $this->akismetKey = $globals['akismet_key'];
 
         // Set some default values
         $this->apiPort = 80;
