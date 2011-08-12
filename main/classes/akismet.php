@@ -86,12 +86,12 @@ class Akismet {
         'PHP_SELF');
 
     /**
-     *     @param    string    $blogURL            The URL of your blog.
-     *     @param    string    $wordPressAPIKey    WordPress API key.
+     *     @param    string    $url            The URL of your blog.
+     *     @param    string    $akismetKey    WordPress API key.
      */
-    public function __construct($blogURL, $wordPressAPIKey) {
-        $this->blogURL = $blogURL;
-        $this->akismetKey = $wordPressAPIKey;
+    public function __construct($url, $akismetKey) {
+        $this->blogURL = $url;
+        $this->akismetKey = $akismetKey;
 
         // Set some default values
         $this->apiPort = 80;
@@ -99,7 +99,7 @@ class Akismet {
         $this->akismetVersion = '1.1';
 
         // Start to populate the comment data
-        $this->comment['blog'] = $blogURL;
+        $this->comment['blog'] = $url;
         $this->comment['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 
         if (isset($_SERVER['HTTP_REFERER'])) {
