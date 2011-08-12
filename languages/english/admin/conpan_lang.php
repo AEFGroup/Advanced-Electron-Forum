@@ -223,4 +223,6 @@ $l['specify_ip'] = 'Specify the IP Addresses';
 $l['specify_ip_exp'] = 'You can either specify a RANGE of IP Addresses to restrict access or individual IP Addresses. e.g. 192.168.1-55.*<br />192.168.10.*<br />192.168.10.55';
 $l['add_more_ips'] = 'Add more IPs';
 
+$l['spam_settings'] = 'Anti-spam Settings';
+
 ?>
