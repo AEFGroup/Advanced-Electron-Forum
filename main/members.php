@@ -156,8 +156,6 @@ function members() {
     //Get the Number of pages that can be formed
     $qresult = makequery("SELECT COUNT(*) AS pages
                 FROM " . $dbtables['users'] . " u
-                LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
-                LEFT JOIN " . $dbtables['sessions'] . " s ON (u.id = s.uid)
                 " . (empty($where) ? '' : "WHERE " . implode(" AND ", $where)));
 
     $temp = mysql_fetch_assoc($qresult);
