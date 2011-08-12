@@ -63,9 +63,8 @@
  * @link http://www.achingbrain.net/
  * @link http://anelectron.com
  */
-class Akismet {
+class Akismet {   
 
-    private $version = '0.4';
     private $wordPressAPIKey;
     private $blogURL;
     private $comment;
@@ -133,11 +132,12 @@ class Akismet {
 
     // makes a request to the Akismet service
     private function sendRequest($request, $host, $path) {
+        global $globals, $user, $l;
         $http_request = "POST " . $path . " HTTP/1.0\r\n";
         $http_request .= "Host: " . $host . "\r\n";
         $http_request .= "Content-Type: application/x-www-form-urlencoded; charset=utf-8\r\n";
         $http_request .= "Content-Length: " . strlen($request) . "\r\n";
-        $http_request .= "User-Agent: Akismet PHP5 Class " . $this->version . " | Akismet/1.11\r\n";
+        $http_request .= "User-Agent: Advanced Electron Forum " . $globals['version'] . " | Akismet/1.11\r\n";
         $http_request .= "\r\n";
         $http_request .= $request;
 
