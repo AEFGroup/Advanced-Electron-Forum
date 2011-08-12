@@ -154,7 +154,7 @@ function members() {
     }
 
     //Get the Number of pages that can be formed
-    $qresult = makequery("SELECT COUNT(*) AS pages
+    $qresult = makequery("SELECT COUNT(id) AS pages
                 FROM " . $dbtables['users'] . " u
                 " . (empty($where) ? '' : "WHERE " . implode(" AND ", $where)));
 
