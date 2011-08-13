@@ -63,7 +63,7 @@
  * @link http://www.achingbrain.net/
  * @link http://anelectron.com
  */
-class Akismet {   
+class Akismet {
 
     private $akismetKey;
     private $url;
