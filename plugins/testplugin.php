@@ -1,10 +1,18 @@
 <?php
+//disallow direct access to the file
+if (!defined('AEF')) {
+    die('Hacking Attempt');
+}
 
+//plugin info
 $plugin_info = array(
 'Name' => 'test plugin',
 'Version' => '1.0',
-'Author' => 'SAFAD');
+'Description' => 'changes version of the forum',
+'Author' => 'SAFAD',
+'Website' => 'http://www.anelectron.com');
 
+//main plugin function
 function testplugin_ob_handler($buffer, $flags) {
     // Even though the user told us to rewrite, we should do a quick heuristic
     // to check if the page is *actually* HTML. We don't begin rewriting until
