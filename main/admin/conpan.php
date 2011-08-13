@@ -76,7 +76,7 @@ function conpan() {
         case 'coreset':
             coreset();
             break;
-        
+
         //Managing anti-spam settings
         case 'spamset':
             spamset();
@@ -128,32 +128,62 @@ function conpan() {
 function spamset() {
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
     global $error;
-    
+
+    $error = array();
+
     //Define the needed variables
     $akismet_key = '';
-    
+
+    $enable_akismet = false;
+
     if (isset($_POST['editspamset'])) {
+
+        if ((isset($_POST['enable_akismet']))) {
+            $enable_akismet = true;
+        }
+
         if ((isset($_POST['akismet_key'])) || (trim($_POST['akismet_key']) != "")) {
-            
+
             $akismet_key = inputsec(htmlizer(trim($_POST['akismet_key'])));
 
             $akismet_key = rtrim($akismet_key, '/\\');
-            
-            $akismet_class = akismetclass();
-            
-            $akismet_class->setTemporaryKey($akismet_key);
-            
-            if ($akismet_class->isKeyValid()) {
-                
-            } else {
-                //Key is invalid
+
+            if ($enable_akismet) {
+
+                $akismet_class = akismetclass();
+
+                $akismet_class->setTemporaryKey($akismet_key);
+
+                if ($akismet_class->isKeyValid()) {
+                    
+                } else {
+                    $error[] = $l['invalid_akismet_key'];
+                }
+
+                //on error call the form
+                if (!empty($error)) {
+                    $theme['call_theme_func'] = 'spam_set_theme';
+                    return false;
+                }
             }
-            
         }
+
+        $settings = array('enable_akismet' => $enable_akismet,
+            'akismet_key' => $akismet_key,
+        );
+
+        if (!modify_registry($settings)) {
+
+            return false;
+        }
+
+        //Redirect
+        redirect('act=admin&adact=conpan&seadact=spamset');
+
+        return true;
     }
-    
+
     $theme['call_theme_func'] = 'spam_set_theme';
-    
 }
 
 //Function to manage core settings

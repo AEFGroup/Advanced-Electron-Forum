@@ -231,4 +231,6 @@ $l['akismet_key_exp'] = 'The key used to access the Akismet anti-spam service. <
 $l['enable_akismet'] = 'Enable Akismet service';
 $l['enable_akismet_exp'] = 'Enabling this allows you to use the advanced Akismet service';
 
+$l['invalid_akismet_key'] = 'The Akismet key you provided was invalid. Please try again';
+
 ?>
