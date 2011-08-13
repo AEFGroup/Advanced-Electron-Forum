@@ -57,6 +57,7 @@ $dbtables = array(
     'apps' => $globals['dbprefix'] . 'apps',
     'apps_registry' => $globals['dbprefix'] . 'apps_registry',
     'shouts' => $globals['dbprefix'] . 'shouts',
-    'errors' => $globals['dbprefix'] . 'errors'
+    'errors' => $globals['dbprefix'] . 'errors',
+    'plugins' => $globals['dbprefix'] . 'plugins'
 );
 ?>

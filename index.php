@@ -59,6 +59,9 @@ include_once($globals['mainfiles'] . '/functions.php');
 
 //include the csrf protection (thanks csrf magic library <3)
 include_once($globals['mainfiles'] . '/csrf_protection.php');
+//plugins
+include_once($globals['mainfiles'] . '/plugin.php');
+initiate_plugins();
 
 //ob_start('aefoutput_buffer');
 //Will be available in future versions
