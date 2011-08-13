@@ -102,10 +102,10 @@ function modify_registry($array, $compare = 1) {
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
     global $addslashes;
 
-    foreach ($array as $k => $v) {
+    foreach ($array as $registryName => $registryValue) {
 
         //Check if the $globals[key] actually exists - Internal Working
-        if (!isset($globals[$k])) {
+        if (!isset($globals[$registryName])) {
 
             //Show a major error and return
             reporterror($l['no_global_key'], $l['global_key_invalid']);
@@ -115,11 +115,11 @@ function modify_registry($array, $compare = 1) {
 
         if (!empty($addslashes)) {
 
-            $globals[$k] = addslashes($globals[$k]);
+            $globals[$registryName] = addslashes($globals[$registryName]);
         }
 
         //Check if there is a change
-        if ($compare && $globals[$k] == $v) {
+        if ($compare && $globals[$registryName] == $registryValue) {
 
             continue;
         }
@@ -129,8 +129,8 @@ function modify_registry($array, $compare = 1) {
         ////////////////////////////////////
 
         $qresult = makequery("UPDATE " . $dbtables['registry'] . "
-                            SET regval = '$v'
-                            WHERE name = '$k'", false);
+                            SET regval = '$registryValue'
+                            WHERE name = '$registryName'", false);
 
         if (mysql_affected_rows($conn) < 1 && $compare) {
 
