@@ -25,7 +25,7 @@ if (!defined('AEF')) {
 
 function initiate_plugins(){
 	global $globals, $dbtables;
-	$plugin_dir = $globals['server_url'] . '/plugins';	
+	$plugin_dir = $globals['pluginsdir'];	
 	//first we get list of files
 	if ($handle = opendir($plugin_dir)) {
 		while (false !== ($file = readdir($handle))) {
@@ -54,8 +54,7 @@ function initiate_plugins(){
 
 function get_plugin_info($plugin_file){
 	global $globals;
-	$plugin_dir = $globals['server_url'] . '/plugins';	
-	$file_name = $plugin_dir . $plugin_file;
+	$file_name = $globals['pluginsdir'] . $plugin_file;
 	//include file while preventing output;to get variables we need only
 	ob_start();
 	include $file_name;
@@ -69,4 +68,9 @@ function get_plugin_info($plugin_file){
 		//something is wrong, inform it !
 		return FALSE;
 	}
+}
+
+function get_plugins_list(){
+	
+	
 }
