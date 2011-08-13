@@ -141,6 +141,13 @@ function spamset() {
             
             $akismet_class = akismetclass();
             
+            $akismet_class->setTemporaryKey($akismet_key);
+            
+            if ($akismet_class->isKeyValid()) {
+                
+            } else {
+                //Key is invalid
+            }
             
         }
     }
