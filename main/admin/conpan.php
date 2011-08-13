@@ -130,7 +130,13 @@ function spamset() {
     global $error;
     
     //Define the needed variables
-    $akismet_key = $globals['akismet_key'];
+    $akismet_key = '';
+    
+    if (isset($_POST['editspamset'])) {
+        if ((isset($_POST['akismet_key'])) || (trim($_POST['akismet_key']) != "")) {
+            
+        }
+    }
     
     $theme['call_theme_func'] = 'spam_set_theme';
     
