@@ -135,6 +135,13 @@ function spamset() {
     if (isset($_POST['editspamset'])) {
         if ((isset($_POST['akismet_key'])) || (trim($_POST['akismet_key']) != "")) {
             
+            $akismet_key = inputsec(htmlizer(trim($_POST['akismet_key'])));
+
+            $akismet_key = rtrim($akismet_key, '/\\');
+            
+            $akismet_class = akismetclass();
+            
+            
         }
     }
     

@@ -86,12 +86,12 @@ class Akismet {
         'PHP_SELF');
 
     /**
-     *     @param    string    $url            The URL of your blog.
-     *     @param    string    $akismetKey    WordPress API key.
+     * Constructs the Akismet class
+     * @global array $globals The global array
      */
-    public function __construct($url) {
+    public function __construct() {
         global $globals;
-        $this->url = $url;
+        $this->url = $globals['url'];
         $this->akismetKey = $globals['akismet_key'];
 
         // Set some default values
@@ -100,7 +100,7 @@ class Akismet {
         $this->akismetVersion = '1.1';
 
         // Start to populate the comment data
-        $this->comment['blog'] = $url;
+        $this->comment['blog'] = $this->url;
         $this->comment['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 
         if (isset($_SERVER['HTTP_REFERER'])) {
