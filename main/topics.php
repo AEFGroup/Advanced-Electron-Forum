@@ -363,13 +363,16 @@ function topics() {
 
     //Get out the topics in this board
     $qresult = makequery("SELECT DISTINCT t.*,p.*, ts.username AS starter, u.username,
-            rt.rt_time, mr.mr_time, rb.rb_time, nf.notify_mid
+            rt.rt_time, mr.mr_time, rb.rb_time, nf.notify_mid, ug.mem_gr_colour AS posterColour,
+            tg.mem_gr_colour AS starterColour
             FROM " . $dbtables['topics'] . " t
             LEFT JOIN " . $dbtables['posts'] . " p ON (t.tid = p.post_tid AND p.pid = t.last_post_id)
             LEFT JOIN " . $dbtables['users'] . " ts ON (ts.id = t.t_mem_id)
             LEFT JOIN " . $dbtables['users'] . " u ON (u.id = p.poster_id)
             LEFT JOIN " . $dbtables['read_topics'] . " rt ON (t.tid = rt.rt_tid AND
                                                             rt.rt_uid = '" . $uid . "')
+            LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group = ug.member_group)
+            LEFT JOIN " . $dbtables['user_groups'] . " tg ON (ts.u_member_group = tg.member_group)
             LEFT JOIN " . $dbtables['mark_read'] . " mr ON (p.post_fid = mr.mr_fid AND
                                                             mr.mr_uid = '" . $uid . "')
             LEFT JOIN " . $dbtables['read_board'] . " rb ON (rb.rb_uid = '" . $uid . "')
@@ -595,8 +598,7 @@ function topics() {
                 ug.mem_gr_colour
                 FROM " . $dbtables['sessions'] . " s
                 LEFT JOIN " . $dbtables['users'] . " u ON (s.uid = u.id)
-                LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group =
-                                                            ug.member_group)
+                LEFT JOIN " . $dbtables['user_groups'] . " ug ON (u.u_member_group = ug.member_group)
                 WHERE s.last_activity = 'f'
                 AND activity = '$fid|" . $board['fname'] . "'
                 AND s.time > '$activetime'
