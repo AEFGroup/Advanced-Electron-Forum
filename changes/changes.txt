@@ -42,3 +42,5 @@ Also $globals['enableshoutbox'], $globals['shouts'], $globals['shoutboxtime'](in
 13) Added column 'shucolor' to shouts. It's the shouter's group's color. I could have done this another way, but it would have used too many queries
 
 14) Added row 'akismet_key' to registry
+
+14) Added row 'enable_akismet' to registry
