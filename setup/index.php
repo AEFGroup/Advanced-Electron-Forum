@@ -319,7 +319,7 @@ function setup() {
         }
 
 
-        //If we have reached here everything is fine from the inputs
+        //If we have reached here the inputs are good for sure
         //Modify the universal.php
         if (!modify_universal(array('url' => array($url, 0),
                     'sn' => array($sn, 0),
