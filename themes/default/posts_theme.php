@@ -436,7 +436,7 @@ function showquickreply(){
     <tr>
     <td class="posterbg" width="22%">
 
-    <a href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($pv['id'], $pv['username'])) . '">
+    <a style="color:' . $pv['mem_gr_colour'] . '" href="' . (isset($post[$p]['is_guest']) ? 'mailto:' . $post[$p]['email'] : userlink($pv['id'], $pv['username'])) . '">
     ' . $post[$p]['username'] . '
     </a>
     </td>

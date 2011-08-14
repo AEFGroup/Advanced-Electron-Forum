@@ -327,6 +327,7 @@ function setup() {
                     'server_url' => array($server_url, 0),
                     'mainfiles' => array($server_url . '/main', 0),
                     'themesdir' => array($server_url . '/themes', 0),
+                    'pluginsdir' => array($server_url . '/plugins', 0),
                     'user' => array($user, 0),
                     'password' => array($password, 0),
                     'database' => array($database, 0),
