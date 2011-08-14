@@ -52,9 +52,9 @@ function initiate_plugins(){
 	}
 }
 
-function get_plugin_info($plugin_file){
+function get_plugin_info($plugin_file, $check = FALSE){
 	global $globals;
-	$file_name = $globals['pluginsdir'] . $plugin_file;
+	$file_name = $globals['pluginsdir'] . '/' . $plugin_file;
 	//include file while preventing output;to get variables we need only
 	ob_start();
 	include $file_name;
@@ -62,7 +62,12 @@ function get_plugin_info($plugin_file){
 	//we first check if the array is declared, and that Name and Version are declared too !
 	if(isset($plugin_info) && array_key_exists('Name', $plugin_info) && array_key_exists('Version', $plugin_info)){
 		//yes everything is cool, return now
-		return $plugin_info;
+		if($check == FALSE){
+			return $plugin_info;
+		}
+		else{
+			return TRUE;
+		}
 	}
 	else{
 		//something is wrong, inform it !
@@ -70,7 +75,21 @@ function get_plugin_info($plugin_file){
 	}
 }
 
-function get_plugins_list(){
-	
-	
+function get_plugin_list(){
+	global $globals;
+	$plugins = array();
+	//first we get list of files
+	if ($handle = opendir($globals['pluginsdir'])) {
+		while (false !== ($file = readdir($handle))) {
+			//check file extension
+			$file_ext = pathinfo($file, PATHINFO_EXTENSION);
+			$file_name = pathinfo($file, PATHINFO_FILENAME);
+			//make sure we are not looking at . and .. and files that don't end with php ext also it must a plugin
+			if ($file != '.' && $file != '..' && $file_ext == 'php' && get_plugin_info($file) == TRUE) {
+				$plugins[] = $file;
+			}
+		}
+		closedir($handle);
+	}
+	return $plugins;	
 }
