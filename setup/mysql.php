@@ -297,6 +297,14 @@ $queries[] = "INSERT INTO " . $dbprefix . "permissions VALUES (2, 1, 1, 1, 1, 1,
 $queries[] = "INSERT INTO " . $dbprefix . "permissions VALUES (-3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, 1)";
 $queries[] = "INSERT INTO " . $dbprefix . "permissions VALUES (0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, '', '', 1, 1, 0, 1024, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 200, 5, 0, 1, 1, 1, 1, 0, 0, 0, '', 1, 0, 1)";
 
+//Plugins #
+$queries[] = "CREATE TABLE " . $dbprefix . "plugins (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plg_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `activated` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
+
 //Personal Messages
 $queries[] = "CREATE TABLE " . $dbprefix . "pm (
   pmid mediumint(8) NOT NULL auto_increment,

@@ -40,6 +40,7 @@ $globals['board_email'] = '';
 $globals['server_url'] = '';
 $globals['mainfiles'] = '';
 $globals['themesdir'] = '';
+$globals['pluginsdir'] = '';
 $globals['gzip'] = 1;
 $globals['cookie_name'] = '';
 $globals['installed'] = '0';
