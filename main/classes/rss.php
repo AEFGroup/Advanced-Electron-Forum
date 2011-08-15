@@ -43,13 +43,15 @@ class rss {
      * @return string A string containing the RSS header
      */
     function start($xmlVersion = '1.0', $encoding = 'UTF-8', $rssVersion = '2.0', $title = '', $link = '', $desc = '') {
+        global $globals;
         header('Content-Type: application/rss+xml; charset=' . $encoding);
         return '<?xml version="' . $xmlVersion . '" encoding="' . $encoding . '"?>
 <rss version="' . $rssVersion . '" xml:lang="en-US">
     <channel>
         <title>' . $title . '</title>
         <link>' . $link . '</link>
-        <description>' . $desc . '</description>';
+        <description>' . $desc . '</description>
+        <generator>Advanced Electron Forums ' . $globals['version'] . '</generator';
     }
 
     /**
