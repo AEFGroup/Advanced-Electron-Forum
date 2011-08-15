@@ -169,7 +169,7 @@ function csrf_ob_handler($buffer, $flags) {
     $tokens = csrf_get_tokens();
     $name = $GLOBALS['csrf']['input-name'];
     $endslash = $GLOBALS['csrf']['xhtml'] ? ' /' : '';
-    $input = '<input type="hidden" name="'. $name .'" value="'. $tokens .'"'. $endslash .'>';
+    $input = '<input type="hidden" name="'. $name .'" value="'. $tokens .'"'. $endslash .'>';/*quick fix for ajax*/
     $buffer = preg_replace('#(<form[^>]*method\s*=\s*["\']post["\'][^>]*>)#i', '$1' . $input, $buffer);
     if ($GLOBALS['csrf']['frame-breaker']) {
         $buffer = str_ireplace('</head>', '<script type="text/javascript">if (top != self) {top.location.href = self.location.href;}</script></head>', $buffer);
