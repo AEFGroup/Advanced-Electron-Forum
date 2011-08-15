@@ -50,6 +50,7 @@ $l['general_settings'] = 'General Settings';
 $l['shoutbox_settings'] = 'Shoutbox Settings';
 $l['seo_settings'] = 'SEO Settings';
 $l['ban_settings'] = 'BAN Settings';
+$l['spam_settings'] = 'Anti-spam Settings';
 $l['updates'] = 'Updates';
 $l['categories'] = 'Categories';
 $l['manage_categories'] = 'Manage Categories';

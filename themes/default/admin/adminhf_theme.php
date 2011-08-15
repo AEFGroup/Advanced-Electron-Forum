@@ -70,6 +70,7 @@ function adminhead($title = '') {
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=onoff"><?php echo $l['maintenance_mode']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=mailset"><?php echo $l['mail_settings']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=genset"><?php echo $l['general_settings']; ?></a>
+                        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=spamset"><?php echo $l['spam_settings']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=shoutboxset"><?php echo $l['shoutbox_settings']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=seoset"><?php echo $l['seo_settings']; ?></a>
                         <a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=banset"><?php echo $l['ban_settings']; ?></a>
