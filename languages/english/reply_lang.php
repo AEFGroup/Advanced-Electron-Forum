@@ -63,6 +63,9 @@ $l['email_in_use'] = 'The email address you specified belongs to one of the memb
 //Posting Errors
 $l['empty_post'] = 'The post was empty.';
 
+$l['akismet_error_title'] = 'Reply detected as spam';
+$l['akismet_error'] = 'Your reply was automatically detected to be spam, so it was not added. If this is incorrect, please contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>. In a future update, this post will simply be reviewed';
+
 $l['reply_error_title'] = 'Reply Error';
 $l['reply_error'] = 'There were some errors while inserting your post into the topic. Please Contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>.';
 
