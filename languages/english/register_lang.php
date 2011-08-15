@@ -62,6 +62,8 @@ function mainregister_lang() {
     $l['registration_error_title'] = 'Registration Error';
     $l['registration_error'] = 'There were some errors while registering you on the board. Please Contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>.';
 
+    $l['akismet_error'] = 'The account you are trying to register has been detected as a spammer. If this is wrong, please contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>.';
+    
     $l['update_board_error_title'] = 'Registration Error';
     $l['update_board_error'] = 'There were some errors while updating the Board about your registration. Please Contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>.';
 

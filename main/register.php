@@ -477,12 +477,33 @@ function mainregister() {
 
             $error[] = $l['no_agreement'];
         }
+        
+        //Ok, we do some Akismet checks now.
 
+        if ($globals['enable_akismet'] == 1) {
+
+            $akismet = akismetclass();
+
+            $akismet->setCommentAuthor($username);
+
+            $akismet->setCommentAuthorEmail($email);
+
+            $akismet->setCommentType('registration');
+
+            $akismet->setUserIP($password);
+
+            if ($akismet->isCommentSpam()) {
+                $error[] = $l['akismet_error'];
+            }
+        }
+        
         //on error call the form
         if (!empty($error)) {
             $theme['call_theme_func'] = 'mainregister_theme';
             return false;
         }
+
+
 
         ///////////////////////////////////////
         // Effects of a New Registration
