@@ -221,7 +221,7 @@ class Akismet {
     public function setUserIP($userip) {
         $this->comment['user_ip'] = $userip;
     }
-    
+
     /**
      * Sets a new temporary key
      * @param string $key The new key to use for this class
@@ -246,6 +246,15 @@ class Akismet {
      */
     public function setPermalink($permalink) {
         $this->comment['permalink'] = $permalink;
+    }
+
+    /**
+     * Sets the URL
+     * @param string $url The URL
+     */
+    public function setURL($url) {
+        $this->url = $url;
+        $this->comment['blog'] = $this->url;
     }
 
     /**
