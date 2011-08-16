@@ -78,7 +78,8 @@ function get_plugin_list() {
     global $globals;
     $plugins = array();
     //first we get list of files
-    if ($handle = opendir($globals['pluginsdir'])) {
+    $handle = opendir($globals['pluginsdir']);
+    if ($handle != false) {
         while (false !== ($file = readdir($handle))) {
             //check file extension
             $file_ext = pathinfo($file, PATHINFO_EXTENSION);
