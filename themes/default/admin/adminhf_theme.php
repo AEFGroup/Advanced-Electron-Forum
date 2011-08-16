@@ -78,6 +78,13 @@ function adminhead($title = '') {
                     </div>
 
                     <br />
+                    
+                    <div style="border:1px solid #CCC">
+                        <span><?php echo $l['plugins']; ?></span>
+                        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=plugins"><?php echo $l['list_plugins']; ?></a>
+                    </div>
+
+                    <br />
 
                     <div style="border:1px solid #CCC">
                         <span><?php echo $l['categories']; ?></span>
