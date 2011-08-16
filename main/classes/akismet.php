@@ -96,7 +96,7 @@ class Akismet {
 
         // Set some default values
         $this->apiPort = 80;
-        $this->akismetServer = 'akismet.com';
+        $this->akismetServer = 'rest.akismet.com';
         $this->akismetVersion = '1.1';
 
         // Start to populate the comment data
