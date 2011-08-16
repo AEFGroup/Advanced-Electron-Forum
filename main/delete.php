@@ -201,6 +201,22 @@ function delete() {
 
         //What should the new topic be if it is recycled
         $topic = $row['topic'];
+
+
+        //Now we check for spam
+        if (isset($_GET['type'])) {
+            if ($_GET['type'] == "spam") {
+                //It's spam.
+                //Get akismet
+                $akismet = akismetclass();
+
+                $result = makequery("SELECT u.*
+            FROM " . $dbtables['users'] . " u
+            WHERE u.id = " . $row['poster_id']);
+
+                //$akismet->setCommentAuthor($posters[$row['poster_id'][]])
+            }
+        }
     }
 
 
@@ -682,6 +698,7 @@ function delete() {
             }
         }
     }
+
 
     //Looks like everything went well
     //Redirect
