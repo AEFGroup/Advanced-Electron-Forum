@@ -210,11 +210,31 @@ function delete() {
                 //Get akismet
                 $akismet = akismetclass();
 
-                $result = makequery("SELECT u.*
+                if ($row['poster_id'] != -1) { //Only use Akismet for members :S
+                    //TODO Akismet here for guests too
+                    $uresult = makequery("SELECT u.*
             FROM " . $dbtables['users'] . " u
             WHERE u.id = " . $row['poster_id']);
 
-                //$akismet->setCommentAuthor($posters[$row['poster_id'][]])
+                    if (mysql_num_rows($uresult) == 1) {
+
+                        $_user = mysql_fetch_assoc($qresult);
+
+                        $akismet->setCommentAuthor($_user['username']);
+
+                        $akismet->setUserIP($_user['r_ip']);
+
+                        $akismet->setCommentAuthorEmail($_user['email']);
+
+                        $akismet->setCommentAuthorURL($_user['www']);
+
+                        $akismet->setCommentType("post");
+
+                        $akismet->setCommentContent($row['post']);
+                        
+                        $akismet->submitSpam();
+                    }
+                }
             }
         }
     }
