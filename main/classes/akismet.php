@@ -126,6 +126,9 @@ class Akismet {
      * @return bool    True is if the key is valid, false if not.
      */
     public function isKeyValid() {
+        if (is_null($this->akismetKey)) {
+            throw new Exception("Akismet key is null");
+        }
         // Check to see if the key is valid
         $response = $this->sendRequest('key=' . $this->akismetKey . '&blog=' . $this->url, $this->akismetServer, '/' . $this->akismetVersion . '/verify-key');
         return $response[1] == 'valid';
@@ -180,6 +183,9 @@ class Akismet {
      *  @throws        Will throw an exception if the API key passed to the constructor is invalid.
      */
     public function isCommentSpam() {
+        if (is_null($this->akismetKey)) {
+            throw new Exception("Akismet key is null");
+        }
         $response = $this->sendRequest($this->getQueryString(), $this->akismetKey . '.' . $this->akismetServer, '/' . $this->akismetVersion . '/comment-check');
 
         if ($response[1] == 'invalid' && !$this->isKeyValid()) {
