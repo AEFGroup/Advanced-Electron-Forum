@@ -83,6 +83,7 @@ $l['post_num_prefix'] = 'Post';
 $l['quote'] = 'Quote';
 $l['edit'] = 'Edit';
 $l['delete'] = 'Delete';
+$l['delete_spam'] = 'Delete as spam';
 $l['report'] = 'Report';
 $l['prefix_group'] = 'Group:';
 $l['prefix_post_group'] = 'Post Group:';
@@ -120,6 +121,7 @@ $l['posted_by'] = 'Posted By';
 $l['downloads'] = 'Downloads';
 $l['del_sel_conf'] = 'Are you sure you want to delete the selected posts ?';
 $l['del_this_conf'] = 'Are you sure you want to delete this post ?';
+$l['del_this_spam'] = 'Are you sure you want to delete this post and mark it as spam?';
 
 $l['previous'] = 'Previous';
 $l['next'] = 'Next';

@@ -466,9 +466,9 @@ function showquickreply(){
         }
 
         //Can he delete the post
-        if (isset($post[$p]['can_del']) && $post[$p]['post_count'] != 0) {
-
+        if (isset($post[$p]['can_del']) && $post[$p]['post_count'] != 0) {            
             $post_opt[] = '<a href="' . $globals['ind'] . 'act=delete&amp;pid=' . $post[$p]['pid'] . '" onclick="return confirm(\'' . $l['del_this_conf'] . '\');">' . $l['delete'] . '</a>';
+            $post_opt[] = '<a href="' . $globals['ind'] . 'act=delete&amp;type=spam&amp;pid=' . $post[$p]['pid'] . '" onclick="return confirm(\'' . $l['del_this_spam'] . '\');">' . $l['delete_spam'] . '</a>';
         }
 
         //Can he report this post
