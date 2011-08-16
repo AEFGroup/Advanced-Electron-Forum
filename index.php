@@ -180,7 +180,7 @@ $actionsArray = array(
     'mid' => array('profile.php', 'profile'),
     'deleteuser' => array('delete.php', 'deleteuser'),
     'ban' => array('ban.php', 'ban'),
-    'editprofile' => array('edit.php', 'editprofile'),
+    'editprofile' => array('editprofile.php', 'editprofile'),
     'members' => array('members.php', 'members'),
     'active' => array('active.php', 'active'),
     /* 'stats'               => array('stats.php', 'stats'), */
@@ -197,17 +197,17 @@ $actionsArray = array(
     'tid' => array('posts.php', 'posts'),
     'locktopic' => array('locktopic.php', 'locktopic'),
     'pintopic' => array('pintopic.php', 'pintopic'),
-    'edittopic' => array('edit.php', 'edittopic'),
+    'edittopic' => array('edittopic.php', 'edittopic'),
     'mergetopics' => array('mergetopics.php', 'mergetopics'),
-    'edit' => array('edit.php', 'editpost'),
+    'edit' => array('editpost.php', 'editpost'),
     'mergeposts' => array('mergeposts.php', 'mergeposts'),
-    'delete' => array('delete.php', 'delte'),
+    'delete' => array('delete.php', 'delete'),
     'removepoll' => array('poll.php', 'removepoll'),
     'editpoll' => array('poll.php', 'editpoll'),
     'postpoll' => array('poll.php', 'postpoll'),
     'tellafriend' => array('tellafriend.php', 'tellafriend'),
     'topic' => array('newtopic.php', 'newtopic'),
-    'deletetopic' => array('delete.php', 'deletetopic'),
+    'deletetopic' => array('deletetopic.php', 'deletetopic'),
     'movetopic' => array('movetopic.php', 'movetopic'),
     'post' => array('reply.php', 'reply'),
     'usercp' => array('usercp/index.php', 'usercp'),
@@ -226,8 +226,9 @@ if (isset($act)) {
         //include the file
         include_once $globals['mainfiles'] . '/' . $actionsArray[$act][0];
         //execute the function
-        if (!empty($actionsArray[$act][1]))
+        if (!empty($actionsArray[$act][1])) {
             $actionsArray[$act][1]();
+        }
     }
 }
 

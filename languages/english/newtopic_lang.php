@@ -70,6 +70,9 @@ $l['update_users_error'] = 'The topic was created but there were some errors in 
 $l['update_forum_error_title'] = 'New Topic Error';
 $l['update_forum_error'] = 'The topic was inserted in the system but there were some errors. Please Contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>.';
 
+$l['akismet_error_title'] = 'Topic detected as spam';
+$l['akismet_error'] = 'Your topic has been automatically detected as spam. If this is incorrect, please contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>. In a future update, this topic would simply be moderated';
+
 $l['subscription_error_title'] = 'Subscription error';
 $l['subscription_error'] = 'Sorry, we were unable to subscribe to the topic because the connection with the database failed. Please Contact the <a href="mailto:' . $globals['board_email'] . '">Administrator</a>.';
 

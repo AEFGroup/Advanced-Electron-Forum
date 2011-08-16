@@ -126,6 +126,9 @@ class Akismet {
      * @return bool    True is if the key is valid, false if not.
      */
     public function isKeyValid() {
+        if (is_null($this->akismetKey)) {
+            throw new Exception("Akismet key is null");
+        }
         // Check to see if the key is valid
         $response = $this->sendRequest('key=' . $this->akismetKey . '&blog=' . $this->url, $this->akismetServer, '/' . $this->akismetVersion . '/verify-key');
         return $response[1] == 'valid';
@@ -180,7 +183,10 @@ class Akismet {
      *  @throws        Will throw an exception if the API key passed to the constructor is invalid.
      */
     public function isCommentSpam() {
-        $response = $this->sendRequest($this->getQueryString(), $this->akismetKey . '.rest.akismet.com', '/' . $this->akismetVersion . '/comment-check');
+        if (is_null($this->akismetKey)) {
+            throw new Exception("Akismet key is null");
+        }
+        $response = $this->sendRequest($this->getQueryString(), $this->akismetKey . '.' . $this->akismetServer, '/' . $this->akismetVersion . '/comment-check');
 
         if ($response[1] == 'invalid' && !$this->isKeyValid()) {
             throw new exception('The Wordpress API key passed to the Akismet constructor is invalid.  Please obtain a valid one from http://wordpress.com/api-keys/');
@@ -215,7 +221,7 @@ class Akismet {
     public function setUserIP($userip) {
         $this->comment['user_ip'] = $userip;
     }
-    
+
     /**
      * Sets a new temporary key
      * @param string $key The new key to use for this class
@@ -240,6 +246,15 @@ class Akismet {
      */
     public function setPermalink($permalink) {
         $this->comment['permalink'] = $permalink;
+    }
+
+    /**
+     * Sets the URL
+     * @param string $url The URL
+     */
+    public function setURL($url) {
+        $this->url = $url;
+        $this->comment['blog'] = $this->url;
     }
 
     /**
