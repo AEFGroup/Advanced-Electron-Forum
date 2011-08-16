@@ -18,6 +18,7 @@ function testplugin_ob_handler($buffer, $flags) {
     // to check if the page is *actually* HTML. We don't begin rewriting until
     // we hit the first <html tag.
     static $is_html = false;
+    
     if (!$is_html) {
         // not HTML until proven otherwise
         if (stripos($buffer, '<html') !== false) {
