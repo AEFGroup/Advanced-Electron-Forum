@@ -197,9 +197,9 @@ $actionsArray = array(
     'tid' => array('posts.php', 'posts'),
     'locktopic' => array('locktopic.php', 'locktopic'),
     'pintopic' => array('pintopic.php', 'pintopic'),
-    'edittopic' => array('edit.php', 'edittopic'),
+    'edittopic' => array('edittopic.php', 'edittopic'),
     'mergetopics' => array('mergetopics.php', 'mergetopics'),
-    'edit' => array('edit.php', 'editpost'),
+    'edit' => array('editpost.php', 'editpost'),
     'mergeposts' => array('mergeposts.php', 'mergeposts'),
     'delete' => array('delete.php', 'delte'),
     'removepoll' => array('poll.php', 'removepoll'),
@@ -226,8 +226,9 @@ if (isset($act)) {
         //include the file
         include_once $globals['mainfiles'] . '/' . $actionsArray[$act][0];
         //execute the function
-        if (!empty($actionsArray[$act][1]))
+        if (!empty($actionsArray[$act][1])) {
             $actionsArray[$act][1]();
+        }
     }
 }
 
