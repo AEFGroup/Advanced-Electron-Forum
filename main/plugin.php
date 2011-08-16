@@ -33,6 +33,7 @@ function initiate_plugins() {
             //check file extension
             $file_ext = pathinfo($file, PATHINFO_EXTENSION);
             $file_name = pathinfo($file, PATHINFO_FILENAME);
+            
             //make sure we are not looking at . and .. and files that don't end with php ext
             if ($file != '.' && $file != '..' && $file_ext == 'php') {
                 //Now we check if the plugin is activated or not
@@ -40,12 +41,11 @@ function initiate_plugins() {
                     FROM " . $dbtables['plugins'] . "
                     WHERE plg_name = '" . $file . "'
                     AND activated = '1'");
-
                 if (mysql_num_rows($qresult) > 0) {
                     //yes the plugin is activated; include
                     include($plugin_dir . '/' . $file);
                     //initiate
-                    ob_start($file_name . '_ob_handler');
+                    ob_start($file_name . "_ob_handler");
                 }
             }
         }
