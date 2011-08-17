@@ -1,9 +1,10 @@
-body{background-color: #FFF;
+body{
      color: #000;
-     font-size: 11px;
      margin:0px 15px 0px 15px;
      padding: 0px;
-     font-family: Verdana, Tahoma, Arial, "Trebuchet MS", "Times New Roman", Georgia, sans-serif, serif;
+     font: 13.34px helvetica,arial,freesans,clean,sans-serif;
+	 line-height: 1.4;
+	 background:url(images/headerbg.jpg) repeat-x;
 }
 
 input, select{
@@ -43,17 +44,30 @@ a:active{
 
 a:hover{
     background-color: transparent;
-    color: #465584;
+    color: #4183C4;
     text-decoration: underline;
 }
 
 /* hf_theme.php the top row*/
 
 .header{
-    background:url(images/headerbg.jpg);
-    height:85px;
+	width: 1050px;
+	margin: 0 auto 0 auto;
+    height:91px;
 }
 
+
+#header .logo img{position:absolute;top:2px;-webkit-transition:opacity .25s linear;-moz-transition:opacity .25s linear;}
+#header .logo img.hover{opacity:0;}
+#header .logo:hover img.hover{opacity:1;}
+#header .logo img.default{opacity:1;}
+#header .logo:hover img.default{opacity:0;}
+
+#main_body{
+	width: 900px;
+	margin: 0 auto 0 auto;
+    
+}
 /* AEF Drop Down menu theme*/
 /* Table of the menu */
 .ddopt{
@@ -111,11 +125,11 @@ a:hover{
 
 /* Welcome Message */
 .welcome{
-    color: #FFFFFF;
+    color: #4183C4;
     font-size:12px;
 }
 .welcome a:link, .welcome a:visited, .welcome a:active, .welcome a:hover{
-    color: #FFFFFF;
+    color: #4183C4;
     text-decoration: underline;
 }
 
@@ -133,14 +147,13 @@ a:hover{
     text-decoration:none;
     padding: 2px;
     margin:0px;
-    color: #FFFFFF;
+    color: #4183C4;
 }
 .navlinks a:hover{
-    text-decoration:none;
+    text-decoration:underline;
     padding: 1px;
     margin:0px;
-    border: 1px solid #FFFFFF;
-    color: #FFFFFF;
+    color: #4183C4;
 }
 
 .bottom{

@@ -28,14 +28,16 @@ imgurl = \'' . $theme['images'] . '\';
     </head>
     <body onload="bodyonload();">';
 
-    echo '<table border="0" cellpadding="0" cellspacing="0" width="100%" class="header">
-    <tr>
+    echo '<div class="header" id="header" width="100%" >
+    <div>
+        <div style="float:left;">
+			<a class="logo" href="' . $globals['ind'] . '">
+				<img class="default" height="90" src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo.png') . '" alt="" />
+				<img class="hover" height="90" src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo_hover.png') . '" alt="" />
+			</a>
+        </div>
 
-        <td align="left" rowspan="2">
-        <a href="' . $globals['ind'] . '"><img src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo.jpg') . '" alt="" /></a>
-        </td>
-
-        <td align="right" class="welcome">';
+        <div style="float:right;" class="welcome">';
 
     if ($logged_in) {
         $uColorRef = makequery("SELECT mem_gr_colour FROM " . $dbtables['user_groups'] . " WHERE member_group = " . $user['u_member_group'] . " LIMIT 1");
@@ -55,13 +57,13 @@ imgurl = \'' . $theme['images'] . '\';
         echo '<b>' . $l['welcome'] . '</b> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';
     }
 
-    echo '</td>
+    echo '</div>
 
-    </tr>
+    </div>
 
-    <tr>
+    <div>
 
-        <td align="right" valign="bottom">';
+        <div style="float:right;" valign="bottom">';
 
     //Array Holding the Options to be imploded
     $opt = array();
@@ -150,21 +152,21 @@ createmenu("quicklinks", [' . $quick_links . ']);
     }
 
     //this is the users menu table
-    echo '<table cellspacing="2" cellpadding="3" width="100%" style="height:35px;">
-                <tr align="left">
-                    <td align="right" nowrap="nowrap" class="navlinks">';
+    echo '<div width="100%" style="height:35px;">
+                <div style="float:left;">
+                    <div style="float:right;" nowrap="nowrap" class="navlinks">';
 
     echo implode('&nbsp;&nbsp;|&nbsp;&nbsp;', $opt);
 
-    echo '</td>
-                </tr>
-            </table>
+    echo '</div>
+                </div>
+            </div>
 
-        </td>
+        </div>
 
-    </tr>
+    </div>
 
-    </table>';
+    </div>';
 
     echo (empty($theme['headernavtree']) ? '' : tree() . '<br /><br />');
 
@@ -299,13 +301,14 @@ addonload(\'init_fixedshoutbox();\');
     }
 
     //everything will go after this
+    echo '<div id="main_body">';
 }
 
 function aeffooter() {
 
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $dmenus, $end_time, $start_time, $onload, $theme;
 
-    echo '<br />';
+    echo '</div><br />';
 
     if (!empty($theme['footerads'])) {
 

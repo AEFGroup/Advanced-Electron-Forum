@@ -22,11 +22,11 @@
 
 /* Database Connection */
 
-$globals['user'] = '';
-$globals['password'] = '';
-$globals['database'] = '';
-$globals['dbprefix'] = '';
-$globals['server'] = '';
+$globals['user'] = 'root';
+$globals['password'] = '199407';
+$globals['database'] = 'aef';
+$globals['dbprefix'] = 'aeef_';
+$globals['server'] = 'localhost';
 
 /* Ending - Database Connection */
 
@@ -34,16 +34,16 @@ $globals['server'] = '';
 
 /* Core Settings */
 
-$globals['url'] = '';
-$globals['sn'] = '';
-$globals['board_email'] = '';
-$globals['server_url'] = '';
-$globals['mainfiles'] = '';
-$globals['themesdir'] = '';
-$globals['pluginsdir'] = '';
+$globals['url'] = 'http://localhost/aef1.1';
+$globals['sn'] = 'My Board';
+$globals['board_email'] = 'aaa@aaa.fr';
+$globals['server_url'] = '/srv/www/htdocs/aef1.1';
+$globals['mainfiles'] = '/srv/www/htdocs/aef1.1/main';
+$globals['themesdir'] = '/srv/www/htdocs/aef1.1/themes';
+$globals['pluginsdir'] = '/srv/www/htdocs/aef1.1/plugins';
 $globals['gzip'] = 1;
-$globals['cookie_name'] = '';
-$globals['installed'] = '0';
+$globals['cookie_name'] = 'AEFCookies5075';
+$globals['installed'] = '1';
 
 /* Ending - Core Settings */
 ?>
