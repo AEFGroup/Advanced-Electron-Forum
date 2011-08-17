@@ -68,6 +68,11 @@ if (isset($_GET['adact']) && trim($_GET['adact']) !== "") {
 }
 
 switch ($adact) {
+    
+    case 'plugins':
+        include_once($globals['mainfiles'] . '/admin/plugins.php');
+        plugins();
+        break;
 
     //This is for core Board settings
     case 'conpan':
