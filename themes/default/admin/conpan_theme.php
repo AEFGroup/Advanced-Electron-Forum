@@ -24,6 +24,89 @@ if (!defined('AEF')) {
     die('Hacking Attempt');
 }
 
+function spam_set_theme() {
+    global $globals, $theme, $l, $error;
+
+    //Admin Headers includes Global Headers
+    adminhead($l['spam_settings']);
+    ?>
+
+    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+
+        <tr>
+            <td align="right" width="45%" class="adcbg1">
+                <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
+            </td>
+            <td align="left" class="adcbg1">
+
+                <font class="adgreen"><?php echo $l['spam_settings']; ?></font><br />
+
+            </td>
+        </tr>
+
+        <tr>
+            <td align="left" colspan="2" class="adbg">
+                <?php echo $l['spam_set_exp']; ?>
+            </td>
+        </tr>
+
+    </table>
+
+<form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="spamsetform">
+        <table width="100%" cellpadding="2" cellspacing="1" class="cbor">
+
+            <tr>
+                <td class="adcbg" colspan="2">
+                    <?php echo $l['spam_settings']; ?>
+                </td>
+            </tr>
+            <br />
+            <br />
+            <tr>
+                <td class="adbg">
+                    <b><?php echo $l['enable_akismet']; ?></b><br />
+                    <font class="adexp"><?php echo $l['enable_akismet_exp']; ?></font>
+                </td>
+                <td class="adbg" align="left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="enable_akismet" <?php echo ($globals['enable_akismet'] ? 'checked="checked"' : ''); ?> />
+                </td>
+            </tr>
+
+            <tr>
+                <td width="45%" class="adbg">
+                    <b><?php echo $l['akismet_key']; ?></b><br />
+                    <font class="adexp"><?php echo $l['akismet_key_exp']; ?></font>
+                </td>
+                <td class="adbg" align="left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"  name="akismet_key" value="<?php echo (empty($_POST['akismet_key']) ? $globals['akismet_key'] : $_POST['akismet_key']); ?>" />
+                </td>
+            </tr>
+
+        </table>
+
+        <br /><br />
+
+        <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+            
+            
+            <tr>
+                <td align="center" class="adbg">
+                    <input type="submit" name="editspamset" value="<?php echo $l['submit']; ?>" />
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+<br /><br />
+    <?php
+    error_handle($error, '100%');
+    ?>
+
+    <?php
+    adminfoot();
+}
+
 function coreset_theme() {
 
     global $globals, $theme, $l, $error;
@@ -52,6 +135,8 @@ function coreset_theme() {
         </tr>
 
     </table>
+
+
     <br /><br />
     <?php
     error_handle($error, '100%');

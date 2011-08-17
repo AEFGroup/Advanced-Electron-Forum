@@ -769,8 +769,35 @@ function reply() {
             //Return
             $theme['call_theme_func'] = 'reply_theme';
             return true;
-        }
+        } else
 
+        //Ok, we do some Akismet checks now.
+
+        if ($globals['enable_akismet'] == 1) {
+
+            $akismet = akismetclass();
+
+            $akismet->setCommentAuthor($logged_in ? $user['username'] : $gposter_name);
+
+            $akismet->setCommentAuthorEmail($logged_in ? $user['email'] : $gposter_email);
+
+            if ($logged_in) {
+                if (!empty($user['www'])) {
+                    $akismet->setCommentAuthorURL($user['www']);
+                }
+            }
+
+            $akismet->setCommentType('post');
+
+            $akismet->setCommentContent($post);
+
+            $akismet->setUserIP($poster_ip);
+
+            if ($akismet->isCommentSpam()) {
+                reporterror($l['akismet_error_title'], $l['akismet_error']);
+                return false;
+            }
+        }
 
         /////////////////////////////////
         // Finally lets start the queries

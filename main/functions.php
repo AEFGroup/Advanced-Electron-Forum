@@ -1509,6 +1509,21 @@ function zipclass() {
     return new zip();
 }
 
+/**
+ * Gets the akismet class
+ * @global array $globals The array of global constants
+ * @return Akismet The akismet class
+ */
+function akismetclass() {
+    
+    global $globals;
+    
+    include_once($globals['mainfiles'] . '/classes/akismet.php');
+    
+    return new Akismet();
+    
+}
+
 //End of function
 //A function to load a file from the net
 function get_web_file($url, $writefilename = '') {

@@ -223,4 +223,14 @@ $l['specify_ip'] = 'Specify the IP Addresses';
 $l['specify_ip_exp'] = 'You can either specify a RANGE of IP Addresses to restrict access or individual IP Addresses. e.g. 192.168.1-55.*<br />192.168.10.*<br />192.168.10.55';
 $l['add_more_ips'] = 'Add more IPs';
 
+$l['spam_settings'] = 'Anti-spam Settings';
+$l['spam_set_exp'] = 'This is the place for changing the external anti-spam settings such as Akismet.';
+$l['akismet_key'] = 'Akismet key';
+$l['akismet_key_exp'] = 'The key used to access the Akismet anti-spam service. <br /> For more information or to get a (free) key, go to <a href="http://akismet.com/">This link</a>';
+
+$l['enable_akismet'] = 'Enable Akismet service';
+$l['enable_akismet_exp'] = 'Enabling this allows you to use the advanced Akismet service';
+
+$l['invalid_akismet_key'] = 'The Akismet key you provided was invalid. Please try again';
+
 ?>

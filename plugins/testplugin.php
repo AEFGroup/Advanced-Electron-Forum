@@ -18,6 +18,7 @@ function testplugin_ob_handler($buffer, $flags) {
     // to check if the page is *actually* HTML. We don't begin rewriting until
     // we hit the first <html tag.
     static $is_html = false;
+    
     if (!$is_html) {
         // not HTML until proven otherwise
         if (stripos($buffer, '<html') !== false) {
@@ -26,7 +27,7 @@ function testplugin_ob_handler($buffer, $flags) {
             return $buffer;
         }
     }
-    $buffer = preg_replace('/Powered By AEF 1.1.0/', 'Powered By AEF 1.1 PLUGINEED', $buffer);
+    $buffer = preg_replace('/1.1.0 Preview/', '1.1.0 Preview (with plugins)', $buffer);
     return $buffer;
 }
 
