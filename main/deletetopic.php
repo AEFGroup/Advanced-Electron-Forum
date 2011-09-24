@@ -406,11 +406,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
-
         ///////////////////
         // UPDATE the post
         ///////////////////
@@ -428,10 +423,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //////////////////////////
         // UPDATE the attachments
@@ -478,9 +469,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //GET the Last Pid TO where its going
         $lastpost = last_post_forum($globals['recyclebin']);
 
@@ -501,10 +489,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //Actual Delete and also to delete from recycle bin
     } else {
@@ -536,12 +520,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
-
-
         ///////////////////
         // DELETE the post
         ///////////////////
@@ -558,10 +536,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //////////////////////////
         // DELETE the attachments
@@ -618,6 +592,8 @@ function deletetopic() {
 
                 //Reporting system still to come
             }
+
+            mysql_free_result($qresult);
         }
 
 
@@ -657,8 +633,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
     }
 
 
@@ -818,4 +792,3 @@ function delete_poll($polls) {
     }
 }
 
-?>

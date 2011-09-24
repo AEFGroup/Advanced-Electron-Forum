@@ -358,13 +358,6 @@ function deletetopic() {
                             SET posts = posts - " . $pv['num'] . "
                             WHERE id = '" . $pv['id'] . "'", false);
 
-            /* if(mysql_affected_rows($conn) < 1){
-
-              reporterror('Delete Error' ,'The post was deleted from the topic but there were some errors in updating the users post count. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-              return false;
-
-              } */
         }
 
         //Free the resources
@@ -413,11 +406,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
-
         ///////////////////
         // UPDATE the post
         ///////////////////
@@ -435,9 +423,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -481,10 +466,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ///////////////////////////////////
         // Update forums topic, post count
         //  b)Where it is going
@@ -501,9 +482,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
 
         //Actual Delete and also to delete from recycle bin
@@ -536,12 +514,6 @@ function deletetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
-
-
         ///////////////////
         // DELETE the post
         ///////////////////
@@ -558,10 +530,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //////////////////////////
         // DELETE the attachments
@@ -652,9 +620,6 @@ function deletetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
     }
 
 
@@ -813,5 +778,3 @@ function delete_poll($polls) {
         return false;
     }
 }
-
-?>

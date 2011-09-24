@@ -77,10 +77,6 @@ function logout() {
         return false;
     }
 
-    //Free the resources
-    mysql_free_result($qresult);
-
-
     //Process the DATA
     $data = process_as_data();
 

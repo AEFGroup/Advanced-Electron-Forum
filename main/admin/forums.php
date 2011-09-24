@@ -363,9 +363,9 @@ function editforum() {
 
         return false;
     }
-
+    $numrows = mysql_num_rows($qresult);
     //The loop to draw out the rows
-    for ($i = 1; $i <= mysql_num_rows($qresult); $i++) {
+    for ($i = 1; $i <= $numrows; $i++) {
 
         $row = mysql_fetch_assoc($qresult);
 
@@ -696,14 +696,6 @@ function editforum() {
                     WHERE fid = '$fid'
                     LIMIT 1", false);
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Edit Forum Error' ,'There were some errors in updating the submitted information of the forum <b>'.$board['fname'].'</b>.');
-
-          return false;
-
-          } */
-
 
         /////////////////////////////////
         // If there are any changes then
@@ -774,9 +766,6 @@ function editforum() {
 
                         return false;
                     }
-
-                    //Free the resources
-                    mysql_free_result($qresult);
                 }
             }
 
@@ -812,8 +801,6 @@ function editforum() {
                         return false;
                     }
 
-                    //Free the resources
-                    mysql_free_result($qresult);
                 }//End of for loop
             } elseif ($forum_order > $board[$edit_field]) {
 
@@ -842,9 +829,6 @@ function editforum() {
 
                         return false;
                     }
-
-                    //Free the resources
-                    mysql_free_result($qresult);
                 }
             }//End of if($forum_order < $default)
         }
@@ -1679,62 +1663,6 @@ function deleteforum() {
 
     //Lets Process
     if (isset($_POST['deleteforum'])) {
-
-        /* //Will be added in next versions
-          //Are we to delete or shift
-          if(!(isset($_POST['deltop'])) || (trim($_POST['deltop']) == "")){
-
-          $error[] = 'Are we to Delete or Shift the Topics.';
-
-          }else{
-
-          $deltop = (int) inputsec(htmlizer(trim($_POST['deltop'])));
-
-          if(!in_array($deltop, array(1, 2))){
-
-          $error[] = 'The Delete/Shift Topic option is Invalid.';
-
-          }
-
-          }
-
-
-          //on error call the form
-          if(!empty($error)){
-          $theme['call_theme_func'] = 'deleteforum_theme';
-          return false;
-          }
-
-
-
-          if($deltop == 2){
-
-          //Are we to delete or shift
-          if(!(isset($_POST['shifttopto'])) || (trim($_POST['shifttopto']) == "")){
-
-          $error[] = 'The forum to which the topics are to be shifted was not submitted.';
-
-          }else{
-
-          $shifttopto =(int)inputsec(htmlizer(trim($_POST['shifttopto'])));
-
-          if(!in_array($shifttopto, $forum_ids)){
-
-          $error[] = 'The forum to which the topics are to be shifted is Invalid.';
-
-          }
-
-          }
-
-          }
-
-          //on error call the form
-          if(!empty($error)){
-          $theme['call_theme_func'] = 'deleteforum_theme';
-          return false;
-          }
-         */
-
         if (!empty($board['in_boards'])) {
 
             //Are we to delete or shift
@@ -2045,4 +1973,3 @@ function forumreorder() {
   of the SUBMITTED PARENT.
 
  */
-?>

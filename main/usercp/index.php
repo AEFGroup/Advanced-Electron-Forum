@@ -274,9 +274,6 @@ function unreadcheck() {
 
                 return false;
             }
-
-            //Free the resources
-            mysql_free_result($qresult);
         }
     }
 }

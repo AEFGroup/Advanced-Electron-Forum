@@ -571,10 +571,6 @@ function mainregister() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
-
-
             ////////////////////////////////
             // UPDATE The Total Member Count
             ////////////////////////////////
@@ -589,10 +585,6 @@ function mainregister() {
 
                 return false;
             }
-
-            //Free the resources
-            mysql_free_result($qresult);
-
 
             //Welcome Email
             if ($globals['wel_email']) {
@@ -986,10 +978,6 @@ function validate() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ////////////////////////////////
         // UPDATE The Total Member Count
         ////////////////////////////////
@@ -1004,10 +992,6 @@ function validate() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //Welcome Email
         if ($globals['wel_email']) {
@@ -1141,4 +1125,3 @@ function coppaform() {
 }
 
 //End of function
-?>

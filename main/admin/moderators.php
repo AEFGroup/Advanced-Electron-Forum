@@ -188,10 +188,6 @@ function editmoderators() {
             }
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('act=admin&adact=moderators');
 
@@ -218,9 +214,6 @@ function editmoderators() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=admin&adact=moderators');
@@ -267,11 +260,6 @@ function check_modusernames($usernames, $callfunc = 'editmoderators_theme') {
     }
 
     $mods = array_unique($mods);
-
-    /* echo '<pre>';
-      print_r($mods);
-      echo '</pre>'; */
-
 
     if (empty($mods)) {
 
@@ -321,13 +309,6 @@ function check_modusernames($usernames, $callfunc = 'editmoderators_theme') {
 
         $mods_username[] = $moderators[$i]['username'];
     }
-    /* echo '<pre>';
-      print_r($moderators);
-      echo '</pre>'; */
-
-    /* echo '<pre>';
-      print_r($mods_username);
-      echo '</pre>'; */
 
     ///////////////////////////////////////////////
     //Check the number of users that have come out.
@@ -366,4 +347,3 @@ function check_modusernames($usernames, $callfunc = 'editmoderators_theme') {
 }
 
 //End of function
-?>

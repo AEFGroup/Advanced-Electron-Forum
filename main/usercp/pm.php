@@ -420,10 +420,6 @@ function trackpm() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('act=usercp&ucpact=trackpm');
     }
@@ -797,9 +793,6 @@ function writepm() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
-
             ////////////////////////////////
             // UPDATE The Senders PM count
             ////////////////////////////////
@@ -815,8 +808,6 @@ function writepm() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
         }//End of IF...ELSEIF Save/Send PM
         //Store that this code was successful
         $AEF_SESS['postcode'][] = $postedcode;
@@ -1125,11 +1116,6 @@ function sendsaved() {
                 return false;
             }
 
-
-            //Free the resources
-            mysql_free_result($qresult);
-
-
             ////////////////////////////////
             // UPDATE the Users PM Count
             ////////////////////////////////
@@ -1144,10 +1130,6 @@ function sendsaved() {
 
                 return false;
             }
-
-            //Free the resources
-            mysql_free_result($qresult);
-
 
             //The user wants to SAVE it
         } elseif (isset($_POST['savepm'])) {
@@ -1177,8 +1159,6 @@ function sendsaved() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
         }//End of IF...ELSEIF Save/Send PM
         //Store that this code was successful
         $AEF_SESS['postcode'][] = $postedcode;
@@ -1212,10 +1192,6 @@ function check_recipients($posted_recievers, $callfunc = 'writepm_theme') {
 
     $recievers_t = explode(";", $posted_recievers);
 
-    /* echo 'Temp Recievers:<br /><pre>';
-      print_r($recievers_t);
-      echo '</pre>'; */
-
     $recievers = array();
 
     //Just for cleaning
@@ -1229,11 +1205,6 @@ function check_recipients($posted_recievers, $callfunc = 'writepm_theme') {
     }
 
     $recievers = array_unique($recievers);
-
-    /* echo '<pre>';
-      print_r($recievers);
-      echo '</pre>'; */
-
 
     if (empty($recievers)) {
 
@@ -1283,13 +1254,6 @@ function check_recipients($posted_recievers, $callfunc = 'writepm_theme') {
 
         $rec_username[] = $recipients[$i]['username'];
     }
-    /* echo '<pre>';
-      print_r($recipients);
-      echo '</pre>'; */
-
-    /* echo '<pre>';
-      print_r($rec_username);
-      echo '</pre>'; */
 
     //Check the number of users that have come out.
     //Ok so they are not equal
@@ -1903,19 +1867,8 @@ function prunepm() {
                     AND pm_folder = '0'
                     AND pm_time < $time", false);
 
-            /* if(mysql_affected_rows($conn) < 1){
-
-              reporterror('Prune Error' ,'There were some errors in Prunning the Personal Messages in the Inbox Folder. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-              return false;
-
-              } */
-
             //Affected Rows
             $affectedrows = mysql_affected_rows($conn);
-
-            //Free the resources
-            mysql_free_result($qresult);
 
             //Redirect to which folder
             $redirect = 'inbox';
@@ -1929,13 +1882,6 @@ function prunepm() {
                     AND pm_folder = '1'
                     AND pm_time < $time", false);
 
-            /* if(mysql_affected_rows($conn) < 1){
-
-              reporterror('Prune Error' ,'There were some errors in Prunning the Personal Messages in the Sent Items Folder. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-              return false;
-
-              } */
 
             //Affected Rows
             $affectedrows = mysql_affected_rows($conn);
@@ -1955,19 +1901,9 @@ function prunepm() {
                     AND pm_folder = '2'
                     AND pm_time < $time", false);
 
-            /* if(mysql_affected_rows($conn) < 1){
-
-              reporterror('Prune Error' ,'There were some errors in Prunning the Personal Messages in the Drafts Folder. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-              return false;
-
-              } */
 
             //Affected Rows
             $affectedrows = mysql_affected_rows($conn);
-
-            //Free the resources
-            mysql_free_result($qresult);
 
             //Redirect to which folder
             $redirect = 'drafts';
@@ -2140,6 +2076,7 @@ function emptyfolders() {
             }//End of if($makequery[$i][2])
         }//End of loop
         //echo $affectedrows;
+
         /////////////////////////////
         // UPDATE the users PM Count
         /////////////////////////////
@@ -2158,8 +2095,6 @@ function emptyfolders() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
         }
 
         //Redirect
@@ -2172,6 +2107,7 @@ function emptyfolders() {
 }
 
 //End of function
+
 ////////////////////////////////////
 // This function will deletes a PM
 // A single Delete Call
@@ -2316,8 +2252,6 @@ function deletepm($pmidarray, $pmfolder) {
             //Affected Rows
             $affectedrows = $affectedrows + mysql_affected_rows($conn);
 
-            //Free the resources
-            mysql_free_result($qresult);
         }//End of if($makequery[$i][2])
     }//End of loop
     /////////////////////////////
@@ -2337,9 +2271,6 @@ function deletepm($pmidarray, $pmfolder) {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
     }
 
     //Redirect
@@ -2402,5 +2333,3 @@ function countpm() {
 
     /* Ending - Count the Noumber of PM's in each Folder */
 }
-
-?>

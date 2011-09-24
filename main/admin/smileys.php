@@ -282,11 +282,6 @@ function editsm() {
                         smstatus = '$smstatus'
                         WHERE smid = '$smid'", false);
 
-
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('act=admin&adact=smileys&seadact=smman');
 
@@ -321,10 +316,6 @@ function delsm() {
 
     $qresult = makequery("DELETE FROM " . $dbtables['smileys'] . "
                     WHERE smid = '$smid'", false);
-
-
-    //Free the resources
-    mysql_free_result($qresult);
 
     //Redirect
     redirect('act=admin&adact=smileys&seadact=smman');
@@ -452,10 +443,6 @@ function addsm() {
     $filemethod = 0;
 
     $folders = filelist($globals['server_url'] . '/smileys/', 0, 1, 1);
-
-    /* echo '<pre>';
-      print_r($folders);
-      echo '</pre>'; */
 
     getsmileys();
 
@@ -623,10 +610,6 @@ function addsm() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('act=admin&adact=smileys&seadact=smman');
 
@@ -636,5 +619,3 @@ function addsm() {
         $theme['call_theme_func'] = 'addsm_theme';
     }
 }
-
-?>

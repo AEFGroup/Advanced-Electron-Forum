@@ -105,9 +105,6 @@ function emailpmset() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //Redirect
         redirect('act=usercp');
 
@@ -134,10 +131,6 @@ function emailpmset() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
         //Redirect
         redirect('act=usercp');
     } else {
@@ -298,9 +291,6 @@ function forumset() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //Redirect
         redirect('act=usercp');
 
@@ -328,9 +318,6 @@ function forumset() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');

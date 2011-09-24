@@ -480,9 +480,6 @@ function editug() {
                             WHERE member_group_id = '$member_group'", false);
 
 
-                //Free the resources
-                mysql_free_result($qresult);
-
                 //DELETE the permissions set
             } elseif ($user_group['post_count'] == -1 && $post_count != -1) {
 
@@ -528,18 +525,11 @@ function deleteugper($ugid) {
     $qresult = makequery("DELETE FROM " . $dbtables['permissions'] . "
                     WHERE member_group_id = '$ugid'", false);
 
-    //Free the resources
-    mysql_free_result($qresult);
-
-
     //UPDATE the users in that group
     $qresult = makequery("UPDATE " . $dbtables['users'] . "
                         SET u_member_group = '0'
                         WHERE u_member_group = '$ugid'", false);
 
-
-    //Free the resources
-    mysql_free_result($qresult);
 }
 
 //Function to delete User Group
@@ -583,10 +573,6 @@ function delug() {
 
         $qresult = makequery("DELETE FROM " . $dbtables['user_groups'] . "
                         WHERE member_group = '$member_group'", false);
-
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //Does it have any permissions
         if ($user_group['post_count'] == -1) {
@@ -946,10 +932,6 @@ function addug() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //What about the permissions
         if ($post_count == -1) {
 
@@ -981,5 +963,3 @@ function addug() {
         $theme['call_theme_func'] = 'addug_theme';
     }
 }
-
-?>

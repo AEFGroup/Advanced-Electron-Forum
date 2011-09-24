@@ -427,10 +427,6 @@ function delete() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ////////////////////
         // UPDATE the posts
         ////////////////////
@@ -450,9 +446,6 @@ function delete() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //GET the Last Pid
         $lastpost = last_post_topic($tid);
@@ -500,9 +493,6 @@ function delete() {
 
                     return false;
                 }
-
-                //Free the resources
-                mysql_free_result($qresult);
             }
         }
 
@@ -527,9 +517,6 @@ function delete() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //GET the Last Pid TO where its going
         $lastpost = last_post_forum($globals['recyclebin']);
 
@@ -551,10 +538,6 @@ function delete() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //////////////////////
         // Update attachments
         //////////////////////
@@ -564,9 +547,6 @@ function delete() {
             $qresult = makequery("UPDATE " . $dbtables['attachments'] . "
                         SET at_fid = '" . $globals['recyclebin'] . "'
                         WHERE at_pid IN ($pids_str)", false);
-
-            //Free the resources
-            mysql_free_result($qresult);
         }
 
 
@@ -600,9 +580,6 @@ function delete() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //GET the Last Pid
         $lastpost = last_post_topic($tid);
 
@@ -624,10 +601,6 @@ function delete() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ///////////////////////////////
         // UPDATE the users post count
         ///////////////////////////////
@@ -648,8 +621,6 @@ function delete() {
                     return false;
                 }
 
-                //Free the resources
-                mysql_free_result($qresult);
             }
         }
 
@@ -671,11 +642,6 @@ function delete() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
-
 
         //////////////////////
         // Remove Attachments

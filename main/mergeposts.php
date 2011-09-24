@@ -448,10 +448,6 @@ function mergeposts() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         $npids = array();
 
         $npids_str = '';
@@ -540,10 +536,6 @@ function mergeposts() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
 
         ///////////////////////////////
         // UPDATE the users post count
@@ -558,16 +550,7 @@ function mergeposts() {
                                 SET posts = posts - " . $pov['count'] . "
                                 WHERE id = '" . $pov['id'] . "'", false);
 
-                /* if(mysql_affected_rows($conn) < 1){
 
-                  reporterror('Merge Error' ,'The posts were merged but there were some errors in updating the users post count. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-                  return false;
-
-                  } */
-
-                //Free the resources
-                mysql_free_result($qresult);
             }
         }
 
@@ -590,9 +573,6 @@ function mergeposts() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //////////////////////
         // Update attachments
@@ -603,9 +583,6 @@ function mergeposts() {
             $qresult = makequery("UPDATE " . $dbtables['attachments'] . "
                         SET at_pid = '$npid'
                         WHERE at_pid IN ($pids_str)", false);
-
-            //Free the resources
-            mysql_free_result($qresult);
         }
 
 
@@ -620,4 +597,3 @@ function mergeposts() {
     }
 }
 
-?>

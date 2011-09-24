@@ -664,5 +664,3 @@ function last_post_forum_fn($fid) {
 
     return $row;
 }
-
-?>

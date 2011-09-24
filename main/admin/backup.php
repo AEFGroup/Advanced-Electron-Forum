@@ -526,30 +526,7 @@ function tablestructure($table, $crlf) {
         $str .= $crlf . 'DROP TABLE IF EXISTS ' . backquotes($table) . ';' . $crlf;
     }
 
-    /* $str .= 'CREATE TABLE';
-
-      //IF NOT EXISTS
-      if(isset($_POST['ifnotexists'])){
-
-      $str .= ' IF NOT EXISTS';
-
-      }
-
-      //The table name
-      $str .= backquotes($table).' ('.$crlf;
-
-      //Get the fields
-      $qresult = makequery("SHOW COLUMNS FROM ".$table, false);
-
-      //Start the loop
-      for($i = 1; $i <= mysql_num_rows($qresult); $i++){
-
-      $row = mysql_fetch_assoc($qresult);
-
-      $str .= '  '.backquotes($row['Field']).' '.$row['Type'].($row['Null'] != 'YES' ? ' NOT NULL' : '');
-
-      } */
-
+   
     //SET backquotes or not
     if (isset($_POST['backquotes'])) {
 

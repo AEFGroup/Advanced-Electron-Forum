@@ -463,11 +463,6 @@ function delmime() {
     $qresult = makequery("DELETE FROM " . $dbtables['attachment_mimetypes'] . "
                     WHERE atmtid = '$atmtid'", false);
 
-
-    //Free the resources
-    mysql_free_result($qresult);
-
-
     //Redirect
     redirect('act=admin&adact=attach&seadact=attmime');
 

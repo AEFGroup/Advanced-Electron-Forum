@@ -353,10 +353,6 @@ function profile() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('act=usercp'); //IE 7 #redirect not working
 
@@ -681,17 +677,6 @@ function account() {
                 email = '$email'
                 WHERE id = '" . $user['id'] . "'", false);
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Update Error' ,'There were some errors in updating your Account Settings. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-          return false;
-
-          } */
-
-        //Free the resources
-        mysql_free_result($qresult);
-
         //Redirect
         redirect('act=usercp');
     } else {
@@ -773,9 +758,6 @@ function signature() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1149,9 +1131,6 @@ function avatar() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //Redirect
         redirect('act=usercp');
 
@@ -1171,9 +1150,6 @@ function avatar() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //We must delete the old file first if it is there
         delfileavatar();
@@ -1511,8 +1487,6 @@ function personalpic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1533,9 +1507,6 @@ function personalpic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //We must delete the old file first if it is there
         delfileppic();

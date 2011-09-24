@@ -689,10 +689,6 @@ function editpost() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ///////////////////////////////
         // Save the user read the topic
         ///////////////////////////////

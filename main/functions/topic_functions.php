@@ -181,12 +181,6 @@ function delete_topics_fn($tids, $param = array()) {
             $qresult = makequery("UPDATE " . $dbtables['users'] . "
                             SET posts = posts - " . $pv['num'] . "
                             WHERE id = '" . $pv['id'] . "'", false);
-
-            /* if(mysql_affected_rows($conn) < 1){
-
-              return false;
-
-              } */
         }
     }
 
@@ -759,5 +753,3 @@ function last_post_topic_fn($tid) {
 
     return $row;
 }
-
-?>

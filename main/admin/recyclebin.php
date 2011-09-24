@@ -119,18 +119,6 @@ function recyclebin() {
                     WHERE name = 'recyclebin'
                     LIMIT 1", false);
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Edit Forum Error' ,'There were some errors in updating the submitted information of the forum <b>'.$board['fname'].'</b>.');
-
-          return false;
-
-          } */
-
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         /////////////////////////////////
         // UPDATE the recycle bin forum
         /////////////////////////////////
@@ -146,18 +134,6 @@ function recyclebin() {
                     SET    inc_mem_posts = '0'
                     WHERE fid = '$rbfid'", false);
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Recycle Bin Error' ,'There were some errors in updating the submitted information of the forum <b>'.$board['fname'].'</b>.');
-
-          return false;
-
-          } */
-
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ////////////////////////////////////
         // UPDATE the old recycle bin forum
         ////////////////////////////////////
@@ -165,10 +141,6 @@ function recyclebin() {
         $qresult = makequery("UPDATE " . $dbtables['forums'] . "
                     SET    inc_mem_posts = '1'
                     WHERE fid = '" . $globals['recyclebin'] . "'", false);
-
-
-        //Free the resources
-        mysql_free_result($qresult);
 
 
         //Redirect
@@ -180,5 +152,3 @@ function recyclebin() {
         $theme['call_theme_func'] = 'recyclebin_theme';
     }
 }
-
-?>

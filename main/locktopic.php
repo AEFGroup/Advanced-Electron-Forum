@@ -292,11 +292,6 @@ function locktopic() {
     //How many were updated ?
     $updated = $updated + mysql_affected_rows($conn);
 
-
-    //Free the resources
-    mysql_free_result($qresult);
-
-
     //Unlock the topics
     if ($do) {
 
@@ -318,9 +313,6 @@ function locktopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
     }
 
 

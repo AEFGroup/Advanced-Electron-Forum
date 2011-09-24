@@ -764,10 +764,6 @@ function newtopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ///////////////////////////////
         // UPDATE the users post count
         ///////////////////////////////
@@ -784,9 +780,6 @@ function newtopic() {
 
                 return false;
             }
-
-            //Free the resources
-            mysql_free_result($qresult);
         }
 
 
@@ -806,10 +799,6 @@ function newtopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //Increase the stats for todays topic and post count
         $globals['newpost'] = 1;
@@ -945,5 +934,3 @@ function newtopic() {
         $theme['call_theme_func'] = 'newtopic_theme';
     }
 }
-
-?>

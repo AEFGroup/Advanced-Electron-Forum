@@ -705,10 +705,6 @@ function merge() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ////////////////////
         // UPDATE the posts
         ////////////////////
@@ -759,10 +755,6 @@ function merge() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //////////////////////////
         // UPDATE the attachments
         //////////////////////////
@@ -795,10 +787,6 @@ function merge() {
             //Error reporting system still to come
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
 
         ////////////////////////////////
         // UPDATE the forums post count
@@ -823,8 +811,6 @@ function merge() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
         }
 
 
@@ -849,9 +835,6 @@ function merge() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         ////////////////////////////
         // DELETE read_topics table
@@ -865,10 +848,6 @@ function merge() {
             //Error reporting system still to come
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ////////////////////////////
         // DELETE notify_topic table
         ////////////////////////////
@@ -881,10 +860,6 @@ function merge() {
             //Error reporting system still to come
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Looks like everything went well
         //Redirect
         redirect('tid=' . $ntid); //IE 7 #redirect not working
@@ -895,5 +870,3 @@ function merge() {
         $theme['call_theme_func'] = 'merge_theme';
     }
 }
-
-?>

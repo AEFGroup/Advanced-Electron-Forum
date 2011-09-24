@@ -326,10 +326,6 @@ function mainlogin() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         /////////////////////////////////
         // DELETE the USER SESSIONS for
         // if the user is logged in
@@ -338,9 +334,6 @@ function mainlogin() {
         //Make the QUERY
         $qresult = makequery("DELETE FROM " . $dbtables['sessions'] . "
                     WHERE uid = '" . $row['id'] . "'");
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         /////////////////////////////
         //Now lets Sign IN the User
@@ -356,10 +349,6 @@ function mainlogin() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //Process the DATA
         $data = process_as_data();

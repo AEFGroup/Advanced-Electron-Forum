@@ -133,11 +133,7 @@ function modify_registry($array, $compare = 1) {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
     }//End of Loop
     //If everyting went fine
     return true;
 }
-
-?>

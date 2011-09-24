@@ -272,27 +272,6 @@ function pintopic() {
     //How many were updated ?
     $updated = $updated + mysql_affected_rows($conn);
 
-
-    //Free the resources
-    mysql_free_result($qresult);
-
-
-    /* ////////////////////
-      // UPDATE the posts
-      ////////////////////
-
-      $qresult = makequery("UPDATE ".$dbtables['posts']."
-      SET p_top_sticky = '$do'
-      WHERE post_tid IN ($tids_str)", false);
-
-      //How many were updated ?
-      $updated_p = $updated_p + mysql_affected_rows($conn);
-
-
-      //Free the resources
-      mysql_free_result($qresult); */
-
-
     //Pin the topics
     if ($do) {
 
@@ -304,15 +283,6 @@ function pintopic() {
             return false;
         }
 
-        /* //Were posts pinned
-          if($updated_p != $posts){
-
-          reporterror('Pinning Error' ,'There were some errors in pinning the post(s). Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-          return false;
-
-          } */
-
         //Lock Topics
     } else {
 
@@ -323,15 +293,6 @@ function pintopic() {
 
             return false;
         }
-
-        /* //Were posts pinned
-          if($updated_p != $posts){
-
-          reporterror('Pinning Error' ,'There were some errors in unpinning the post(s). Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-          return false;
-
-          } */
     }
 
 
@@ -348,5 +309,3 @@ function pintopic() {
 
     return true;
 }
-
-?>

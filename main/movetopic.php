@@ -507,11 +507,6 @@ function movetopic() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
-
         ///////////////////
         // UPDATE the post
         ///////////////////
@@ -529,10 +524,6 @@ function movetopic() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         //////////////////////////
         // UPDATE the attachments
@@ -692,5 +683,3 @@ function movetopic() {
         $theme['call_theme_func'] = 'movetopic_theme';
     }
 }
-
-?>

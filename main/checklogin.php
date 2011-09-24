@@ -77,7 +77,7 @@ function checklogin() {
         $AEF_SESS['dest_sess'] = time();
     }
 
-
+    
     if ((time() - $AEF_SESS['dest_sess']) > 15 * 60) {
 
         //Perform a Cleanup
@@ -320,9 +320,6 @@ function checklogin() {
 
                 return false;
             }
-
-            //Free the resources
-            mysql_free_result($qresult);
 
             $act = 'error_break';
 

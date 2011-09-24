@@ -592,10 +592,6 @@ function dothis($uids, $do, $act_status) {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         ////////////////////////////
         // UPDATE the latest member
         ////////////////////////////
@@ -610,16 +606,6 @@ function dothis($uids, $do, $act_status) {
                     WHERE name = 'latest_mem'");
 
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Activation Error' ,'Sorry, we were unable to activate your account on the Board because the connection with the Database failed.');
-
-          return false;
-
-          } */
-
-
-
         ////////////////////////////////
         // UPDATE The Total Member Count
         ////////////////////////////////
@@ -627,14 +613,6 @@ function dothis($uids, $do, $act_status) {
         $qresult = makequery("UPDATE " . $dbtables['registry'] . "
                     SET regval = '" . (((int) $globals['num_mem']) + count($users)) . "'
                     WHERE name = 'num_mem'");
-
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Activation Error' ,'Sorry, we were unable to activate your account on the Board because the connection with the Database failed. Please Contact the <a href="mailto:'.$globals['board_email'].'">Administrator</a>.');
-
-          return false;
-
-          } */
 
         //For the stats
         $globals['newuser'] = count($users);
@@ -673,9 +651,6 @@ function dothis($uids, $do, $act_status) {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
         //Send an email
         if ($do == 4) {
 
@@ -685,9 +660,7 @@ function dothis($uids, $do, $act_status) {
                 $mail[$uk]['subject'] = $l['subject_mail_account_deleted'] . $globals['sn'];
                 $mail[$uk]['message'] = $uv['username'] . $l['body_mail_account_deleted'];
             }
-            /* $mail[$uk]['headers'] = 'Reply-To: '.$globals['board_email']."\r\n".
-              'X-Mailer: PHP/'.phpversion(); */
-
+            
             //Pass all Mails to the Mail sending function
             aefmail($mail);
         }

@@ -306,8 +306,6 @@ function edittopic() {
                 return false;
             }
 
-            //Free the resources
-            mysql_free_result($qresult);
         }
 
         //Redirect

@@ -681,4 +681,3 @@ function results() {
     }
 }
 
-?>

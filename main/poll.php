@@ -1287,10 +1287,6 @@ function postpoll() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('tid=' . $tid);
 

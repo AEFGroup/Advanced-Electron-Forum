@@ -258,10 +258,6 @@ function attach_fn($fid, $tid, $pid) {
         return false;
     }
 
-    //Free the resources
-    mysql_free_result($qresult);
-
-
     //////////////////////////////////////////
     // UPDATE the topics table for has_attach
     //////////////////////////////////////////
@@ -276,10 +272,6 @@ function attach_fn($fid, $tid, $pid) {
 
         return false;
     }
-
-    //Free the resources
-    mysql_free_result($qresult);
-
 
     //If other things went well check for other errors
     if (!empty($upload_error)) {
@@ -361,9 +353,6 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
     }//End of $update
     //////////////////////////////////////////
     // UPDATE the topics table for has_attach
@@ -380,10 +369,6 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
         return false;
     }
 
-    //Free the resources
-    mysql_free_result($qresult);
-
-
     //If other things went well check for other errors
     if (!empty($delete_error)) {
 
@@ -395,4 +380,3 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
     return true;
 }
 
-?>

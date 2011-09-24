@@ -253,18 +253,6 @@ function editfpermissions() {
                     AND fpugid = '$fpugid'
                     LIMIT 1", false);
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Edit Forum Error' ,'There were some errors in updating the submitted information of the forum <b>'.$board['fname'].'</b>.');
-
-          return false;
-
-          } */
-
-        //Free the resources
-        mysql_free_result($qresult);
-
-
         //Redirect
         redirect('act=admin&adact=fpermissions');
 
@@ -287,9 +275,6 @@ function editfpermissions() {
 
             return false;
         }
-
-        //Free the resources
-        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=admin&adact=fpermissions');
@@ -514,5 +499,3 @@ function createfpermissions() {
         $theme['call_theme_func'] = 'createfpermissions_theme';
     }
 }
-
-?>

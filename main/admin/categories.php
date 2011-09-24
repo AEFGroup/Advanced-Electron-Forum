@@ -244,9 +244,6 @@ function editcat() {
             return false;
         }
 
-        //Free the resources
-        mysql_free_result($qresult);
-
 
         /////////////////////////////////////
         // Lets Calculate the orders that are
@@ -276,9 +273,6 @@ function editcat() {
 
                         return false;
                     }
-
-                    //Free the resources
-                    mysql_free_result($qresult);
                 }
 
                 //If POSTED Catorder is LESS than the actual original
@@ -301,9 +295,6 @@ function editcat() {
 
                         return false;
                     }
-
-                    //Free the resources
-                    mysql_free_result($qresult);
                 }
             }
         }
@@ -484,9 +475,6 @@ function createcat() {
 
                         return false;
                     }
-
-                    //Free the resources
-                    mysql_free_result($qresult);
                 }
             }
         }
@@ -627,5 +615,3 @@ function catreorder() {
         $theme['call_theme_func'] = 'catreorder_theme';
     }
 }
-
-?>
