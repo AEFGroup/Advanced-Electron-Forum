@@ -89,12 +89,6 @@ function modify_universal($array) {
 
 //End of function
 
-/* $temparr = array('url' => array('http://127.0.0.1/aef', 0),
-  'board_email' => array('pulgup1@gmail.com', 0),
-  'maintenance' => array(1, 1)
-  );
-
-  modify_universal($temparr); */
 
 //Modifies the registry
 function modify_registry($array, $compare = 1) {
@@ -140,7 +134,7 @@ function modify_registry($array, $compare = 1) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }//End of Loop
     //If everyting went fine
     return true;

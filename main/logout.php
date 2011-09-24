@@ -58,10 +58,10 @@ function logout() {
     // DELETE the COOKIES
     ///////////////////////
     //Set a COOKIE for a YEAR of User ID
-    @setcookie($globals['cookie_name'] . '[loguid]', "", (time() - (60 * 60 * 24 * 365)), '/');
+    setcookie($globals['cookie_name'] . '[loguid]', "", (time() - (60 * 60 * 24 * 365)), '/');
 
     //Set a COOKIE for a YEAR of CookPass
-    @setcookie($globals['cookie_name'] . '[logpass]', "", (time() - (60 * 60 * 24 * 365)), '/');
+    setcookie($globals['cookie_name'] . '[logpass]', "", (time() - (60 * 60 * 24 * 365)), '/');
 
 
     //Lets DELETE the USERS Session
@@ -78,7 +78,7 @@ function logout() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Process the DATA
@@ -100,8 +100,6 @@ function logout() {
         return false;
     }
 
-    //Free the resources
-    @mysql_free_result($qresult);
 
     //Redirect to Index
     redirect('');

@@ -171,7 +171,7 @@ function unread() {
         unset($row);
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         $ins = implode(',', $pids); //echo $ins;
         //Get out the topics in this board
@@ -203,7 +203,7 @@ function unread() {
 
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
 
@@ -216,10 +216,10 @@ function unread() {
         $tmp = ceil(($unread[$u]['n_posts'] + 1) / $globals['maxpostsintopics']);
         //echo $tmp;
         //Push it in the array
-        @$unread[$u]['last_page'] = $tmp;
+        $unread[$u]['last_page'] = $tmp;
 
         //Push is_new
-        @$unread[$u]['is_new'] = 1;
+        $unread[$u]['is_new'] = 1;
 
         /////////////////////////////
         // Show the number of pages

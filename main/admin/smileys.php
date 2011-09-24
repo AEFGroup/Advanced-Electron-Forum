@@ -284,7 +284,7 @@ function editsm() {
 
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -324,7 +324,7 @@ function delsm() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Redirect
     redirect('act=admin&adact=smileys&seadact=smman');
@@ -551,7 +551,7 @@ function addsm() {
 
                 $smfile = inputsec(htmlizer(trim($_POST['smfile'])));
 
-                $smsize = @getimagesize($globals['server_url'] . '/smileys/' . $smfolder . '/' . $smfile);
+                $smsize = getimagesize($globals['server_url'] . '/smileys/' . $smfolder . '/' . $smfile);
 
                 //Check is it there
                 if (($smsize[0] < 1) || ($smsize[1] < 1)) {
@@ -575,7 +575,7 @@ function addsm() {
 
                 $smfile_temp = $_FILES['smfile_u']['tmp_name'];
 
-                $smsize = @getimagesize($smfile_temp);
+                $smsize = getimagesize($smfile_temp);
 
                 //Check its an image
                 if (($smsize[0] < 1) || ($smsize[1] < 1)) {
@@ -586,7 +586,7 @@ function addsm() {
                 $smfile = $_FILES['smfile_u']['name'];
 
                 //Finally lets move the File
-                if (!(@move_uploaded_file($smfile_temp, $globals['server_url'] . '/smileys/' . $smfolder . '/' . $smfile))) {
+                if (!(move_uploaded_file($smfile_temp, $globals['server_url'] . '/smileys/' . $smfolder . '/' . $smfile))) {
 
                     $error[] = $l['smiley_image'];
                 }
@@ -624,7 +624,7 @@ function addsm() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect

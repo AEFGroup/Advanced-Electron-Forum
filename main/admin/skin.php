@@ -131,7 +131,7 @@ function manskin() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     if (isset($_POST['editskin'])) {
@@ -417,7 +417,7 @@ function import() {
                 $filename = $globals['themesdir'] . '/' . $_FILES['uploadtheme']['name'];
 
                 //Lets move the Theme File
-                if (!(@move_uploaded_file($tempfile, $filename))) {
+                if (!(move_uploaded_file($tempfile, $filename))) {
 
                     $error[] = $l['errors_uploading'];
                 }
@@ -583,7 +583,7 @@ function uninstall() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     if (isset($_POST['uninstallskin'])) {
@@ -694,7 +694,7 @@ function settings() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Checks the theme_id is set or no
@@ -782,7 +782,7 @@ function settings() {
                         uid = 0");
 
         //Redirect
-        redirect('act=admin&adact=skin&seadact=manskin');
+        redirect('act=admin&adact=skin&seadact=setting');
 
         return true;
     } else {
@@ -808,12 +808,12 @@ function checktheme($path) {
     $regitryfile = $path . '/theme_registry.php';
 
     //Check the file exists
-    if (!(file_exists($regitryfile) && is_file($regitryfile) && @filetype($regitryfile) == "file")) {
+    if (!(file_exists($regitryfile) && is_file($regitryfile) && filetype($regitryfile) == "file")) {
 
         return false;
     } else {
 
-        @include_once($regitryfile); // The theme_registry.php file
+        include_once($regitryfile); // The theme_registry.php file
     }
 
     //Make a array of only the values

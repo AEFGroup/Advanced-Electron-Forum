@@ -245,7 +245,7 @@ function editcat() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         /////////////////////////////////////
@@ -278,7 +278,7 @@ function editcat() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
 
                 //If POSTED Catorder is LESS than the actual original
@@ -303,7 +303,7 @@ function editcat() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
             }
         }
@@ -448,9 +448,6 @@ function createcat() {
             return false;
         }
 
-        //Free the resources
-        @mysql_free_result($qresult);
-
 
         $categories[$newcatid] = array('cid' => $newcatid,
             'name' => $catname,
@@ -489,7 +486,7 @@ function createcat() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
             }
         }

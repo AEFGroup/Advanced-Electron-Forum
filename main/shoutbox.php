@@ -217,7 +217,7 @@ function addshout() {
     
     $color = $assoc['mem_gr_colour'];
     
-    @mysql_free_result($uColorRef); 
+    mysql_free_result($uColorRef); 
     
     $qresult = makequery("INSERT INTO " . $dbtables['shouts'] . "
                     SET shtime = " . time() . ",

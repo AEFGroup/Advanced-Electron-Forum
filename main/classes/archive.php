@@ -4,7 +4,7 @@
   | TAR/GZIP/BZIP2/ZIP ARCHIVE CLASSES 2.1
   | By Devin Doucette
   | Copyright (c) 2005 Devin Doucette
-  | Email: darksnoopy@shaw.ca
+  | Email: darksnoopyshaw.ca
   +--------------------------------------------------
   | Email bugs/suggestions to darksnoopy@shaw.ca
   +--------------------------------------------------
@@ -67,7 +67,7 @@ class archive {
                 $this->error[] = "File {$this->options['name']} already exists.";
                 chdir($pwd);
                 return 0;
-            } else if ($this->archive = @fopen($this->options['name'] . ($this->options['type'] == "gzip" || $this->options['type'] == "bzip" ? ".tmp" : ""), "wb+"))
+            } else if ($this->archive = fopen($this->options['name'] . ($this->options['type'] == "gzip" || $this->options['type'] == "bzip" ? ".tmp" : ""), "wb+"))
                 chdir($pwd);
             else {
                 $this->error[] = "Could not open {$this->options['name']} for writing.";
@@ -190,16 +190,16 @@ class archive {
                         $files[] = $current2;
                 unset($regex, $dir, $temp, $current);
             }
-            else if (@is_dir($current)) {
+            else if (is_dir($current)) {
                 $temp = $this->parse_dir($current);
                 foreach ($temp as $file)
                     $files[] = $file;
                 unset($temp, $file);
-            } else if (@file_exists($current))
+            } else if (file_exists($current))
                 $files[] = array('name' => $current, 'name2' => $this->options['prepend'] .
                     preg_replace("/(\.+\/+)+/", "", ($this->options['storepaths'] == 0 && strstr($current, "/")) ?
                                     substr($current, strrpos($current, "/") + 1) : $current),
-                    'type' => @is_link($current) && $this->options['followlinks'] == 0 ? 2 : 0,
+                    'type' => is_link($current) && $this->options['followlinks'] == 0 ? 2 : 0,
                     'ext' => substr($current, strrpos($current, ".")), 'stat' => stat($current));
         }
 
@@ -219,28 +219,28 @@ class archive {
                                     substr($dirname, strrpos($dirname, "/") + 1) : $dirname), 'type' => 5, 'stat' => stat($dirname)));
         else
             $files = array();
-        $dir = @opendir($dirname);
+        $dir = opendir($dirname);
 
-        while ($file = @readdir($dir)) {
+        while ($file = readdir($dir)) {
             $fullname = $dirname . "/" . $file;
             if ($file == "." || $file == "..")
                 continue;
-            else if (@is_dir($fullname)) {
+            else if (is_dir($fullname)) {
                 if (empty($this->options['recurse']))
                     continue;
                 $temp = $this->parse_dir($fullname);
                 foreach ($temp as $file2)
                     $files[] = $file2;
             }
-            else if (@file_exists($fullname))
+            else if (file_exists($fullname))
                 $files[] = array('name' => $fullname, 'name2' => $this->options['prepend'] .
                     preg_replace("/(\.+\/+)+/", "", ($this->options['storepaths'] == 0 && strstr($fullname, "/")) ?
                                     substr($fullname, strrpos($fullname, "/") + 1) : $fullname),
-                    'type' => @is_link($fullname) && $this->options['followlinks'] == 0 ? 2 : 0,
+                    'type' => is_link($fullname) && $this->options['followlinks'] == 0 ? 2 : 0,
                     'ext' => substr($file, strrpos($file, ".")), 'stat' => stat($fullname));
         }
 
-        @closedir($dir);
+        closedir($dir);
 
         return $files;
     }
@@ -316,7 +316,7 @@ class tar_file extends archive {
                     continue;
                 }
             }
-            $block = pack("a100a8a8a8a12a12a8a1a100a6a2a32a32a8a8a155a12", $current['name2'], sprintf("%07o", $current['stat'][2]), sprintf("%07o", $current['stat'][4]), sprintf("%07o", $current['stat'][5]), sprintf("%011o", $current['type'] == 2 ? 0 : $current['stat'][7]), sprintf("%011o", $current['stat'][9]), "        ", $current['type'], $current['type'] == 2 ? @readlink($current['name']) : "", "ustar ", " ", "Unknown", "Unknown", "", "", !empty($path) ? $path : "", "");
+            $block = pack("a100a8a8a8a12a12a8a1a100a6a2a32a32a8a8a155a12", $current['name2'], sprintf("%07o", $current['stat'][2]), sprintf("%07o", $current['stat'][4]), sprintf("%07o", $current['stat'][5]), sprintf("%011o", $current['type'] == 2 ? 0 : $current['stat'][7]), sprintf("%011o", $current['stat'][9]), "        ", $current['type'], $current['type'] == 2 ? readlink($current['name']) : "", "ustar ", " ", "Unknown", "Unknown", "", "", !empty($path) ? $path : "", "");
 
             $checksum = 0;
             for ($i = 0; $i < 512; $i++)
@@ -326,7 +326,7 @@ class tar_file extends archive {
 
             if ($current['type'] == 2 || $current['stat'][7] == 0)
                 $this->add_data($block);
-            else if ($fp = @fopen($current['name'], "rb")) {
+            else if ($fp = fopen($current['name'], "rb")) {
                 $this->add_data($block);
                 while ($temp = fread($fp, 1048576))
                     $this->add_data($temp);
@@ -386,8 +386,8 @@ class tar_file extends archive {
                     $this->error[] = "Could not extract from {$this->options['name']}, it is corrupt.";
 
                 if ($this->options['inmemory'] == 1) {
-                    $file['data'] = @fread($fp, $file['stat'][7]);
-                    @fread($fp, (512 - $file['stat'][7] % 512) == 512 ? 0 : (512 - $file['stat'][7] % 512));
+                    $file['data'] = fread($fp, $file['stat'][7]);
+                    fread($fp, (512 - $file['stat'][7] % 512) == 512 ? 0 : (512 - $file['stat'][7] % 512));
                     unset($file['checksum'], $file['magic']);
                     $this->files[] = $file;
                 } else if ($file['type'] == 5) {
@@ -400,7 +400,7 @@ class tar_file extends archive {
                 } else if ($file['type'] == 2) {
                     symlink($temp['symlink'], $file['name']);
                     chmod($file['name'], $file['stat'][2]);
-                } else if ($new = @fopen($file['name'], "wb")) {
+                } else if ($new = fopen($file['name'], "wb")) {
                     fwrite($new, fread($fp, $file['stat'][7]));
                     fread($fp, (512 - $file['stat'][7] % 512) == 512 ? 0 : (512 - $file['stat'][7] % 512));
                     fclose($new);
@@ -411,7 +411,7 @@ class tar_file extends archive {
                 }
                 chown($file['name'], $file['stat'][4]);
                 chgrp($file['name'], $file['stat'][5]);
-                @touch($file['name'], $file['stat'][9]);
+                touch($file['name'], $file['stat'][9]);
                 unset($file);
             }
         }
@@ -422,7 +422,7 @@ class tar_file extends archive {
     }
 
     function open_archive() {
-        return @fopen($this->options['name'], "rb");
+        return fopen($this->options['name'], "rb");
     }
 
 }
@@ -457,7 +457,7 @@ class gzip_file extends tar_file {
     }
 
     function open_archive() {
-        return @gzopen($this->options['name'], "rb");
+        return gzopen($this->options['name'], "rb");
     }
 
 }
@@ -492,7 +492,7 @@ class bzip_file extends tar_file {
     }
 
     function open_archive() {
-        return @bzopen($this->options['name'], "rb");
+        return bzopen($this->options['name'], "rb");
     }
 
 }
@@ -510,7 +510,7 @@ class zip_file extends archive {
         $central = "";
 
         if (!empty($this->options['sfx']))
-            if ($fp = @fopen($this->options['sfx'], "rb")) {
+            if ($fp = fopen($this->options['sfx'], "rb")) {
                 $temp = fread($fp, filesize($this->options['sfx']));
                 fclose($fp);
                 $this->add_data($temp);
@@ -549,7 +549,7 @@ class zip_file extends archive {
                 $central .= $current['name2'];
                 $files++;
                 $offset += ( 30 + strlen($current['name2']));
-            } else if ($fp = @fopen($current['name'], "rb")) {
+            } else if ($fp = fopen($current['name'], "rb")) {
                 $temp = fread($fp, $current['stat'][7]);
                 fclose($fp);
                 $crc32 = crc32($temp);

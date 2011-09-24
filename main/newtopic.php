@@ -378,8 +378,9 @@ function newtopic() {
 
 
                 $reserved = explode("\n", $globals['reserved_names']);
+                $reserved_count = count($reserved);
 
-                for ($i = 0; $i < count($reserved); $i++) {
+                for ($i = 0; $i < $reserved_count; $i++) {
 
                     if (!empty($reserved[$i])) {
 
@@ -719,8 +720,6 @@ function newtopic() {
             return false;
         }
 
-        //Free the resources
-        @mysql_free_result($qresult);
 
 
         ///////////////////////
@@ -748,9 +747,6 @@ function newtopic() {
             return false;
         }
 
-        //Free the resources
-        @mysql_free_result($qresult);
-
 
         /////////////////////////////////////////////
         // UPDATE the topics table for first_post_id
@@ -769,7 +765,7 @@ function newtopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////
@@ -790,7 +786,7 @@ function newtopic() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 
@@ -812,7 +808,7 @@ function newtopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Increase the stats for todays topic and post count
@@ -914,7 +910,7 @@ function newtopic() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
 
                 $mail[0]['to'] = $globals['board_email'];
                 $mail[0]['subject'] = lang_vars($l['new_topic_mail_subject'], array($board['fname']));

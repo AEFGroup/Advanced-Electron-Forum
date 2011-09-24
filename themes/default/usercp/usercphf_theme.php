@@ -9,225 +9,243 @@ function usercphead($title = '') {
 
     echo '<link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/usercp.css" />
     <br />
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-    <td width="20%" valign="top" style="padding-right:10px">
-
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f3f2f2">
-      <tr>
-        <td class="ucpsidehead">
-        &nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'usercp/profile.gif" />&nbsp;&nbsp;&nbsp;' . $l['profile'] . '
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'profile' ? 'ucpsidesel' : 'ucpsidelink') . '">
+    <div width="100%" cellpadding="0" cellspacing="0" border="0">
+    <div>
+    <!-- <div width="20%" valign="top" style="padding-right:10px">
+    
+     <div width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f3f2f2">
+      <div>
+        <div class="ucpsidehead">
+        &nbsp;&nbsp;&nbsp;<img src="" />&nbsp;&nbsp;&nbsp;
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'profile' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=profile">' . $l['general'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'account' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'account' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=account">' . $l['account'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'signature' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'signature' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=signature">' . $l['signature'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'avatar' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'avatar' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=avatar">' . $l['avatar'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'personalpic' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'personalpic' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=personalpic">' . $l['per_pic'] . '</a>
-        </td>
-      <tr>
+        </div>
+      <div>
 
-      <tr>
-        <td class="ucpsidehead">
+      <div>
+        <div class="ucpsidehead">
         &nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'usercp/pm.gif" />&nbsp;&nbsp;' . $l['messages'] . '
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'inbox' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'inbox' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=inbox">&nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'smallarrow.gif" /> &nbsp;' . $l['inbox'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'drafts' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'drafts' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=drafts">&nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'smallarrow.gif" /> &nbsp;' . $l['drafts'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'sentitems' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'sentitems' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=sentitems">&nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'smallarrow.gif" /> &nbsp;' . $l['sent_items'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'writepm' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'writepm' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm">' . $l['compose'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'emptyfolders' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'emptyfolders' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=emptyfolders">' . $l['empty_folders'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'searchpm' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'searchpm' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=searchpm">' . $l['search'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'trackpm' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'trackpm' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=trackpm">' . $l['track'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'prunepm' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'prunepm' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=prunepm">' . $l['prune'] . '</a>
-        </td>
-      <tr>
+        </div>
+      <div>
 
-      <tr>
-        <td class="ucpsidehead">
+      <div>
+        <div class="ucpsidehead">
         &nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'usercp/settings.gif" />&nbsp;&nbsp;&nbsp;' . $l['settings'] . '
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'forumset' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'forumset' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=forumset">' . $l['board'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'emailpmset' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'emailpmset' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=emailpmset">' . $l['email_pm'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'themeset' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'themeset' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=themeset&theme_id=' . $globals['theme_id'] . '">' . $l['theme'] . '</a>
-        </td>
-      <tr>
+        </div>
+      <div>
 
-      <tr>
-        <td class="ucpsidehead">
+      <div>
+        <div class="ucpsidehead">
         &nbsp;&nbsp;&nbsp;<img src="' . $theme['images'] . 'usercp/notifications.gif" />&nbsp;&nbsp;' . $l['notifications'] . '
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'topicsub' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'topicsub' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=topicsub">' . $l['topic'] . '</a>
-        </td>
-      <tr>
-      <tr>
-        <td class="' . ($ucpact == 'forumsub' ? 'ucpsidesel' : 'ucpsidelink') . '">
+        </div>
+      <div>
+      <div>
+        <div class="' . ($ucpact == 'forumsub' ? 'ucpsidesel' : 'ucpsidelink') . '">
         <a href="' . $globals['index_url'] . 'act=usercp&ucpact=forumsub">' . $l['forum'] . '</a>
-        </td>
-      <tr>
-    </table>
+        </div>
+      <div>
+    </div>
 
-    </td>
+    </div> -->
 
-    <td valign="top">
+    <div valign="top">
 
-    <div class="ucptab">
-    <table width="100%" border="0" cellpadding="4" cellspacing="0">
-    <tr>
+    <div>
+    <div>
+    <div>
+    <div id="top_menu">
+        <div id="topmenu_branch">
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=profile"><img src="' . $theme['images'] . 'usercp/profile.png"></a>
+            <p>' . $l['profile'] . '</p>
+        </div>
+        <div id="topmenu_branch">
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=inbox"><img src="' . $theme['images'] . 'usercp/pm.png"></a>
+            <p>' . $l['messages'] . '</p>
+        </div>
+        <div id="topmenu_branch">
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=forumset"><img src="' . $theme['images'] . 'usercp/settings.png"></a>
+            <p>' . $l['settings'] . '</p>
+        </div>
+        <div id="topmenu_branch">
+            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=topicsub"><img src="' . $theme['images'] . 'usercp/notifications.png"></a>
+            <p>' . $l['notifications'] . '</p>
+        </div>
+    </div>
 
-    <td valign="bottom" align="center" ' . (in_array($ucpact, array('profile', 'account', 'signature', 'avatar', 'personalpic')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=profile\'"') . ' width="25%">
+    <!-- <div valign="bottom" align="center" ' . (in_array($ucpact, array('profile', 'account', 'signature', 'avatar', 'personalpic')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=profile\'"') . ' width="25%">
     <img src="' . $theme['images'] . 'usercp/profile.gif" /><br />
     <div class="icoexp">' . $l['profile'] . '</div>
-    </td>
+    </div> 
 
-    <td valign="bottom" align="center" ' . (in_array($ucpact, array('showpm', 'showsentpm', 'inbox', 'sentitems', 'drafts', 'trackpm', 'writepm', 'searchpm', 'sendsaved', 'prunepm', 'emptyfolders', 'delpm')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=inbox\'"') . ' width="25%">
+    <div valign="bottom" align="center" ' . (in_array($ucpact, array('showpm', 'showsentpm', 'inbox', 'sentitems', 'drafts', 'trackpm', 'writepm', 'searchpm', 'sendsaved', 'prunepm', 'emptyfolders', 'delpm')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=inbox\'"') . ' width="25%">
     <img src="' . $theme['images'] . 'usercp/pm.gif" /><br />
     <div class="icoexp">' . $l['messages'] . '</div>
-    </td>
+    </div>
 
-    <td valign="bottom" align="center" ' . (in_array($ucpact, array('emailpmset', 'forumset', 'themeset')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=forumset\'"') . ' width="25%">
+    <div valign="bottom" align="center" ' . (in_array($ucpact, array('emailpmset', 'forumset', 'themeset')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=forumset\'"') . ' width="25%">
     <img src="' . $theme['images'] . 'usercp/settings.gif" /><br />
     <div class="icoexp">' . $l['settings'] . '</div>
-    </td>
+    </div>
 
-    <td valign="bottom" align="center" ' . (in_array($ucpact, array('topicsub', 'forumsub')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=topicsub\'"') . ' width="25%">
+    <div valign="bottom" align="center" ' . (in_array($ucpact, array('topicsub', 'forumsub')) ? 'class="ucpicosel"' : 'onmouseover="this.className=\'ucpicoon\'" onmouseout="this.className=\'ucpiconor\'" class="ucpiconor" onclick="window.location=\'' . $globals['index_url'] . 'act=usercp&ucpact=topicsub\'"') . ' width="25%">
     <img src="' . $theme['images'] . 'usercp/notifications.gif" /><br />
     <div class="icoexp">' . $l['notifications'] . '</div>
-    </td>
+    </div> -->
 
-    </tr>
-    </table>
-    <table width="100%" border="0" cellpadding="4" cellspacing="0" class="ucpsubtab">
-        <tr>';
+    </div>
+    </div>
+    <div class="ucpsubtab">
+        <ul align="center">';
 
     if (in_array($ucpact, array('profile', 'account', 'signature', 'avatar', 'personalpic'))) {
 
-        echo '<td class="' . ($ucpact == 'profile' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=profile">' . $l['general'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'account' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=account">' . $l['account'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'signature' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=signature">' . $l['signature'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'avatar' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=avatar">' . $l['avatar'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'personalpic' ? 'ucpstsel' : 'ucpst') . '" align="center" width="25%">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=personalpic">' . $l['per_pic'] . '</a>
-            </td>';
+        echo '<li style="display: inline;" class="' . ($ucpact == 'profile' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 30px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=profile">' . $l['general'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'account' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 30px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=account">' . $l['account'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'signature' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 30px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=signature">' . $l['signature'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'avatar' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 30px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=avatar">' . $l['avatar'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'personalpic' ? 'app_selected' : 'app') . '" align="center" width="25%">
+            <a style="padding: 20px 15px 10px; font-size: 30px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=personalpic">' . $l['per_pic'] . '</a>
+            </li>';
     } elseif (in_array($ucpact, array('showpm', 'showsentpm', 'inbox', 'sentitems', 'drafts', 'trackpm', 'writepm', 'searchpm', 'delpm', 'emptyfolders', 'prunepm', 'sendsaved'))) {
 
-        echo '<td class="' . ($ucpact == 'inbox' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=inbox">' . $l['inbox'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'drafts' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=drafts">' . $l['drafts'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'sentitems' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=sentitems">' . $l['sent_items'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'writepm' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm">' . $l['compose'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'emptyfolders' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=emptyfolders">' . $l['empty_folders'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'searchpm' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=searchpm">' . $l['search'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'trackpm' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=trackpm">' . $l['track'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'prunepm' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=prunepm">' . $l['prune'] . '</a>
-            </td>';
+        echo '<li style="display: inline;" class="' . ($ucpact == 'inbox' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=inbox">' . $l['inbox'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'drafts' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=drafts">' . $l['drafts'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'sentitems' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=sentitems">' . $l['sent_items'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'writepm' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=writepm">' . $l['compose'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'emptyfolders' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=emptyfolders">' . $l['empty_folders'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'searchpm' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=searchpm">' . $l['search'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'trackpm' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=trackpm">' . $l['track'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'prunepm' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=prunepm">' . $l['prune'] . '</a>
+            </li>';
     } elseif (in_array($ucpact, array('forumset', 'themeset', 'emailpmset'))) {
 
-        echo '<td class="' . ($ucpact == 'forumset' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=forumset">' . $l['board'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'emailpmset' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=emailpmset">' . $l['email_pm'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'themeset' ? 'ucpstsel' : 'ucpst') . '" align="center">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=themeset&theme_id=' . $globals['theme_id'] . '">' . $l['theme'] . '</a>
-            </td>';
+        echo '<li style="display: inline;" class="' . ($ucpact == 'forumset' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=forumset">' . $l['board'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'emailpmset' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=emailpmset">' . $l['email_pm'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'themeset' ? 'app_selected' : 'app') . '" align="center">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=themeset&theme_id=' . $globals['theme_id'] . '">' . $l['theme'] . '</a>
+            </li>';
     } elseif (in_array($ucpact, array('topicsub', 'forumsub'))) {
 
-        echo '<td class="' . ($ucpact == 'topicsub' ? 'ucpstsel' : 'ucpst') . '" align="center" width="15%">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=topicsub">' . $l['topic'] . '</a>
-            </td>
-            <td class="' . ($ucpact == 'forumsub' ? 'ucpstsel' : 'ucpst') . '" align="left">
-            <a href="' . $globals['index_url'] . 'act=usercp&ucpact=forumsub">' . $l['forum'] . '</a>
-            </td>';
+        echo '<li style="display: inline;" class="' . ($ucpact == 'topicsub' ? 'app_selected' : 'app') . '" align="center" width="15%">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=topicsub">' . $l['topic'] . '</a>
+            </li>
+            <li style="display: inline;" class="' . ($ucpact == 'forumsub' ? 'app_selected' : 'app') . '" align="left">
+            <a style="padding: 20px 15px 10px; font-size: 18px;" href="' . $globals['index_url'] . 'act=usercp&ucpact=forumsub">' . $l['forum'] . '</a>
+            </li>';
     }
 
-    echo '</tr>
-    </table>
+    echo '</div>
+    </div>
     </div>
     <br />';
 }
@@ -238,9 +256,9 @@ function usercpfoot() {
 
     global $globals, $theme;
 
-    echo '</td>
-    </tr>
-    </table><br /><br />';
+    echo '</div>
+    </div>
+    </div><br /><br />';
 
     //Global footers
     aeffooter();

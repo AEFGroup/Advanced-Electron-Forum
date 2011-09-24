@@ -342,8 +342,9 @@ function editforum() {
     $user_group_ids = array_keys($member_group['all']);
 
     $presentlyall = explode(',', $board['member_group']);
+    $presentlyall_count = count($presentlyall);
 
-    for ($i = 0; $i < count($presentlyall); $i++) {
+    for ($i = 0; $i < $presentlyall_count; $i++) {
 
         $member_group['presentlyallowed'][$presentlyall[$i]] = $presentlyall[$i];
     }
@@ -374,7 +375,7 @@ function editforum() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -775,7 +776,7 @@ function editforum() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
             }
 
@@ -812,7 +813,7 @@ function editforum() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }//End of for loop
             } elseif ($forum_order > $board[$edit_field]) {
 
@@ -843,7 +844,7 @@ function editforum() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
             }//End of if($forum_order < $default)
         }
@@ -1027,7 +1028,7 @@ function createforum() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     ///////////////////////////////////////
@@ -1421,8 +1422,6 @@ function createforum() {
                     return false;
                 }
 
-                //Free the resources
-                @mysql_free_result($qresult);
             }
         }
 
@@ -1538,9 +1537,10 @@ function neworder($motherforumid) {
         }//End of main loop
         //Board Level to trap
         $the_board_level = $its_board_level + 1;
+        $its_in_boards_count = count($its_in_boards);
 
         //A final loop
-        for ($i = 0; $i < count($its_in_boards); $i++) {
+        for ($i = 0; $i < $its_in_boards_count; $i++) {
 
             if ($its_in_boards[$i]['board_level'] == $the_board_level) {
 

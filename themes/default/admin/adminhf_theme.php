@@ -34,24 +34,41 @@ function adminhead($title = '') {
     //Global Headers
     aefheader($title);
     ?>
-
+    <script type="text/javascript" language="javascript">
+		umimages = "<?php echo $theme['images']; ?>";
+	</script>
+	<link rel="stylesheet" type="text/css" href="<?php echo $theme['url']; ?>/adminstyle.css" />
+	<script language="javascript" type="text/javascript" src="<?php echo $theme['url']; ?>/js/slidemenu.js"></script>
+	<script type="text/javascript">
+	var admenu;
+	function init_admenu() {
+		admenu = new SDMenu("admenu");
+		admenu.init();
+	}
+	</script>
+	<div id="top_menu">
+		<div id="topmenu_branch">
+			<a href="<?php echo $globals['index_url']; ?>act=admin&adact=coresection"><img src="<?php echo $theme['images']; ?>/admin/corecenter.png" /></a>
+			<p><?php echo $l['core_center']; ?></p>
+		</div>
+		<div id="topmenu_branch">
+			<a href="<?php echo $globals['index_url']; ?>act=admin&adact=externalsection"><img src="<?php echo $theme['images']; ?>/admin/externalcenter.png" /></a>
+			<p><?php echo $l['external_center']; ?></p>
+		</div>
+		<div id="topmenu_branch">
+			<a href="#"><img src="<?php echo $theme['images']; ?>/admin/contentcenter.png" /></a>
+			<p><?php echo $l['content_center']; ?></p>
+		</div>
+		<div id="topmenu_branch">
+			<a href="#"><img src="<?php echo $theme['images']; ?>/admin/memberscenter.png" /></a>
+			<p><?php echo $l['members_center']; ?></p>
+		</div>
+	</div>
     <table width="100%">
         <tr>
-            <td width="23%" valign="top">
+           <!-- <td width="23%" valign="top">
 
-                <script type="text/javascript" language="javascript">
-                    umimages = "<?php echo $theme['images']; ?>";
-                </script>
-
-                <link rel="stylesheet" type="text/css" href="<?php echo $theme['url']; ?>/adminstyle.css" />
-                <script language="javascript" type="text/javascript" src="<?php echo $theme['url']; ?>/js/slidemenu.js"></script>
-                <script type="text/javascript">
-                    var admenu;
-                    function init_admenu() {
-                        admenu = new SDMenu("admenu");
-                        admenu.init();
-                    }
-                </script>
+                
 
                 <div id="admenu" class="sdmenu">
                     <div style="border:1px solid #CCC">
@@ -194,7 +211,7 @@ function adminhead($title = '') {
 
                 </div>
 
-            </td>
+            </td>-->
 
             <td valign="top">
 

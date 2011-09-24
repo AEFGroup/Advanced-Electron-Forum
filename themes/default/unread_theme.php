@@ -134,7 +134,7 @@ function unread_theme() {
 
         <tr>
         <td align="left" width="50%">
-        <img src="' . $theme['images'] . 'topics/00.png" />&nbsp;&nbsp;' . $l['normal_topic'] . '
+        <img src="' . $theme['images'] . 'topics/normal.png" />&nbsp;&nbsp;' . $l['normal_topic'] . '
         </td>
         <td align="left" width="50%">
         <img src="' . $theme['images'] . 'topics/closed.png" />&nbsp;&nbsp;' . $l['closed_topic'] . '
@@ -143,7 +143,7 @@ function unread_theme() {
 
         <tr>
         <td align="left">
-        <img src="' . $theme['images'] . 'topics/10.png" />&nbsp;&nbsp;' . $l['hot_topic'] . '
+        <img src="' . $theme['images'] . 'topics/hot.png" />&nbsp;&nbsp;' . $l['hot_topic'] . '
         </td>
         <td align="left">
         <img src="' . $theme['images'] . 'topics/pinned.png" />&nbsp;&nbsp;' . $l['pinned_topic'] . '
@@ -152,7 +152,7 @@ function unread_theme() {
 
         <tr>
         <td align="left">
-        <img src="' . $theme['images'] . 'topics/01.png" />&nbsp;&nbsp;' . $l['poll_topic'] . '
+        <img src="' . $theme['images'] . 'topics/poll.png" />&nbsp;&nbsp;' . $l['poll_topic'] . '
         </td>
         <td align="left">
         <img src="' . $theme['images'] . 'topics/moved.png" />&nbsp;&nbsp;' . $l['moved_topic'] . '

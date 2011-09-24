@@ -1,6 +1,6 @@
 <?php
 
-function aefheader($title = '') {
+function aefheader($title = '', $stats_panel = '') {
 
     global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $feeds, $dbtables;
 
@@ -20,6 +20,23 @@ function aefheader($title = '') {
     <script language="javascript" src="' . $theme['url'] . '/js/universal.js" type="text/javascript"></script>
     <script language="javascript" src="' . $theme['url'] . '/js/menu.js" type="text/javascript"></script>
     <script language="javascript" src="' . $theme['url'] . '/js/domdrag.js" type="text/javascript"></script>
+	<script type="text/javascript" src="' . $theme['url'] . '/jquery.min.js"></script>
+	<script type="text/javascript">
+		var $j = jQuery.noConflict();
+		$j(document).ready(function(){
+			$j("#login.trigger").click(function(){
+				$j("#login.panel").toggle("fast");
+				$j(this).toggleClass("active");
+				return false;
+			});
+			$j("#stats.trigger").click(function(){
+				$j("#stats.panel").toggle("fast");
+				$j(this).toggleClass("active");
+				return false;
+			});
+		});
+	</script>
+
 <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 boardurl = \'' . $globals['url'] . '/\';
 indexurl = \'' . $globals['index_url'] . '\';
@@ -30,40 +47,61 @@ imgurl = \'' . $theme['images'] . '\';
 
     echo '<div class="header" id="header" width="100%" >
     <div>
-        <div style="float:left;">
+        <div style="float:left;" class="logo_area">
 			<a class="logo" href="' . $globals['ind'] . '">
 				<img class="default" height="90" src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo.png') . '" alt="" />
 				<img class="hover" height="90" src="' . (!empty($theme['headerimg']) ? $theme['headerimg'] : $theme['images'] . 'aeflogo_hover.png') . '" alt="" />
 			</a>
         </div>
-
-        <div style="float:right;" class="welcome">';
+        
+         <div style="float:right;" class="welcome">';
 
     if ($logged_in) {
         $uColorRef = makequery("SELECT mem_gr_colour FROM " . $dbtables['user_groups'] . " WHERE member_group = " . $user['u_member_group'] . " LIMIT 1");
-
         if (mysql_num_rows($uColorRef) == 0) {
             return false;
         }
-
         $assoc = mysql_fetch_assoc($uColorRef);
-
         $color = $assoc['mem_gr_colour'];
-
-        @mysql_free_result($uColorRef);
-        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
+        mysql_free_result($uColorRef);
+        
+        switch ($user['avatar_type']){
+			case '1':
+			$avatar_url = $globals['url'] . '/avatars/' . $user['avatar'];
+			break;
+			case '2':
+			$avatar_url = $user['avatar'];
+			break;
+			case '3':
+			$avatar_url = $globals['url'] . '/uploads/avatars/' . $user['avatar'];
+			break;
+			default:
+			$avatar_url = $globals['url'] . '/avatars/unknown.png';
+			break;
+		}
+        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b><img src="'. $avatar_url .'" alt="" width="20" height="20">&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
     } else {
-
         echo '<b>' . $l['welcome'] . '</b> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';
     }
 
     echo '</div>
 
     </div>
-
+<br><br><br>
     <div>
-
-        <div style="float:right;" valign="bottom">';
+<div style="float:right;margin-top:-5px;" class="search_box">
+			<form accept-charset="' . $globals['charset'] . '" name="ddsearch" method="get" action="' . $globals['ind'] . '">
+			<label id="search_label" class="search_label" for="allwords" style="display: block;" >' . $l['nav_search'] . '</label>
+				<input type="text" name="allwords" class="search_input" onclick="document.getElementById(\'search_label\').style.display = \'none\';" onBlur="if(this.value == \'\'){document.getElementById(\'search_label\').style.display = \'block\';}" />
+				<input type="submit"  name="search" style="display:none;"/>
+				<input type="hidden" name="act" value="search" />
+				<input type="hidden" name="sact" value="results" />
+				<input type="hidden" name="within" value="1" />
+				<input type="hidden" name="forums[]" value="0" />
+				<input type="hidden" name="showas" value="1" />
+			</form>
+		</div>
+        <div style="float:right;top:5%;" valign="bottom">';
 
     //Array Holding the Options to be imploded
     $opt = array();
@@ -109,14 +147,7 @@ createmenu("pmopt", [
 
     //Can He search
     if (!empty($user['can_search'])) {
-
         $opt[] = '<a href="' . $globals['ind'] . 'act=search" style="position:relative;" onmouseover="dropmenu(this, \'ddsearch\')" onmouseout="pullmenu(\'ddsearch\')">' . $l['nav_search'] . '</a>';
-        echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-createmenu("ddsearch", [
-[\'<form accept-charset="' . $globals['charset'] . '" name="ddsearch" method="get" action="' . $globals['ind'] . '"><input type="text" name="allwords" /><input type="submit" value="' . $l['nav_submit_search'] . '" name="search" /><input type="hidden" name="act" value="search" /><input type="hidden" name="sact" value="results" /><input type="hidden" name="within" value="1" /><input type="hidden" name="forums[]" value="0" /><input type="hidden" name="showas" value="1" /><\/form>\'],
-[\'<a href="' . $globals['ind'] . 'act=search">' . $l['nav_advanced_search'] . '<\/a>\'],
-]);
-// ]]></script>';
     }
 
     //The Calendar
@@ -142,14 +173,14 @@ createmenu("quicklinks", [' . $quick_links . ']);
     }
 
     //Quick Login
-    if (empty($logged_in)) {
+    /*if (empty($logged_in)) {
 
         $opt[] = '<form accept-charset="' . $globals['charset'] . '" action="' . $globals['ind'] . 'act=login"  method="post" name="loginform">
         <input type="text" size="9" name="username" class="ql" value="' . $l['username'] . '" onfocus="(this.value==\'' . $l['username'] . '\' ? this.value=\'\' : void(0))" />&nbsp;
         <input type="password" size="9" name="password" class="ql" value="' . $l['password'] . '" onfocus="(this.value==\'' . $l['password'] . '\' ? this.value=\'\' : void(0))" />&nbsp;
         <input type="submit" name="login" value="' . $l['sign_in'] . '" class="ql" />
 </form>';
-    }
+    }*/
 
     //this is the users menu table
     echo '<div width="100%" style="height:35px;">
@@ -161,14 +192,12 @@ createmenu("quicklinks", [' . $quick_links . ']);
     echo '</div>
                 </div>
             </div>
-
         </div>
+     </div>
 
-    </div>
+    </div><div class="header">';
 
-    </div>';
-
-    echo (empty($theme['headernavtree']) ? '' : tree() . '<br /><br />');
+    echo (empty($theme['headernavtree']) ? '</div>' : tree() . '</div>');
 
 
     if (!empty($theme['headerads'])) {
@@ -299,9 +328,38 @@ addonload(\'init_fixedshoutbox();\');
 <tr><td class="dwhc">' . $l['group_message'] . '</td></tr>
 <tr><td>' . $user['group_message'] . '</td></tr></table><br />';
     }
+    if(!$logged_in){
+    ?>
+<div id="login" class="panel">
+	<form accept-charset="<?php echo $globals['charset']; ?>" action="<?php echo $globals['ind'];?>act=login" method="post" name="loginform">
+                           
+                            <div>
+								<b><?php echo $l['username']; ?></b>
+                                <input type="text" size="20" name="username" <?php echo ( (isset($_POST['username'])) ? 'value="' . $_POST['username'] . '"' : '' ); ?> />
+                                <br><b><?php echo $l['password']; ?></b>
+                                <input type="password" size="20" name="password" />
+								<input type="submit" name="login" value="<?php echo $l['sign_in']; ?>" style="margin-top:-20px;-moz-box-shadow:none;-webkit-box-shadow:none;"/>
+							</div>
 
-    //everything will go after this
-    echo '<div id="main_body">';
+                    </div>
+                </form>
+<div style="clear:both;"></div>
+</div>
+<a id="login" class="trigger" href="#"></a>
+<?php
+}
+//everything will go after this
+?>
+<div id="stats" class="panel">
+<?php echo $stats_panel; ?>
+<div style="clear:both;"></div>
+</div>
+    <a id="stats" class="trigger" href="#"></a>
+        
+    <div id="main_body">
+
+<?php
+		
 }
 
 function aeffooter() {
@@ -407,9 +465,8 @@ function error_handle($error, $table_width = '100%', $center = false) {
     //on error call the form
     if (!empty($error)) {
 
-        echo '<table width="' . $table_width . '" cellpadding="2" cellspacing="1" class="error" ' . (($center) ? 'align="center"' : '' ) . '>
-            <tr>
-            <td>
+        echo '
+            <div width="' . $table_width . '" class="error" ' . (($center) ? 'align="center"' : '' ) . '>
             ' . $l['following_errors_occured'] . ' :
             <ul type="square">';
 
@@ -420,9 +477,7 @@ function error_handle($error, $table_width = '100%', $center = false) {
 
 
         echo '</ul>
-            </td>
-            </tr>
-            </table>' . (($center) ? '</center>' : '' ) . '
+            </div>' . (($center) ? '</center>' : '' ) . '
             <br />';
     }
 }
@@ -462,27 +517,20 @@ function majorerror($title, $text, $heading = '') {
     aefheader(((empty($title)) ? $l['fatal_error'] : $title));
     ?>
 
-    <table width="70%" cellpadding="2" cellspacing="1" class="cbor" align="center">
+    <div width="70%" class="division" align="center">
+        <div class="topbar" align="left">
+            <h3><?php echo ((empty($heading)) ? $l['following_fatal_error'] . ':' : $heading); ?></h3>
+        </div>
 
-        <tr>
-            <td class="patcbg" align="left">
-                <b><?php echo ((empty($heading)) ? $l['following_fatal_error'] . ':' : $heading); ?></b>
-            </td>
-        </tr>
-
-        <tr>
-            <td class="ucpfcbg1" colspan="2" align="center">
-                <img src="<?php echo $theme['images']; ?>sigwrite.png" alt="" />
-            </td>
-        </tr>
-
-        <tr>
-            <td class="ucpflc" align="left"><?php echo $text; ?><br />
-            </td>
-        </tr>
-
-    </table>
-    <br /><br /><br />
+        <div class="ucpfcbg1" colspan="2" align="center">
+            <img src="<?php echo $theme['images']; ?>sigwrite.png" alt="" />
+        </div>
+        <div style="clear:both"></div>
+        <div class="ucpflc" align="left" style="margin-top: 10px;">
+            <?php echo $text; ?><br />
+        </div>
+    </div>
+    <div style="clear:both"></div>
 
     <?php
     aeffooter();

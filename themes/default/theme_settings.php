@@ -179,8 +179,11 @@ $theme['admin/moderators'] = $theme['path'] . '/admin/moderators_theme.php';
 $theme['admin/recyclebin'] = $theme['path'] . '/admin/recyclebin_theme.php';
 
 
-// The Administration Center Forums Section
+// The Administration Topics,Posts,Polls
 $theme['admin/tpp'] = $theme['path'] . '/admin/tpp_theme.php';
+
+// The Administration Center Forums Section
+$theme['admin/sections'] = $theme['path'] . '/admin/sections_theme.php';
 
 
 // The Administration Center Reg and Login Settings

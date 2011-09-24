@@ -18,12 +18,10 @@ div.sdmenu div.collapsed {
 }
 div.sdmenu div span {
     display: block;
-    padding: 5px 5px 5px 18px;
+    padding: 5px 5px 5px 10px;
     font-weight: bold;
     color: #000000;
-    background: url(images/expanded.png) no-repeat 5px center;
     cursor: pointer;
-    border: 1px solid #ddd;
 }
 div.sdmenu div.collapsed span {
     background-image: url(images/collapsed.png);

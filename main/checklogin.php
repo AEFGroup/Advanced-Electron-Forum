@@ -322,7 +322,7 @@ function checklogin() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             $act = 'error_break';
 

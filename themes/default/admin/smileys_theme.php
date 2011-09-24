@@ -32,72 +32,50 @@ function smset_theme() {
     adminhead($l['cp_sm_smiley_set']);
     ?>
 
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <div class="cbor" align="center">
 
-        <tr>
-            <td align="right" width="40%" class="adcbg1">
-                <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            </td>
-            <td align="left" class="adcbg1">
+        <div>
+            <img src="<?php echo $theme['images']; ?>admin/smileys.png">
+            <font class="adgreen"><?php echo $l['smiley_set']; ?></font><br />
+        </div>
 
-                <font class="adgreen"><?php echo $l['smiley_set']; ?></font><br />
-
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left" colspan="2" class="adbg">
+        <div class="expl">
                 <?php echo $l['smiley_set_exp']; ?>
-            </td>
-        </tr>
+        </div>
 
-    </table>
+    </div>
     <br /><br />
     <?php
     error_handle($error, '100%');
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="smsetform">
-        <table width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div class="division">
 
-            <tr>
-                <td class="adcbg" colspan="2">
-                    <?php echo $l['smiley_set']; ?>
-                </td>
-            </tr>
+            <div class="topbar">
+                <h3><?php echo $l['smiley_set']; ?></h3>
+            </div>
 
-            <tr>
-                <td width="35%" class="adbg">
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['use_smileys']; ?></b><br />
                     <font class="adexp"><?php echo $l['use_smileys_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="usesmileys" <?php echo ($globals['usesmileys'] ? 'checked="checked"' : ''); ?> />
-                </td>
-            </tr>
+                </div>
+                <input type="checkbox" name="usesmileys" <?php echo ($globals['usesmileys'] ? 'checked="checked"' : ''); ?> />
+            </div>
 
-            <tr>
-                <td width="35%" class="adbg">
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['space_boundary']; ?></b><br />
                     <font class="adexp"><?php echo $l['space_boundary_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="smiley_space_boundary" <?php echo ($globals['smiley_space_boundary'] ? 'checked="checked"' : ''); ?> />
-                </td>
-            </tr>
-
-        </table>
-
-        <br /><br />
-
-        <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <tr>
-                <td align="center" class="adbg">
-                    <input type="submit" name="editsmset" value="<?php echo $l['submit']; ?>" />
-                </td>
-            </tr>
-        </table>
-
+                </div>
+                <input type="checkbox" name="smiley_space_boundary" <?php echo ($globals['smiley_space_boundary'] ? 'checked="checked"' : ''); ?> />
+            </div>
+            <input type="submit" name="editsmset" value="<?php echo $l['submit']; ?>" />
+            <div style="clear:both;"></div>
+        </div>
     </form>
 
     <?php
@@ -112,107 +90,107 @@ function smman_theme() {
     adminhead($l['cp_sm_manage_smileys']);
     ?>
 
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
 
-        <tr>
-            <td align="right" width="40%" class="adcbg1">
+        <div>
+            <div align="right" width="40%" class="adcbg1">
                 <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            </td>
-            <td align="left" class="adcbg1">
+            </div>
+            <div align="left" class="adcbg1">
 
                 <font class="adgreen"><?php echo $l['manage_smileys']; ?></font><br />
 
-            </td>
-        </tr>
+            </div>
+        </div>
 
-        <tr>
-            <td align="left" colspan="2" class="adbg">
+        <div>
+            <div align="left" colspan="2" class="adbg">
                 <?php echo $l['manage_smileys_exp']; ?>
-            </td>
-        </tr>
+            </div>
+        </div>
 
-    </table>
+    </div>
     <br /><br />
 
-    <table width="100%" cellpadding="5" cellspacing="1" class="cbor">
-        <tr>
-            <td class="adcbg" colspan="7">
+    <div width="100%" cellpadding="5" cellspacing="1" class="cbor">
+        <div>
+            <div class="adcbg" colspan="7">
                 <?php echo $l['current_smileys']; ?>
-            </td>
-        </tr>
+            </div>
+        </div>
 
-        <tr align="center">
-            <td class="adcbg2" width="10%">
+        <div align="center">
+            <div class="adcbg2" width="10%">
                 <b><?php echo $l['smiley']; ?></b>
-            </td>
-            <td class="adcbg2" width="15%">
+            </div>
+            <div class="adcbg2" width="15%">
                 <b><?php echo $l['code']; ?></b>
-            </td>
-            <td class="adcbg2" width="20%">
+            </div>
+            <div class="adcbg2" width="20%">
                 <b><?php echo $l['file_name']; ?></b>
-            </td>
-            <td class="adcbg2" width="20%">
+            </div>
+            <div class="adcbg2" width="20%">
                 <b><?php echo $l['emotion']; ?></b>
-            </td>
-            <td class="adcbg2" width="10%">
+            </div>
+            <div class="adcbg2" width="10%">
                 <b><?php echo $l['status']; ?></b>
-            </td>
-            <td class="adcbg2" width="10%">
+            </div>
+            <div class="adcbg2" width="10%">
                 <b><?php echo $l['edit']; ?></b>
-            </td>
-            <td class="adcbg2" width="15%">
+            </div>
+            <div class="adcbg2" width="15%">
                 <b><?php echo $l['delete']; ?></b>
-            </td>
-        </tr>
+            </div>
+        </div>
 
         <?php
         if (empty($smileys)) {
 
-            echo '<tr>
-    <td class="adbg" colspan="5">
+            echo '<div>
+    <div class="adbg" colspan="5">
     ' . $l['no_smileys_found'] . '
-    </td>
-    </tr>';
+    </div>
+    </div>';
         } else {
 
             foreach ($smileys as $sk => $sv) {
 
-                echo '<tr>
-    <td class="adbg" align="center">
+                echo '<div>
+    <div class="adbg" align="center">
     ' . $smileyimages[$sk] . '
-    </td>
-    <td class="adbg">
+    </div>
+    <div class="adbg">
     ' . $smileys[$sk]['smcode'] . '
-    </td>
-    <td class="adbg">
+    </div>
+    <div class="adbg">
     ' . $smileys[$sk]['smfile'] . '
-    </td>
-    <td class="adbg">
+    </div>
+    <div class="adbg">
     ' . $smileys[$sk]['smtitle'] . '
-    </td>
-    <td class="adbg">
+    </div>
+    <div class="adbg">
     ' . ($smileys[$sk]['smstatus'] ? $l['popup'] : $l['form']) . '
-    </td>
-    <td class="adbg" align="center">
+    </div>
+    <div class="adbg" align="center">
     <a href="' . $globals['index_url'] . 'act=admin&adact=smileys&seadact=editsm&smid=' . $smileys[$sk]['smid'] . '">' . $l['edit'] . '</a>
-    </td>
-    <td class="adbg" align="center">
+    </div>
+    <div class="adbg" align="center">
     <a href="' . $globals['index_url'] . 'act=admin&adact=smileys&seadact=delsm&smid=' . $smileys[$sk]['smid'] . '">' . $l['delete'] . '</a>
-    </td>
-    </tr>';
+    </div>
+    </div>';
             }
         }
         ?>
 
-    </table>
+    </div>
     <br />
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-        <tr>
-            <td align="center" class="adbg">
+    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+        <div>
+            <div align="center" class="adbg">
                 <input type="button" value="<?php echo $l['add_new_smiley']; ?>"  onclick="javascript:window.location='<?php echo $globals['index_url'] . 'act=admin&adact=smileys&seadact=addsm'; ?>'" />
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </div>
 
     <?php
     adminfoot();
@@ -229,46 +207,46 @@ function smreorder_theme() {
     adminhead($l['cp_sm_reorder_smileys']);
     ?>
 
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
 
-        <tr>
-            <td align="right" width="40%" class="adcbg1">
+        <div>
+            <div align="right" width="40%" class="adcbg1">
                 <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            </td>
-            <td align="left" class="adcbg1">
+            </div>
+            <div align="left" class="adcbg1">
 
                 <font class="adgreen"><?php echo $l['reorder_smileys']; ?></font><br />
 
-            </td>
-        </tr>
+            </div>
+        </div>
 
-        <tr>
-            <td align="left" colspan="2" class="adbg">
+        <div>
+            <div align="left" colspan="2" class="adbg">
                 <?php echo $l['reorder_smileys_exp']; ?>
-            </td>
-        </tr>
+            </div>
+        </div>
 
-    </table>
+    </div>
     <br /><br />
     <?php
     error_handle($error, '100%');
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="smreorderform">
-        <table width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div width="100%" cellpadding="2" cellspacing="1" class="cbor">
 
-            <tr>
-                <td class="adcbg" colspan="2">
+            <div>
+                <div class="adcbg" colspan="2">
                     <?php echo $l['reorder_smileys']; ?>
-                </td>
-            </tr>
+                </div>
+            </div>
 
-        </table>
+        </div>
         <br /><br />
 
-        <table width="60%" cellpadding="0" cellspacing="0" align="center" border="0">
-            <tr><td id="sm_reorder_pos" width="100%"></td></tr>
-        </table>
+        <div width="60%" cellpadding="0" cellspacing="0" align="center" border="0">
+            <div><div id="sm_reorder_pos" width="100%"></div></div>
+        </div>
         <br /><br />
         <script type="text/javascript">
 
@@ -289,9 +267,9 @@ function smreorder_theme() {
 
         </script>
         <?php js_reorder(); ?>
-        <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <tr>
-                <td align="center" class="adbg">
+        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+            <div>
+                <div align="center" class="adbg">
                     <?php
                     $temp = 1;
                     foreach ($smileys as $sk => $sv) {
@@ -299,11 +277,11 @@ function smreorder_theme() {
                         //echo '<div class="smreo" id="sm'.$sk.'">&nbsp;'.$smileyimages[$sk].'&nbsp;&nbsp;'.$smileys[$sk]['smtitle'].'</div>';
 
                         $dmenus[] = '<div id="sm' . $sk . '">
-<table cellpadding="0" cellspacing="0" class="smreo" id="smha' . $sk . '" onmousedown="this.style.zIndex=\'1\'" onmouseup="this.style.zIndex=\'0\'">
-<tr><td>
+<div cellpadding="0" cellspacing="0" class="smreo" id="smha' . $sk . '" onmousedown="this.style.zIndex=\'1\'" onmouseup="this.style.zIndex=\'0\'">
+<div><div>
 &nbsp;' . $smileyimages[$sk] . '&nbsp;&nbsp;' . $smileys[$sk]['smtitle'] . '
-</td></tr>
-</table>
+</div></div>
+</div>
 </div>';
 
                         echo '<input type="hidden" name="sm[' . $sk . ']" value="' . $temp . '" id="smhid' . $sk . '" />';
@@ -312,9 +290,9 @@ function smreorder_theme() {
                     }
                     ?>
                     <input type="submit" name="smreorder" value="<?php echo $l['re_order']; ?>" />
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
 
     </form>
 
@@ -331,108 +309,108 @@ function editsm_theme() {
     adminhead($l['cp_sm_edit_smileys']);
     ?>
 
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
 
-        <tr>
-            <td align="right" width="40%" class="adcbg1">
+        <div>
+            <div align="right" width="40%" class="adcbg1">
                 <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            </td>
-            <td align="left" class="adcbg1">
+            </div>
+            <div align="left" class="adcbg1">
 
                 <font class="adgreen"><?php echo $l['edit_smileys']; ?></font><br />
 
-            </td>
-        </tr>
+            </div>
+        </div>
 
-        <tr>
-            <td align="left" colspan="2" class="adbg">
+        <div>
+            <div align="left" colspan="2" class="adbg">
                 <?php echo $l['edit_smileys_exp']; ?>
-            </td>
-        </tr>
+            </div>
+        </div>
 
-    </table>
+    </div>
     <br /><br />
     <?php
     error_handle($error, '100%');
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="editsmform">
-        <table width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div width="100%" cellpadding="2" cellspacing="1" class="cbor">
 
-            <tr>
-                <td class="adcbg" colspan="2">
+            <div>
+                <div class="adcbg" colspan="2">
                     <?php echo $l['edit_smileys']; ?>
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td width="45%" class="adbg">
+            <div>
+                <div width="45%" class="adbg">
                     <b><?php echo $l['code_']; ?></b><br />
                     <font class="adexp"><?php echo $l['code_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smcode" value="<?php echo (empty($_POST['smcode']) ? $smiley['smcode'] : $_POST['smcode']); ?>" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['emotion_']; ?></b><br />
                     <font class="adexp"><?php echo $l['emotion_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smtitle" value="<?php echo (empty($_POST['smtitle']) ? $smiley['smtitle'] : $_POST['smtitle']); ?>" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['display_in']; ?></b><br />
                     <font class="adexp"><?php echo $l['display_in_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="smstatus" <?php echo (!$smiley['smstatus'] ? 'checked="checked"' : ''); ?> />
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['folder']; ?></b><br />
                     <font class="adexp"><?php echo $l['folder_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<select name="smfolder" disabled="disabled">
                         <?php
                         foreach ($folders as $f) {
                             echo '<option value="' . $f['name'] . '" ' . ($f['name'] == $smiley['smfolder'] ? 'selected="selected"' : '' ) . ' >' . $f['name'] . '</option>';
                         }
                         ?></select>
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['smiley_file']; ?></b><br />
                     <font class="adexp"><?php echo $l['smiley_file_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smfile" value="<?php echo $smiley['smfile']; ?>"  disabled="disabled" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
 
-        </table>
+        </div>
 
         <br /><br />
 
-        <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <tr>
-                <td align="center" class="adbg">
+        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+            <div>
+                <div align="center" class="adbg">
                     <input type="submit" name="editsm" value="<?php echo $l['submit']; ?>" />
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
 
     </form>
 
@@ -449,118 +427,118 @@ function addsm_theme() {
     adminhead($l['cp_sm_add_smileys']);
     ?>
 
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
 
-        <tr>
-            <td align="right" width="40%" class="adcbg1">
+        <div>
+            <div align="right" width="40%" class="adcbg1">
                 <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            </td>
-            <td align="left" class="adcbg1">
+            </div>
+            <div align="left" class="adcbg1">
 
                 <font class="adgreen"><?php echo $l['add_smileys']; ?></font><br />
 
-            </td>
-        </tr>
+            </div>
+        </div>
 
-        <tr>
-            <td align="left" colspan="2" class="adbg">
+        <div>
+            <div align="left" colspan="2" class="adbg">
                 <?php echo $l['add_smileys_exp']; ?>
-            </td>
-        </tr>
+            </div>
+        </div>
 
-    </table>
+    </div>
     <br /><br />
     <?php
     error_handle($error, '100%');
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="addsmform" enctype="multipart/form-data">
-        <table width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div width="100%" cellpadding="2" cellspacing="1" class="cbor">
 
-            <tr>
-                <td class="adcbg" colspan="2">
+            <div>
+                <div class="adcbg" colspan="2">
                     <?php echo $l['add_smileys']; ?>
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td width="45%" class="adbg">
+            <div>
+                <div width="45%" class="adbg">
                     <b><?php echo $l['code_']; ?></b><br />
                     <font class="adexp"><?php echo $l['code_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smcode" value="<?php echo (empty($_POST['smcode']) ? '' : $_POST['smcode']); ?>" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['emotion_']; ?></b><br />
                     <font class="adexp"><?php echo $l['emotion_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smtitle" value="<?php echo (empty($_POST['smtitle']) ? '' : $_POST['smtitle']); ?>" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['display_in']; ?></b><br />
                     <font class="adexp"><?php echo $l['display_in_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="smstatus" checked="checked" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <b><?php echo $l['folder']; ?></b><br />
                     <font class="adexp"><?php echo $l['folder_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<select name="smfolder">
                         <?php
                         foreach ($folders as $f) {
                             echo '<option value="' . $f['name'] . '" ' . (isset($_POST['smfolder']) && $_POST['smfolder'] == $f['name'] ? 'selected="selected"' : '' ) . ' >' . $f['name'] . '</option>';
                         }
                         ?></select>
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <input type="radio" name="filemethod" value="1" <?php echo (isset($_POST['filemethod']) && trim($_POST['filemethod']) == 1 ? 'checked="checked"' : '' ); ?> />&nbsp;<b><?php echo $l['smiley_file']; ?></b><br />
                     <font class="adexp"><?php echo $l['smiley_file_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smfile" value="<?php echo (empty($_POST['smfile']) ? '' : $_POST['smfile']); ?>" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td class="adbg">
+            <div>
+                <div class="adbg">
                     <input type="radio" name="filemethod" value="2" <?php echo (isset($_POST['filemethod']) && trim($_POST['filemethod']) == 2 ? 'checked="checked"' : '' ); ?>  />&nbsp;<b><?php echo $l['upload_smiley']; ?></b><br />
                     <font class="adexp"><?php echo $l['upload_smiley_exp']; ?></font>
-                </td>
-                <td class="adbg" align="left">
+                </div>
+                <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="file" size="30"  name="smfile_u" value="<?php echo (empty($_POST['smfile']) ? '' : $_POST['smfile']); ?>" />
-                </td>
-            </tr>
+                </div>
+            </div>
 
 
-        </table>
+        </div>
 
         <br /><br />
 
-        <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <tr>
-                <td align="center" class="adbg">
+        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+            <div>
+                <div align="center" class="adbg">
                     <input type="submit" name="addsm" value="<?php echo $l['submit']; ?>" />
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
 
     </form>
 

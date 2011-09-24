@@ -144,7 +144,7 @@ function editpost() {
     $post = mysql_fetch_assoc($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $fid = $post['post_fid'];
 
@@ -379,8 +379,9 @@ function editpost() {
 
 
                 $reserved = explode("\n", $globals['reserved_names']);
-
-                for ($i = 0; $i < count($reserved); $i++) {
+                
+                $reserved_count = count($reserved);
+                for ($i = 0; $i < $reserved_count; $i++) {
 
                     if (!empty($reserved[$i])) {
 
@@ -689,7 +690,7 @@ function editpost() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////
@@ -781,7 +782,7 @@ function editpost() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Find the post number that this post is of its topic

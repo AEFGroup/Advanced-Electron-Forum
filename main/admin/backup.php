@@ -158,10 +158,10 @@ function fileback() {
         }
 
         //Try to give some more time
-        @set_time_limit(300);
+        set_time_limit(300);
 
         //Memory limit
-        @ini_set('memory_limit', '128M');
+        ini_set('memory_limit', '128M');
 
 
         $filename = basename($folderpath) . '(' . date('Y-m-d') . ')';
@@ -343,10 +343,10 @@ function dbback() {
 
 
         //Try to give some more time
-        @set_time_limit(450);
+        set_time_limit(450);
 
         //Memory limit
-        @ini_set('memory_limit', '128M');
+        ini_set('memory_limit', '128M');
 
 
         //////////////////////////////
@@ -358,7 +358,7 @@ function dbback() {
                 '--  AEF MySQL Export' . $crlf .
                 '-- ===========================================================' . $crlf .
                 '--  AEF : Advanced Electron Forum ' . $crlf .
-                '--  Version : 1.0.4' . $crlf .
+                '--  Version : 1.1' . $crlf .
                 '--  ----------------------------------------------------------' . $crlf .
                 '--  Date:           ' . date('jS F, Y') . '' . $crlf .
                 '--  Time:           ' . date('g:i a') . '' . $crlf .
@@ -407,7 +407,7 @@ function dbback() {
         //Compress
         if ($compression == 'zip') {
 
-            if (@function_exists('gzcompress')) {
+            if (function_exists('gzcompress')) {
 
                 $zip = zipclass();
 
@@ -420,7 +420,7 @@ function dbback() {
             }
         } elseif ($compression == 'gzip') {
 
-            if (@function_exists('gzencode')) {
+            if (function_exists('gzencode')) {
 
                 $data = gzencode($data);
             } else {
@@ -429,7 +429,7 @@ function dbback() {
             }
         } elseif ($compression == 'bzip') {
 
-            if (@function_exists('bzcompress')) {
+            if (function_exists('bzcompress')) {
 
                 $data = bzcompress($data);
 
@@ -591,7 +591,7 @@ function tablestructure($table, $crlf) {
         }
     }
 
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $str .= $create_query;
 
@@ -660,7 +660,7 @@ function tabledata($table, $crlf) {
         unset($row);
     }
 
-    @mysql_free_result($result);
+    mysql_free_result($result);
 
     //Is the data string empty
     if (empty($data)) {

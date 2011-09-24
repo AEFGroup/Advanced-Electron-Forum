@@ -46,7 +46,7 @@ $theme['init_theme_func'] = array('profile_theme',
 function profile() {
 
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
-    global $error, $tree;
+    global $error, $tree, $reserved;
 
     /////////////////////////////
     // Define the necessary VARS
@@ -354,7 +354,7 @@ function profile() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -493,8 +493,9 @@ function account() {
 
 
             $reserved = explode("\n", $globals['reserved_names']);
-
-            for ($i = 0; $i < count($reserved); $i++) {
+            $reserved_count = count($reserved);
+            
+            for ($i = 0; $i < $reserved_count; $i++) {
 
                 if (!empty($reserved[$i])) {
 
@@ -689,7 +690,7 @@ function account() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -735,8 +736,9 @@ function signature() {
 
         //Check the Sig was posted
         if (!(isset($_POST['signature'])) || strlen(trim($_POST['signature'])) < 1) {
-
-            $error[] = $l['acc_no_sig'];
+			//no its not posted : make it empty !
+			$_POST['signature'] = '';
+            
         } else {
 
             //Dont trim for smileys
@@ -773,7 +775,7 @@ function signature() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -871,11 +873,8 @@ function avatar() {
                     /////////////////////////////////////////////////
                     //Check the dimensions are right and not too much
                     /////////////////////////////////////////////////
-                    //The error reposting is to be stopped by '@'
-                    $avsize = @getimagesize($avfile);
-                    /* echo '<pre>';
-                      print_r($avsize);
-                      echo '</pre>'; */
+
+                    $avsize = getimagesize($avfile);
 
                     //The avatar width
                     if (($avsize[0] < 1) || ($avsize[1] < 1)) {
@@ -950,11 +949,8 @@ function avatar() {
                         //Encode the spaces - PHP can't take it
                         $avatartemp = str_replace(' ', '%20', $avatar);
 
-                        //The error reposting is to be stopped by '@'
-                        $avsize = @getimagesize($avatartemp);
-                        /* echo '<pre>';
-                          print_r($avsize);
-                          echo '</pre>'; */
+                        $avsize = getimagesize($avatartemp);
+
 
                         //The avatar width
                         if (($avsize[0] < 1) || ($avsize[1] < 1)) {
@@ -1065,11 +1061,8 @@ function avatar() {
                 //Check the dimensions are right and not too much
                 //This also checks if it is a Image or not
                 /////////////////////////////////////////////////
-                //The error reposting is to be stopped by '@'
-                $avsize = @getimagesize($avatartemp);
-                /* echo '<pre>';
-                  print_r($avsize);
-                  echo '</pre>'; */
+
+                $avsize = getimagesize($avatartemp);
 
                 //Check is it a image
                 if (($avsize[0] < 1) || ($avsize[1] < 1)) {
@@ -1119,7 +1112,7 @@ function avatar() {
 
 
                     //Finally lets move the Avatar File
-                    if (!(@move_uploaded_file($avatartemp, $globals['uploadavatardir'] . '/' . $avatar))) {
+                    if (!(move_uploaded_file($avatartemp, $globals['uploadavatardir'] . '/' . $avatar))) {
 
                         $error[] = $l['acc_img_no_upl'];
                     }
@@ -1157,7 +1150,7 @@ function avatar() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1180,7 +1173,7 @@ function avatar() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //We must delete the old file first if it is there
         delfileavatar();
@@ -1211,7 +1204,7 @@ function delfileavatar() {
     if ($user['avatar_type'] == 3) {
 
         //echo $globals['uploadavatardir'].'\\'.$user['avatar'];
-        @unlink($globals['uploadavatardir'] . '/' . $user['avatar']);
+        unlink($globals['uploadavatardir'] . '/' . $user['avatar']);
     }
 }
 
@@ -1231,7 +1224,7 @@ function delfileppic() {
     if ($user['ppic_type'] == 2) {
 
         //echo $globals['uploadppicdir'].'\\'.$user['ppic'];
-        @unlink($globals['uploadppicdir'] . '/' . $user['ppic']);
+        unlink($globals['uploadppicdir'] . '/' . $user['ppic']);
     }
 }
 
@@ -1326,11 +1319,8 @@ function personalpic() {
                         //Encode the spaces - PHP can't take it
                         $ppictemp = str_replace(' ', '%20', $ppic);
 
-                        //The error reposting is to be stopped by '@'
-                        $ppsize = @getimagesize($ppictemp);
-                        /* echo '<pre>';
-                          print_r($ppsize);
-                          echo '</pre>'; */
+                        $ppsize = getimagesize($ppictemp);
+
 
                         //The Personal Picture width
                         if (($ppsize[0] < 1) || ($ppsize[1] < 1)) {
@@ -1441,11 +1431,9 @@ function personalpic() {
                 //Check the dimensions are right and not too much
                 //This also checks if it is a Image or not
                 /////////////////////////////////////////////////
-                //The error reposting is to be stopped by '@'
-                $ppsize = @getimagesize($ppictemp);
-                /* echo '<pre>';
-                  print_r($ppsize);
-                  echo '</pre>'; */
+
+                $ppsize = getimagesize($ppictemp);
+
 
                 //Check is it a image
                 if (($ppsize[0] < 1) || ($ppsize[1] < 1)) {
@@ -1495,7 +1483,7 @@ function personalpic() {
 
 
                     //Finally lets move the Personal Picture File
-                    if (!(@move_uploaded_file($ppictemp, $globals['uploadppicdir'] . '/' . $ppic))) {
+                    if (!(move_uploaded_file($ppictemp, $globals['uploadppicdir'] . '/' . $ppic))) {
 
                         $error[] = $l['acc_no_upl_img'];
                     }
@@ -1524,7 +1512,7 @@ function personalpic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1547,7 +1535,7 @@ function personalpic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //We must delete the old file first if it is there
         delfileppic();

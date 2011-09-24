@@ -157,7 +157,7 @@ function manval() {
     $count = $temp['pages'];
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Get out all the members who have to activate their accounts
     $qresult = makequery("SELECT u.id, u.username, u.email, u.r_time
@@ -309,7 +309,7 @@ function awapp() {
     $count = $temp['pages'];
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Get out all the members who have to activate their accounts
     $qresult = makequery("SELECT u.id, u.username, u.email, u.r_time
@@ -460,7 +460,7 @@ function coppaapp() {
     $count = $temp['pages'];
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Get out all the members who have to activate their accounts
     $qresult = makequery("SELECT u.id, u.username, u.email, u.r_time
@@ -566,7 +566,7 @@ function dothis($uids, $do, $act_status) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $uid_r = array_keys($users);
 
@@ -593,7 +593,7 @@ function dothis($uids, $do, $act_status) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////
@@ -674,7 +674,7 @@ function dothis($uids, $do, $act_status) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Send an email
         if ($do == 4) {

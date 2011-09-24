@@ -81,7 +81,7 @@ function delete_categories_fn($cids) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////

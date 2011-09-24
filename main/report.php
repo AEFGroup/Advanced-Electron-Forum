@@ -268,7 +268,7 @@ function report() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Find the post number that this post is of its topic

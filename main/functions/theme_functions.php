@@ -51,7 +51,7 @@ function theme_registry_fn($theme_id, $uservar = false) {
     $skin = mysql_fetch_assoc($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $registry = aefunserialize($skin['theme_registry']);
 
@@ -92,7 +92,7 @@ function theme_registry_fn($theme_id, $uservar = false) {
             $userset = mysql_fetch_assoc($qresult);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             $userregistry = aefunserialize($userset['theme_registry']);
 

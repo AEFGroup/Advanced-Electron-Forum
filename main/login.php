@@ -292,10 +292,10 @@ function mainlogin() {
             $logpass = generateRandStr(32);
 
             //Set a COOKIE for a YEAR of User ID
-            @setcookie($globals['cookie_name'] . '[loguid]', $row['id'], (time() + (60 * 60 * 24 * 365)), '/');
+            setcookie($globals['cookie_name'] . '[loguid]', $row['id'], (time() + (60 * 60 * 24 * 365)), '/');
 
             //Set a COOKIE for a YEAR of CookPass
-            @setcookie($globals['cookie_name'] . '[logpass]', $logpass, (time() + (60 * 60 * 24 * 365)), '/');
+            setcookie($globals['cookie_name'] . '[logpass]', $logpass, (time() + (60 * 60 * 24 * 365)), '/');
 
             //Set a SESSION that we have checked the COOKIES
             $AEF_SESS['cuc'] = time();
@@ -327,7 +327,7 @@ function mainlogin() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         /////////////////////////////////
@@ -340,7 +340,7 @@ function mainlogin() {
                     WHERE uid = '" . $row['id'] . "'");
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         /////////////////////////////
         //Now lets Sign IN the User
@@ -358,7 +358,7 @@ function mainlogin() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Process the DATA
@@ -380,8 +380,6 @@ function mainlogin() {
             return false;
         }
 
-        //Free the resources
-        @mysql_free_result($qresult);
 
         $referer = trim($_SERVER['HTTP_REFERER']);
 
@@ -488,7 +486,7 @@ function fpass() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
         //on error call the form
@@ -953,7 +951,7 @@ function fuser() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //on error call the form
         if (!empty($error)) {

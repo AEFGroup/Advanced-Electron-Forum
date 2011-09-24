@@ -233,7 +233,7 @@ function usernameindb($username) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 }
 
 ////////////////////////////////
@@ -267,7 +267,7 @@ function emailindb($email) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 }
 
 ////////////////////////////////
@@ -1030,7 +1030,7 @@ function aefoutput_buffer($buffer) {
     if ($globals['gzip']) {
 
         //Do we have the extensions
-        if (extension_loaded('zlib') && @ini_get('zlib.output_compression') !== '1' && can_gzip()) {
+        if (extension_loaded('zlib') && ini_get('zlib.output_compression') !== '1' && can_gzip()) {
 
             $buffer = ob_gzhandler($buffer, 1);
         }
@@ -1061,10 +1061,10 @@ function load_lang($file) {
     $path = $globals['server_url'] . '/languages/' . $language . '/' . $file;
 
     //If this location is there and it did not load
-    if (empty($file) || !@include_once($path)) {
+    if (empty($file) || !include_once($path)) {
 
         //Try to load the Default
-        if (!@include_once($globals['server_url'] . '/languages/english/' . $file)) {
+        if (!include_once($globals['server_url'] . '/languages/english/' . $file)) {
 
             //If not there reporterror is triggered.
             reporterror('', 'Unable to load the language files.');
@@ -1107,14 +1107,14 @@ function init_theme($file, $theme_file_name) {
     global $theme, $globals, $l;
 
     //If this location is there and it did not load
-    if (empty($theme[$file]) || !@include_once($theme[$file])) {
+    if (empty($theme[$file]) || !include_once($theme[$file])) {
 
         //Note:If the theme file was not loaded we have
         //used the $file directly as in the default theme
         //the array index of the theme is the same as the
         //file name which may not be the case of other themes
         //Try to load the Default
-        if (!@include_once($globals['themesdir'] . '/default/' . $file . '_theme.php')) {
+        if (!include_once($globals['themesdir'] . '/default/' . $file . '_theme.php')) {
 
             //If not there reporterror is triggered.
             reporterror($l['init_theme_error_t'], lang_vars($l['init_theme_error'], array($theme_file_name)));
@@ -1137,7 +1137,8 @@ function init_theme_func($function_r, $theme_file_name) {
 
     global $theme, $globals, $act, $load_hf, $l;
 
-    for ($i = 0; $i < count($function_r); $i++) {
+    $count = count($function_r);
+    for ($i = 0; $i < $count; $i++) {
 
         //echo $function_r[$i].function_exists($function_r[$i]).'<br />';
 
@@ -1202,7 +1203,7 @@ function load_theme_settings($id) {
 
 
     //Contains all the necessary theme Variables of every theme file.
-    if (!@include_once($theme['path'] . '/theme_settings.php')) {
+    if (!include_once($theme['path'] . '/theme_settings.php')) {
 
         $id = 1;
 
@@ -1218,7 +1219,7 @@ function load_theme_settings($id) {
         $theme = array_merge($theme, $skin);
 
         //Try to load the Default
-        if (!@include_once($theme['path'] . '/theme_settings.php')) {
+        if (!include_once($theme['path'] . '/theme_settings.php')) {
 
             //If not there reporterror is triggered.
             reporterror('', $l['load_theme_settings_error']);
@@ -1566,13 +1567,13 @@ function sendpm($to, $subject, $body, $track, $saveinsentitems) {
 
 function aefunserialize($str) {
 
-    $var = @unserialize($str);
+    $var = unserialize($str);
 
     if (empty($var)) {
 
         $str = preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.aefstrlen('$2').':\"$2\";'", $str);
 
-        $var = @unserialize($str);
+        $var = unserialize($str);
     }
 
     //If it is still empty false

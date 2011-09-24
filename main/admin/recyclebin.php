@@ -128,7 +128,7 @@ function recyclebin() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         /////////////////////////////////
@@ -155,7 +155,7 @@ function recyclebin() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////////////
@@ -166,16 +166,9 @@ function recyclebin() {
                     SET    inc_mem_posts = '1'
                     WHERE fid = '" . $globals['recyclebin'] . "'", false);
 
-        /* if(mysql_affected_rows($conn) < 1){
-
-          reporterror('Recycle Bin Error' ,'There were some errors in updating the submitted information of the forum <b>'.$board['fname'].'</b>.');
-
-          return false;
-
-          } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect

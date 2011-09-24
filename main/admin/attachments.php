@@ -371,7 +371,7 @@ function editmime() {
 
             $atmt_icon = inputsec(htmlizer(trim($_POST['atmt_icon'])));
 
-            $iconsize = @getimagesize($globals['server_url'] . '/mimetypes/' . $atmt_icon);
+            $iconsize = getimagesize($globals['server_url'] . '/mimetypes/' . $atmt_icon);
 
             //Check is it there
             if (($iconsize[0] < 1) || ($iconsize[1] < 1)) {
@@ -465,7 +465,7 @@ function delmime() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Redirect
@@ -527,7 +527,7 @@ function addmime() {
 
             $atmt_icon = inputsec(htmlizer(trim($_POST['atmt_icon'])));
 
-            $iconsize = @getimagesize($globals['server_url'] . '/mimetypes/' . $atmt_icon);
+            $iconsize = getimagesize($globals['server_url'] . '/mimetypes/' . $atmt_icon);
 
             //Check is it there
             if (($iconsize[0] < 1) || ($iconsize[1] < 1)) {

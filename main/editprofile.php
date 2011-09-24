@@ -218,10 +218,11 @@ function editprofile() {
                 }
             }
 
-
             $reserved = explode("\n", $globals['reserved_names']);
+            
+            $reserver_count = count($reserved);
 
-            for ($i = 0; $i < count($reserved); $i++) {
+            for ($i = 0; $i < $reserved_count; $i++) {
 
                 if (!empty($reserved[$i])) {
 
@@ -230,9 +231,8 @@ function editprofile() {
                     $pattern = '/' . (($globals['reserved_match_whole']) ? '\b' : '') . preg_quote($reserved[$i], '/') . (($globals['reserved_match_whole']) ? '\b' : '') . '/' . (($globals['reserved_match_insensitive']) ? 'i' : '');
 
                     if (preg_match($pattern, $username)) {
-
+                        
                         $error[] = lang_vars($l['reserved_names'], array($reserved[$i]));
-
                         break;
                     }
                 }

@@ -156,7 +156,7 @@ function reply() {
     $topic = mysql_fetch_assoc($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $title = $topic['topic'];
 
@@ -511,7 +511,8 @@ function reply() {
 
                 $reserved = explode("\n", $globals['reserved_names']);
 
-                for ($i = 0; $i < count($reserved); $i++) {
+                $reserved_count = count($reserved);
+                for ($i = 0; $i < $reserved_count; $i++) {
 
                     if (!empty($reserved[$i])) {
 
@@ -834,9 +835,6 @@ function reply() {
             return false;
         }
 
-        //Free the resources
-        @mysql_free_result($qresult);
-
 
         /////////////////////////////////////////////
         // UPDATE the topics table for last_post_id
@@ -857,9 +855,6 @@ function reply() {
             return false;
         }
 
-        //Free the resources
-        @mysql_free_result($qresult);
-
 
         ///////////////////////////////
         // UPDATE the users post count
@@ -878,8 +873,6 @@ function reply() {
                 return false;
             }
 
-            //Free the resources
-            @mysql_free_result($qresult);
         }
 
 
@@ -898,9 +891,6 @@ function reply() {
 
             return false;
         }
-
-        //Free the resources
-        @mysql_free_result($qresult);
 
 
         //Increase the stats for todays post count
@@ -1009,7 +999,7 @@ function reply() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
 
                 $mail[0]['to'] = $globals['board_email'];
                 $mail[0]['subject'] = lang_vars($l['new_reply_mail_subject'], array($title));

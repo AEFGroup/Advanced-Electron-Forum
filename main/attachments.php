@@ -87,7 +87,7 @@ function download() {
     //Check the file exists.
     if (!(file_exists($file)
             && is_file($file)
-            && @filetype($file) == "file")
+            && filetype($file) == "file")
     ) {
 
         //Show a major error and return
@@ -115,7 +115,7 @@ function download() {
     header('Content-Disposition: attachment; filename="' . $attachment['at_original_file'] . '"');
 
     //The source is in the encrypted file
-    if (!@readfile($file)) {
+    if (!readfile($file)) {
 
         //Show a major error and return
         reporterror($l['output_error_title'], $l['output_error']);

@@ -73,9 +73,27 @@ function topics_theme() {
 
         $activeusers[] = $v;
     }
+    $stats_panel = '
+    <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+    <tr>
+    <td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
+    </tr>
+
+    <tr>
+    <td align="center" class="miposts" width="5%">
+    <img src="' . $theme['images'] . 'online.gif" alt="" />
+    </td>
+    <td class="mifor">
+    ' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] . '.' : '.' ) . '
+    ' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '
+    </td>
+    </tr>
+
+    </table>';
 
     //The header
-    aefheader($board['fname']);
+    aefheader($board['fname'], $stats_panel);
 
 //Are there any In Boards
     if (!empty($board['in_boards'])) {
@@ -365,12 +383,12 @@ function qt(){
                 echo '<a href="javascript:void(0);" onclick="qt();"><img src="' . $theme['images'] . 'buttons/quicktopic.gif" alt="" /></a>&nbsp;&nbsp;';
             }
 
-            echo '<a href="' . $globals['ind'] . 'act=topic&amp;forum=' . $board['fid'] . '"><img src="' . $theme['images'] . 'buttons/newtopic.png" alt="" /></a>&nbsp;&nbsp;';
+            echo '<a href="' . $globals['ind'] . 'act=topic&amp;forum=' . $board['fid'] . '" style="text-decoration:none; float:left;"><input type="submit" value="New Topic" ></a>&nbsp;&nbsp;';
         }
 
         //If he is allowed to recieve notifications
         if ($user['notify_new_topics']) {
-            echo '<a href="' . $globals['ind'] . 'act=notify&amp;nact=forum&amp;nfid=' . $board['fid'] . '"><img src="' . $theme['images'] . 'buttons/notify.png" alt="" /></a>&nbsp;&nbsp;&nbsp;';
+            echo '<a href="' . $globals['ind'] . 'act=notify&amp;nact=forum&amp;nfid=' . $board['fid'] . '" style="text-decoration:none; float:left;"><input type="submit" value="Notify" ></a>&nbsp;&nbsp;&nbsp;';
         }
     }
 
@@ -384,7 +402,7 @@ function qt(){
 
 
     //The first row that is Headers
-    echo'<br /><br /><br />
+    echo'<br><br>
     <form accept-charset="' . $globals['charset'] . '" method="post" action="" onsubmit="return deleteconfirm();" name="quickmod">
     <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
@@ -497,8 +515,7 @@ function qt(){
     </tr>
 
     </table>
-    </form>
-    <br />';
+    </form>';
 
 
     /* Options for the user of posting, Polls and notify */
@@ -514,12 +531,12 @@ function qt(){
                 echo '<a href="javascript:void(0);" onclick="qt();"><img src="' . $theme['images'] . 'buttons/quicktopic.gif" alt="" /></a>&nbsp;&nbsp;';
             }
 
-            echo '<a href="' . $globals['ind'] . 'act=topic&amp;forum=' . $board['fid'] . '"><img src="' . $theme['images'] . 'buttons/newtopic.png" alt="" /></a>&nbsp;&nbsp;&nbsp;';
+            echo '<a href="' . $globals['ind'] . 'act=topic&amp;forum=' . $board['fid'] . '" style="text-decoration:none; float:left;"><input type="submit" value="New Topic" ></a>&nbsp;&nbsp;';
         }
 
         //If he is allowed to recieve notifications
         if ($user['notify_new_topics']) {
-            echo '<a href="' . $globals['ind'] . 'act=notify&amp;nact=forum&amp;nfid=' . $board['fid'] . '"><img src="' . $theme['images'] . 'buttons/notify.png" alt="" /></a>&nbsp;&nbsp;&nbsp;';
+            echo '<a href="' . $globals['ind'] . 'act=notify&amp;nact=forum&amp;nfid=' . $board['fid'] . '" style="text-decoration:none; float:left;"><input type="submit" value="Notify" ></a>&nbsp;&nbsp;&nbsp;';
         }
     }
 
@@ -531,24 +548,7 @@ function qt(){
         echo $links . '<br />';
     }
 
-    echo '<br /><br /><br />
-    <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-
-    <tr>
-    <td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
-    </tr>
-
-    <tr>
-    <td align="center" class="miposts" width="5%">
-    <img src="' . $theme['images'] . 'online.gif" alt="" />
-    </td>
-    <td class="mifor">
-    ' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] . '.' : '.' ) . '
-    ' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '
-    </td>
-    </tr>
-
-    </table>';
+    
 
 
     echo '<br /><br /><br />
@@ -561,7 +561,7 @@ function qt(){
 
     <tr>
     <td align="left" width="50%">
-    <img src="' . $theme['images'] . 'topics/00.png" alt="" />&nbsp;&nbsp;' . $l['normal_topic'] . '
+    <img src="' . $theme['images'] . 'topics/normal.png" alt="" />&nbsp;&nbsp;' . $l['normal_topic'] . '
     </td>
     <td align="left" width="50%">
     <img src="' . $theme['images'] . 'topics/closed.png" alt="" />&nbsp;&nbsp;' . $l['closed_topic'] . '
@@ -570,7 +570,7 @@ function qt(){
 
     <tr>
     <td align="left">
-    <img src="' . $theme['images'] . 'topics/10.png" alt="" />&nbsp;&nbsp;' . $l['hot_topic'] . '
+    <img src="' . $theme['images'] . 'topics/hot.png" alt="" />&nbsp;&nbsp;' . $l['hot_topic'] . '
     </td>
     <td align="left">
     <img src="' . $theme['images'] . 'topics/pinned.png" alt="" />&nbsp;&nbsp;' . $l['pinned_topic'] . '
@@ -579,7 +579,7 @@ function qt(){
 
     <tr>
     <td align="left">
-    <img src="' . $theme['images'] . 'topics/01.png" alt="" />&nbsp;&nbsp;' . $l['poll_topic'] . '
+    <img src="' . $theme['images'] . 'topics/poll.png" alt="" />&nbsp;&nbsp;' . $l['poll_topic'] . '
     </td>
     <td align="left">
     <img src="' . $theme['images'] . 'topics/moved.png" alt="" />&nbsp;&nbsp;' . $l['moved_topic'] . '

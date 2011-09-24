@@ -59,9 +59,11 @@ include_once($globals['mainfiles'] . '/functions.php');
 
 //include the csrf protection (thanks csrf magic library <3)
 include_once($globals['mainfiles'] . '/csrf_protection.php');
+
 //plugins
 include_once($globals['mainfiles'] . '/plugin.php');
 initiate_plugins();
+
 
 //ob_start('aefoutput_buffer');
 //Will be available in future versions
@@ -87,7 +89,7 @@ if ((mysql_num_rows($qresult) > 0)) {
 }
 
 //Free the resources
-@mysql_free_result($qresult);
+mysql_free_result($qresult);
 
 SEO();
 
@@ -350,7 +352,7 @@ if (!empty($messagetext) && empty($errormessage)) {
     }
 }
 
-@ob_end_flush();
+ob_end_flush();
 
 mysql_close($conn);
 

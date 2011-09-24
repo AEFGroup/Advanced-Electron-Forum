@@ -44,6 +44,8 @@ function MainIndex() {
 
     //Array of functions to initialize
     $theme['init_theme_func'] = array('MainIndex_theme');
+    
+
 
 
     //Have we got the boards and all

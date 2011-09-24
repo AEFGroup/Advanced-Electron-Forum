@@ -195,7 +195,7 @@ function movetopic() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same forum or no
@@ -393,7 +393,7 @@ function movetopic() {
     $pids_str = implode(', ', $pids);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     /////////////////////////////////////
@@ -508,7 +508,7 @@ function movetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -531,7 +531,7 @@ function movetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -589,8 +589,6 @@ function movetopic() {
                     return false;
                 }
 
-                //Free the resources
-                @mysql_free_result($qresult);
 
 
                 ///////////////////////
@@ -640,8 +638,6 @@ function movetopic() {
                 //Error reporting still to come
             }
 
-            //Free the resources
-            @mysql_free_result($qresult);
         }
 
         //GET the Last Pid from where its going

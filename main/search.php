@@ -398,7 +398,7 @@ function results() {
             unset($row);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             $ins = implode(',', $pids);
 
@@ -481,7 +481,7 @@ function results() {
             unset($row);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             $ins = implode(',', $pids);
 
@@ -520,7 +520,7 @@ function results() {
                     $tmp = ceil(($found[$f]['n_posts'] + 1) / $globals['maxpostsintopics']);
                     //echo $tmp;
                     //Push it in the array
-                    @$found[$f]['last_page'] = $tmp;
+                    $found[$f]['last_page'] = $tmp;
 
 
 

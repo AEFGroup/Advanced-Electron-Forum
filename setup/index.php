@@ -41,7 +41,7 @@ if(file_exists($setup_path . "/lock")){
     die();
 }
 //Is the universal file writable
-if (!is_writable($path . '/universal.php') && @!chmod($path . '/universal.php', 0777)) {
+if (!is_writable($path . '/universal.php') && !chmod($path . '/universal.php', 0777)) {
     //It is not, so give message
     not_writable_theme();
     die();
@@ -328,6 +328,7 @@ function setup() {
                     'mainfiles' => array($server_url . '/main', 0),
                     'themesdir' => array($server_url . '/themes', 0),
                     'pluginsdir' => array($server_url . '/plugins', 0),
+                    'cachedir' => array($server_url . '/cache', 0),
                     'user' => array($user, 0),
                     'password' => array($password, 0),
                     'database' => array($database, 0),
@@ -344,11 +345,11 @@ function setup() {
         }
 
         //Try to connect to MySQL
-        $conn = @mysql_connect($server, $user, $password);
+        $conn = mysql_connect($server, $user, $password);
 
         if (!empty($conn)) {
 
-            if (!(@mysql_select_db($database, $conn))) {
+            if (!(mysql_select_db($database, $conn))) {
 
                 $error[] = 'The MySQL Database could not be selected.';
             }
@@ -363,7 +364,7 @@ function setup() {
             die();
         }
 
-        @include_once($server_url . '/setup/mysql.php');
+        include_once($server_url . '/setup/mysql.php');
 
         //Load the MySQL File
         if (!function_exists('make_mysql')) {
@@ -403,13 +404,13 @@ function modify_universal($array) {
 
     $filename = $server_url . '/universal.php';
 
-    @include_once($server_url . '/universal.php');
+    include_once($server_url . '/universal.php');
 
     // Let's make sure the file exists and is writable first.
     if (is_writable($filename)) {
 
         //If writable get contents
-        $file = implode('', @file($filename));
+        $file = implode('', file($filename));
 
         //Replace the required things
         foreach ($array as $k => $v) {
@@ -435,7 +436,7 @@ function modify_universal($array) {
         }//End the foreach loop
 
         //Open the file for editing
-        if (!$handle = @fopen($filename, 'wb')) {
+        if (!$handle = fopen($filename, 'wb')) {
 
             $error[] = 'The universal.php could not be opened for editing.';
 
@@ -443,7 +444,7 @@ function modify_universal($array) {
         }
 
         // Write $filec to our opened file.
-        if (@fwrite($handle, $file) === FALSE) {
+        if (fwrite($handle, $file) === FALSE) {
 
             $error[] = 'The universal.php file could not be edited.';
 
@@ -473,9 +474,9 @@ function removesetup() {
 
         if (file_exists($k)
                 && is_file($k)
-                && @filetype($k) == "file") {
+                && filetype($k) == "file") {
 
-            if (!@unlink($k)) {
+            if (!unlink($k)) {
 
                 die('<h3>There were errors in deleting the setup files.<br />Please remove them for safety reasons.</h3>');
             }
@@ -483,10 +484,10 @@ function removesetup() {
     }
 
     //Remove the images folder
-    @rmdir($setup_path . '/images');
+    rmdir($setup_path . '/images');
 
     //Delete the folder
-    @rmdir($setup_path);
+    rmdir($setup_path);
 
     echo '<h3>Setup files were deleted successfully.</h3>';
 }

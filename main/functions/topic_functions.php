@@ -112,7 +112,7 @@ function delete_topics_fn($tids, $param = array()) {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -146,7 +146,7 @@ function delete_topics_fn($tids, $param = array()) {
     $pids_str = implode(', ', $pids);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -324,7 +324,7 @@ function delete_topics_fn($tids, $param = array()) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Bring the post count out
@@ -346,7 +346,7 @@ function delete_topics_fn($tids, $param = array()) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Loop through the posters as there may be many
@@ -416,7 +416,7 @@ function delete_attach($attachments) {
     foreach ($attachments as $k => $v) {
 
         //Finally lets delete the File
-        if (!(@unlink($globals['attachmentdir'] . '/' . $v['at_file']))) {
+        if (!(unlink($globals['attachmentdir'] . '/' . $v['at_file']))) {
 
             //A mechanism to report error
             $delete_error[] = true;
@@ -637,7 +637,7 @@ function checkpost_fn($post) {
 
         foreach ($smileys as $sk => $sv) {
 
-            $emotused += @ substr_count($post, $smileys[$sk]['smcode']);
+            $emotused +=  substr_count($post, $smileys[$sk]['smcode']);
         }
 
         if ($emotused > $globals['maxemotpost']) {

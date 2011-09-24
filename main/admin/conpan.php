@@ -1168,10 +1168,10 @@ function updates() {
     if (isset($_POST['update']) && !empty($info['link'])) {
 
         //Try to give some more time
-        @set_time_limit(300);
+        set_time_limit(300);
 
         //Memory limit
-        @ini_set('memory_limit', '128M');
+        ini_set('memory_limit', '128M');
 
         $compressedfile = $globals['server_url'] . '/' . basename($info['link']);
 

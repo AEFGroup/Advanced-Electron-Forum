@@ -132,7 +132,7 @@ function register_session() {
     define('AS_UID', -1);
 
     //Now lets try and set a COOKIE of AEF Session ID
-    @setcookie($globals['cookie_name'] . '[aefsid]', $id, 0, '/');
+    setcookie($globals['cookie_name'] . '[aefsid]', $id, 0, '/');
 
     //Also we need to modify the index_url
     $globals['index_url'] = $globals['index_url'] . 'as=' . $id . '&';
@@ -163,7 +163,7 @@ function load_session() {
         if ((mysql_num_rows($qresult) < 1)) {
 
             //Free the resources for the next query
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Register a session
             if (!register_session()) {
@@ -208,7 +208,7 @@ function load_session() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
         //No AEF Session found

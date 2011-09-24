@@ -172,7 +172,7 @@ function attach_fn($fid, $tid, $pid) {
         //Is it a image ?
         if ($atm[$mimetype[$k]]['atmt_isimage']) {
 
-            $imagesize = @getimagesize($ftemp[$k]);
+            $imagesize = getimagesize($ftemp[$k]);
 
             $width[$k] = $imagesize[0];
 
@@ -200,7 +200,7 @@ function attach_fn($fid, $tid, $pid) {
     foreach ($name as $k => $v) {
 
         //Finally lets move the File
-        if (@move_uploaded_file($ftemp[$k], $globals['attachmentdir'] . '/' . $encname[$k])) {
+        if (move_uploaded_file($ftemp[$k], $globals['attachmentdir'] . '/' . $encname[$k])) {
 
             /////////////////////////
             // INSERT the attachment
@@ -223,7 +223,7 @@ function attach_fn($fid, $tid, $pid) {
             if (empty($atid)) {
 
                 //First delete the file
-                @unlink($globals['attachmentdir'] . '/' . $name[$k]);
+                unlink($globals['attachmentdir'] . '/' . $name[$k]);
 
                 $upload_error[] = $name[$k];
 
@@ -259,7 +259,7 @@ function attach_fn($fid, $tid, $pid) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //////////////////////////////////////////
@@ -278,7 +278,7 @@ function attach_fn($fid, $tid, $pid) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //If other things went well check for other errors
@@ -317,7 +317,7 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
     foreach ($attachments as $k => $v) {
 
         //Finally lets delete the File
-        if (@unlink($globals['attachmentdir'] . '/' . $v['at_file'])) {
+        if (unlink($globals['attachmentdir'] . '/' . $v['at_file'])) {
 
             /////////////////////////
             // DELETE the attachment
@@ -363,7 +363,7 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }//End of $update
     //////////////////////////////////////////
     // UPDATE the topics table for has_attach
@@ -381,7 +381,7 @@ function dettach_fn($fid, $tid, $pid, $attachments, $update = true) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //If other things went well check for other errors

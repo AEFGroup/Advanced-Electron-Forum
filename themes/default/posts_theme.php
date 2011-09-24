@@ -82,9 +82,53 @@ function posts_theme() {
 
         $activeusers[] = $v;
     }
+    if (!empty($users_who_read)) {
 
+        $stats_panel = '
+        <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+            <tr>
+            <td colspan="2" class="cbg1" align="left">' . $l['users_who_read'] . '</td>
+            </tr>
+
+            <tr>
+            <td align="center" class="miposts" width="5%">
+            <img src="' . $theme['images'] . 'online.gif" alt="" />
+            </td>
+            <td class="mifor">';
+
+        foreach ($users_who_read as $u => $uv) {
+
+            $users_who_read[$u] = '<a href="' . userlink($uv['id'], $uv['username']) . '" style="color: ' . $uv['mem_gr_colour'] . ';" >' . $uv['username'] . '</a>';
+        }
+
+        $stats_panel .= implode(', ', $users_who_read) . '</td>
+            </tr>
+
+        </table>';
+    }
+    
+	$stats_panel .= '
+    <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
+
+        <tr>
+        <td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
+        </tr>
+
+        <tr>
+        <td align="center" class="miposts" width="5%">
+        <img src="' . $theme['images'] . 'online.gif" alt="" />
+        </td>
+        <td class="mifor">
+        ' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] : '.' ) . '
+        ' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '
+        </td>
+        </tr>
+
+    </table>';
+    
     //The header
-    aefheader($title);
+    aefheader($title, $stats_panel);
 
     /////////////////////////////
     //The Poll if any
@@ -264,12 +308,12 @@ createmenu("pagejump", [
     //Can he post reply
     if (!empty($user['can_reply_to_this_topic'])) {
 
-        echo '<br /><a href="' . $globals['ind'] . 'act=post&amp;topid=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'buttons/reply.png" alt="" /></a>';
+        echo '<br /><a href="' . $globals['ind'] . 'act=post&amp;topid=' . $topic['tid'] . '" class="buttons">'. $l['reply'] .'</a>';
     }
 
     if (!empty($user['can_poll_this_topic'])) {
 
-        echo '&nbsp;&nbsp;<a href="' . $globals['ind'] . 'act=postpoll"><img src="' . $theme['images'] . 'buttons/addpoll.png" alt="" /></a>';
+        echo '&nbsp;&nbsp;<a href="' . $globals['ind'] . 'act=postpoll" class="buttons">'. $l['add_poll'] .'</a>';
     }
 
     if (!(empty($user['can_lock_this_topic']) && !$user['can_make_sticky']
@@ -568,8 +612,8 @@ function showquickreply(){
         echo '<br /><div style="text-align:right;">' . $l['with_selected'] . ' : <select name="withselected" id="selectedposts">
     ' . (($user['can_del_own_post'] && $user['can_del_own_post']) ? '<option value="delete">' . $l['delete_posts'] . '</option>' : '') . '
     ' . ($user['can_merge_posts'] ? '<option value="merge">' . $l['merge_posts'] . '</option>' : '') . '
-    </select>&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="submit" name="withselsubmit" value="' . $l['submit_go'] . '" />&nbsp;&nbsp;&nbsp;&nbsp;
+    </select>
+    <input type="submit" name="withselsubmit" value="' . $l['submit_go'] . '" style="padding: 2px; " />
     </div>
     </form>';
     }
@@ -588,61 +632,14 @@ function showquickreply(){
 
     //Can he post reply
     if (!empty($user['can_reply_to_this_topic'])) {
-
-        echo '<br /><a href="' . $globals['ind'] . 'act=post&amp;topid=' . $topic['tid'] . '"><img src="' . $theme['images'] . 'buttons/reply.png" alt="" /></a>';
+        echo '<br /><a href="' . $globals['ind'] . 'act=post&amp;topid=' . $topic['tid'] . '" class="buttons">'. $l['reply'] .'</a>';
     }
 
     if (!empty($user['can_poll_this_topic'])) {
-
-        echo '&nbsp;&nbsp;<a href="' . $globals['ind'] . 'act=postpoll"><img src="' . $theme['images'] . 'buttons/addpoll.png" alt="" /></a>';
+        echo '&nbsp;&nbsp;<a href="' . $globals['ind'] . 'act=postpoll" class="buttons">'. $l['add_poll'] .'</a>';
     }
-
+    
     echo '<div align="right">' . navigator() . '</div>';
-
-    if (!empty($users_who_read)) {
-
-        echo '<br /><br />
-        <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-
-            <tr>
-            <td colspan="2" class="cbg1" align="left">' . $l['users_who_read'] . '</td>
-            </tr>
-
-            <tr>
-            <td align="center" class="miposts" width="5%">
-            <img src="' . $theme['images'] . 'online.gif" alt="" />
-            </td>
-            <td class="mifor">';
-
-        foreach ($users_who_read as $u => $uv) {
-
-            $users_who_read[$u] = '<a href="' . userlink($uv['id'], $uv['username']) . '" style="color: ' . $uv['mem_gr_colour'] . ';" >' . $uv['username'] . '</a>';
-        }
-
-        echo implode(', ', $users_who_read) . '</td>
-            </tr>
-
-        </table>';
-    }
-
-    echo '<br /><br />
-    <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
-
-        <tr>
-        <td colspan="2" class="cbg1" align="left">' . $l['users_viewing'] . '</td>
-        </tr>
-
-        <tr>
-        <td align="center" class="miposts" width="5%">
-        <img src="' . $theme['images'] . 'online.gif" alt="" />
-        </td>
-        <td class="mifor">
-        ' . $guests . ' ' . $l['guests'] . ', ' . count($active) . ' ' . $l['users'] . '' . (($anonymous) ? ', ' . $anonymous . ' ' . $l['viewing_anonymous'] : '.' ) . '
-        ' . (!empty($activeusers) ? '<hr />' . implode(', ', $activeusers) : '') . '
-        </td>
-        </tr>
-
-    </table>';
 
     //The defualt footers
     aeffooter();

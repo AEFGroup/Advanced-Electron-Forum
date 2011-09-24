@@ -30,9 +30,9 @@ function aefmail_fn($array) {
     global $user, $globals, $theme, $conn, $dbtables;
 
     if ($globals['mail']) {
-
+        $array_count = count($array);
         //Count and loop
-        for ($i = 0; $i < count($array); $i++) {
+        for ($i = 0; $i < $array_count; $i++) {
 
             if (isset($array[$i]['headers'])) {
 
@@ -50,7 +50,7 @@ function aefmail_fn($array) {
                 $headers .= "\r\nBcc: " . implode(', ', $array[$i]['bcc']) . "\r\n";
             }
 
-            if (!@mail($array[$i]['to'], $array[$i]['subject'], $array[$i]['message'], $headers)) {
+            if (!mail($array[$i]['to'], $array[$i]['subject'], $array[$i]['message'], $headers)) {
 
                 return false;
             }
@@ -73,7 +73,7 @@ function aefsmtp($array) {
     $port = $globals['mail_port'];
 
     // Open an SMTP connection
-    $cp = @fsockopen($smtpser, $port);
+    $cp = fsockopen($smtpser, $port);
 
     if (!$cp) {
 

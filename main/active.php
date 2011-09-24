@@ -146,7 +146,7 @@ function active() {
     $count = mysql_num_rows($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Get the Pids of the page.
     $qresult = makequery("SELECT s.uid, s.time, s.ip, s.last_activity, s.activity, s.anonymous,

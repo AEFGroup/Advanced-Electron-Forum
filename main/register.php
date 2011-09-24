@@ -277,7 +277,8 @@ function mainregister() {
 
             $reserved = explode("\n", $globals['reserved_names']);
 
-            for ($i = 0; $i < count($reserved); $i++) {
+            $reserved_count = count($reserved);
+            for ($i = 0; $i < $reserved_count; $i++) {
 
                 if (!empty($reserved[$i])) {
 
@@ -539,9 +540,6 @@ function mainregister() {
 
 
 
-        //Free the resources
-        @mysql_free_result($qresult);
-
 
         ///////////////////////////////////////
         // Based on different methods slight
@@ -574,7 +572,7 @@ function mainregister() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             ////////////////////////////////
@@ -593,7 +591,7 @@ function mainregister() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             //Welcome Email
@@ -989,7 +987,7 @@ function validate() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////////
@@ -1008,7 +1006,7 @@ function validate() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Welcome Email
@@ -1105,7 +1103,7 @@ function resendact() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
         //Ok so no error found - Lets process

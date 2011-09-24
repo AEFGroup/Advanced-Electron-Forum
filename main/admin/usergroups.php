@@ -481,7 +481,7 @@ function editug() {
 
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
 
                 //DELETE the permissions set
             } elseif ($user_group['post_count'] == -1 && $post_count != -1) {
@@ -506,7 +506,7 @@ function editug() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
             }
         }//If condition for admin permissions mask
         //Redirect
@@ -529,7 +529,7 @@ function deleteugper($ugid) {
                     WHERE member_group_id = '$ugid'", false);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //UPDATE the users in that group
@@ -539,7 +539,7 @@ function deleteugper($ugid) {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 }
 
 //Function to delete User Group
@@ -586,7 +586,7 @@ function delug() {
 
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Does it have any permissions
         if ($user_group['post_count'] == -1) {
@@ -947,7 +947,7 @@ function addug() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //What about the permissions
@@ -970,20 +970,6 @@ function addug() {
             $qresult = makequery("INSERT INTO " . $dbtables['permissions'] . "
                         SET member_group_id = '$member_group',
                         " . $string);
-
-            /* $member_group_id = mysql_insert_id($conn);
-
-              if( empty($member_group_id) ){
-
-              //Show a major error and return
-              reporterror('Permissions' ,'There were some errors while inserting the Permission Mask.');
-
-              return false;
-
-              }
-
-              //Free the resources
-              @mysql_free_result($qresult); */
         }
 
         //Redirect

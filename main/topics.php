@@ -407,7 +407,7 @@ function topics() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         unset($row);
     }
@@ -470,7 +470,7 @@ function topics() {
         }
 
         //Push it in the array
-        @$topics[$t]['is_new'] = $is_new;
+        $topics[$t]['is_new'] = $is_new;
 
 
         //The date thingy
@@ -481,7 +481,7 @@ function topics() {
         $tmp = ceil(($topics[$t]['n_posts'] + 1) / $globals['maxpostsintopics']);
         //echo $tmp;
         //Push it in the array
-        @$topics[$t]['last_page'] = $tmp;
+        $topics[$t]['last_page'] = $tmp;
 
 
 

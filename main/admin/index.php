@@ -30,6 +30,7 @@ if (!load_lang('admin/index')) {
 
     return false;
 }
+require('admin_functions.php');
 
 //Can he admin
 if (!$user['can_admin']) {
@@ -67,109 +68,41 @@ if (isset($_GET['adact']) && trim($_GET['adact']) !== "") {
     $adact = "";
 }
 
-switch ($adact) {
+$actionsArray = array(
+	'coresection' => array('sections.php', 'core'),
+	'externalsection' => array('sections.php', 'external'),
+	'contentsection' => array('sections.php', 'content'),
+	'memberssection' => array('sections.php', 'members'),
+    'plugins' => array('plugins.php', 'plugins'),
+    'conpan' => array('conpan.php', 'conpan'),
+    'categories' => array('categories.php', 'categories'),
+    'forums' => array('forums.php', 'forums'),
+    'fpermissions' => array('forumpermissions.php', 'forumpermissions'),
+    'moderators' => array('moderators.php', 'moderators'),
+    'recyclebin' => array('recyclebin.php', 'recyclebin'),
+	'approvals' => array('approvals.php', 'approvals'),
+    'users' => array('users.php', 'users'),
+    'ug' => array('usergroups.php', 'usergroups'),
+    'skin' => array('skin.php', 'skin'),
+    'attach' => array('attachments.php', 'attachments'),
+    'reglog' => array('reglog.php', 'reglog'),
+    'smileys' => array('smileys.php', 'smileys'),
+    'tpp' => array('tpp.php', 'tpp'),
+    'backup' => array('backup.php', 'backup'),
+    '' => array('adminindex.php', 'adminindex'),
     
-    case 'plugins':
-        include_once($globals['mainfiles'] . '/admin/plugins.php');
-        plugins();
-        break;
+);
 
-    //This is for core Board settings
-    case 'conpan':
-        include_once($globals['mainfiles'] . '/admin/conpan.php');
-        conpan();
-        break;
-
-    //This is largely responsible for managing,editing and creating categories
-    case 'categories':
-        include_once($globals['mainfiles'] . '/admin/categories.php');
-        categories();
-        break;
-
-
-    //This is for managing,editing and creating Boards/Forums
-    case 'forums':
-        include_once($globals['mainfiles'] . '/admin/forums.php');
-        forums();
-        break;
-
-    //This is for managing,editing and creating Boards/Forum Permissions Set
-    case 'fpermissions':
-        include_once($globals['mainfiles'] . '/admin/forumpermissions.php');
-        forumpermissions();
-        break;
-
-    //This is for managing,editing and creating Boards/Forums
-    case 'moderators':
-        include_once($globals['mainfiles'] . '/admin/moderators.php');
-        moderators();
-        break;
-
-    //This is for setting up the recycle bin
-    case 'recyclebin':
-        include_once($globals['mainfiles'] . '/admin/recyclebin.php');
-        recyclebin();
-        break;
-
-    //This is for managing account approvals
-    case 'approvals':
-        include_once($globals['mainfiles'] . '/admin/approvals.php');
-        approvals();
-        break;
-
-    //This is for managing user settings
-    case 'users':
-        include_once($globals['mainfiles'] . '/admin/users.php');
-        users();
-        break;
-
-    //This is for managing user groups
-    case 'ug':
-        include_once($globals['mainfiles'] . '/admin/usergroups.php');
-        usergroups();
-        break;
-
-    //This is for managing skins
-    case 'skin':
-        include_once($globals['mainfiles'] . '/admin/skin.php');
-        skin();
-        break;
-
-    //This is for managing attachment settings
-    case 'attach':
-        include_once($globals['mainfiles'] . '/admin/attachments.php');
-        attachments();
-        break;
-
-    //This is for managing Registration and Login Settings
-    case 'reglog':
-        include_once($globals['mainfiles'] . '/admin/reglog.php');
-        reglog();
-        break;
-
-    //This is for managing the smilies throughout the Board
-    case 'smileys':
-        include_once($globals['mainfiles'] . '/admin/smileys.php');
-        smileys();
-        break;
-
-
-    //This is for managing the settings of Topics, Posts, Polls and Censored Words
-    case 'tpp':
-        include_once($globals['mainfiles'] . '/admin/tpp.php');
-        tpp();
-        break;
-
-    //This is for backing up stuff
-    case 'backup':
-        include_once($globals['mainfiles'] . '/admin/backup.php');
-        backup();
-        break;
-
-    //This is the default - The adminindex
-    default:
-        include_once($globals['mainfiles'] . '/admin/adminindex.php');
-        adminindex();
-        break;
+if (isset($adact)) {
+    //check first if the file really exists
+    if (isset($actionsArray[$adact][0]) && file_exists($globals['mainfiles'] . '/admin/' . $actionsArray[$adact][0])) {
+        //include the file
+        include_once $globals['mainfiles'] . '/admin/' . $actionsArray[$adact][0];
+        //execute the function
+        if (!empty($actionsArray[$adact][1])) {
+            $actionsArray[$adact][1]();
+        }
+    }
 }
+
 ?>

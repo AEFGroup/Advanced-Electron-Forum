@@ -241,7 +241,7 @@ function delete() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same topic or no
@@ -277,7 +277,7 @@ function delete() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Oh boy you cant delete the first post
@@ -428,7 +428,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////
@@ -452,7 +452,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //GET the Last Pid
         $lastpost = last_post_topic($tid);
@@ -477,7 +477,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -502,7 +502,7 @@ function delete() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
             }
         }
 
@@ -528,7 +528,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //GET the Last Pid TO where its going
         $lastpost = last_post_forum($globals['recyclebin']);
@@ -552,7 +552,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////
@@ -566,7 +566,7 @@ function delete() {
                         WHERE at_pid IN ($pids_str)", false);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 
@@ -601,7 +601,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //GET the Last Pid
         $lastpost = last_post_topic($tid);
@@ -625,7 +625,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////
@@ -649,7 +649,7 @@ function delete() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
             }
         }
 
@@ -673,7 +673,7 @@ function delete() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 

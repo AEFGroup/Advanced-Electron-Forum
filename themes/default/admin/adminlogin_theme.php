@@ -36,64 +36,32 @@ function adminlogin_theme() {
 
     <form action="" method="post" name="adminloginform" >
         <br />
-        <table width="60%" cellpadding="0" cellspacing="0" align="center">
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                            <td class="pcbgl"></td>
-                            <td class="pcbg" align="left"><?php echo $l['security_login']; ?></td>
-                            <td class="pcbgr"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-
-                    <table width="100%" cellpadding="5" cellspacing="1" class="cbgbor">
-
-                        <tr>
-                            <td class="ucpfcbg1" colspan="2" align="center">
-                                <img src="<?php echo $theme['images']; ?>admin/login.png" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="30%" class="etrc">
-                                <b><?php echo $l['username']; ?> :</b>
-                            </td>
-                            <td class="etrc" align="left">
-                                <input type="text" size="40" name="aduser" value="<?php echo $user['username']; ?>" disabled="disabled" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="30%" class="etrc">
-                                <b><?php echo $l['password']; ?> :</b>
-                            </td>
-                            <td class="etrc" align="left">
-                                <input type="password" size="40" name="adpass" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="2" class="etrc" style="text-align:center">
-                                <input type="submit" name="adminlogin" value="<?php echo $l['submit']; ?>" />
-                            </td>
-                        </tr>
-
-                    </table>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></td>
-            </tr>
-
-        </table>
-
+        <div class="division" style="width: 600px; margin: 0 auto 0 auto;">
+            <div class="topbar">
+                <h3><?php echo $l['security_login']; ?></h3>
+            </div>
+            <div class="cbgbor">
+                <div class="ucpfcbg1" align="center">
+                    <img src="<?php echo $theme['images']; ?>admin/login.png" />
+                </div>
+            </div>
+            <div style="padding-left: 10px;">
+                <b><?php echo $l['username']; ?> :</b>
+            </div>
+            <div style="padding-left: 10px;" align="left">
+                <input type="text" size="40" name="aduser" value="<?php echo $user['username']; ?>" disabled="disabled" />
+            </div>
+            <div style="padding-left: 10px;">
+                <b><?php echo $l['password']; ?> :</b>
+            </div>
+            <div style="padding-left: 10px;" align="left">
+                <input type="password" size="40" name="adpass" />
+            </div>
+            <div style="padding-left: 10px;" style="text-align:center">
+                <input type="submit" name="adminlogin" value="<?php echo $l['submit']; ?>" />
+            </div>
+            <img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10">
+        </div>
     </form>
     <script language="JavaScript" type="text/javascript">
         document.forms.adminloginform.adpass.focus();

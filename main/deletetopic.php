@@ -190,7 +190,7 @@ function deletetopic() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same forum or no
@@ -324,7 +324,7 @@ function deletetopic() {
     $pids_str = implode(', ', $pids);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -407,7 +407,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -430,7 +430,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -479,7 +479,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //GET the Last Pid TO where its going
         $lastpost = last_post_forum($globals['recyclebin']);
@@ -503,7 +503,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Actual Delete and also to delete from recycle bin
@@ -537,7 +537,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -560,7 +560,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -658,7 +658,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
 
@@ -717,7 +717,7 @@ function delete_attach($attachments) {
     foreach ($attachments as $k => $v) {
 
         //Finally lets delete the File
-        if (!(@unlink($globals['attachmentdir'] . '/' . $v['at_file']))) {
+        if (!(unlink($globals['attachmentdir'] . '/' . $v['at_file']))) {
 
             //A mechanism to report error
             $delete_error[] = true;

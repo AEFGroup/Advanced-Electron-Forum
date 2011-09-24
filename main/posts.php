@@ -172,7 +172,7 @@ function posts() {
         $_COOKIE[$globals['cookie_name']]['threaded'] = 'off';
 
         //Remove COOKIE for threaded mode
-        @setcookie($globals['cookie_name'] . '[threaded]', '', (time() - (60 * 60 * 24 * 365)), '/');
+        setcookie($globals['cookie_name'] . '[threaded]', '', (time() - (60 * 60 * 24 * 365)), '/');
     }
 
     //Which mode is it.
@@ -186,7 +186,7 @@ function posts() {
         $page = 'all';
 
         //Set a COOKIE for threaded mode
-        @setcookie($globals['cookie_name'] . '[threaded]', 'on', (time() + (60 * 60 * 24 * 365)), '/');
+        setcookie($globals['cookie_name'] . '[threaded]', 'on', (time() + (60 * 60 * 24 * 365)), '/');
     }
 
 
@@ -238,7 +238,7 @@ function posts() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $tmp = current($post);
 

@@ -28,7 +28,7 @@ $l['no_forum_found_title'] = 'No forum found';
 $l['no_forum_found'] = 'The forum you specified either does not exists or you are not authorised to view the same. If you have followed a valid link please contact us at <a href="mailto:' . $globals['board_email'] . '">' . $globals['board_email'] . '</a>.';
 
 $l['forum_locked_title'] = 'Forum Locked';
-$$l['forum_locked'] = 'This forum is locked and you are not authorised to start a new topic in this forum. If you have followed a valid link please contact us at <a href="mailto:' . $globals['board_email'] . '">' . $globals['board_email'] . '</a>.';
+$l['forum_locked'] = 'This forum is locked and you are not authorised to start a new topic in this forum. If you have followed a valid link please contact us at <a href="mailto:' . $globals['board_email'] . '">' . $globals['board_email'] . '</a>.';
 
 $l['no_topic_permissions_title'] = 'No Authority';
 $l['no_topic_permissions'] = 'You do not have the permissions to start a new topic in this forum. If you have followed a valid link please contact us at <a href="mailto:' . $globals['board_email'] . '">' . $globals['board_email'] . '</a>.';

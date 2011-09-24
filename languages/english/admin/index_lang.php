@@ -37,6 +37,10 @@ $l['registry_update_error'] = 'Registry Update Error';
 $l['errors_updating_registry'] = 'There were some errors in updating the registry.';
 
 // themes/default/admin/adminhf_theme.php
+$l['core_center'] = 'Core Center';
+$l['external_center'] = 'External Center';
+$l['content_center'] = 'Content Center';
+$l['members_center'] = 'Members Center';
 $l['plugins'] = 'Plugins';
 $l['list_plugins'] = 'List plugins';
 $l['admin_options'] = 'Admin Options';
