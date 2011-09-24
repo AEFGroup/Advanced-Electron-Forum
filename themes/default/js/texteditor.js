@@ -31,7 +31,7 @@ function aef_editor(){
 
     this.to_wysiwyg=function(dontalert){
         var pos=findelpos($(this.textarea_id));
-        if(!document.getElementById||!document.designMode||isSafari||isKonqueror){
+        if(!document.getElementById||!document.designMode){
             if(dontalert!=true){
                 alert('Your Browser does not support WYSIWYG.')
             }
