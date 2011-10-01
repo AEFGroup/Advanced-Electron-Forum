@@ -64,7 +64,7 @@ function adminhead($title = '') {
 			<p><?php echo $l['members_center']; ?></p>
 		</div>
 	</div>
-    <table width="100%">
+     <table width="100%">
         <tr>
            <!-- <td width="23%" valign="top">
 

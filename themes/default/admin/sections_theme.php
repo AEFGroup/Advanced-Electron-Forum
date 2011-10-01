@@ -51,7 +51,7 @@ function external_section(){
 	echo '
 	<div style="padding: 50px 80px; ">
 		<div class="app" style="display: inline;">
-			<a href="'.$globals['index_url'].'act=admin&adact=coresection&seadact=themescenter" style="background-image: url('.$theme['images'].'/admin/themes_center.png); font-size: 45px;">
+			<a href="'.$globals['index_url'].'act=admin&adact=skin&seadact=manskin" style="background-image: url('.$theme['images'].'/admin/themes_center.png); font-size: 45px;">
 			Themes Center</a>
 		</div>
 		<div class="app" style="display: inline;">

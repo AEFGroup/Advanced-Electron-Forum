@@ -23,13 +23,26 @@ if (!defined('AEF')) {
 
     die('Hacking Attempt');
 }
+function skin_headers(){
+    global $globals, $l;
+    ?>
+    <div>
+        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=skin&seadact=manskin" style="text-decoration:none; float:left;"><input type="submit" value="<?php echo $l['theme_manager']; ?>"></a>
+        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=skin&seadact=import" style="text-decoration:none; float:left;"><input type="submit" value="<?php echo $l['import_themes']; ?>"></a>
+        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=skin&seadact=uninstall" style="text-decoration:none; float:left;"><input type="submit" value="<?php echo $l['uninstall_themes']; ?>"></a>
+        <a href="<?php echo $globals['index_url']; ?>act=admin&adact=skin&seadact=settings&theme_id=<?php echo $globals['theme_id']; ?>" style="text-decoration:none; float:left;"><input type="submit" value="<?php echo $l['theme_settings']; ?>"></a>
+    </div>
+    <div style="clear: both;"></div>
+    <?php
 
+}
 function manskin_theme() {
 
     global $globals, $theme, $l, $error, $themes;
 
     //Admin Headers includes Global Headers
     adminhead($l['cp_theme_manager_set']);
+    skin_headers();
     ?>
 
     <div class="cbor" align="center">
@@ -47,8 +60,9 @@ function manskin_theme() {
     <br /><br />
     <?php
     error_handle($error, '100%');
-    ?>
 
+    ?>
+    
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="manskinform">
         <div class="division">
 
@@ -115,7 +129,7 @@ function manskin_theme() {
 
     </form>
 
-    <script language="javascript" src="http://www.anelectron.com/themes.js" type="text/javascript"></script>
+    <script language="javascript" src="http://www.anelectron.com/themes.php" type="text/javascript"></script>
 
     <?php
     adminfoot();
@@ -127,96 +141,79 @@ function import_theme() {
 
     //Admin Headers includes Global Headers
     adminhead($l['cp_import_skin']);
+    skin_headers();
     ?>
 
-    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-
+    <div class="cbor" align="center">
         <div>
-            <div align="right" width="40%" class="adcbg1">
-                <img src="<?php echo $theme['images']; ?>admin/themes.png">
-            </div>
-            <div align="left" class="adcbg1">
-
-                <font class="adgreen"><?php echo $l['import_skin']; ?></font><br />
-
-            </div>
+            <img src="<?php echo $theme['images']; ?>admin/themes.png">
+            <font class="adgreen"><?php echo $l['import_skin']; ?></font><br />
         </div>
 
-        <div>
-            <div align="left" colspan="2" class="adbg">
-                <?php echo $l['import_skin_exp']; ?>
-            </div>
+        <div class="expl">
+            <?php echo $l['import_skin_exp']; ?>
         </div>
 
     </div>
     <br /><br />
     <?php
     error_handle($error, '100%');
+
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="importform" enctype="multipart/form-data">
-        <div width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div class="division">
 
-            <div>
-                <div class="adcbg" colspan="3">
-                    <?php echo $l['import_skin']; ?>
-                </div>
+            <div class="topbar">
+                <h3><?php echo $l['import_skin']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="5%" class="adbg" align="center"><input type="radio" name="importtype" id="fromfolder" value="1" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 1)) ? 'checked="checked"' : ''); ?> /></div>
-                <div width="35%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['from_folder']; ?></b><br />
                     <font class="adexp"><?php echo $l['from_folder_exp']; ?></font>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="45"  name="folderpath" value="<?php echo (empty($_POST['th_path']) ? $globals['themesdir'] . '/' : $_POST['th_path']); ?>" onfocus="$('fromfolder').checked = true;" />
-                </div>
+                
+                    <input type="radio" name="importtype" id="fromfolder" value="1" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 1)) ? 'checked="checked"' : ''); ?> />
+                <br>
+                    <input type="text" size="45"  name="folderpath" value="<?php echo (empty($_POST['th_path']) ? $globals['themesdir'] . '/' : $_POST['th_path']); ?>" onfocus="$('fromfolder').checked = true;" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" align="center"><input type="radio" name="importtype" id="fromweb" value="2" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 2)) ? 'checked="checked"' : ''); ?> /></div>
-                <div class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['from_web']; ?></b><br />
                     <font class="adexp"><?php echo $l['from_web_exp']; ?></font>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"  name="weburl" value="<?php echo (empty($_POST['weburl']) ? '' : $_POST['weburl']); ?>" onfocus="$('fromweb').checked = true;" />
-                </div>
+                <input type="radio" name="importtype" id="fromweb" value="2" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 2)) ? 'checked="checked"' : ''); ?> />
+                <br>
+                <input type="text" size="40"  name="weburl" value="<?php echo (empty($_POST['weburl']) ? '' : $_POST['weburl']); ?>" onfocus="$('fromweb').checked = true;" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" align="center"><input type="radio" name="importtype" id="fromfile" value="3" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 3)) ? 'checked="checked"' : ''); ?> /></div>
-                <div class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['from_file_server']; ?></b><br />
                     <font class="adexp"><?php echo $l['from_file_server_exp']; ?></font>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="40"  name="filepath" value="<?php echo (empty($_POST['filepath']) ? $globals['themesdir'] . '/' : $_POST['filepath']); ?>" onfocus="$('fromfile').checked = true;" />
-                </div>
+                <input type="radio" name="importtype" id="fromfile" value="3" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 3)) ? 'checked="checked"' : ''); ?> />
+                <br>
+                <input type="text" size="40"  name="filepath" value="<?php echo (empty($_POST['filepath']) ? $globals['themesdir'] . '/' : $_POST['filepath']); ?>" onfocus="$('fromfile').checked = true;" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" align="center"><input type="radio" name="importtype" id="fromcomp" value="4" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 4)) ? 'checked="checked"' : ''); ?> /></div>
-                <div class="adbg">
-                    <b><?php echo $l['from_file_pc']; ?></b><br />
+                <div style="width:400px; float:left; padding:5px;">
+                <b><?php echo $l['from_file_pc']; ?></b><br />
                     <font class="adexp"><?php echo $l['from_file_pc_exp']; ?></font>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="file" size="35"  name="uploadtheme" onfocus="$('fromcomp').checked = true;" />
-                </div>
+                <input type="radio" name="importtype" id="fromcomp" value="4" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 4)) ? 'checked="checked"' : ''); ?> />
+                <br>
+                <input type="file" size="35"  name="uploadtheme" onfocus="$('fromcomp').checked = true;" />
             </div>
-
-        </div>
-
-        <br /><br />
-
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div align="center" class="adbg">
-                    <input type="submit" name="importskin" value="<?php echo $l['import']; ?>" />
-                </div>
-            </div>
+            <input type="submit" name="importskin" value="<?php echo $l['import']; ?>" />
+            <div style="clear:both;"></div>
         </div>
 
     </form>
@@ -235,23 +232,15 @@ function uninstall_theme() {
     adminhead($l['cp_uninstall_skin_set']);
     ?>
 
-    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+    <div class="cbor" align="center">
 
         <div>
-            <div align="right" width="40%" class="adcbg1">
-                <img src="<?php echo $theme['images']; ?>admin/themes.png">
-            </div>
-            <div align="left" class="adcbg1">
-
-                <font class="adgreen"><?php echo $l['uninstall_skin_set']; ?></font><br />
-
-            </div>
+            <img src="<?php echo $theme['images']; ?>admin/themes.png">
+            <font class="adgreen"><?php echo $l['uninstall_skin_set']; ?></font><br />
         </div>
 
-        <div>
-            <div align="left" colspan="2" class="adbg">
-                <?php echo $l['uninstall_skin_set_exp']; ?>
-            </div>
+        <div class="expl">
+            <?php echo $l['uninstall_skin_set_exp']; ?>
         </div>
 
     </div>
@@ -261,48 +250,32 @@ function uninstall_theme() {
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="uninstallform">
-        <div width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div class="division">
 
-            <div>
-                <div class="adcbg" colspan="2">
-                    <?php echo $l['uninstall_skin_set']; ?>
-                </div>
+            <div class="topbar">
+                <h3><?php echo $l['uninstall_skin_set']; ?></h3>
             </div>
 
-            <div>
-                <div width="45%" class="adbg">
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>    
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['uninst_skin']; ?></b><br />
                     <font class="adexp"><?php echo $l['uninst_skin_exp']; ?></font>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="theme_id">
-                        <option value="0"><?php echo $l['select_skin']; ?></option>
-                        <?php
-                        foreach ($themes as $k => $v) {
-
-                            if ($k != 1) {
-
-                                echo '<option value="' . $themes[$k]['thid'] . '" ' . (isset($_POST['theme_id']) && $_POST['theme_id'] == $themes[$k]['thid'] ? 'selected="selected"' : ($globals['theme_id'] == $themes[$k]['thid'] ? 'selected="selected"' : '' )) . ' >' . $themes[$k]['th_name'] . '</option>';
+                <select name="theme_id">
+                    <option value="0"><?php echo $l['select_skin']; ?></option>
+                    <?php
+                    foreach ($themes as $k => $v) {
+                        if ($k != 1) {
+                            echo '<option value="' . $themes[$k]['thid'] . '" ' . (isset($_POST['theme_id']) && $_POST['theme_id'] == $themes[$k]['thid'] ? 'selected="selected"' : ($globals['theme_id'] == $themes[$k]['thid'] ? 'selected="selected"' : '' )) . ' >' . $themes[$k]['th_name'] . '</option>';
                             }
                         }
                         ?>
-                    </select>
-                </div>
+                </select>
             </div>
-
+            <input type="submit" name="uninstallskin" value="<?php echo $l['submit']; ?>" />
+            <div style="clear:both;"></div>
         </div>
-
-        <br /><br />
-
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div align="center" class="adbg">
-                    <input type="submit" name="uninstallskin" value="<?php echo $l['submit']; ?>" />
-                </div>
-            </div>
-        </div>
-
     </form>
 
     <?php
