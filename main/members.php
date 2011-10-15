@@ -170,7 +170,7 @@ function members() {
     $qresult = makequery("SELECT u.id, u.username, u.posts, u.r_time, ug.mem_gr_name,
                 ug.mem_gr_colour, s.time
                 FROM " . $dbtables['users'] . " u
-                LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
+                INNER JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
                 LEFT JOIN " . $dbtables['sessions'] . " s ON (u.id = s.uid)
                 " . (empty($where) ? '' : "WHERE " . implode(" AND ", $where)) . "
                 ORDER BY " . $sortby . " " . $order . "

@@ -230,6 +230,7 @@ function uninstall_theme() {
 
     //Admin Headers includes Global Headers
     adminhead($l['cp_uninstall_skin_set']);
+    skin_headers();
     ?>
 
     <div class="cbor" align="center">
@@ -288,6 +289,7 @@ function settings_theme() {
 
     //Admin Headers includes Global Headers
     adminhead($l['cp_edit_skin_set']);
+    skin_headers();
     ?>
 
     <div class="cbor" align="center">
