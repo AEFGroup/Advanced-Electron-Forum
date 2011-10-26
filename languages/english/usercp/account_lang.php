@@ -1,7 +1,7 @@
 <?php
 
 // themes/default/usercp/account.php
-$l['acc_prof_set'] = 'UserCp - Profile Settings';
+$l['acc_prof_set'] = 'User Control Panel - Profile Settings';
 $l['acc_gen_prof_set'] = 'General Profile Settings';
 $l['acc_date_birth'] = 'Date of Birth :';
 $l['acc_y_m-d'] = 'Year - Month - Day';
