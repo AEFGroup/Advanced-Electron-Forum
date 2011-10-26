@@ -11,163 +11,130 @@ function profile_theme() {
     ?>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="editprofileform">
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['acc_gen_prof_set']; ?></h3>
+            </div>
 
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                            <td class="ucpcbgl"></td>
-                            <td class="ucpcbg"><?php echo $l['acc_gen_prof_set']; ?></td>
-                            <td class="ucpcbgr"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+            <div>
+                <div class="cbgbor">
 
-            <tr>
-                <td class="cbgbor">
+                    <div width="100%" cellpadding="2" cellspacing="1">
 
-                    <table width="100%" cellpadding="2" cellspacing="1">
-
-                        <tr>
-                            <td class="ucpfcbg1" colspan="2" align="center">
+                        <div>
+                            <div class="ucpfcbg1" colspan="2" align="center">
                                 <img src="<?php echo $theme['images']; ?>usercp/general.gif" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_date_birth']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_y_m-d']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" maxlength="4" size="4" name="dobyear" value="<?php echo (isset($_POST['dobyear']) ? $_POST['dobyear'] : $user['dobyear']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobmonth" value="<?php echo (isset($_POST['dobmonth']) ? $_POST['dobmonth'] : $user['dobmonth']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobday" value="<?php echo (isset($_POST['dobday']) ? $_POST['dobday'] : $user['dobday']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_date_birth']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_y_m-d']; ?></font>
+                </div>
+                <input type="text" maxlength="4" size="4" name="dobyear" value="<?php echo (isset($_POST['dobyear']) ? $_POST['dobyear'] : $user['dobyear']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobmonth" value="<?php echo (isset($_POST['dobmonth']) ? $_POST['dobmonth'] : $user['dobmonth']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobday" value="<?php echo (isset($_POST['dobday']) ? $_POST['dobday'] : $user['dobday']); ?>" />
+            </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_custom_title']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_custom_title_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="title" value="<?php echo (isset($_POST['title']) ? $_POST['title'] : $user['customtitle']); ?>" maxlength="<?php echo $globals['customtitlelen']; ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_custom_title']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_custom_title_exp']; ?></font>
+                </div>
+                <input type="text" size="45" name="title" value="<?php echo (isset($_POST['title']) ? $_POST['title'] : $user['customtitle']); ?>" maxlength="<?php echo $globals['customtitlelen']; ?>" />
+            </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_location']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_location_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="location" value="<?php echo (isset($_POST['location']) ? $_POST['location'] : $user['location']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_location']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_location_exp']; ?></font>
+                </div>
+                <input type="text" size="45" name="location" value="<?php echo (isset($_POST['location']) ? $_POST['location'] : $user['location']); ?>" />
+            </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_gender']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_gender_exp']; ?></font>
+                </div>
+                <select name="gender" size="1">
+                    <option value="1"  <?php echo ( (isset($_POST['gender']) && (int) $_POST['gender'] == 1) ? 'selected="selected"' : (($user['gender'] == 1) ? 'selected="selected"' : '') ); ?>><?php echo $l['acc_male']; ?></option>
+                    <option value="2" <?php echo ( (isset($_POST['gender']) && (int) $_POST['gender'] == 2) ? 'selected="selected"' : (($user['gender'] == 2) ? 'selected="selected"' : '') ); ?>><?php echo $l['acc_female']; ?></option>
+                </select>
+            </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_gender']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_gender_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<select name="gender" size="1">
-                                    <option value="1"  <?php echo ( (isset($_POST['gender']) && (int) $_POST['gender'] == 1) ? 'selected="selected"' : (($user['gender'] == 1) ? 'selected="selected"' : '') ); ?>><?php echo $l['acc_male']; ?></option>
-                                    <option value="2" <?php echo ( (isset($_POST['gender']) && (int) $_POST['gender'] == 2) ? 'selected="selected"' : (($user['gender'] == 2) ? 'selected="selected"' : '') ); ?>><?php echo $l['acc_female']; ?></option>
-                                </select>
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_private_text']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_private_text_exp']; ?></font>
+                </div>
+                <input type="text" size="45" name="privatetext" value="<?php echo (isset($_POST['privatetext']) ? $_POST['privatetext'] : $user['users_text']); ?>" />
+            </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_private_text']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_private_text_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="privatetext" value="<?php echo (isset($_POST['privatetext']) ? $_POST['privatetext'] : $user['users_text']); ?>" />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_icq']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_icq_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="icq" value="<?php echo (isset($_POST['icq']) ? $_POST['icq'] : $user['icq']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_icq']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_icq_exp']; ?></font>
+                </div>
+                <input type="text" size="24" name="icq" value="<?php echo (isset($_POST['icq']) ? $_POST['icq'] : $user['icq']); ?>" />
+            </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_yim']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_yim_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="yim" value="<?php echo (isset($_POST['yim']) ? $_POST['yim'] : $user['yim']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_yim']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_yim_exp']; ?></font>
+                </div>
+                <input type="text" size="24" name="yim" value="<?php echo (isset($_POST['yim']) ? $_POST['yim'] : $user['yim']); ?>" />
+            </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_msn']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_msn_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="msn" value="<?php echo (isset($_POST['msn']) ? $_POST['msn'] : $user['msn']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_msn']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_msn_exp']; ?></font>
+                </div>
+            <input type="text" size="24" name="msn" value="<?php echo (isset($_POST['msn']) ? $_POST['msn'] : $user['msn']); ?>" />
+            </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_aim']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_aim_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="aim" value="<?php echo (isset($_POST['aim']) ? $_POST['aim'] : $user['aim']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_aim']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_aim_exp']; ?></font>
+                </div>
+            <input type="text" size="24" name="aim" value="<?php echo (isset($_POST['aim']) ? $_POST['aim'] : $user['aim']); ?>" />
+            </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_gmail']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_gmail_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="24" name="gmail" value="<?php echo (isset($_POST['gmail']) ? $_POST['gmail'] : $user['gmail']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_gmail']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_gmail_exp']; ?></font>
+                </div>
+            <input type="text" size="24" name="gmail" value="<?php echo (isset($_POST['gmail']) ? $_POST['gmail'] : $user['gmail']); ?>" />
+            </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
-                                <b><?php echo $l['acc_www']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_www_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
-                                &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="www" value="<?php echo (isset($_POST['www']) ? $_POST['www'] : $user['www']); ?>" />
-                            </td>
-                        </tr>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:300px; float:left; padding:5px;">
+                    <b><?php echo $l['acc_www']; ?></b><br />
+                    <font class="ucpfexp"><?php echo $l['acc_www_exp']; ?></font>
+                </div>
+                <input type="text" size="45" name="www" value="<?php echo (isset($_POST['www']) ? $_POST['www'] : $user['www']); ?>" />
+            </div>
 
-
-                        <tr>
-                            <td class="ucpflc" colspan="2" align="center">
-                                <input type="submit" name="editprofile" value="<?php echo $l['acc_edit_profile']; ?>" />
-                            </td>
-                        </tr>
-
-                    </table>
-
-                </td>
-            </tr>
-
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></td>
-            </tr>
-        </table>
+            <input type="submit" name="editprofile" value="<?php echo $l['acc_edit_profile']; ?>" />
+            <div style="clear:both;"></div>
+        </div>
     </form>
 
     <?php
@@ -187,130 +154,130 @@ function account_theme() {
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="editaccountform">
 
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                            <td class="ucpcbgl"></td>
-                            <td class="ucpcbg"><?php echo $l['acc_acc_set']; ?></td>
-                            <td class="ucpcbgr"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+        <div width="100%" cellpadding="0" cellspacing="0">
+            <div>
+                <div>
+                    <div width="100%" cellpadding="0" cellspacing="0"><div>
+                            <div class="ucpcbgl"></div>
+                            <div class="ucpcbg"><?php echo $l['acc_acc_set']; ?></div>
+                            <div class="ucpcbgr"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <tr>
-                <td class="cbgbor">
+            <div>
+                <div class="cbgbor">
 
-                    <table width="100%" cellpadding="2" cellspacing="1">
+                    <div width="100%" cellpadding="2" cellspacing="1">
 
-                        <tr>
-                            <td class="ucpfcbg1" colspan="2" align="center">
+                        <div>
+                            <div class="ucpfcbg1" colspan="2" align="center">
                                 <img src="<?php echo $theme['images']; ?>usercp/account.gif" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_realname']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_realname_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="realname" value="<?php echo (isset($_POST['realname']) ? $_POST['realname'] : $user['realname']); ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_usname']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_usname_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="username" value=<?php echo '"' . (isset($_POST['username']) ? $_POST['username'] : $user['username']) . '" ' . (empty($globals['change_username']) ? 'disabled="disabled"' : ''); ?> />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_new_pass']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_new_pass_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="newpass" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_conf_new_pass']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_conf_new_pass_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="confirmnewpass" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_sec_qt']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_sec_qt_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="secretqt" value="<?php echo (isset($_POST['secretqt']) ? $_POST['secretqt'] : $user['secret_question']); ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_answer']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_answer_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="30" name="answer" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_email']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_email_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="email" value="<?php echo (isset($_POST['email']) ? $_POST['email'] : $user['email']); ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" width="30%">
+                        <div>
+                            <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_curr_pass']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_curr_pass_exp']; ?></font>
-                            </td>
-                            <td class="ucpflc">
+                            </div>
+                            <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="currentpass" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" colspan="2" align="center">
+                        <div>
+                            <div class="ucpflc" colspan="2" align="center">
                                 <input type="submit" name="editaccount" value="<?php echo $l['acc_save_ch']; ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                    </table>
+                    </div>
 
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></td>
-            </tr>
-        </table>
+            <div>
+                <div><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></div>
+            </div>
+        </div>
 
     </form>
 
@@ -352,61 +319,61 @@ function signature_theme() {
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="editsigform" onsubmit="editor.onsubmit();">
 
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                            <td class="ucpcbgl"></td>
-                            <td class="ucpcbg"><?php echo $l['acc_edit_ur_sig']; ?></td>
-                            <td class="ucpcbgr"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+        <div width="100%" cellpadding="0" cellspacing="0">
+            <div>
+                <div>
+                    <div width="100%" cellpadding="0" cellspacing="0"><div>
+                            <div class="ucpcbgl"></div>
+                            <div class="ucpcbg"><?php echo $l['acc_edit_ur_sig']; ?></div>
+                            <div class="ucpcbgr"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <tr>
-                <td class="cbgbor">
+            <div>
+                <div class="cbgbor">
 
-                    <table width="100%" cellpadding="3" cellspacing="1">
+                    <div width="100%" cellpadding="3" cellspacing="1">
 
-                        <tr>
-                            <td class="ucpfcbg1" colspan="2" align="center">
+                        <div>
+                            <div class="ucpfcbg1" colspan="2" align="center">
                                 <img src="<?php echo $theme['images']; ?>usercp/signature.gif" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td width="23%" class="ucpflc" valign="top"><b><?php echo $l['acc_txt_format']; ?></b></td>
-                            <td class="ucpfrc">
+                        <div>
+                            <div width="23%" class="ucpflc" valign="top"><b><?php echo $l['acc_txt_format']; ?></b></div>
+                            <div class="ucpfrc">
                                 <?php editor_buttons('editor'); ?>
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
                         <?php editor_smileys('editor', $globals['usesmileys']); ?>
 
-                        <tr>
-                            <td class="ucpflc" valign="top"><b><?php echo $l['acc_sig']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_sig_exp']; ?></font></td>
-                            <td class="ucpfrc"><textarea name="signature" rows="13" cols="65" onchange="storeCaret(this);" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" id="sig" /><?php echo (isset($_POST['signature']) ? $_POST['signature'] : $user['sig']); ?></textarea>
-                            </td>
-                        </tr>
+                        <div>
+                            <div class="ucpflc" valign="top"><b><?php echo $l['acc_sig']; ?></b><br />
+                                <font class="ucpfexp"><?php echo $l['acc_sig_exp']; ?></font></div>
+                            <div class="ucpfrc"><textarea name="signature" rows="13" cols="65" onchange="storeCaret(this);" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" id="sig" /><?php echo (isset($_POST['signature']) ? $_POST['signature'] : $user['sig']); ?></textarea>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" colspan="2" align="center">
+                        <div>
+                            <div class="ucpflc" colspan="2" align="center">
                                 <input type="submit" name="editsig" value="<?php echo $l['acc_save_ch']; ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                    </table>
+                    </div>
 
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></td>
-            </tr>
-        </table>
+            <div>
+                <div><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></div>
+            </div>
+        </div>
     </form>
 
     <?php
@@ -448,140 +415,140 @@ function avatar_theme() {
             }
         </script>
 
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                            <td class="ucpcbgl"></td>
-                            <td class="ucpcbg"><?php echo $l['acc_edit_ur_avatar']; ?></td>
-                            <td class="ucpcbgr"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+        <div width="100%" cellpadding="0" cellspacing="0">
+            <div>
+                <div>
+                    <div width="100%" cellpadding="0" cellspacing="0"><div>
+                            <div class="ucpcbgl"></div>
+                            <div class="ucpcbg"><?php echo $l['acc_edit_ur_avatar']; ?></div>
+                            <div class="ucpcbgr"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <tr>
-                <td class="cbgbor">
+            <div>
+                <div class="cbgbor">
 
-                    <table width="100%" cellpadding="2" cellspacing="1">
+                    <div width="100%" cellpadding="2" cellspacing="1">
 
-                        <tr>
-                            <td class="ucpfcbg1" colspan="3" align="center">
+                        <div>
+                            <div class="ucpfcbg1" colspan="3" align="center">
                                 <img src="<?php echo $theme['images']; ?>usercp/avatar.gif" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" align="center" colspan="2"><b><?php echo $l['acc_ur_curr_avatar']; ?></b>
-                            </td>
-                            <td class="ucpfrc" align="center">
+                        <div>
+                            <div class="ucpflc" align="center" colspan="2"><b><?php echo $l['acc_ur_curr_avatar']; ?></b>
+                            </div>
+                            <div class="ucpfrc" align="center">
                                 <img src="<?php echo $curpp[0]; ?>" height="<?php echo $curpp[2]; ?>" width="<?php echo $curpp[1]; ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" align="center" width="3%">
+                        <div>
+                            <div class="ucpflc" align="center" width="3%">
                                 <input type="radio" name="avatartype" id="avgallery" value="1" <?php echo ((isset($_POST['avatartype'])) ? (((int) $_POST['avatartype'] == 1) ? 'checked="checked"' : '') : (($user['avatar_type'] == 1) ? 'checked="checked"' : '')); ?> />
-                            </td>
-                            <td class="ucpflc" width="25%" align="left">
+                            </div>
+                            <div class="ucpflc" width="25%" align="left">
                                 <b><?php echo $l['acc_avatar_gall']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_avatar_gall_exp']; ?></font>
-                            </td>
-                            <td class="ucpfrc" align="left">
+                            </div>
+                            <div class="ucpfrc" align="left">
 
                                 <div id="motioncontainer" style="position:relative;overflow:hidden;">
                                     <div id="motiongallery" style="position:absolute;left:0;top:0;white-space: nowrap;">
 
-                                        <table id="trueContainer">
-                                            <tr>
+                                        <div id="trueContainer">
+                                            <div>
                                                 <?php
                                                 if (!empty($avatargallery)) {
 
 
                                                     foreach ($avatargallery as $ak => $av) {
 
-                                                        echo '<td>
+                                                        echo '<div>
             <a href="javascript:checkradio(\'' . $av['name'] . '\');checkradio(\'avgallery\');"/>
             <img src="' . $globals['avatarurl'] . '/' . $av['name'] . '" border=1>
             </a>
-            </td>';
+            </div>';
                                                     }
                                                 } else {
 
-                                                    echo '<td>' . $l['acc_noimg_avatar_gall'] . '</td>';
+                                                    echo '<div>' . $l['acc_noimg_avatar_gall'] . '</div>';
                                                 }
                                                 ?>
 
-                                            </tr>
+                                            </div>
 
-                                            <tr>
+                                            <div>
                                                 <?php
                                                 if (!empty($avatargallery)) {
 
                                                     foreach ($avatargallery as $ak => $av) {
 
-                                                        echo '<td>
+                                                        echo '<div>
             <input type="radio" name="avatargalfile" id="' . $av['name'] . '" value="' . $av['name'] . '" ' . ( (isset($_POST['avatartype'])) ? ((isset($_POST['avatargalfile']) && $_POST['avatargalfile'] == $av['name'] && ((int) $_POST['avatartype'] == 1)) ? 'checked="checked"' : '' ) : ((($user['avatar_type'] == 1) && ($av['name'] == $user['avatar'])) ? 'checked="checked"' : '' ) ) . ' />
-            </td>';
+            </div>';
                                                     }
                                                 } else {
 
-                                                    echo '<td>&nbsp;</td>';
+                                                    echo '<div>&nbsp;</div>';
                                                 }
                                                 ?>
 
-                                            </tr>
+                                            </div>
 
-                                        </table>
+                                        </div>
 
 
                                     </div>
                                 </div>
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" align="center" width="3%">
+                        <div>
+                            <div class="ucpflc" align="center" width="3%">
                                 <input type="radio" name="avatartype" id="avurl" value="2" <?php echo ((isset($_POST['avatartype'])) ? (((int) $_POST['avatartype'] == 2) ? 'checked="checked"' : '') : (($user['avatar_type'] == 2) ? 'checked="checked"' : '')); ?> />
-                            </td>
-                            <td class="ucpflc" width="25%" align="left">
+                            </div>
+                            <div class="ucpflc" width="25%" align="left">
                                 <b><?php echo $l['acc_online_img']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_online_img_exp']; ?></font>
-                            </td>
-                            <td class="ucpfrc" align="left">
+                            </div>
+                            <div class="ucpfrc" align="left">
                                 <input type="text" size="45" name="urlavatar" <?php echo ( (isset($_POST['avatartype']) && (int) $_POST['avatartype'] == 2) && (isset($_POST['urlavatar'])) ? 'value="' . $_POST['urlavatar'] . '"' : (($user['avatar_type'] == 2) ? 'value="' . ($user['avatar']) . '"' : '') ); ?> onfocus="$('avurl').checked = true;" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" align="center">
+                        <div>
+                            <div class="ucpflc" align="center">
                                 <input type="radio" name="avatartype" id="avupload" value="3" <?php echo ((isset($_POST['avatartype'])) ? (((int) $_POST['avatartype'] == 3) ? 'checked="checked"' : '') : (($user['avatar_type'] == 3) ? 'checked="checked"' : '')); ?> />
-                            </td>
-                            <td class="ucpflc" align="left">
+                            </div>
+                            <div class="ucpflc" align="left">
                                 <b><?php echo $l['acc_upl_img']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_upl_img_exp']; ?></font>
-                            </td>
-                            <td class="ucpfrc" align="left">
+                            </div>
+                            <div class="ucpfrc" align="left">
                                 <?php echo (($user['avatar_type'] == 3) ? '<img src="' . $curpp[0] . '" height="' . $curpp[4] . '" width="' . $curpp[3] . '" />' : ''); ?><br />
                                 <input type="file" name="uploadavatar" size="45" onfocus="$('avupload').checked = true;" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" colspan="3" align="center">
+                        <div>
+                            <div class="ucpflc" colspan="3" align="center">
                                 <input type="submit" name="editavatar" value="<?php echo $l['acc_save_ch']; ?>" />&nbsp;<input type="submit" name="removeavatar" value="<?php echo $l['acc_rem_avatar']; ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                    </table>
+                    </div>
 
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></td>
-            </tr>
-        </table>
+            <div>
+                <div><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></div>
+            </div>
+        </div>
     </form>
 
     <?php
@@ -604,80 +571,80 @@ function personalpic_theme() {
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="editppicform" enctype="multipart/form-data">
 
-        <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                            <td class="ucpcbgl"></td>
-                            <td class="ucpcbg"><?php echo $l['acc_edit_ur_perpic']; ?></td>
-                            <td class="ucpcbgr"></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+        <div width="100%" cellpadding="0" cellspacing="0">
+            <div>
+                <div>
+                    <div width="100%" cellpadding="0" cellspacing="0"><div>
+                            <div class="ucpcbgl"></div>
+                            <div class="ucpcbg"><?php echo $l['acc_edit_ur_perpic']; ?></div>
+                            <div class="ucpcbgr"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <tr>
-                <td class="cbgbor">
+            <div>
+                <div class="cbgbor">
 
-                    <table width="100%" cellpadding="2" cellspacing="1">
+                    <div width="100%" cellpadding="2" cellspacing="1">
 
-                        <tr>
-                            <td class="ucpfcbg1" colspan="3" align="center">
+                        <div>
+                            <div class="ucpfcbg1" colspan="3" align="center">
                                 <img src="<?php echo $theme['images']; ?>usercp/personalpicture.gif" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" align="center" colspan="2"><b><?php echo $l['acc_curr_perpic']; ?></b>
-                            </td>
-                            <td class="ucpfrc" align="center">
+                        <div>
+                            <div class="ucpflc" align="center" colspan="2"><b><?php echo $l['acc_curr_perpic']; ?></b>
+                            </div>
+                            <div class="ucpfrc" align="center">
                                 <img src="<?php echo $curpp[0]; ?>" height="<?php echo $curpp[2]; ?>" width="<?php echo $curpp[1]; ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
 
-                        <tr>
-                            <td class="ucpflc" align="center" width="3%">
+                        <div>
+                            <div class="ucpflc" align="center" width="3%">
                                 <input type="radio" name="ppictype" id="ppicurl" value="1" <?php echo ((isset($_POST['ppictype'])) ? (((int) $_POST['ppictype'] == 1) ? 'checked="checked"' : '') : (($user['ppic_type'] == 1) ? 'checked="checked"' : '')); ?> />
-                            </td>
-                            <td class="ucpflc" width="25%" align="left">
+                            </div>
+                            <div class="ucpflc" width="25%" align="left">
                                 <b><?php echo $l['acc_online_perpic']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_online_perpic_exp']; ?></font>
-                            </td>
-                            <td class="ucpfrc" align="left">
+                            </div>
+                            <div class="ucpfrc" align="left">
                                 <input type="text" size="45" name="urlppic" <?php echo ( (isset($_POST['ppictype']) && (int) $_POST['ppictype'] == 1) && (isset($_POST['urlppic'])) ? 'value="' . $_POST['urlppic'] . '"' : (($user['ppic_type'] == 1) ? 'value="' . ($user['ppic']) . '"' : '') ); ?> onfocus="$('ppicurl').checked = true;" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" align="center">
+                        <div>
+                            <div class="ucpflc" align="center">
                                 <input type="radio" name="ppictype" id="ppicupload" value="2" <?php echo ((isset($_POST['ppictype'])) ? (((int) $_POST['ppictype'] == 2) ? 'checked="checked"' : '') : (($user['ppic_type'] == 2) ? 'checked="checked"' : '')); ?> />
-                            </td>
-                            <td class="ucpflc" align="left">
+                            </div>
+                            <div class="ucpflc" align="left">
                                 <b><?php echo $l['acc_upl_img']; ?></b><br />
                                 <font class="ucpfexp"><?php echo $l['acc_upl_img_exp']; ?></font>
-                            </td>
-                            <td class="ucpfrc" align="left">
+                            </div>
+                            <div class="ucpfrc" align="left">
                                 <?php echo (($user['ppic_type'] == 2) ? '<img src="' . $curpp[0] . '" height="' . $curpp[4] . '" width="' . $curpp[3] . '" />' : ''); ?><br />
                                 <input type="file" name="uploadppic" size="45" onfocus="$('ppicupload').checked = true;" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                        <tr>
-                            <td class="ucpflc" colspan="3" align="center">
+                        <div>
+                            <div class="ucpflc" colspan="3" align="center">
                                 <input type="submit" name="editppic" value="<?php echo $l['acc_save_ch']; ?>" />&nbsp;<input type="submit" name="removeppic" value="<?php echo $l['acc_rem_perpic']; ?>" />
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
 
-                    </table>
+                    </div>
 
-                </td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></td>
-            </tr>
-        </table>
+            <div>
+                <div><img src="<?php echo $theme['images']; ?>cbotsmall.png" width="100%" height="10"></div>
+            </div>
+        </div>
     </form>
 
 
