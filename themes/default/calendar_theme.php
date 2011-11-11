@@ -38,11 +38,17 @@ function monthview_theme() {
 
 <table width="100%" cellpadding="0" cellspacing="0">
 
-<tr>
-<td class="cbgl"></td>
-<td class="cbg">' . $l['months'][$month] . ' - ' . $year . '</td>
-<td class="cbgr"></td>
-</tr>
+<tr class="caltop">
+    <td>
+        <a class="prev" href="' . $globals['index_url'] . 'act=calendar&date=' . $prevyear . $prevmonth . '01"><img style="margin-bottom: 5px;" src="' . $theme['images'] . '/left.png" />  ' . $l['months'][$prevmonth] . ' ' . $prevyear . '</a>
+    </td>
+    <td>
+        <a href="' . $globals['index_url'] . 'act=calendar&date=' . $year . $month . '01">' . $l['months'][$month] . ' ' . $year . '</a>
+    </td>
+    <td>
+        <a class="next" href="' . $globals['index_url'] . 'act=calendar&date=' . $nextyear . $nextmonth . '01">' . $l['months'][$nextmonth] . ' ' . $nextyear . '  <img style="margin-bottom: 5px;" src="' . $theme['images'] . '/right.png" /></a>
+    </td>
+    </tr>
 
 </table>
 
@@ -55,12 +61,12 @@ function monthview_theme() {
 
 <table width="100%" cellpadding="1" cellspacing="0" align="center" class="cbgbor">
 
-    <tr>';
+    <tr class="week_days">';
 
     //The calendar days
     for ($x = 0; $x < 7; $x++) {
 
-        echo '<td class="cbg1" align="center" width="14%">' . $l['days'][$x] . '</td>';
+        echo '<td width="14%">' . $l['days'][$x] . '</td>';
     }
 
     echo '</tr>
@@ -134,28 +140,16 @@ function monthview_theme() {
     }
 
     echo '</tr>
-    <tr>
-    <td class="nextprev" align="left" colspan="3">
-        &nbsp;&nbsp;&laquo; <a href="' . $globals['index_url'] . 'act=calendar&date=' . $prevyear . $prevmonth . '01">' . $l['months'][$prevmonth] . ' ' . $prevyear . '</a>
-    </td>
-    <td class="nextprev" align="center">
-        <a href="' . $globals['index_url'] . 'act=calendar&date=' . $year . $month . '01">' . $l['months'][$month] . ' ' . $year . '</a>
-    </td>
-    <td class="nextprev" align="right" colspan="3">
-        <a href="' . $globals['index_url'] . 'act=calendar&date=' . $nextyear . $nextmonth . '01">' . $l['months'][$nextmonth] . ' ' . $nextyear . ' &raquo;</a>&nbsp;&nbsp;
-    </td>
-    </tr>
-
-    <tr>
-    <td class="currentmonth" colspan="7" align="center">
-        <a href="' . $globals['index_url'] . 'act=calendar">' . $l['current_month'] . '</a>
-    </td>
-    </tr>
+    
     </table>
 
 </td>
 </tr>
-
+<tr>
+    <td class="currentmonth" colspan="7" align="center">
+        <a href="' . $globals['index_url'] . 'act=calendar">' . $l['current_month'] . '</a>
+    </td>
+    </tr>
 <tr>
 <td><img src="' . $theme['images'] . '/cbot.png" height="15" width="100%"></td>
 </tr>

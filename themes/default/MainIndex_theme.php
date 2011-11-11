@@ -49,7 +49,7 @@ function MainIndex_theme() {
         <div class="secondbar"><img src="' . $theme['images'] . 'postedon.png" alt="" />' . $l['recent_posts'] . '</div>
 		<div class="mifor" style="font-size:12px">';
         foreach ($recent_posts as $recentIndex => $recentPost) {
-            $stats_panel .= '(' . $recentPost['pdate'] . ') <b><a href="' . topiclink($recentPost['tid'], $recentPost['topic'], $recentPost['last_page']) . '#p' . $recentPost['pid'] . '">' . $recentPost['topic'] . '</a></b> ' . $l['by'] . ' <a style="color:' . $recentPost['mem_gr_colour'] . '" href="' . userlink($recentPost['id'], $recentPost['username']) . '">' . $recentPost['username'] . '</a>   (<a href="' . forumlink($recentPost['fid'], $recentPost['fname']) . '">' . $recentPost['fname'] . '</a>)<br>';
+            $stats_panel .= '(' . $recentPost['pdate'] . ') <b><a href="' . topiclink($recentPost['tid'], $recentPost['topic'], $recentPost['last_page']) . '#p' . $recentPost['pid'] . '">' . $recentPost['topic'] . '</a></b> ' . $l['by'] . ' <a style="color:' . $recentPost['mem_gr_colour'] . '" href="' . userlink($recentPost['id'], $recentPost['username']) . '">' . $recentPost['username'] . '</a>   (<a href="' . forumlink($recentPost['fid'], $recentPost['fname']) . '">' . $recentPost['fname'] . '</a>)<br/>';
         }
         $stats_panel .= '</div>';
     }
@@ -59,8 +59,8 @@ function MainIndex_theme() {
 
 		<div class="mifor">
 			' . ($guests + count($active) + (empty($anonymous) ? 0 : $anonymous)) . ' ' . $l['online_users'] . ' ' . $l['in_the_past'] . ' ' . $globals['last_active_span'] . ' ' . $l['minutes'] . ' (' . $guests . ' ' . $l['online_guests'] . ', ' . count($active) . ' ' . $l['online_members'] . (($anonymous) ? ', ' . $anonymous . ' ' . $l['online_anonymous'] : '' ) . ')' .
-				(!empty($activeusers) ? '<br>' . implode(', ', $activeusers) : '') . '
-			<br>
+				(!empty($activeusers) ? '<br/>' . implode(', ', $activeusers) : '') . '
+			<br/>
 			' . $l['most_online_today'] . ' <b>' . $mostactive . '</b>. ' . $l['most_online_ever'] . ' <b>' . $mostactive_ever[0] . '</b> ' . $l['on'] . ' <b>' . datify($mostactive_ever[1]) . '</b>
 		</div>';
     if (!empty($online_today)) {
@@ -77,7 +77,7 @@ function MainIndex_theme() {
     if ($user['view_members']) {
         $stats_panel .= '
 			<div class="secondbar"><img src="' . $theme['images'] . 'online.gif" alt="" />' . $l['all_members'] . '</div>
-			<div class="mifor"><b><a href="' . $globals['ind'] . 'act=members">' . $l['members'] . '</a></b><br>
+			<div class="mifor"><b><a href="' . $globals['ind'] . 'act=members">' . $l['members'] . '</a></b><br/>
 				' . $l['list_of_members'] .
 				(!empty($user_groups) ? '<hr />' . $l['user_groups'] . ' : ' . implode(', ', $user_groups) : '') . '
 			</div>';
@@ -87,9 +87,9 @@ function MainIndex_theme() {
 			<div class="secondbar"><img src="' . $theme['images'] . 'stats.gif" alt="" />' . $l['board_stats'] . '</div>
 			<div>
 				<div class="mifor">
-					' . $l['total_posts'] . ' <b>' . $globals['tot_posts'] . '</b><br>
-					' . $l['total_topics'] . ' <b>' . $globals['tot_topics'] . '</b><br>
-					' . $l['registered_members'] . ' <b>' . $globals['num_mem'] . '</b><br>
+					' . $l['total_posts'] . ' <b>' . $globals['tot_posts'] . '</b><br/>
+					' . $l['total_topics'] . ' <b>' . $globals['tot_topics'] . '</b><br/>
+					' . $l['registered_members'] . ' <b>' . $globals['num_mem'] . '</b><br/>
 					' . $l['welcome_new_member'] . ', <b><a href="' . userlink($latest_mem[1], $latest_mem[0]) . '" >' . $latest_mem[0] . '</a></b>
 				</div>
 			</div></div>';
@@ -150,8 +150,8 @@ function MainIndex_theme() {
 						if (empty($forums[$c][$f]['tid'])) {
 							echo $l['no_last_post'];
 						} else {
-							echo '&nbsp;' . $forums[$c][$f]['pdate'] . '<br>' .
-							$l['in'] . ' <a href="' . topiclink($v['tid'], $v['topic']) . '" title="' . $l['go_to_first_post'] . '">' . $forums[$c][$f]['topic'] . '</a>&nbsp;&nbsp;&nbsp;<a href="' . topiclink($v['tid'], $v['topic'], $v['last_page']) . '#p' . $forums[$c][$f]['pid'] . '" title="' . $l['go_to_last_post'] . '"><img src="' . $theme['images'] . 'right.gif" alt="" /></a><br>' .
+							echo '&nbsp;' . $forums[$c][$f]['pdate'] . '<br/>' .
+							$l['in'] . ' <a href="' . topiclink($v['tid'], $v['topic']) . '" title="' . $l['go_to_first_post'] . '">' . $forums[$c][$f]['topic'] . '</a>&nbsp;&nbsp;&nbsp;<a href="' . topiclink($v['tid'], $v['topic'], $v['last_page']) . '#p' . $forums[$c][$f]['pid'] . '" title="' . $l['go_to_last_post'] . '"><img src="' . $theme['images'] . 'right.gif" alt="" /></a><br/>' .
 							$l['by'] . ' ' . (empty($forums[$c][$f]['username']) ? (empty($forums[$c][$f]['gposter_name']) ? $l['guest'] : $forums[$c][$f]['gposter_name']) : '<a href="' . userlink($v['poster_id'], $v['username']) . '">' . $forums[$c][$f]['username'] . '</a>');
 						}
 						echo '</div>

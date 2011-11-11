@@ -45,7 +45,7 @@ imgurl = \'' . $theme['images'] . '\';
     </head>
     <body onload="bodyonload();">';
 
-    echo '<div class="header" id="header" width="100%" >
+    echo '<div class="header" id="header">
     <div>
         <div style="float:left;" class="logo_area">
 			<a class="logo" href="' . $globals['ind'] . '">
@@ -87,12 +87,12 @@ imgurl = \'' . $theme['images'] . '\';
     echo '</div>
 
     </div>
-<br><br><br>
+<br/><br/><br/>
     <div>
 <div style="float:right;margin-top:-5px;" class="search_box">
 			<form accept-charset="' . $globals['charset'] . '" name="ddsearch" method="get" action="' . $globals['ind'] . '">
 			<label id="search_label" class="search_label" for="allwords" style="display: block;" >' . $l['nav_search'] . '</label>
-				<input type="text" name="allwords" class="search_input" onclick="document.getElementById(\'search_label\').style.display = \'none\';" onBlur="if(this.value == \'\'){document.getElementById(\'search_label\').style.display = \'block\';}" />
+				<input type="text" id="allwords" name="allwords" class="search_input" onclick="document.getElementById(\'search_label\').style.display = \'none\';" onblur="if(this.value == \'\'){document.getElementById(\'search_label\').style.display = \'block\';}" />
 				<input type="submit"  name="search" style="display:none;"/>
 				<input type="hidden" name="act" value="search" />
 				<input type="hidden" name="sact" value="results" />
@@ -101,7 +101,7 @@ imgurl = \'' . $theme['images'] . '\';
 				<input type="hidden" name="showas" value="1" />
 			</form>
 		</div>
-        <div style="float:right;top:5%;" valign="bottom">';
+        <div style="float:right;top:5%;">';
 
     //Array Holding the Options to be imploded
     $opt = array();
@@ -183,9 +183,9 @@ createmenu("quicklinks", [' . $quick_links . ']);
     }*/
 
     //this is the users menu table
-    echo '<div width="100%" style="height:35px;">
+    echo '<div style="height:35px;">
                 <div style="float:left;">
-                    <div style="float:right;" nowrap="nowrap" class="navlinks">';
+                    <div style="float:right;" class="navlinks">';
 
     echo implode('&nbsp;&nbsp;|&nbsp;&nbsp;', $opt);
 
@@ -336,15 +336,14 @@ addonload(\'init_fixedshoutbox();\');
                             <div>
 								<b><?php echo $l['username']; ?></b>
                                 <input type="text" size="20" name="username" <?php echo ( (isset($_POST['username'])) ? 'value="' . $_POST['username'] . '"' : '' ); ?> />
-                                <br><b><?php echo $l['password']; ?></b>
+                                <br/><b><?php echo $l['password']; ?></b>
                                 <input type="password" size="20" name="password" />
 								<input type="submit" name="login" value="<?php echo $l['sign_in']; ?>" style="margin-top:-20px;-moz-box-shadow:none;-webkit-box-shadow:none;"/>
 							</div>
-
-                    </div>
                 </form>
-<div style="clear:both;"></div>
 </div>
+<div style="clear:both;"></div>
+
 <a id="login" class="trigger" href="#"></a>
 <?php
 }
