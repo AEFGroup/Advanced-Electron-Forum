@@ -491,7 +491,7 @@ function mainregister() {
 
             $akismet->setCommentType('registration');
 
-            $akismet->setUserIP($password);
+            $akismet->setUserIP($r_ip);
 
             if ($akismet->isCommentSpam()) {
                 $error[] = $l['akismet_error'];

@@ -788,7 +788,7 @@ function reply() {
                 }
             }
 
-            $akismet->setCommentType('post');
+            $akismet->setCommentType('comment');
 
             $akismet->setCommentContent($post);
 
