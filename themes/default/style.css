@@ -753,23 +753,7 @@ a.tabbed:link, a.tabbed:visited, a.tabbed:active, a.tabbed:hover{
 /* Ending - Group Message */
 
 /* AEF has a Dock */
-.dock{
-    list-style:none;
-    position:relative;
-    margin:0px auto;
-}
-.dock li, .dock a {
-    display:inline;
-}
-.dock img{
-    display:block;
-    border:none;
-    width:0px;
-    height:0px; 
-    position:absolute; 
-    top:auto;
-    left:auto;
-}
+
 input[type="text"],input[type="password"]{
 font-size: 12px;
 width: 154px;

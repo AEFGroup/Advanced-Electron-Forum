@@ -36,6 +36,12 @@ function aefheader($title = '', $stats_panel = '') {
 			});
 		});
 	</script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+    <![endif]-->
 
 <script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 boardurl = \'' . $globals['url'] . '/\';
@@ -374,21 +380,54 @@ function aeffooter() {
 
     if ($logged_in && !empty($theme['showdock'])) {
 
-        echo '<script language="javascript" src="' . $theme['url'] . '/js/dock.js" type="text/javascript"></script><center>
-<ul id="dock" class="dock">
-<li><a href="' . $globals['ind'] . '" title="' . $l['dock_home'] . '"><img src="' . $theme['images'] . 'home.gif" alt="' . $l['dock_home'] . '" /></a></li>
-' . (empty($user['can_admin']) ? '' : '<li><a href="' . $globals['ind'] . 'act=admin" title="' . $l['dock_admin'] . '"><img src="' . $theme['images'] . 'admincp.gif" alt="' . $l['dock_admin'] . '" /></a></li>') . '
-<li><a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=profile" title="' . $l['dock_profile_settings'] . '"><img src="' . $theme['images'] . 'profilesettings.gif" alt="' . $l['dock_profile_settings'] . '" /></a></li>
-<li><a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=forumset" title="' . $l['dock_forum_settings'] . '"><img src="' . $theme['images'] . 'settings.gif" alt="' . $l['dock_forum_settings'] . '" /></a></li>
-<li><a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=inbox" title="' . $l['dock_inbox'] . '"><img src="' . $theme['images'] . 'inbox.gif" alt="' . $l['dock_inbox'] . '" /></a></li>
-<li><a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm" title="' . $l['dock_compose'] . '"><img src="' . $theme['images'] . 'compose.gif" alt="' . $l['dock_compose'] . '" /></a></li>
-<li><a href="' . $globals['ind'] . 'act=search" title="' . $l['dock_search'] . '"><img src="' . $theme['images'] . 'search.gif" alt="' . $l['dock_search'] . '" /></a></li>
-</ul>
-</center>
-<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-aefdock = new dock();
-addonload(\'aefdock.init();\');
-// ]]></script>';
+        echo '<link rel="stylesheet" href="' . $theme['url'] . '/dock.css" />
+                <div class="dock">
+                    <ul>
+                        <li id="dock_home">
+                            <a href="' . $globals['ind'] . '" title="' . $l['dock_home'] . '">
+                                <em><span>' . $l['dock_home'] . '</span></em>
+                                <img src="' . $theme['images'] . 'home.gif" alt="' . $l['dock_home'] . '" />
+                            </a>
+                        </li>
+                        ' . (empty($user['can_admin']) ? '' : '
+                        <li id="dock_admin">
+                            <a href="' . $globals['ind'] . 'act=admin" title="' . $l['dock_admin'] . '">
+                            <em><span>' . $l['dock_admin'] . '</span></em>
+                                <img src="' . $theme['images'] . 'admincp.gif" alt="' . $l['dock_admin'] . '" />
+                            </a>
+                        </li>') . '
+                        <li id="dock_profile">
+                            <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=profile" title="' . $l['dock_profile_settings'] . '">
+                            <em><span>' . $l['dock_profile_settings'] . '</span></em>
+                                <img src="' . $theme['images'] . 'profilesettings.gif" alt="' . $l['dock_profile_settings'] . '" />
+                            </a>
+                        </li>
+                        <li id="dock_forum">
+                            <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=forumset" title="' . $l['dock_forum_settings'] . '">
+                            <em><span>' . $l['dock_forum_settings'] . '</span></em>
+                                <img src="' . $theme['images'] . 'settings.gif" alt="' . $l['dock_forum_settings'] . '" />
+                            </a>
+                        </li>
+                        <li id="dock_inbox">
+                            <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=inbox" title="' . $l['dock_inbox'] . '">
+                            <em><span>' . $l['dock_inbox'] . '</span></em>
+                                <img src="' . $theme['images'] . 'inbox.gif" alt="' . $l['dock_inbox'] . '" />
+                            </a>
+                        </li>
+                        <li id="dock_compse">
+                            <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm" title="' . $l['dock_compose'] . '">
+                            <em><span>' . $l['dock_compose'] . '</span></em>
+                                <img src="' . $theme['images'] . 'compose.gif" alt="' . $l['dock_compose'] . '" />
+                            </a>
+                        </li>
+                        <li id="dock_search">
+                            <a href="' . $globals['ind'] . 'act=search" title="' . $l['dock_search'] . '">
+                            <em><span>' . $l['dock_search'] . '</span></em>
+                                <img src="' . $theme['images'] . 'search.gif" alt="' . $l['dock_search'] . '" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>';
     }
 
 //Footer Nav tree
