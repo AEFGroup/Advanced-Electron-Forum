@@ -62,6 +62,25 @@ function external_section(){
 
 }
 
+function content_section(){
+	global $theme, $globals, $l;
+
+    //Admin Headers includes Global Headers
+    adminhead($theme['init_theme_name']);
+	echo '
+	<div style="padding: 50px 80px; ">
+		<div class="app" style="display: inline;">
+			<a href="'.$globals['index_url'].'act=admin&adact=forums" style="background-image: url('.$theme['images'].'/admin/themes_center.png); font-size: 45px;">
+			Forums Center</a>
+		</div>
+		<div class="app" style="display: inline;">
+			<a href="'.$globals['index_url'].'act=admin&adact=contentsection&seadact=bbcodescenter" style="background-image: url('.$theme['images'].'/admin/languages_center.png); font-size: 45px;">
+			BBCodes Center</a>
+		</div>
+	</div>';
+
+}
+
 function options_center_theme(){
 	global $theme, $globals, $l;
     //Admin Headers includes Global Headers

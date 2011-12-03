@@ -56,7 +56,7 @@ function adminhead($title = '') {
 			<p><?php echo $l['external_center']; ?></p>
 		</div>
 		<div id="topmenu_branch">
-			<a href="#"><img src="<?php echo $theme['images']; ?>/admin/contentcenter.png" /></a>
+			<a href="<?php echo $globals['index_url']; ?>act=admin&adact=contentsection"><img src="<?php echo $theme['images']; ?>/admin/contentcenter.png" /></a>
 			<p><?php echo $l['content_center']; ?></p>
 		</div>
 		<div id="topmenu_branch">

@@ -9,46 +9,47 @@ function aefheader($title = '', $stats_panel = '') {
     //Lets echo the top headers
     echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
-    <meta name="keywords" content="aef, advanced, electron, forum, bulletin, board, software' . (empty($globals['keywords']) ? '' : ', ' . $globals['keywords']) . '" />
-    <title>' . $title . '</title>
-    <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    ' . ((empty($globals['rss_recent'])) ? '' : '<link rel="alternate" type="application/rss+xml" title="' . $globals['sn'] . ' - ' . $l['rss'] . '" href="' . $globals['ind'] . 'act=feeds" />') . '
-    ' . (empty($feeds) ? '' : implode('', $feeds)) . '
-    <script language="javascript" src="' . $theme['url'] . '/js/universal.js" type="text/javascript"></script>
-    <script language="javascript" src="' . $theme['url'] . '/js/menu.js" type="text/javascript"></script>
-    <script language="javascript" src="' . $theme['url'] . '/js/domdrag.js" type="text/javascript"></script>
-	<script type="text/javascript" src="' . $theme['url'] . '/jquery.min.js"></script>
-	<script type="text/javascript">
-		var $j = jQuery.noConflict();
-		$j(document).ready(function(){
-			$j("#login.trigger").click(function(){
-				$j("#login.panel").toggle("fast");
-				$j(this).toggleClass("active");
-				return false;
-			});
-			$j("#stats.trigger").click(function(){
-				$j("#stats.panel").toggle("fast");
-				$j(this).toggleClass("active");
-				return false;
-			});
-		});
-	</script>
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
-    <![endif]-->
-
-<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
-boardurl = \'' . $globals['url'] . '/\';
-indexurl = \'' . $globals['index_url'] . '\';
-imgurl = \'' . $theme['images'] . '\';
-// ]]></script>
-    </head>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=' . $globals['charset'] . '" />
+            <meta name="keywords" content="aef, advanced, electron, forum, bulletin, board, software' . (empty($globals['keywords']) ? '' : ', ' . $globals['keywords']) . '" />
+            <title>' . $title . '</title>
+            <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
+            <link rel="shortcut icon" href="favicon.ico" />
+            ' . ((empty($globals['rss_recent'])) ? '' : '<link rel="alternate" type="application/rss+xml" title="' . $globals['sn'] . ' - ' . $l['rss'] . '" href="' . $globals['ind'] . 'act=feeds" />') . '
+            ' . (empty($feeds) ? '' : implode('', $feeds)) . '
+            <script language="javascript" src="' . $theme['url'] . '/js/universal.js" type="text/javascript"></script>
+            <script language="javascript" src="' . $theme['url'] . '/js/menu.js" type="text/javascript"></script>
+            <script language="javascript" src="' . $theme['url'] . '/js/domdrag.js" type="text/javascript"></script>
+            <script type="text/javascript" src="' . $theme['url'] . '/jquery.min.js"></script>
+            <script type="text/javascript">
+                var $j = jQuery.noConflict();
+                $j(document).ready(function(){
+                    $j("#login.trigger").click(function(){
+				        $j("#login.panel").toggle("fast");
+				        $j(this).toggleClass("active");
+				        return false;
+                    });
+                    $j("#stats.trigger").click(function(){
+                        $j("#stats.panel").toggle("fast");
+                        $j(this).toggleClass("active");
+				        return false;
+                    });
+                });
+            </script>
+            <!--[if lt IE 9]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+            <!--[if lt IE 8]>
+                <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+            <![endif]-->
+            <script language="javascript" type="text/javascript">
+                <!-- // --><![CDATA[
+                    boardurl = \'' . $globals['url'] . '/\';
+                    indexurl = \'' . $globals['index_url'] . '\';
+                    imgurl = \'' . $theme['images'] . '\';
+                // ]]>
+            </script>
+        </head>
     <body onload="bodyonload();">';
 
     echo '<div class="header" id="header">
@@ -393,37 +394,31 @@ function aeffooter() {
                         <li id="dock_admin">
                             <a href="' . $globals['ind'] . 'act=admin" title="' . $l['dock_admin'] . '">
                             <em><span>' . $l['dock_admin'] . '</span></em>
-                                <img src="' . $theme['images'] . 'admincp.gif" alt="' . $l['dock_admin'] . '" />
+                                <img src="' . $theme['images'] . 'admincp.png" alt="' . $l['dock_admin'] . '" />
                             </a>
                         </li>') . '
                         <li id="dock_profile">
-                            <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=profile" title="' . $l['dock_profile_settings'] . '">
+                            <a href="' . $globals['ind'] . 'act=usercp" title="' . $l['dock_profile_settings'] . '">
                             <em><span>' . $l['dock_profile_settings'] . '</span></em>
-                                <img src="' . $theme['images'] . 'profilesettings.gif" alt="' . $l['dock_profile_settings'] . '" />
-                            </a>
-                        </li>
-                        <li id="dock_forum">
-                            <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=forumset" title="' . $l['dock_forum_settings'] . '">
-                            <em><span>' . $l['dock_forum_settings'] . '</span></em>
-                                <img src="' . $theme['images'] . 'settings.gif" alt="' . $l['dock_forum_settings'] . '" />
+                                <img src="' . $theme['images'] . 'profile.png" alt="' . $l['dock_profile_settings'] . '" />
                             </a>
                         </li>
                         <li id="dock_inbox">
                             <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=inbox" title="' . $l['dock_inbox'] . '">
                             <em><span>' . $l['dock_inbox'] . '</span></em>
-                                <img src="' . $theme['images'] . 'inbox.gif" alt="' . $l['dock_inbox'] . '" />
+                                <img src="' . $theme['images'] . 'inbox.png" alt="' . $l['dock_inbox'] . '" />
                             </a>
                         </li>
                         <li id="dock_compse">
                             <a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=writepm" title="' . $l['dock_compose'] . '">
                             <em><span>' . $l['dock_compose'] . '</span></em>
-                                <img src="' . $theme['images'] . 'compose.gif" alt="' . $l['dock_compose'] . '" />
+                                <img src="' . $theme['images'] . 'compose.png" alt="' . $l['dock_compose'] . '" />
                             </a>
                         </li>
                         <li id="dock_search">
                             <a href="' . $globals['ind'] . 'act=search" title="' . $l['dock_search'] . '">
                             <em><span>' . $l['dock_search'] . '</span></em>
-                                <img src="' . $theme['images'] . 'search.gif" alt="' . $l['dock_search'] . '" />
+                                <img src="' . $theme['images'] . 'search.png" alt="' . $l['dock_search'] . '" />
                             </a>
                         </li>
                     </ul>

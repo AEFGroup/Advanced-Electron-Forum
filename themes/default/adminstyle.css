@@ -157,6 +157,8 @@ div.sdmenu div a:hover {
     z-index:0;
     visibility:hidden;
 }
-
+.adlinks{
+    float:right;
+}
 
 /* End - Admin Categories Style*/

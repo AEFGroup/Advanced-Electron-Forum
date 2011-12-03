@@ -67,4 +67,5 @@ function createmenu(id, array){
 
     t += '</table>';
     document.write(t);
+    return true;
 };

@@ -107,6 +107,45 @@ function external(){
     }
 }
 
+function content(){
+     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
+
+    if (!load_lang('admin/sections')) {
+        return false;
+    }
+
+    //The name of the file
+    $theme['init_theme'] = 'admin/sections';
+
+    //The name of the Page
+    $theme['init_theme_name'] = 'Admin Center - Content Center';
+
+    //Array of functions to initialize
+    $theme['init_theme_func'] = array('content_section');
+
+    $theme['call_theme_func'] = 'content_section';
+
+
+
+    //If a second Admin act is set then go by that
+    if (isset($_GET['seadact']) && trim($_GET['seadact']) !== "") {
+
+        $seadact = inputsec(htmlizer(trim($_GET['seadact'])));
+    } else {
+
+        $seadact = "";
+    }
+
+    $actionsArray = array(
+        'themescenter' => array('', 'themes_center'),
+        'languagescenter' => array('', 'languages_center'),
+    );
+
+    if (!empty($seadact)) {
+            $actionsArray[$seadact][1]();
+    }
+}
+
 function options_center(){
     global $theme;
     $theme['call_theme_func'] = 'options_center_theme';

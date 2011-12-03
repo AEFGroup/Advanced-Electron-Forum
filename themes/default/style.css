@@ -1079,3 +1079,10 @@ display: block;
 -webkit-margin-start: 0px;
 -webkit-margin-end: 0px;
 }
+div.topbar h3 {
+    font-family: Palatino, "Palatino Linotype", serif;
+    font-weight: bold;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+}
