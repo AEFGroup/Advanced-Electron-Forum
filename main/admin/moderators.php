@@ -41,9 +41,7 @@ function moderators() {
     $theme['init_theme_name'] = 'Admin Center - Manage Moderators';
 
     //Array of functions to initialize
-    $theme['init_theme_func'] = array('moderators_global',
-        'managemoderators_theme',
-        'editmoderators_theme');
+    $theme['init_theme_func'] = array('editmoderators_theme');
 
     //My activity
     $globals['last_activity'] = 'amod';
@@ -72,7 +70,7 @@ function moderators() {
                 return false;
             }
             //Calling the theme file
-            $theme['call_theme_func'] = 'managemoderators_theme';
+            redirect('act=admin&adact=forums');
             break;
     }
 }

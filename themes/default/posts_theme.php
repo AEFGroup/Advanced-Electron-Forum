@@ -1307,7 +1307,7 @@ function printtopic_theme() {
 
     echo '<center><h1>' . $globals['sn'] . '</h1></center>
     <hr />
-    <font size="4">' . $l['topic'] . ' : <b>' . $title . '</font></b>
+    <span size="4">' . $l['topic'] . ' : <b>' . $title . '</span></b>
     <hr /><br /><br />';
 
     if (!empty($topicpages)) {

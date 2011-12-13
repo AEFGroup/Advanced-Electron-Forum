@@ -61,7 +61,7 @@ $l['smiley_settings'] = 'Smiley Settings';
 $l['credits_thanks'] = 'Credits and Thanks';
 $l['credits_exp'] = 'We would like to thank the following people who have helped built AEF to what it is today!';
 $l['thanks'] = 'Thanks to all';
-$l['you'] = 'We would like to <font size="4">Thank You</font> for choosing AEF!';
+$l['you'] = 'We would like to <span size="4">Thank You</span> for choosing AEF!';
 
 $l['founder'] = 'Founder and Developer';
 $l['developer'] = 'Developer';

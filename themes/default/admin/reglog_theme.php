@@ -35,7 +35,7 @@ function regset_theme() {
     <div class="cbor" align="center">
         <div>
             <img src="<?php echo $theme['images']; ?>admin/users.png">
-            <font class="adgreen"><?php echo $l['reg_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['reg_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -57,7 +57,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['new_reg']; ?></b><br />
-                    <font class="adexp"><?php echo $l['new_reg_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['new_reg_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="allow_reg"    <?php echo ($globals['allow_reg'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -66,7 +66,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['reg_method']; ?></b><br />
-                    <font class="adexp"><?php echo $l['reg_method_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['reg_method_exp']; ?></span>
                 </div>
                     <select name="reg_method">
                         <option value="1" <?php echo (isset($_POST['reg_method']) && $_POST['reg_method'] == 1 ? 'selected="selected"' : ($globals['reg_method'] == 1 ? 'selected="selected"' : '' )); ?> ><?php echo $l['immediate']; ?></option>
@@ -79,7 +79,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['welcome_email']; ?></b><br />
-                    <font class="adexp"><?php echo $l['welcome_email_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['welcome_email_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="wel_email"    <?php echo ($globals['wel_email'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -88,7 +88,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['notify_admin']; ?></b><br />
-                    <font class="adexp"><?php echo $l['notify_admin_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['notify_admin_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="reg_notify" <?php echo ($globals['reg_notify'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -97,7 +97,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_uname_length']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_uname_length_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['max_uname_length_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="max_uname" value="<?php echo (empty($_POST['max_uname']) ? $globals['max_uname'] : $_POST['max_uname']); ?>" />
             </div>
@@ -106,7 +106,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['min_uname_length']; ?></b><br />
-                    <font class="adexp"><?php echo $l['min_uname_length_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['min_uname_length_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="min_uname" value="<?php echo (empty($_POST['min_uname']) ? $globals['min_uname'] : $_POST['min_uname']); ?>" />
             </div>
@@ -115,7 +115,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_pass_length']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_pass_length_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['max_pass_length_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="max_pass" value="<?php echo (empty($_POST['max_pass']) ? $globals['max_pass'] : $_POST['max_pass']); ?>" />
             </div>
@@ -124,7 +124,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['min_pass_length']; ?></b><br />
-                    <font class="adexp"><?php echo $l['min_pass_length_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['min_pass_length_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="min_pass" value="<?php echo (empty($_POST['min_pass']) ? $globals['min_pass'] : $_POST['min_pass']); ?>" />
             </div>
@@ -133,7 +133,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['confirm_code']; ?></b><br />
-                    <font class="adexp"><?php echo $l['confirm_code_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['confirm_code_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="sec_conf" <?php echo ($globals['sec_conf'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -142,7 +142,7 @@ function regset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['same_pc_reg']; ?></b><br />
-                    <font class="adexp"><?php echo $l['same_pc_reg_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['same_pc_reg_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="samepc_reg" <?php echo ($globals['samepc_reg'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -167,7 +167,7 @@ function agerest_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/users.png">
-            <font class="adgreen"><?php echo $l['age_rest_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['age_rest_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -190,7 +190,7 @@ function agerest_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['age']; ?></b><br />
-                    <font class="adexp"><?php echo $l['age_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['age_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="age_limit" value="<?php echo (empty($_POST['v']) ? $globals['age_limit'] : $_POST['age_limit']); ?>" />
             </div>
@@ -200,7 +200,7 @@ function agerest_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['action']; ?></b><br />
-                    <font class="adexp"><?php echo $l['action_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['action_exp']; ?></span>
                 </div>
                     <select name="age_rest_act">
                         <option value="1" <?php echo (isset($_POST['age_rest_act']) && $_POST['age_rest_act'] == 1 ? 'selected="selected"' : ''); ?> ><?php echo $l['reject_reg']; ?></option>
@@ -212,7 +212,7 @@ function agerest_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['address']; ?></b><br />
-                    <font class="adexp"><?php echo $l['address_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['address_exp']; ?></span>
                 </div>
                 <textarea name="age_rest_act_address" cols="45" rows="6"><?php echo (empty($_POST['age_rest_act_address']) ? $globals['age_rest_act_address'] : $_POST['age_rest_act_address']); ?></textarea>
             </div>
@@ -221,7 +221,7 @@ function agerest_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['fax']; ?></b><br />
-                    <font class="adexp"><?php echo $l['fax_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['fax_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="age_rest_act_fax" value="<?php echo (empty($_POST['age_rest_act_fax']) ? $globals['age_rest_act_fax'] : $_POST['age_rest_act_fax']); ?>" />
             </div>
@@ -230,7 +230,7 @@ function agerest_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tlfn']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tlfn_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tlfn_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="age_rest_act_tele" value="<?php echo (empty($_POST['age_rest_act_tele']) ? $globals['age_rest_act_tele'] : $_POST['age_rest_act_tele']); ?>" />
             </div>
@@ -255,7 +255,7 @@ function reserved_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/users.png">
-            <font class="adgreen"><?php echo $l['reserved_names_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['reserved_names_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -279,7 +279,7 @@ function reserved_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['reserved_names']; ?></b><br />
-                    <font class="adexp"><?php echo $l['reserved_names_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['reserved_names_exp']; ?></span>
                 </div>
                 <textarea name="reserved_names" cols="45" rows="6"><?php echo (empty($_POST['reserved_names']) ? $globals['reserved_names'] : $_POST['reserved_names']); ?></textarea>
             </div>
@@ -288,7 +288,7 @@ function reserved_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['match_whole_words']; ?></b><br />
-                    <font class="adexp"><?php echo $l['match_whole_words_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['match_whole_words_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="reserved_match_whole"    <?php echo ($globals['reserved_match_whole'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -297,7 +297,7 @@ function reserved_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['case_insens_match']; ?></b><br />
-                    <font class="adexp"><?php echo $l['case_insens_match_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['case_insens_match_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="reserved_match_insensitive"    <?php echo ($globals['reserved_match_insensitive'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -322,7 +322,7 @@ function logset_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/users.png">
-            <font class="adgreen"><?php echo $l['login_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['login_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -346,7 +346,7 @@ function logset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['login_attempts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['login_attempts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['login_attempts_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="login_failed" value="<?php echo (empty($_POST['login_failed']) ? $globals['login_failed'] : $_POST['login_failed']); ?>" />
             </div>
@@ -355,7 +355,7 @@ function logset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['anonym_login']; ?></b><br />
-                    <font class="adexp"><?php echo $l['anonym_login_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['anonym_login_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="anon_login" <?php echo ($globals['anon_login'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -364,7 +364,7 @@ function logset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['security_code']; ?></b><br />
-                    <font class="adexp"><?php echo $l['security_code_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['security_code_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="fpass_sec_conf" <?php echo ($globals['fpass_sec_conf'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -373,7 +373,7 @@ function logset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['smart_redirect']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['smart_redirect_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['smart_redirect_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="smart_redirect" <?php echo ($globals['smart_redirect'] ? 'checked="checked"' : ''); ?> />
             </div>

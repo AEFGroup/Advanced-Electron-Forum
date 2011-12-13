@@ -106,7 +106,7 @@ function normal_bbc($text) {
 
         while (preg_match("/\[size=([1-7])\](.*?)\[\/size\]/is", $text)) {
 
-            $text = preg_replace("/\[size=([1-7])\](.*?)\[\/size\]/is", '<font size="$1" style="line-height:normal">$2</font>', $text);
+            $text = preg_replace("/\[size=([1-7])\](.*?)\[\/size\]/is", '<span size="$1" style="line-height:normal">$2</span>', $text);
         }
     }
 
@@ -115,7 +115,7 @@ function normal_bbc($text) {
 
         while (preg_match("/\[font=(verdana|Arial Black|Arial Narrow|arial|helvetica|sans-serif|Times New Roman|Times|serif|courier new|Courier|monospace|geneva|georgia|Tahoma).*?\](.*?)\[\/font\]/is", $text)) {
 
-            $text = preg_replace("/\[font=(verdana|Arial Black|Arial Narrow|arial|helvetica|sans-serif|Times New Roman|Times|serif|courier new|Courier|monospace|geneva|georgia|Tahoma).*?\](.*?)\[\/font\]/is", '<font style="font-family:$1">$2</font>', $text);
+            $text = preg_replace("/\[font=(verdana|Arial Black|Arial Narrow|arial|helvetica|sans-serif|Times New Roman|Times|serif|courier new|Courier|monospace|geneva|georgia|Tahoma).*?\](.*?)\[\/font\]/is", '<span style="font-family:$1">$2</span>', $text);
         }
     }
 
@@ -124,7 +124,7 @@ function normal_bbc($text) {
 
         while (preg_match("/\[color=(\#.{6})\](.*?)\[\/color\]/is", $text)) {
 
-            $text = preg_replace("/\[color=(\#.{6})\](.*?)\[\/color\]/is", '<font style="color: $1">$2</font>', $text);
+            $text = preg_replace("/\[color=(\#.{6})\](.*?)\[\/color\]/is", '<span style="color: $1">$2</span>', $text);
         }
     }
 

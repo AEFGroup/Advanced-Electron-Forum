@@ -41,16 +41,13 @@ function forumpermissions() {
     $theme['init_theme_name'] = 'Admin Center - Manage Forum Permissions';
 
     //Array of functions to initialize
-    $theme['init_theme_func'] = array('fpermissions_global',
-        'fpermissionsmanage_theme',
-        'editfpermissions_theme',
-        'createfpermissions_theme');
+    $theme['init_theme_func'] = array('fpermissionsmanage_theme');
 
     //My activity
     $globals['last_activity'] = 'afp';
 
 
-    //If a second Admin act is set then go by that
+    //If a scandir(directory)econd Admin act is set then go by that
     if (isset($_GET['seadact']) && trim($_GET['seadact']) !== "") {
 
         $seadact = inputsec(htmlizer(trim($_GET['seadact'])));
@@ -67,11 +64,6 @@ function forumpermissions() {
             editfpermissions();
             break;
 
-        //The form for creating a new Category
-        case 'createfpermissions':
-            createfpermissions();
-            break;
-
         default :
             fpermissionsmanage();
             //Calling the theme file
@@ -80,15 +72,21 @@ function forumpermissions() {
     }
 }
 
-function fpermissionsmanage() {
+function fpermissionsmanage($forum_id = NULL) {
 
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
-    global $fpermissions;
+    global $fpermissions, $user_group, $fpfid, $fpugid;
 
     /////////////////////////////
     // Define the necessary VARS
     /////////////////////////////
+    if (!membergroups()) {
 
+        //Show a major error and return
+        reporterror($l['ugr_no_ugroups'], $l['ugr_no_ugroups_found']);
+
+        return false;
+    }
     $fpermissions = array();
 
 
@@ -96,15 +94,21 @@ function fpermissionsmanage() {
 
         return false;
     }
-
+    if(!is_null($forum_id)){
+        $fpfid = (int) $forum_id;
+    }else{
+        $fpfid = (int) inputsec(htmlizer(trim($_GET['forum'])));    
+    }
+    
 
     ///////////////////////////////////
     // Get the whole forum permissions
     ///////////////////////////////////
 
-    $qresult = makequery("SELECT fp.*, ug.mem_gr_name
-                        FROM " . $dbtables['forumpermissions'] . " fp
-                        LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = fp.fpugid)", true);
+    $qresult = makequery("SELECT fp.*, ug.*
+                        FROM " . $dbtables['forumpermissions'] . " AS fp 
+                        LEFT JOIN " . $dbtables['user_groups'] . " AS ug ON (ug.member_group = fp.fpugid)
+                        WHERE fp.fpfid = '" . $fpfid . "'", true);
 
     if (mysql_num_rows($qresult) > 0) {
 
@@ -113,12 +117,12 @@ function fpermissionsmanage() {
             $row = mysql_fetch_assoc($qresult);
 
             $fpermissions[$row['fpfid']][$row['fpugid']] = $row;
+
         }
     }
 
     //Free the resources
     mysql_free_result($qresult);
-
     return true;
 }
 
@@ -130,348 +134,96 @@ function editfpermissions() {
     /////////////////////////////
     // Define the necessary VARS
     /////////////////////////////
-
-    $fpfid = 0;
-
-    $fpugid = 0;
-
     $can_post_topic = 0;
-
     $can_reply = 0;
-
     $can_vote_polls = 0;
-
     $can_post_polls = 0;
-
     $can_attach = 0;
-
     $can_view_attach = 0;
-
-    //Is the forum id specified
-    if (isset($_GET['fpfid']) && trim($_GET['fpfid']) !== "" && is_numeric(trim($_GET['fpfid']))) {
-
-        $fpfid = (int) inputsec(htmlizer(trim($_GET['fpfid'])));
-    } else {
-
-        //Show a major error and return
-        reporterror($l['no_forum'], $l['no_forum_exp']);
-
-        return false;
-    }
-
-
-    //Is the user group id specified
-    if (isset($_GET['fpug']) && trim($_GET['fpug']) !== "" && is_numeric(trim($_GET['fpug']))) {
-
-        $fpugid = (int) inputsec(htmlizer(trim($_GET['fpug'])));
-    } else {
-
-        //Show a major error and return
-        reporterror($l['no_user_group'], $l['no_user_group_exp']);
-
-        return false;
-    }
-
-
-    //Load all the permissions
-    if (!fpermissionsmanage()) {
-
-        //Show a major error and return
-        reporterror($l['processing_problem'], $l['processing_problem_exp']);
-
-        return false;
-    }
-
-
-    //Is the submitted user group valid
-    if (empty($fpermissions[$fpfid][$fpugid])) {
-
-        //Show a major error and return
-        reporterror($l['invalid_user_group'], lang_vars($l['invalid_user_group_exp'], array($fpfid, $fpugid)));
-
-        return false;
-    }
-
-
-    //Alright lets process
-    if (isset($_POST['editfpermissions'])) {
-
-        //Start Topics
-        if (isset($_POST['can_post_topic'])) {
-
-            $can_post_topic = 1;
-        }
-
-
-        //Reply to Topics
-        if (isset($_POST['can_reply'])) {
-
-            $can_reply = 1;
-        }
-
-
-        //Vote in Poll
-        if (isset($_POST['can_vote_polls'])) {
-
-            $can_vote_polls = 1;
-        }
-
-
-        //Start Polls
-        if (isset($_POST['can_post_polls'])) {
-
-            $can_post_polls = 1;
-        }
-
-
-        //Attach Files
-        if (isset($_POST['can_attach'])) {
-
-            $can_attach = 1;
-        }
-
-
-        //Can download Attachments
-        if (isset($_POST['can_view_attach'])) {
-
-            $can_view_attach = 1;
-        }
-
-
-        //////////////////////////////////////////////
-        // Finally lets UPDATE the Forum Permissions
-        //////////////////////////////////////////////
-
-        $qresult = makequery("UPDATE " . $dbtables['forumpermissions'] . "
-                    SET    can_post_topic = '$can_post_topic',
-                    can_reply = '$can_reply',
-                    can_vote_polls = '$can_vote_polls',
-                    can_post_polls = '$can_post_polls',
-                    can_attach = '$can_attach',
-                    can_view_attach = '$can_view_attach'
-                    WHERE fpfid = '$fpfid'
-                    AND fpugid = '$fpugid'
-                    LIMIT 1", false);
-
-        //Redirect
-        redirect('act=admin&adact=fpermissions');
-
-        return true;
-    } elseif (isset($_POST['deletefpermissions'])) {
-
-
-        //////////////////////////////////////
-        // Lets DELETE the Forum Permissions
-        //////////////////////////////////////
-
-        $qresult = makequery("DELETE FROM " . $dbtables['forumpermissions'] . "
-                    WHERE fpfid = '$fpfid'
-                    AND fpugid = '$fpugid'
-                    LIMIT 1", false);
-
-        if (mysql_affected_rows($conn) < 1) {
-
-            reporterror($l['del_perm_error'], $l['del_perm_error_exp']);
-
-            return false;
-        }
-
-        //Redirect
-        redirect('act=admin&adact=fpermissions');
-
-        return true;
-    } else {
-
-        //Calling the theme file
-        $theme['call_theme_func'] = 'editfpermissions_theme';
-    }
-}
-
-function createfpermissions() {
-
-    global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS, $theme;
-    global $fpermissions, $fpfid, $fpugid, $categories, $forums, $user_group, $error, $mother_options;
-
-    /////////////////////////////
-    // Define the necessary VARS
-    /////////////////////////////
-
-    $fpfid = 0;
-
-    $fpugid = 0;
-
-    $can_post_topic = 0;
-
-    $can_reply = 0;
-
-    $can_vote_polls = 0;
-
-    $can_post_polls = 0;
-
-    $can_attach = 0;
-
-    $can_view_attach = 0;
-
-    $error = array();
-
-    $mother_options = array();
-
-    $forum_ids = array();
-
-    $valid_ug = array();
-
-
-    //Load all the permissions
-    if (!fpermissionsmanage()) {
-
-        //Show a major error and return
-        reporterror($l['processing_problem'], $l['processing_problem_exp']);
-
-        return false;
-    }
-
-
-    /////////////////////////////////////
-    // Find the Forums that can be given
-    /////////////////////////////////////
-
-    foreach ($categories as $c => $cv) {
-
-        if (isset($forums[$c])) {
-
-            foreach ($forums[$c] as $f => $fv) {
-
-                $dasher = "";
-
-                for ($t = 1; $t < $forums[$c][$f]['board_level']; $t++) {
-
-                    $dasher .= "&nbsp;&nbsp;&nbsp;&nbsp;";
-                }
-
-                $mother_options[] = array($forums[$c][$f]['fid'],
-                    $dasher . (($forums[$c][$f]['board_level'] != 0) ? '|--' : '') . $forums[$c][$f]['fname']);
-
-                $forum_ids[] = $forums[$c][$f]['fid'];
-            }
-        }
-    }
-
-
-    /////////////////////////////////////////
-    //Which member groups are allowed to view
-    /////////////////////////////////////////
-    //Get the user groups
-    if (!membergroups()) {
-
-        return false;
-    }
-
-
-    $valid_ug = array_keys($user_group);
-
-
-    //Alright lets process
-    if (isset($_POST['createfpermissions'])) {
-
-
-        //Check the Forum is set
-        if (!(isset($_POST['fpfid'])) || (trim($_POST['fpfid']) == "")) {
-
-            $error[] = $l['no_forum_posted'];
+    
+        //Is the forum id specified
+        if (isset($_POST['forum_id']) && trim($_POST['forum_id']) !== "" && is_numeric(trim($_POST['forum_id']))) {
+
+            $fpfid = (int) inputsec(htmlizer(trim($_POST['forum_id'])));
         } else {
 
-            $fpfid = (int) inputsec(htmlizer(trim($_POST['fpfid'])));
+            //Show a major error and return
+            reporterror($l['no_forum'], $l['no_forum_exp']);
 
-            if (!in_array($fpfid, $forum_ids)) {
-
-                $error[] = $l['invalid_forum_posted'];
-            }
-        }
-
-
-        //on error call the form
-        if (!empty($error)) {
-            $theme['call_theme_func'] = 'createfpermissions_theme';
             return false;
         }
 
 
-        //Check the User Group is set
-        if (!(isset($_POST['fpugid'])) || (trim($_POST['fpugid']) == "")) {
+        //Is the user group id specified
+        if (isset($_POST['group_id']) && trim($_POST['group_id']) !== "" && is_numeric(trim($_POST['group_id']))) {
 
-            $error[] = $l['no_group_posted'];
+            $fpugid = (int) inputsec(htmlizer(trim($_POST['group_id'])));
         } else {
 
-            $fpugid = (int) inputsec(htmlizer(trim($_POST['fpugid'])));
+            //Show a major error and return
+            reporterror($l['no_user_group'], $l['no_user_group_exp']);
 
-
-            //Check is the user group already created
-            if (!empty($fpermissions[$fpfid][$fpugid])) {
-
-                $error[] = $l['group_perm_created'];
-            }
-
-            if (!in_array($fpugid, $valid_ug)) {
-
-                $error[] = $l['user_group_invalid'];
-            }
-        }
-
-
-        //on error call the form
-        if (!empty($error)) {
-            $theme['call_theme_func'] = 'createfpermissions_theme';
             return false;
         }
 
 
-        //Start Topics
-        if (isset($_POST['can_post_topic'])) {
+        //Load all the permissions
+        if (!fpermissionsmanage($fpfid)) {
 
-            $can_post_topic = 1;
+            //Show a major error and return
+            reporterror($l['processing_problem'], $l['processing_problem_exp']);
+
+            return false;
         }
 
+        //Alright lets process
+        if (isset($_POST['editfpermissions'])) {
 
-        //Reply to Topics
-        if (isset($_POST['can_reply'])) {
+            //Start Topics
+            if (isset($_POST['can_post_topic'])) {
 
-            $can_reply = 1;
-        }
-
-
-        //Vote in Poll
-        if (isset($_POST['can_vote_polls'])) {
-
-            $can_vote_polls = 1;
-        }
+                $can_post_topic = 1;
+            }
 
 
-        //Start Polls
-        if (isset($_POST['can_post_polls'])) {
+            //Reply to Topics
+            if (isset($_POST['can_reply'])) {
 
-            $can_post_polls = 1;
-        }
-
-
-        //Attach Files
-        if (isset($_POST['can_attach'])) {
-
-            $can_attach = 1;
-        }
+                $can_reply = 1;
+            }
 
 
-        //Can download Attachments
-        if (isset($_POST['can_view_attach'])) {
+            //Vote in Poll
+            if (isset($_POST['can_vote_polls'])) {
 
-            $can_view_attach = 1;
-        }
+                $can_vote_polls = 1;
+            }
 
 
-        //////////////////////////////////////////////
-        // Finally lets INSERT the Forum Permissions
-        //////////////////////////////////////////////
+            //Start Polls
+            if (isset($_POST['can_post_polls'])) {
 
-        $qresult = makequery("INSERT INTO " . $dbtables['forumpermissions'] . "
+                $can_post_polls = 1;
+            }
+
+
+            //Attach Files
+            if (isset($_POST['can_attach'])) {
+
+                $can_attach = 1;
+            }
+
+
+            //Can download Attachments
+            if (isset($_POST['can_view_attach'])) {
+
+                $can_view_attach = 1;
+            }
+            
+            //Is the submitted user group valid
+            if (empty($fpermissions[$fpfid][$fpugid])) {
+                //Create new forum Permissions !
+                $qresult = makequery("INSERT INTO " . $dbtables['forumpermissions'] . "
                     SET    can_post_topic = '$can_post_topic',
                     can_reply = '$can_reply',
                     can_vote_polls = '$can_vote_polls',
@@ -482,20 +234,60 @@ function createfpermissions() {
                     fpugid = '$fpugid'", true);
 
 
-        if (mysql_affected_rows($conn) < 1) {
+                if (mysql_affected_rows($conn) < 1) {
 
-            reporterror($l['create_perm_error'], $l['create_perm_error_exp']);
+                    reporterror($l['create_perm_error'], $l['create_perm_error_exp']);
 
-            return false;
+                    return false;
+                }
+                //Redirect
+                redirect('act=admin&adact=fpermissions&forum='.$fpfid);
+
+                return true;
+            }
+
+            //////////////////////////////////////////////
+            // Finally lets UPDATE the Forum Permissions
+            //////////////////////////////////////////////
+
+            $qresult = makequery("UPDATE " . $dbtables['forumpermissions'] . "
+                    SET    can_post_topic = '$can_post_topic',
+                    can_reply = '$can_reply',
+                    can_vote_polls = '$can_vote_polls',
+                    can_post_polls = '$can_post_polls',
+                    can_attach = '$can_attach',
+                    can_view_attach = '$can_view_attach'
+                    WHERE fpfid = '$fpfid'
+                    AND fpugid = '$fpugid'
+                    LIMIT 1", false);
+
+            //Redirect
+            redirect('act=admin&adact=fpermissions&forum='.$fpfid);
+
+            return true;
+        } elseif (isset($_POST['deletefpermissions'])) {
+
+
+            //////////////////////////////////////
+            // Lets DELETE the Forum Permissions
+            //////////////////////////////////////
+
+            $qresult = makequery("DELETE FROM " . $dbtables['forumpermissions'] . "
+                    WHERE fpfid = '$fpfid'
+                    AND fpugid = '$fpugid'
+                    LIMIT 1", false);
+
+            if (mysql_affected_rows($conn) < 1) {
+
+                reporterror($l['del_perm_error'], $l['del_perm_error_exp']);
+
+                return false;
+            }
+
+            //Redirect
+            redirect('act=admin&adact=fpermissions&forum='.$fpfid);
+
+            return true;
         }
-
-        //Redirect
-        redirect('act=admin&adact=fpermissions');
-
-        return true;
-    } else {
-
-        //Calling the theme file
-        $theme['call_theme_func'] = 'createfpermissions_theme';
-    }
+    
 }

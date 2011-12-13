@@ -103,7 +103,7 @@ function members_theme() {
             </td>
 
             <td class="ucpflc" align="center">
-            <font color="' . $members[$memberIndex]['mem_gr_colour'] . '">' . $members[$memberIndex]['mem_gr_name'] . '</font>
+            <span color="' . $members[$memberIndex]['mem_gr_colour'] . '">' . $members[$memberIndex]['mem_gr_name'] . '</span>
             </td>
 
             <td class="ucpflc" align="left">

@@ -265,7 +265,7 @@ function startsetup() {
                                             <tr>
                                                 <td width="40%" class="rc">
                                                     <b>MySQL Host :</b><br />
-                                                    <font class="exp">This is usually localhost.</font>
+                                                    <span class="exp">This is usually localhost.</span>
                                                 </td>
                                                 <td class="lc" align="left">
                                                     &nbsp;<input type="text" size="30"  name="server" value="<?php echo ( (isset($_POST['server'])) ? $_POST['server'] : 'localhost' ); ?>" />
@@ -302,7 +302,7 @@ function startsetup() {
                                             <tr>
                                                 <td class="rc">
                                                     <b>MySQL Table Prefix :</b><br />
-                                                    <font class="exp">The prefix for every table of your board.</font>
+                                                    <span class="exp">The prefix for every table of your board.</span>
                                                 </td>
                                                 <td class="lc" align="left">
                                                     &nbsp;<input type="text" size="30"  name="dbprefix" value="<?php echo ( (isset($_POST['dbprefix'])) ? $_POST['dbprefix'] : 'aef_' ); ?>" />
@@ -312,7 +312,7 @@ function startsetup() {
                                             <tr>
                                                 <td class="rc">
                                                     <b>Use UTF-8 Character Set :</b><br />
-                                                    <font class="exp">Use if you are going to work with multiple languages.</font>
+                                                    <span class="exp">Use if you are going to work with multiple languages.</span>
                                                 </td>
                                                 <td class="lc" align="left">
                                                     &nbsp;<input type="checkbox"  name="utf8" <?php echo (isset($_POST['utf8']) ? 'checked="checked"' : '' ); ?> />
@@ -429,7 +429,7 @@ function startsetup() {
                         <br /><br /><br /><br />
                         <div class="setup"><a href="<?php echo $url; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lets see the new Board&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
                         <br /><br />
-                        <div class="setup"><a href="<?php echo $url . '/setup/index.php?act=removesetup'; ?>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove setup folder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a><font class="exp">&nbsp;(Opens a new window)</div>
+                        <div class="setup"><a href="<?php echo $url . '/setup/index.php?act=removesetup'; ?>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove setup folder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a><span class="exp">&nbsp;(Opens a new window)</div>
                         <br /><br /><br /><br /><br /><br />
                         <?php
                         aeffooter();

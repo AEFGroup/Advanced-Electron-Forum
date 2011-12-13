@@ -28,9 +28,6 @@ function adminhead($title = '') {
 
     global $globals, $theme, $onload, $l;
 
-    //Pass to onload to initialize a JS
-    $onload['admenu'] = 'init_admenu()';
-
     //Global Headers
     aefheader($title);
     ?>
@@ -38,14 +35,7 @@ function adminhead($title = '') {
 		umimages = "<?php echo $theme['images']; ?>";
 	</script>
 	<link rel="stylesheet" type="text/css" href="<?php echo $theme['url']; ?>/adminstyle.css" />
-	<script language="javascript" type="text/javascript" src="<?php echo $theme['url']; ?>/js/slidemenu.js"></script>
-	<script type="text/javascript">
-	var admenu;
-	function init_admenu() {
-		admenu = new SDMenu("admenu");
-		admenu.init();
-	}
-	</script>
+	
 	<div id="top_menu">
 		<div id="topmenu_branch">
 			<a href="<?php echo $globals['index_url']; ?>act=admin&adact=coresection"><img src="<?php echo $theme['images']; ?>/admin/corecenter.png" /></a>
@@ -60,7 +50,7 @@ function adminhead($title = '') {
 			<p><?php echo $l['content_center']; ?></p>
 		</div>
 		<div id="topmenu_branch">
-			<a href="#"><img src="<?php echo $theme['images']; ?>/admin/memberscenter.png" /></a>
+			<a href="<?php echo $globals['index_url']; ?>act=admin&adact=memberssection"><img src="<?php echo $theme['images']; ?>/admin/memberscenter.png" /></a>
 			<p><?php echo $l['members_center']; ?></p>
 		</div>
 	</div>

@@ -40,7 +40,7 @@ function fileback_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['ff_backup']; ?></font><br />
+                <span class="adgreen"><?php echo $l['ff_backup']; ?></span><br />
 
             </td>
         </tr>
@@ -69,7 +69,7 @@ function fileback_theme() {
             <tr>
                 <td width="40%" class="adbg">
                     <b><?php echo $l['folder_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['folder_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['folder_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" size="45"  name="folderpath" value="<?php echo (empty($_POST['folderpath']) ? $globals['server_url'] : $_POST['folderpath']); ?>" />
@@ -91,7 +91,7 @@ function fileback_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['store_locally']; ?></b><br />
-                    <font class="adexp"><?php echo $l['store_locally_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['store_locally_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" size="45"  name="localpath" value="<?php echo (empty($_POST['localpath']) ? '' : $_POST['localpath']); ?>" />
@@ -132,7 +132,7 @@ function dbback_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['database_backup']; ?></font><br />
+                <span class="adgreen"><?php echo $l['database_backup']; ?></span><br />
 
             </td>
         </tr>
@@ -161,7 +161,7 @@ function dbback_theme() {
             <tr>
                 <td width="40%" class="adbg">
                     <b><?php echo $l['tables']; ?></b><br />
-                    <font class="adexp"><?php echo $l['select_tables']; ?></font>
+                    <span class="adexp"><?php echo $l['select_tables']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<select name="tables[]" multiple="multiple" size="8" id="tables">
@@ -224,7 +224,7 @@ function dbback_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['store_locally']; ?></b><br />
-                    <font class="adexp"><?php echo $l['store_locally_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['store_locally_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="text" size="45"  name="localpath" value="<?php echo (empty($_POST['localpath']) ? '' : $_POST['localpath']); ?>" />

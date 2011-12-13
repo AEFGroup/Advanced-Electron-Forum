@@ -164,7 +164,7 @@ $l['ugr_prof_opt'] = 'Profile options';
 $l['ugr_shoutbox_perms'] = 'Shout Box Permissions';
 
 $l['ugr_perms'] = 'Permissions';
-$l['ugr_mess_to_group'] = 'Show a message to this group :<br /><font class="adexp">Type in as much as you want. BBC is also allowed.</font>';
+$l['ugr_mess_to_group'] = 'Show a message to this group :<br /><span class="adexp">Type in as much as you want. BBC is also allowed.</span>';
 $l['ugr_submit'] = 'Submit';
 $l['ugr_yes'] = 'Yes';
 $l['ugr_no'] = 'No';

@@ -38,7 +38,7 @@ function forum_global() {
     <div class="cbor" align="center">
         <div>
             <img src="<?php echo $theme['images']; ?>admin/forums.png">
-            <font class="adgreen"><?php echo $l['board_options']; ?></font><br />
+            <span class="adgreen"><?php echo $l['board_options']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -119,7 +119,7 @@ function forummanage_theme() {
 
                 echo '
                 <div>
-                    <div class="adbg" height="' . (($forums[$c][$f]['in_board'] == 1) ? '18' : '25') . '" style="display: inline;">' . $dasher . (($forums[$c][$f]['in_board'] == 1) ? '|--' : '') . $forums[$c][$f]['fname'] . '
+                    <div class="adbg" height="' . (($forums[$c][$f]['in_board'] == 1) ? '18' : '25') . '" style="display: inline;"><a href="' . $globals['index_url'] . 'act=admin&adact=forums&seadact=editforum&editforum=' . $forums[$c][$f]['fid'] . '">' . $dasher . (($forums[$c][$f]['in_board'] == 1) ? '|--' : '') . $forums[$c][$f]['fname'] . '</a>
                     </div>
                     <div style="display: inline;">
                         <div class="adlinks" align="center">
@@ -170,22 +170,17 @@ function editforum_theme() {
     error_handle($error, '100%');
     ?>
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="editboard">
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['general_options']; ?>
-                </div>
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['general_options']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mother_forums']; ?></b>
                 </div>
-                <div class="adbg">
-
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <select onchange="getneworder()" name="editmother" style="font-family:Verdana; font-size:11px" id="fmother">
+                <select onchange="getneworder()" name="editmother" style="font-family:Verdana; font-size:11px" id="fmother">
 
                         <?php
                         foreach ($mother_options as $i => $iv) {
@@ -196,15 +191,14 @@ function editforum_theme() {
                         }//End of for loop
                         ?>
                     </select>
-                </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['order']; ?></b>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="forder" style="font-family:Verdana; font-size:11px" id="forder">
+                <select name="forder" style="font-family:Verdana; font-size:11px" id="forder">
 
                         <?php
                         //Find the order and make the array
@@ -296,16 +290,15 @@ function editforum_theme() {
                         }
 
                     </script>
-                </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_status']; ?></b><br />
-                    <?php echo $l['forum_status_exp']; ?>
+                    <span class="adexp"><?php echo $l['forum_status_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="fstatus" style="font-family:Verdana; font-size:11px">
+                <select name="fstatus" style="font-family:Verdana; font-size:11px">
 
                         <?php
                         if ($board['status']) {
@@ -318,69 +311,60 @@ function editforum_theme() {
                         ?>
 
                     </select>
-                </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['redirect_forum']; ?></b><br />
-                    <?php echo $l['url_redirect']; ?>
+                    <span class="adexp"><?php echo $l['url_redirect']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="fredirect" <?php echo ( (isset($_POST['fredirect'])) ? 'value="' . $_POST['fredirect'] . '"' : 'value="' . $board['fredirect'] . '"' ); ?> size="30" />
-                </div>
+                <input name="fredirect" <?php echo ( (isset($_POST['fredirect'])) ? 'value="' . $_POST['fredirect'] . '"' : 'value="' . $board['fredirect'] . '"' ); ?> size="30" />
             </div>
 
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_icon']; ?></b><br />
-                    <?php echo $l['url_image_forum']; ?>
+                    <span class="adexp"><?php echo $l['url_image_forum']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="fimage" <?php echo ( (isset($_POST['fimage'])) ? 'value="' . $_POST['fimage'] . '"' : 'value="' . $board['fimage'] . '"' ); ?> size="30" />
-                </div>
+                <input name="fimage" <?php echo ( (isset($_POST['fimage'])) ? 'value="' . $_POST['fimage'] . '"' : 'value="' . $board['fimage'] . '"' ); ?> size="30" />
             </div>
-
-
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['forum_options']; ?>
-                </div>
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['forum_options']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_name']; ?></b>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" name="fname" <?php echo ( (isset($_POST['fname'])) ? 'value="' . $_POST['fname'] . '"' : 'value="' . $board['fname'] . '"' ); ?> size="30" />
-                </div>
+                <input type="text" name="fname" <?php echo ( (isset($_POST['fname'])) ? 'value="' . $_POST['fname'] . '"' : 'value="' . $board['fname'] . '"' ); ?> size="30" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_description']; ?></b><br />
-                    <?php echo $l['forum_description_exp']; ?>
+                    <span class="adexp"><?php echo $l['forum_description_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <textarea name="fdesc" cols="40" rows="7"><?php echo ( (isset($_POST['fdesc'])) ? $_POST['fdesc'] : $board['description'] ); ?></textarea>
-
-                </div>
+                <textarea name="fdesc" cols="40" rows="7"><?php echo ( (isset($_POST['fdesc'])) ? $_POST['fdesc'] : $board['description'] ); ?></textarea>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['deafult_theme']; ?></b><br />
-                    <?php echo $l['deafult_theme_exp']; ?>
+                    <span class="adexp"><?php echo $l['deafult_theme_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="ftheme" >
+                <select name="ftheme" >
 
                         <?php
                         echo '<option value="0" ' . ((isset($_POST['ftheme'])) ? (((int) trim($_POST['ftheme']) == 0 ) ? 'selected="selected"' : '' ) : (empty($board['id_skin']) ? 'selected="selected"' : '')) . ' >' . $l['use_board_default'] . '</option>';
@@ -391,188 +375,162 @@ function editforum_theme() {
                         }
                         ?>
                     </select>
-                </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['rules_title']; ?></b><br />
-                    <?php echo $l['rules_title_exp']; ?>
+                    <span class="adexp"><?php echo $l['rules_title_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" name="frulestitle" <?php echo ( (isset($_POST['frulestitle'])) ? 'value="' . $_POST['frulestitle'] . '"' : 'value="' . $board['frulestitle'] . '"' ); ?> size="40" />
-                </div>
+                <input type="text" name="frulestitle" <?php echo ( (isset($_POST['frulestitle'])) ? 'value="' . $_POST['frulestitle'] . '"' : 'value="' . $board['frulestitle'] . '"' ); ?> size="40" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_rules']; ?></b><br />
-                    <?php echo $l['forum_rules_exp']; ?>
+                    <span class="adexp"><?php echo $l['forum_rules_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <textarea name="frules" cols="40" rows="5"><?php echo ( (isset($_POST['frules'])) ? $_POST['frules'] : $board['frules'] ); ?></textarea>
-                </div>
+                <textarea name="frules" cols="40" rows="5"><?php echo ( (isset($_POST['frules'])) ? $_POST['frules'] : $board['frules'] ); ?></textarea>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_rss_feeds']; ?></b><br />
-                    <?php echo $l['enable_rss_feeds_exp']; ?>
+                    <span class="adexp"><?php echo $l['enable_rss_feeds_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" size="20"  name="rss" value="<?php echo (empty($_POST['rss']) ? $board['rss'] : $_POST['rss']); ?>" />
-                </div>
+                <input type="text" size="20"  name="rss" value="<?php echo (empty($_POST['rss']) ? $board['rss'] : $_POST['rss']); ?>" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['topic_rss_feeds']; ?></b><br />
-                    <?php echo $l['topic_rss_feeds_exp']; ?>
+                    <span class="adexp"><?php echo $l['topic_rss_feeds_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" size="20"  name="rss_topic" value="<?php echo (empty($_POST['rss_topic']) ? $board['rss_topic'] : $_POST['rss_topic']); ?>" />
-                </div>
+                <input type="text" size="20"  name="rss_topic" value="<?php echo (empty($_POST['rss_topic']) ? $board['rss_topic'] : $_POST['rss_topic']); ?>" />
             </div>
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
+                    <b><?php echo $l['increase_member_posts']; ?></b><br />
+                    <span class="adexp"><?php echo $l['increase_member_posts_exp']; ?></span>
+                </div>
+                <input type="checkbox" name="inc_mem_posts" <?php echo (isset($_POST['inc_mem_posts']) ? 'checked="checked"' : (($board['inc_mem_posts']) ? 'checked="checked"' : '') ); ?> />
+            </div>
+
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
+                    <b><?php echo $l['override_theme']; ?></b><br />
+                    <span class="adexp"><?php echo $l['override_theme_exp']; ?></span>
+                </div>
+                <input type="checkbox" name="override_skin" <?php echo (isset($_POST['override_skin']) ? 'checked="checked"' : (($board['override_skin']) ? 'checked="checked"' : '') ); ?> />
+            </div>
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['member_group_set']; ?>
-                </div>
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['member_group_set']; ?></h3>
             </div>
 
             <div>
-                <div class="adbg" width="40%" height="30" valign="top">
+                <div style="width:400px; float:left; padding:5px;">
                     <br />
                     <b><?php echo $l['member_groups_allow']; ?></b><br />
-                    <?php echo $l['member_groups_allow_exp']; ?>
+                    <span class="adexp"><?php echo $l['member_groups_allow_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <div>
-                        <?php
+                <?php
                         foreach ($member_group['all'] as $m => $mv) {
-
-                            echo '<div>
-                <div>
-                ' . $member_group['all'][$m]['mem_gr_name'] . '
-                </div>
-                <div>
-                <input type="checkbox" name="member[' . $m . ']" ' . (isset($_POST['member'][$m]) ? 'checked="checked"' : (isset($member_group['presentlyallowed'][$m]) ? 'checked="checked"' : '' ) ) . ' />
-                </div>
-                </div>';
+                            echo '
+                                <div style="clear:both; padding-bottom: 10px;"></div>
+                                <div>
+                                    <div style="width:400px; float:left; padding:5px;">
+                                        <b>' . $member_group['all'][$m]['mem_gr_name'] . '</b>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="member[' . $m . ']" ' . (isset($_POST['member'][$m]) ? 'checked="checked"' : ( isset($member_group['presentlyallowed'][$m]) ? 'checked="checked"' : '' ) ) . ' />
+                                    </div>
+                                </div>';
                         }
                         ?>
-                    </div>
-
-                </div>
             </div>
-
-            <div>
-                <div class="adbg" width="40%" height="30">
-                    <b><?php echo $l['increase_member_posts']; ?></b><br />
-                    <?php echo $l['increase_member_posts_exp']; ?>
-                </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="inc_mem_posts" <?php echo (isset($_POST['inc_mem_posts']) ? 'checked="checked"' : (($board['inc_mem_posts']) ? 'checked="checked"' : '') ); ?> />
-                </div>
-            </div>
-
-            <div>
-                <div class="adbg" width="40%" height="30">
-                    <b><?php echo $l['override_theme']; ?></b><br />
-                    <?php echo $l['override_theme_exp']; ?>
-                </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="override_skin" <?php echo (isset($_POST['override_skin']) ? 'checked="checked"' : (($board['override_skin']) ? 'checked="checked"' : '') ); ?> />
-                </div>
-            </div>
-
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+        <div class="division">
 
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['post_settings']; ?>
-                </div>
+            <div class="topbar">
+                <h3><?php echo $l['post_settings']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['allow_polls']; ?></b><br />
-                    <?php echo $l['allow_polls_exp']; ?>
+                    <span class="adexp"><?php echo $l['allow_polls_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="allow_poll" <?php echo (isset($_POST['allow_poll']) ? 'checked="checked"' : (($board['allow_poll']) ? 'checked="checked"' : '') ); ?> />
-                </div>
+                <input type="checkbox" name="allow_poll" <?php echo (isset($_POST['allow_poll']) ? 'checked="checked"' : (($board['allow_poll']) ? 'checked="checked"' : '') ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['allow_htm']; ?></b><br />
-                    <?php echo $l['allow_htm_exp']; ?>
+                    <span class="adexp"><?php echo $l['allow_htm_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="allow_html" <?php echo (isset($_POST['allow_html']) ? 'checked="checked"' : (($board['allow_html']) ? 'checked="checked"' : '') ); ?> />
-                </div>
+                <input type="checkbox" name="allow_html" <?php echo (isset($_POST['allow_html']) ? 'checked="checked"' : (($board['allow_html']) ? 'checked="checked"' : '') ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['quick_reply']; ?></b><br />
-                    <?php echo $l['quick_reply_exp']; ?>
+                    <span class="adexp"><?php echo $l['quick_reply_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="quick_reply" <?php echo (isset($_POST['quick_reply']) ? 'checked="checked"' : (($board['quick_reply']) ? 'checked="checked"' : '') ); ?> />
-                </div>
+                <input type="checkbox" name="quick_reply" <?php echo (isset($_POST['quick_reply']) ? 'checked="checked"' : (($board['quick_reply']) ? 'checked="checked"' : '') ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['quick_topic']; ?></b><br />
-                    <?php echo $l['quick_topic_exp']; ?>
+                    <span class="adexp"><?php echo $l['quick_topic_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="quick_topic" <?php echo (isset($_POST['quick_topic']) ? 'checked="checked"' : (($board['quick_topic']) ? 'checked="checked"' : '') ); ?> />
-                </div>
+                <input type="checkbox" name="quick_topic" <?php echo (isset($_POST['quick_topic']) ? 'checked="checked"' : (($board['quick_topic']) ? 'checked="checked"' : '') ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['moderate_topics']; ?></b><br />
-                    <?php echo $l['moderate_topics_exp']; ?>
+                    <span class="adexp"><?php echo $l['moderate_topics_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="mod_topics" <?php echo (isset($_POST['mod_topics']) ? 'checked="checked"' : (($board['mod_topics']) ? 'checked="checked"' : '') ); ?> />
-                </div>
+                <input type="checkbox" name="mod_topics" <?php echo (isset($_POST['mod_topics']) ? 'checked="checked"' : (($board['mod_topics']) ? 'checked="checked"' : '') ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['moderate_posts']; ?></b><br />
-                    <?php echo $l['moderate_posts_exp']; ?>
+                    <span class="adexp"><?php echo $l['moderate_posts_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="mod_posts" <?php echo (isset($_POST['mod_posts']) ? 'checked="checked"' : (($board['mod_posts']) ? 'checked="checked"' : '') ); ?> />
-                </div>
+                <input type="checkbox" name="mod_posts" <?php echo (isset($_POST['mod_posts']) ? 'checked="checked"' : (($board['mod_posts']) ? 'checked="checked"' : '') ); ?> />
             </div>
-
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div align="center" class="adbg">
-                    <input type="submit" name="editboard" value="<?php echo $l['edit_forum']; ?>" />
-                </div>
-            </div>
+        <div class="cbor">
+            <input type="submit" name="editboard" value="<?php echo $l['edit_forum']; ?>" />
         </div>
     </form>
 
@@ -595,43 +553,34 @@ function createforum_theme() {
     ?>
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="createboard">
         <?php echo $postcodefield; ?>
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['general_options']; ?>
-                </div>
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['general_options']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mother_forums']; ?></b>
                 </div>
-                <div class="adbg">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <select onchange="getneworder()" name="fmother" style="font-family:Verdana; font-size:11px" id="fmother">
-                        <option value="sm" selected="selected">-----<?php echo $l['select_mother']; ?>-----</option>
-                        <?php
-                        foreach ($mother_options as $i => $iv) {
-
-                            echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['editmother']) && trim($_POST['editmother']) == $mother_options[$i][0] ) ? 'selected="selected"' : '') . '>
-            ' . $mother_options[$i][1] . '
-            </option>';
-                        }//End of for loop
-                        ?>
-                    </select>
-                </div>
+                <select onchange="getneworder()" name="fmother" style="font-family:Verdana; font-size:11px" id="fmother">
+                    <option value="sm" selected="selected">-----<?php echo $l['select_mother']; ?>-----</option>
+                    <?php
+                    foreach ($mother_options as $i => $iv) {
+                        echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['editmother']) && trim($_POST['editmother']) == $mother_options[$i][0] ) ? 'selected="selected"' : '') . '>' . $mother_options[$i][1] . '</option>';
+                    }//End of for loop
+                    ?>
+                </select>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['order']; ?></b>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="forder" style="font-family:Verdana; font-size:11px" id="forder" disabled="disabled">
+                <select name="forder" style="font-family:Verdana; font-size:11px" id="forder" disabled="disabled">
                         <option value="1">1</option>
                     </select>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <span id="loadstatus">
                     </span>
                     <script language="JavaScript" type="text/javascript">
@@ -640,7 +589,6 @@ function createforum_theme() {
                         defaultorder = '';
                         //alert(defaultorder);
                         //alert(bydefault);
-                        //alert(defaultorder);
 
                         function LoadStatus(itsinner){
                             $('loadstatus').innerHTML = itsinner;
@@ -713,266 +661,233 @@ function createforum_theme() {
                         };
 
                     </script>
-                </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_status']; ?></b><br />
-                    <?php echo $l['forum_status_exp']; ?>
+                    <span class="adexp"><?php echo $l['forum_status_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="fstatus" style="font-family:Verdana; font-size:11px">
-
-                        <option value="1" selected><?php echo $l['active']; ?></option>
-                        <option value="0"><?php echo $l['locked']; ?></option>
-
-                    </select>
-                </div>
+                <select name="fstatus" style="font-family:Verdana; font-size:11px">
+                    <option value="1" selected><?php echo $l['active']; ?></option>
+                    <option value="0"><?php echo $l['locked']; ?></option>
+                </select>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['redirect_forum']; ?></b><br />
-                    <?php echo $l['url_redirect']; ?>
+                    <span class="adexp"><?php echo $l['url_redirect']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="fredirect" <?php echo ( (isset($_POST['fredirect'])) ? 'value="' . $_POST['fredirect'] . '"' : '' ); ?> size="30" />
-                </div>
+                <input name="fredirect" <?php echo ( (isset($_POST['fredirect'])) ? 'value="' . $_POST['fredirect'] . '"' : '' ); ?> size="30" />
             </div>
 
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_icon']; ?></b><br />
-                    <?php echo $l['url_image_forum']; ?>
+                    <span class="adexp"><?php echo $l['url_image_forum']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input name="fimage" <?php echo ( (isset($_POST['fimage'])) ? 'value="' . $_POST['fimage'] . '"' : '' ); ?> size="30" />
-                </div>
+                <input name="fimage" <?php echo ( (isset($_POST['fimage'])) ? 'value="' . $_POST['fimage'] . '"' : '' ); ?> size="30" />
             </div>
-
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['forum_options']; ?>
-                </div>
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['forum_options']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_name']; ?></b>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" name="fname" <?php echo ( (isset($_POST['fname'])) ? 'value="' . $_POST['fname'] . '"' : '' ); ?> size="30" />
-                </div>
+                <input type="text" name="fname" <?php echo ( (isset($_POST['fname'])) ? 'value="' . $_POST['fname'] . '"' : '' ); ?> size="30" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_description']; ?></b><br />
-                    <?php echo $l['forum_description_exp']; ?>
+                    <span class="adexp"><?php echo $l['forum_description_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <textarea name="fdesc" cols="30" rows="5"><?php echo ( (isset($_POST['fdesc'])) ? $_POST['fdesc'] : '' ); ?></textarea>
-
-                </div>
+                <textarea name="fdesc" cols="30" rows="5"><?php echo ( (isset($_POST['fdesc'])) ? $_POST['fdesc'] : '' ); ?></textarea>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['deafult_theme']; ?></b><br />
-                    <?php echo $l['deafult_theme_exp']; ?>
+                    <span class="adexp"><?php echo $l['deafult_theme_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="ftheme" >
-
+                <select name="ftheme" >
                         <?php
-                        echo '<option value="0" ' . ((isset($_POST['ftheme'])) ? (((int) trim($_POST['ftheme']) == -1 ) ? 'selected="selected"' : '' ) : '' ) . ' >' . $l['use_board_default'] . '</option>';
-
-                        foreach ($themes as $tk => $tv) {
-
-                            echo '<option value="' . $themes[$tk]['thid'] . '" ' . ((isset($_POST['ftheme']) && (int) trim($_POST['ftheme']) == $tk ) ? 'selected="selected"' : '' ) . ' >' . $themes[$tk]['th_name'] . '</option>';
-                        }
+                        echo '
+                        <option value="0" ' . ((isset($_POST['ftheme'])) ? (((int) trim($_POST['ftheme']) == -1 ) ? 'selected="selected"' : '' ) : '' ) . ' >' . $l['use_board_default'] . '</option>';
+                            foreach ($themes as $tk => $tv) {
+                                echo '<option value="' . $themes[$tk]['thid'] . '" ' . ((isset($_POST['ftheme']) && (int) trim($_POST['ftheme']) == $tk ) ? 'selected="selected"' : '' ) . ' >' . $themes[$tk]['th_name'] . '</option>';
+                            }
                         ?>
                     </select>
-                </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['rules_title']; ?></b><br />
-                    <?php echo $l['rules_title_exp']; ?>
+                    <span class="adexp"><?php echo $l['rules_title_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" name="frulestitle" <?php echo ( (isset($_POST['frulestitle'])) ? 'value="' . $_POST['frulestitle'] . '"' : '' ); ?> size="40" />
-                </div>
+                <input type="text" name="frulestitle" <?php echo ( (isset($_POST['frulestitle'])) ? 'value="' . $_POST['frulestitle'] . '"' : '' ); ?> size="40" />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum_rules']; ?></b><br />
-                    <?php echo $l['forum_rules_exp']; ?>
+                    <span class="adexp"><?php echo $l['forum_rules_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <textarea name="frules" cols="40" rows="5"><?php echo ( (isset($_POST['frules'])) ? $_POST['frules'] : '' ); ?></textarea>
-                </div>
+                <textarea name="frules" cols="40" rows="5"><?php echo ( (isset($_POST['frules'])) ? $_POST['frules'] : '' ); ?></textarea>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_rss_feeds']; ?></b><br />
-                    <?php echo $l['enable_rss_feeds_exp']; ?>
+                    <span class="adexp"><?php echo $l['enable_rss_feeds_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" size="20"  name="rss" value="<?php echo (empty($_POST['rss']) ? '0' : $_POST['rss']); ?>" />
-                </div>
+                <input type="text" size="20"  name="rss" value="<?php echo (empty($_POST['rss']) ? '0' : $_POST['rss']); ?>" />
             </div>
-
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
-                    <b><?php echo $l['topic_rss_feeds']; ?></b><br />
-                    <?php echo $l['topic_rss_feeds_exp']; ?>.
+                <div style="width:400px; float:left; padding:5px;">
+                    <b><?php echo $l['increase_member_posts']; ?></b><br />
+                    <span class="adexp"><?php echo $l['increase_member_posts_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="text" size="20"  name="rss_topic" value="<?php echo (empty($_POST['rss_topic']) ? '0' : $_POST['rss_topic']); ?>" />
-                </div>
+                <input type="checkbox" name="inc_mem_posts" <?php echo (isset($_POST['inc_mem_posts']) ? 'checked="checked"' : 'checked="checked"' ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
+                    <b><?php echo $l['override_theme']; ?></b><br />
+                    <span class="adexp"><?php echo $l['override_theme_exp']; ?></span>
+                </div>
+                <input type="checkbox" name="override_skin" <?php echo (isset($_POST['override_skin']) ? 'checked="checked"' : '' ); ?> />
+            </div>
+
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
+                    <b><?php echo $l['topic_rss_feeds']; ?></b><br />
+                    <span class="adexp"><?php echo $l['topic_rss_feeds_exp']; ?>.</span>
+                </div>
+                <input type="text" size="20"  name="rss_topic" value="<?php echo (empty($_POST['rss_topic']) ? '0' : $_POST['rss_topic']); ?>" />
+            </div>
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['member_group_set']; ?>
-                </div>
+        <div class="division">
+            <div class="topbar">
+                <h3><?php echo $l['member_group_set']; ?></h3>
             </div>
 
             <div>
-                <div class="adbg" width="40%" height="30" valign="top">
+                <div style="width:400px; float:left; padding:5px;">
                     <br />
                     <b><?php echo $l['member_groups_allow']; ?></b><br />
-                    <?php echo $l['member_groups_allow_exp']; ?>
-                </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <div>
-                        <?php
-                        foreach ($member_group['all'] as $m => $mv) {
-
-                            echo '<div>
-                <div>
-                ' . $member_group['all'][$m]['mem_gr_name'] . '
+                    <span class="adexp"><?php echo $l['member_groups_allow_exp']; ?></span>
                 </div>
                 <div>
-                <input type="checkbox" name="member[' . $m . ']" ' . (isset($_POST['member'][$m]) ? 'checked="checked"' : '' ) . ' />
-                </div>
-                </div>';
+                    <?php
+                    foreach ($member_group['all'] as $m => $mv) {
+                        echo '
+                            <div style="clear:both; padding-bottom: 10px;"></div>
+                            <div>
+                                <div style="width:400px; float:left; padding:5px;"><b>' . $member_group['all'][$m]['mem_gr_name'] . '</b></div>
+                                <div>
+                                    <input type="checkbox" name="member[' . $m . ']" ' . (isset($_POST['member'][$m]) ? 'checked="checked"' : '' ) . ' />
+                                </div>
+                            </div>';
                         }
                         ?>
-                    </div>
-
+                
                 </div>
-            </div>
-
-            <div>
-                <div class="adbg" width="40%" height="30">
-                    <b><?php echo $l['increase_member_posts']; ?></b><br />
-                    <?php echo $l['increase_member_posts_exp']; ?>
-                </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="inc_mem_posts" <?php echo (isset($_POST['inc_mem_posts']) ? 'checked="checked"' : 'checked="checked"' ); ?> />
-                </div>
-            </div>
-
-            <div>
-                <div class="adbg" width="40%" height="30">
-                    <b><?php echo $l['override_theme']; ?></b><br />
-                    <?php echo $l['override_theme_exp']; ?>
-                </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="override_skin" <?php echo (isset($_POST['override_skin']) ? 'checked="checked"' : '' ); ?> />
-                </div>
-            </div>
-
+            </div>            
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
+        <div class="division">
 
             <div>
-                <div class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['post_settings']; ?>
+                <div class="topbar">
+                    <h3><?php echo $l['post_settings']; ?></h3>
                 </div>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['allow_polls']; ?></b><br />
-                    <?php echo $l['allow_polls_exp']; ?>
+                    <span class="adexp"><?php echo $l['allow_polls_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="allow_poll" <?php echo (isset($_POST['allow_poll']) ? 'checked="checked"' : 'checked="checked"' ); ?> />
-                </div>
+                <input type="checkbox" name="allow_poll" <?php echo (isset($_POST['allow_poll']) ? 'checked="checked"' : 'checked="checked"' ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['allow_htm']; ?></b><br />
-                    <?php echo $l['allow_htm_exp']; ?>
+                    <span class="adexp"><?php echo $l['allow_htm_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="allow_html" <?php echo (isset($_POST['allow_html']) ? 'checked="checked"' : 'checked="checked"' ); ?> />
-                </div>
+                <input type="checkbox" name="allow_html" <?php echo (isset($_POST['allow_html']) ? 'checked="checked"' : 'checked="checked"' ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['quick_reply']; ?></b><br />
-                    <?php echo $l['quick_reply_exp']; ?>
+                    <span class="adexp"><?php echo $l['quick_reply_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="quick_reply" <?php echo (isset($_POST['quick_reply']) ? 'checked="checked"' : '' ); ?> />
-                </div>
+                <input type="checkbox" name="quick_reply" <?php echo (isset($_POST['quick_reply']) ? 'checked="checked"' : '' ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['quick_topic']; ?></b><br />
-                    <?php echo $l['quick_topic_exp']; ?>
+                    <span class="adexp"><?php echo $l['quick_topic_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="quick_topic" <?php echo (isset($_POST['quick_topic']) ? 'checked="checked"' : '' ); ?> />
-                </div>
+                <input type="checkbox" name="quick_topic" <?php echo (isset($_POST['quick_topic']) ? 'checked="checked"' : '' ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['moderate_topics']; ?></b><br />
-                    <?php echo $l['moderate_topics_exp']; ?>
+                    <span class="adexp"><?php echo $l['moderate_topics_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="mod_topics" <?php echo (isset($_POST['mod_topics']) ? 'checked="checked"' : '' ); ?> />
-                </div>
+                <input type="checkbox" name="mod_topics" <?php echo (isset($_POST['mod_topics']) ? 'checked="checked"' : '' ); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg" width="40%" height="30">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['moderate_posts']; ?></b><br />
-                    <?php echo $l['moderate_posts_exp']; ?>
+                    <span class="adexp"><?php echo $l['moderate_posts_exp']; ?></span>
                 </div>
-                <div class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="mod_posts" <?php echo (isset($_POST['mod_posts']) ? 'checked="checked"' : '' ); ?> />
-                </div>
+                <input type="checkbox" name="mod_posts" <?php echo (isset($_POST['mod_posts']) ? 'checked="checked"' : '' ); ?> />
             </div>
-
+            <div style="clear:both;"></div>
         </div>
         <br />
         <br />
@@ -1083,7 +998,7 @@ function forumreorder_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['reorder_forums']; ?></font><br />
+                <span class="adgreen"><?php echo $l['reorder_forums']; ?></span><br />
 
             </div>
         </div>

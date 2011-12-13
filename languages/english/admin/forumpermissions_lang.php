@@ -37,7 +37,7 @@ $l['no_group_posted'] = 'The User Group was not Posted.';
 $l['group_perm_created'] = 'The User Group that you submitted is already created for this forum.';
 $l['user_group_invalid'] = 'The User Group that you submitted is invalid.';
 $l['create_perm_error'] = 'Forum Permission Set Error';
-$l['create_perm_error_exp'] = 'There were some errors in creating the Forum Permission Set for the Forum <b>'.$board['fname'].'</b>.';
+$l['create_perm_error_exp'] = 'There were some errors in creating the Forum Permission Set for the Forum .';
 
 
 // Theme Strings

@@ -374,11 +374,11 @@ function bbc_html(text){
     text=text.replace(/\[center\](.*?)\[\/center\]/gi,'<div style="text-align: center;">$1</div>');
     text=text.replace(/\[right\](.*?)\[\/right\]/gi,'<div style="text-align: right;">$1</div>');
     while(/\[size=([1-7])\](.*?)\[\/size\]/gi.test(text)){
-        text=text.replace(/\[size=([1-7])\](.*?)\[\/size\]/gi,'<font size="$1" style="line-height:normal">$2</font>')
+        text=text.replace(/\[size=([1-7])\](.*?)\[\/size\]/gi,'<span size="$1" style="line-height:normal">$2</span>')
     }while(/\[font=(.*?)\](.*?)\[\/font\]/gi.test(text)){
-        text=text.replace(/\[font=(.*?)\](.*?)\[\/font\]/gi,'<font style="font-family:$1">$2</font>')
+        text=text.replace(/\[font=(.*?)\](.*?)\[\/font\]/gi,'<span style="font-family:$1">$2</span>')
     }while(/\[color=(.*?)\](.*?)\[\/color\]/gi.test(text)){
-        text=text.replace(/\[color=(.*?)\](.*?)\[\/color\]/gi,'<font style="color: $1">$2</font>')
+        text=text.replace(/\[color=(.*?)\](.*?)\[\/color\]/gi,'<span style="color: $1">$2</span>')
     }
     text=text.replace(/\[sup\](.*?)\[\/sup\]/gi,'<sup>$1</sup>');
     text=text.replace(/\[sub\](.*?)\[\/sub\]/gi,'<sub>$1</sub>');

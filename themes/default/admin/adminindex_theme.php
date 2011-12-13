@@ -89,7 +89,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['support']; ?></font><br />
+                <span class="adgreen"><?php echo $l['support']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="http://www.anelectron.com/"><?php echo $l['anelectron_com']; ?></a></div></div>
                     <div><div><a href="http://faq.anelectron.com/"><?php echo $l['faq']; ?></a></div></div>
@@ -101,7 +101,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['control_panel']; ?></font><br />
+                <span class="adgreen"><?php echo $l['control_panel']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=coreset"><?php echo $l['core_settings']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=mysqlset"><?php echo $l['mysql_config']; ?></a></div></div>
@@ -117,7 +117,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['categories']; ?></font><br />
+                <span class="adgreen"><?php echo $l['categories']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=categories"><?php echo $l['manage_categories']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=categories&seadact=createcat"><?php echo $l['create_new']; ?></a></div></div>
@@ -129,7 +129,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['forums']; ?></font><br />
+                <span class="adgreen"><?php echo $l['forums']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=forums"><?php echo $l['manage_forums']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=fpermissions"><?php echo $l['forum_permissions']; ?></a></div></div>
@@ -146,7 +146,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['users']; ?></font><br />
+                <span class="adgreen"><?php echo $l['users']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=users&seadact=proacc"><?php echo $l['profile_account']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=ug&seadact=manug"><?php echo $l['manage_user_groups']; ?></a></div></div>
@@ -158,7 +158,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['email_pm']; ?></font><br />
+                <span class="adgreen"><?php echo $l['email_pm']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=conpan&seadact=mailset"><?php echo $l['mail_settings']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=users&seadact=pmset"><?php echo $l['pm_settings']; ?></a></div></div>
@@ -174,7 +174,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['topics_posts']; ?></font><br />
+                <span class="adgreen"><?php echo $l['topics_posts']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=tpp&seadact=topics"><?php echo $l['topic_settings']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=tpp&seadact=posts"><?php echo $l['post_settings']; ?></a></div></div>
@@ -186,7 +186,7 @@ function adminindex_theme() {
             </div>
 
             <div width="40%" valign="top">
-                <font class="adgreen"><?php echo $l['smileys']; ?></font><br />
+                <span class="adgreen"><?php echo $l['smileys']; ?></span><br />
                 <div cellpadding="0" cellspacing="0" class="adlink">
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=smileys&seadact=smman"><?php echo $l['manage_smileys']; ?></a></div></div>
                     <div><div><a href="<?php echo $globals['index_url']; ?>act=admin&adact=smileys&seadact=smset"><?php echo $l['smiley_settings']; ?></a></div></div>
@@ -217,7 +217,7 @@ function credits_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['credits_thanks']; ?></font><br />
+                <span class="adgreen"><?php echo $l['credits_thanks']; ?></span><br />
 
             </div>
         </div>
@@ -247,7 +247,7 @@ function credits_theme() {
 
         <div>
             <div class="adbg" align="center">
-                <font size="4"><a href="http://www.anelectron.com/board/">AEF Community</a></font>
+                <span size="4"><a href="http://www.anelectron.com/board/">AEF Community</a></span>
             </div>
         </div>
 

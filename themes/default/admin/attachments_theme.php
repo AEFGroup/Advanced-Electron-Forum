@@ -35,7 +35,7 @@ function attset_theme() {
     <div class="cbor" align="center">
         <div>
             <img src="<?php echo $theme['images']; ?>admin/attachments.png">
-            <font class="adgreen"><?php echo $l['attach_settings']; ?></font><br />
+            <span class="adgreen"><?php echo $l['attach_settings']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -57,7 +57,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['allow_downloads']; ?></b><br />
-                    <font class="adexp"><?php echo $l['allow_downloads_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['allow_downloads_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="attachmentmode" <?php echo ($globals['attachmentmode'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -66,7 +66,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['allow_new_attach']; ?></b><br />
-                    <font class="adexp"><?php echo $l['allow_new_attach_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['allow_new_attach_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="allownewattachment" <?php echo ($globals['allownewattachment'] ? 'checked="checked"' : ''); ?> />
                 
@@ -76,7 +76,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['attach_directory']; ?></b><br />
-                    <font class="adexp"><?php echo $l['attach_directory_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['attach_directory_exp']; ?></span>
                 </div>
                 <input type="text" size="40"  name="attachmentdir" value="<?php echo (empty($_POST['attachmentdir']) ? $globals['attachmentdir'] : $_POST['attachmentdir']); ?>" />
             </div>
@@ -85,7 +85,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_attach_per_post']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_attach_per_post_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['max_attach_per_post_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxattachmentpost" value="<?php echo (empty($_POST['maxattachmentpost']) ? $globals['maxattachmentpost'] : $_POST['maxattachmentpost']); ?>" />
             </div>
@@ -94,7 +94,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_size_per_attach']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_size_ofan_attach']; ?></font>
+                    <span class="adexp"><?php echo $l['max_size_ofan_attach']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxattachsize" value="<?php echo (empty($_POST['maxattachsize']) ? $globals['maxattachsize'] : $_POST['maxattachsize']); ?>" />
             </div>
@@ -103,7 +103,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_size_per_post']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_size_ofall_post']; ?></font>
+                    <span class="adexp"><?php echo $l['max_size_ofall_post']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxattachsizepost" value="<?php echo (empty($_POST['maxattachsizepost']) ? $globals['maxattachsizepost'] : $_POST['maxattachsizepost']); ?>" />
             </div>
@@ -112,7 +112,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['show_image_attach']; ?></b><br />
-                    <font class="adexp"><?php echo $l['show_image_attach_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['show_image_attach_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="attachmentshowimage" <?php echo ($globals['attachmentshowimage'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -121,7 +121,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['attach_url']; ?></b><br />
-                    <font class="adexp"><?php echo $l['url_display_image_attach']; ?></font>
+                    <span class="adexp"><?php echo $l['url_display_image_attach']; ?></span>
                 </div>
                 <input type="text" size="40"  name="attachmenturl" value="<?php echo (empty($_POST['attachmenturl']) ? $globals['attachmenturl'] : $_POST['attachmenturl']); ?>" />
             </div>
@@ -130,7 +130,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_image_width']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_image_width_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['max_image_width_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="attachmentshowimagemaxwidth" value="<?php echo (empty($_POST['attachmentshowimagemaxwidth']) ? $globals['attachmentshowimagemaxwidth'] : $_POST['attachmentshowimagemaxwidth']); ?>" />
             </div>
@@ -139,7 +139,7 @@ function attset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['max_image_height']; ?></b><br />
-                    <font class="adexp"><?php echo $l['max_image_height_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['max_image_height_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="attachmentshowimagemaxheight" value="<?php echo (empty($_POST['attachmentshowimagemaxheight']) ? $globals['attachmentshowimagemaxheight'] : $_POST['attachmentshowimagemaxheight']); ?>" />
             </div>
@@ -168,7 +168,7 @@ function attmime_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['attach_types']; ?></font><br />
+                <span class="adgreen"><?php echo $l['attach_types']; ?></span><br />
 
             </div>
         </div>
@@ -271,7 +271,7 @@ function editmime_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"> <?php echo $l['edit_attach_types']; ?></font><br />
+                <span class="adgreen"> <?php echo $l['edit_attach_types']; ?></span><br />
 
             </div>
         </div>
@@ -300,7 +300,7 @@ function editmime_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['extension_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['extension_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['extension_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="atmt_ext" value="<?php echo (empty($_POST['atmt_ext']) ? $mimetype['atmt_ext'] : $_POST['atmt_ext']); ?>" />
@@ -310,7 +310,7 @@ function editmime_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['mimetype_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mimetype_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mimetype_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="atmt_mimetype" value="<?php echo (empty($_POST['atmt_mimetype']) ? $mimetype['atmt_mimetype'] : $_POST['atmt_mimetype']); ?>" />
@@ -320,7 +320,7 @@ function editmime_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['file_type_icon']; ?></b><br />
-                    <font class="adexp"><?php echo $l['file_type_icon_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['file_type_icon_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="atmt_icon" value="<?php echo (empty($_POST['atmt_icon']) ? $mimetype['atmt_icon'] : $_POST['atmt_icon']); ?>" />
@@ -330,7 +330,7 @@ function editmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['allow_in_posts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['allow_in_posts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['allow_in_posts_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="atmt_posts" <?php echo (empty($_POST['atmt_posts']) ? (empty($mimetype['atmt_posts']) ? '' : 'checked="checked"') : 'checked="checked"'); ?> />
@@ -340,7 +340,7 @@ function editmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['allow_in_avatars']; ?></b><br />
-                    <font class="adexp"><?php echo $l['allow_in_avatars_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['allow_in_avatars_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="atmt_avatar" <?php echo (empty($_POST['atmt_avatar']) ? (empty($mimetype['atmt_avatar']) ? '' : 'checked="checked"') : 'checked="checked"'); ?> />
@@ -350,7 +350,7 @@ function editmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['is_image']; ?></b><br />
-                    <font class="adexp"><?php echo $l['is_image_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['is_image_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="atmt_isimage" <?php echo (empty($_POST['atmt_isimage']) ? (empty($mimetype['atmt_isimage']) ? '' : 'checked="checked"') : 'checked="checked"'); ?> />
@@ -392,7 +392,7 @@ function addmime_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['add_attach_type']; ?></font><br />
+                <span class="adgreen"><?php echo $l['add_attach_type']; ?></span><br />
 
             </div>
         </div>
@@ -421,7 +421,7 @@ function addmime_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['extension_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['extension_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['extension_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="atmt_ext" value="<?php echo (empty($_POST['atmt_ext']) ? '' : $_POST['atmt_ext']); ?>" />
@@ -431,7 +431,7 @@ function addmime_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['mimetype_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mimetype_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mimetype_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="atmt_mimetype" value="<?php echo (empty($_POST['atmt_mimetype']) ? '' : $_POST['atmt_mimetype']); ?>" />
@@ -441,7 +441,7 @@ function addmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['file_type_icon']; ?></b><br />
-                    <font class="adexp"><?php echo $l['file_type_icon_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['file_type_icon_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="atmt_icon" value="<?php echo (empty($_POST['atmt_icon']) ? '' : $_POST['atmt_icon']); ?>" />
@@ -451,7 +451,7 @@ function addmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['allow_in_posts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['allow_in_posts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['allow_in_posts_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="atmt_posts" <?php echo (empty($_POST['atmt_posts']) ? '' : 'checked="checked"'); ?> />
@@ -461,7 +461,7 @@ function addmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['allow_in_avatars']; ?></b><br />
-                    <font class="adexp"><?php echo $l['allow_in_avatars_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['allow_in_avatars_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="atmt_avatar" <?php echo (empty($_POST['atmt_avatar']) ? '' : 'checked="checked"'); ?> />
@@ -471,7 +471,7 @@ function addmime_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['is_image']; ?></b><br />
-                    <font class="adexp"><?php echo $l['is_image_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['is_image_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="atmt_isimage" <?php echo (empty($_POST['atmt_isimage']) ? '' : 'checked="checked"'); ?> />

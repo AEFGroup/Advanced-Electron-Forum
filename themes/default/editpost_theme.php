@@ -260,8 +260,8 @@ function editpost_theme() {
 
                             <tr>
                                 <td colspan="2" class="errc" style="text-align:center">
-                                    <input type="submit" name="editpost" value="<?php echo $l['edit_submit_button']; ?>"/>
-                                    <input type="submit" name="previewpost" value="<?php echo $l['edit_prewiew_button']; ?>"/>
+                                    <input type="submit"  name="editpost" value="<?php echo $l['edit_submit_button']; ?>"/>
+                                    <input type="submit"  name="previewpost" value="<?php echo $l['edit_prewiew_button']; ?>"/>
                                 </td>
                             </tr>
                         </table>

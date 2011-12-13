@@ -42,7 +42,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc" width="60%"><b><?php echo $l['uset_recieve_email_admins']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_recieve_email_admins_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_recieve_email_admins_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="adminemail" value="1" <?php echo (($user['adminemail'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -53,7 +53,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_hide_email_members']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_hide_email_members_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_hide_email_members_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="hideemail" value="1" <?php echo (($user['hideemail'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -64,7 +64,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_auto_subscription']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_auto_subscription_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_auto_subscription_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="subscribeauto" value="1" <?php echo (($user['subscribeauto'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -75,7 +75,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_send_new_reply']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_send_new_reply_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_send_new_reply_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="sendnewreply" value="1" <?php echo (($user['sendnewreply'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -91,7 +91,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_notify_new_pm_email']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_notify_new_pm_email_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_notify_new_pm_email_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="pm_email_notify" value="1" <?php echo (($user['pm_email_notify'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -102,7 +102,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_pop-up_notification_new_pm']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_pop-up_notification_new_pm_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_pop-up_notification_new_pm_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="pm_notify" value="1" <?php echo (($user['pm_notify'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -113,7 +113,7 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_save_outgoing_pm']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_save_outgoing_pm_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_save_outgoing_pm_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="saveoutgoingpm" value="1" <?php echo (($user['saveoutgoingpm'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -124,8 +124,8 @@ function emailpmset_theme() {
 
                         <tr>
                             <td class="ucpflc" colspan="2" align="center">
-                                <input type="submit" name="editemailpmset" value="<?php echo $l['uset_save_changes']; ?>" />
-                                <input type="submit" name="defaultemailpmset" value="<?php echo $l['uset_use_default']; ?>" />
+                                <input type="submit"  name="editemailpmset" value="<?php echo $l['uset_save_changes']; ?>" />
+                                <input type="submit"  name="defaultemailpmset" value="<?php echo $l['uset_use_default']; ?>" />
                             </td>
                         </tr>
 
@@ -183,7 +183,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc" width="60%"><b><?php echo $l['uset_user_theme']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_user_theme_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_user_theme_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <script type="text/javascript">
@@ -211,7 +211,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc" width="60%"><b><?php echo $l['uset_language']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_language_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_language_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <select name="language" id="languageselector">
@@ -227,7 +227,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_show_sigs']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_show_sigs_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_show_sigs_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="showsigs" value="1" <?php echo (($user['showsigs'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -238,7 +238,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_show_avatars']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_show_avatars_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_show_avatars_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="showavatars" value="1" <?php echo (($user['showavatars'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -249,7 +249,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_show_smileys']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_show_smileys_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_show_smileys_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="showsmileys" value="1" <?php echo (($user['showsmileys'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -260,7 +260,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_fast_reply']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_fast_reply_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_fast_reply_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="autofastreply" value="1" <?php echo (($user['autofastreply'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -271,7 +271,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_show_images']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_show_images_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_show_images_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="showimgs" value="1" <?php echo (($user['showimgs'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -282,7 +282,7 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc"><b><?php echo $l['uset_anony_status']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['uset_anony_status_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['uset_anony_status_exp']; ?></span>
                             </td>
                             <td class="ucpfrc" align="center">
                                 <input type="radio" name="i_am_anon" value="1" <?php echo (($user['i_am_anon'] == 1) ? 'checked="checked"' : ''); ?> /> <?php echo $l['uset_yes']; ?> &nbsp;&nbsp;
@@ -331,8 +331,8 @@ function forumset_theme() {
 
                         <tr>
                             <td class="ucpflc" colspan="2" align="center">
-                                <input type="submit" name="editforumset" value="<?php echo $l['uset_save_changes']; ?>" />
-                                <input type="submit" name="defaultforumset" value="<?php echo $l['uset_use_default']; ?>" />
+                                <input type="submit"  name="editforumset" value="<?php echo $l['uset_save_changes']; ?>" />
+                                <input type="submit"  name="defaultforumset" value="<?php echo $l['uset_use_default']; ?>" />
                             </td>
                         </tr>
 
@@ -417,7 +417,7 @@ function themeset_theme() {
     <td width="40%" class="ucpflc">
     <b>' . $theme_registry[$ck][$k]['shortexp'] . '</b>
     ' . (empty($theme_registry[$ck][$k]['exp']) ? '' : '<br />
-    <font class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</font>') . '
+    <span class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</span>') . '
     </td>
     <td class="ucpflc" align="left">
     &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func_array('html_' . $theme_registry[$ck][$k]['type'], array($k, $theme_registry[$ck][$k]['value'])) . '
@@ -433,8 +433,8 @@ function themeset_theme() {
 
                             <tr>
                                 <td align="center" class="ucpflc">
-                                    <input type="submit" name="editthemeset" value="<?php echo $l['uset_edit_set']; ?>" />
-                                    <input type="submit" name="defaultthemeset" value="<?php echo $l['uset_use_default']; ?>" />
+                                    <input type="submit"  name="editthemeset" value="<?php echo $l['uset_edit_set']; ?>" />
+                                    <input type="submit"  name="defaultthemeset" value="<?php echo $l['uset_use_default']; ?>" />
                                 </td>
                             </tr>
                         </table>

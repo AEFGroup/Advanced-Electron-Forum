@@ -29,7 +29,7 @@ function mainregister_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['username']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['username_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['username_exp']; ?></span>
                 </div>
                 <input type="text" size="45" name="username" <?php echo ( (isset($_POST['username'])) ? 'value="' . $_POST['username'] . '"' : '' ); ?> />
             </div>
@@ -38,7 +38,7 @@ function mainregister_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['password']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['password_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['password_exp']; ?></span>
                 </div>
                 <input type="password" size="45" name="password" />
             </div>
@@ -47,7 +47,7 @@ function mainregister_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['confirm_password']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['confirm_password_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['confirm_password_exp']; ?></span>
                 </div>
                 <input type="password" size="45" name="conf_password" />
             </div>
@@ -56,7 +56,7 @@ function mainregister_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['email_address']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['email_address_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['email_address_exp']; ?></span>
                 </div>
                 <input type="text" size="45" name="email" <?php echo ((isset($_POST['email'])) ? 'value="' . trim($_POST['email']) . '"' : ''); ?> />
             </div>
@@ -66,7 +66,7 @@ function mainregister_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                             <b>' . $l['confirmation_code'] . '</b><br />
-                            <font class="ucpfexp">' . $l['confirmation_code_exp'] . '</font>
+                            <span class="ucpfexp">' . $l['confirmation_code_exp'] . '</span>
                         </div>
                         <input type="text" size="20" name="sec_conf" /><br><br>
                             <img src="' . $globals['index_url'] . 'act=sec_conf_image">
@@ -78,7 +78,7 @@ function mainregister_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['time_zone']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['time_zone_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['time_zone_exp']; ?></span>
                 </div>
                 <select name="timezone" style="font-size:11px">
                     <option value="-12" class="" >(GMT -12:00) Eniwetok, Kwajalein</option>
@@ -171,7 +171,7 @@ function validate_theme() {
             <div>
                 <div class="ucpflc" align="left" width="40%">
                     <b><?php echo $l['user_id']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['user_id_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['user_id_exp']; ?></span>
                 </div>
                 <div class="ucpfrc" align="left"><input type="hidden" name="act" value="register" />
                     <input type="hidden" name="regact" value="validate" />
@@ -182,7 +182,7 @@ function validate_theme() {
             <div>
                 <div class="ucpflc" align="left">
                     <b><?php echo $l['activation_code']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['activation_code_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['activation_code_exp']; ?></span>
                 </div>
                 <div class="ucpfrc" align="left">
                     <input type="text" size="35" name="code" <?php echo ( (isset($_GET['code'])) ? 'value="' . $_GET['code'] . '"' : '' ); ?> />
@@ -232,7 +232,7 @@ function age_theme() {
             <div >
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['date_of_birth']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['date_of_birth_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['date_of_birth_exp']; ?></span>
                 </div>
                 <?php echo $l['month']; ?>:
                 <select name="month">
@@ -356,7 +356,7 @@ function resendact_theme() {
             <div>
                 <div class="ucpflc" align="left" width="30%">
                     <b><?php echo $l['username']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['username_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['username_exp']; ?></span>
                 </div>
                 <div class="ucpfrc" align="left">
                     <input type="text" size="35" name="username" <?php echo ( (isset($_POST['username'])) ? 'value="' . $_POST['username'] . '"' : '' ); ?> />
@@ -392,7 +392,7 @@ function coppaform_theme() {
     </head>
     <body>';
 
-    echo '<p align="left"><font size="5">' . $globals['sn'] . '</font><br />
+    echo '<p align="left"><span size="5">' . $globals['sn'] . '</span><br />
     ' . $l['address'] . ' : ' . $globals['age_rest_act_address'] . '.<br />
     ' . $l['telephone'] . ' : ' . $globals['age_rest_act_tele'] . '<br />
     ' . $l['fax'] . ' : ' . $globals['age_rest_act_fax'] . '<br /></p>';
@@ -404,7 +404,7 @@ function coppaform_theme() {
      ________________<br />
     ' . $l['date'] . ' : ________________<br /></p>';
 
-    echo '<p align="left"><font size="4">' . $l['subject'] . '</font><br /><br />
+    echo '<p align="left"><span size="4">' . $l['subject'] . '</span><br /><br />
     ' . $l['body'] . '</p>';
 
     echo '<center>' . copyright() . '</center>

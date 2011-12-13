@@ -33,7 +33,7 @@ function spam_set_theme() {
 
     <div class="cbor" align="center">
         <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
-        <font class="adgreen"><?php echo $l['spam_settings']; ?></font><br />
+        <span class="adgreen"><?php echo $l['spam_settings']; ?></span><br />
         <div class="expl">
             <?php echo $l['spam_set_exp']; ?>
         </div>
@@ -49,7 +49,7 @@ function spam_set_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_akismet']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_akismet_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_akismet_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="enable_akismet" <?php echo ($globals['enable_akismet'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -58,7 +58,7 @@ function spam_set_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['akismet_key']; ?></b><br />
-                    <font class="adexp"><?php echo $l['akismet_key_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['akismet_key_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="akismet_key" value="<?php echo (empty($_POST['akismet_key']) ? $globals['akismet_key'] : $_POST['akismet_key']); ?>" />
             <input type="submit" name="editspamset" value="<?php echo $l['submit']; ?>" />
@@ -86,7 +86,7 @@ function coreset_theme() {
     <div class="cbor">
         <div align="center">
                 <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
-                <font class="adgreen"><?php echo $l['core_set']; ?></font><br />
+                <span class="adgreen"><?php echo $l['core_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -111,7 +111,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['board_url']; ?></b><br />
-                    <font class="adexp"><?php echo $l['board_url_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['board_url_exp']; ?></span>
                 </div>
                 <input type="text" size="40"  name="url" value="<?php echo (empty($_POST['url']) ? $globals['url'] : $_POST['url']); ?>" />
             </div>
@@ -121,7 +121,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['site_name']; ?></b><br />
-                    <font class="adexp"><?php echo $l['site_name_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['site_name_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="sn" value="<?php echo (empty($_POST['sn']) ? $globals['sn'] : $_POST['sn']); ?>" />
             </div>
@@ -130,7 +130,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['board_email']; ?></b><br />
-                    <font class="adexp"><?php echo $l['board_email_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['board_email_exp']; ?></span>
                 </div>
                 <input  type="text" size="30"  name="board_email" value="<?php echo (empty($_POST['board_email']) ? $globals['board_email'] : $_POST['board_email']); ?>" />
             </div>
@@ -140,7 +140,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['aef_folder']; ?></b><br />
-                    <font class="adexp"><?php echo $l['aef_folder_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['aef_folder_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="server_url" value="<?php echo (empty($_POST['server_url']) ? $globals['server_url'] : $_POST['server_url']); ?>" />
             </div>
@@ -150,7 +150,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['aef_main_files']; ?></b><br />
-                    <font class="adexp"><?php echo $l['aef_main_files_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['aef_main_files_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="mainfiles" value="<?php echo (empty($_POST['mainfiles']) ? $globals['mainfiles'] : $_POST['mainfiles']); ?>" />
             </div>
@@ -160,7 +160,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['themes_folder']; ?></b><br />
-                    <font class="adexp"><?php echo $l['themes_folder_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['themes_folder_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="themesdir" value="<?php echo (empty($_POST['themesdir']) ? $globals['themesdir'] : $_POST['themesdir']); ?>" />
             </div>
@@ -170,7 +170,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['cookie_name']; ?></b><br />
-                    <font class="adexp"><?php echo $l['cookie_name_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['cookie_name_exp']; ?></span>
                 </div>
                 <input  type="text" size="30"  name="cookie_name" value="<?php echo (empty($_POST['cookie_name']) ? $globals['cookie_name'] : $_POST['cookie_name']); ?>" />
             </div>
@@ -180,7 +180,7 @@ function coreset_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['compress_output']; ?></b><br />
-                    <font class="adexp"><?php echo $l['compress_output_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['compress_output_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="gzip" <?php echo ($globals['gzip'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -208,7 +208,7 @@ function mysqlset_theme() {
     <div class="cbor">
         <div align="center">
             <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
-            <font class="adgreen"><?php echo $l['mysql_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['mysql_set']; ?></span><br />
         </div>
         <div class="expl">
             <?php echo $l['mysql_set_exp']; ?>
@@ -230,7 +230,7 @@ function mysqlset_theme() {
             <div>    
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['server']; ?></b><br />
-                    <font class="adexp"><?php echo $l['server_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['server_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="server" value="<?php echo (empty($_POST['server']) ? $globals['server'] : $_POST['server']); ?>" />
             </div>
@@ -239,7 +239,7 @@ function mysqlset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mysql_user']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mysql_user_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mysql_user_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="user" value="<?php echo (empty($_POST['user']) ? $globals['user'] : $_POST['user']); ?>" />
             </div>
@@ -248,7 +248,7 @@ function mysqlset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mysql_pass']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mysql_pass_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mysql_pass_exp']; ?></span>
                 </div>
                 <input  type="password" size="40"  name="password" value="<?php echo (empty($_POST['password']) ? $globals['password'] : $_POST['password']); ?>" />
             </div>
@@ -257,7 +257,7 @@ function mysqlset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mysql_database']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mysql_database_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mysql_database_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="database" value="<?php echo (empty($_POST['database']) ? $globals['database'] : $_POST['database']); ?>" />
             </div>
@@ -266,7 +266,7 @@ function mysqlset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mysql_prefix']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mysql_prefix_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mysql_prefix_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="dbprefix" value="<?php echo (empty($_POST['dbprefix']) ? $globals['dbprefix'] : $_POST['dbprefix']); ?>" />
             </div>
@@ -312,7 +312,7 @@ function onoff_theme() {
     <div class="cbor">
         <div align="center">
             <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
-            <font class="adgreen"><?php echo $l['board_on_off']; ?></font><br />
+            <span class="adgreen"><?php echo $l['board_on_off']; ?></span><br />
         </div>
 
         <div class="expl" align="center">
@@ -334,7 +334,7 @@ function onoff_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['turn_board_off']; ?></b><br />
-                    <font class="adexp"><?php echo $l['turn_board_off_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['turn_board_off_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="maintenance"    <?php echo ($globals['maintenance'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -379,7 +379,7 @@ function mailset_theme() {
 
         <div align="center">
             <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
-            <font class="adgreen"><?php echo $l['mail_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['mail_set']; ?></span><br />
         </div>
         <div class="expl" align="center">
             <?php echo $l['mail_set_exp']; ?>
@@ -399,7 +399,7 @@ function mailset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['mail_delivery_method']; ?></b><br />
-                    <font class="adexp"><?php echo $l['mail_delivery_method_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['mail_delivery_method_exp']; ?></span>
                 </div>
                 <select name="mail">
                     <option value="1" <?php echo (isset($_POST['mail']) && $_POST['mail'] == 1 ? 'selected="selected"' : ($globals['mail'] == 1 ? 'selected="selected"' : '' )); ?> ><?php echo $l['php_mail']; ?></option>
@@ -458,7 +458,7 @@ function genset_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/controlpanel.png">
-            <font class="adgreen"><?php echo $l['gen_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['gen_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -482,7 +482,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_notifications']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_notifications_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_notifications_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="notifications"    <?php echo ($globals['notifications'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -491,7 +491,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['subscribe_auto']; ?></b><br />
-                    <font class="adexp"><?php echo $l['subscribe_auto_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['subscribe_auto_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="subscribeauto"    <?php echo ($globals['subscribeauto'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -500,7 +500,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['session_timeout']; ?></b><br />
-                    <font class="adexp"><?php echo $l['session_timeout_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['session_timeout_exp']; ?></span>
                 </div>
                     <input  type="text" size="40"  name="session_timeout" value="<?php echo (empty($_POST['session_timeout']) ? $globals['session_timeout'] : $_POST['session_timeout']); ?>" />
             </div>
@@ -509,7 +509,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['last_activity_time']; ?></b><br />
-                    <font class="adexp"><?php echo $l['last_activity_time_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['last_activity_time_exp']; ?></span>
                 </div>
                     <input  type="text" size="40"  name="last_active_span" value="<?php echo (empty($_POST['last_active_span']) ? $globals['last_active_span'] : $_POST['last_active_span']); ?>" />
             </div>
@@ -518,7 +518,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['make_login_compulsory']; ?></b><br />
-                    <font class="adexp"><?php echo $l['make_login_compulsory_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['make_login_compulsory_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="only_users" <?php echo ($globals['only_users'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -551,7 +551,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['users_visited_today']; ?></b><br />
-                    <font class="adexp"><?php echo $l['users_visited_today_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['users_visited_today_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="users_visited_today" <?php echo ($globals['users_visited_today'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -560,7 +560,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['show_groups']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['show_groups_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['show_groups_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="show_groups" <?php echo ($globals['show_groups'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -569,7 +569,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['active_users_list']; ?></b><br />
-                    <font class="adexp"><?php echo $l['active_users_list_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['active_users_list_exp']; ?></span>
                 </div>
                     <input  type="text" size="40"  name="maxactivelist" value="<?php echo (empty($_POST['maxactivelist']) ? $globals['maxactivelist'] : $_POST['maxactivelist']); ?>" />
             </div>
@@ -578,7 +578,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['num_members_list']; ?></b><br />
-                    <font class="adexp"><?php echo $l['num_members_list_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['num_members_list_exp']; ?></span>
                 </div>
                     <input  type="text" size="40"  name="maxmemberlist" value="<?php echo (empty($_POST['maxmemberlist']) ? $globals['maxmemberlist'] : $_POST['maxmemberlist']); ?>" />
             </div>
@@ -587,7 +587,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['num_subscriptions_list']; ?></b><br />
-                    <font class="adexp"><?php echo $l['num_subscriptions_list_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['num_subscriptions_list_exp']; ?></span>
                 </div>
                     <input  type="text" size="40"  name="numsubinpage" value="<?php echo (empty($_POST['numsubinpage']) ? $globals['numsubinpage'] : $_POST['numsubinpage']); ?>" />
             </div>
@@ -596,7 +596,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['num_recent_posts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['num_recent_posts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['num_recent_posts_exp']; ?></span>
                 </div>
                     <input  type="text" size="40"  name="recent_posts" value="<?php echo (empty($_POST['recent_posts']) ? $globals['recent_posts'] : $_POST['recent_posts']); ?>" />
             </div>
@@ -605,7 +605,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['language']; ?></b><br />
-                    <font class="adexp"><?php echo $l['default_language']; ?></font>
+                    <span class="adexp"><?php echo $l['default_language']; ?></span>
                 </div>
                     <select name="language" />
                     <?php
@@ -660,7 +660,7 @@ function genset_theme() {
                         <option value="11" <?php echo (isset($_POST['timezone']) && $_POST['timezone'] == '11' ? 'selected="selected"' : ($globals['timezone'] == 11 ? 'selected="selected"' : '')); ?> >(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
                         <option value="12" <?php echo (isset($_POST['timezone']) && $_POST['timezone'] == '12' ? 'selected="selected"' : ($globals['timezone'] == 12 ? 'selected="selected"' : '')); ?> >(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
                     </select><br />
-                    <font class="adexp">The default time zone of the Board.</font>
+                    <span class="adexp">The default time zone of the Board.</span>
                 </div>
             </div>
 
@@ -674,7 +674,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['count_in_board']; ?></b><br />
-                    <font class="adexp"><?php echo $l['count_in_board_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['count_in_board_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="countinboardposts" <?php echo (isset($_POST['countinboardposts']) ? 'checked="checked"' : ($globals['countinboardposts'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -689,7 +689,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_news_system']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_news_system_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_news_system_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="enablenews" <?php echo (isset($_POST['enablenews']) ? 'checked="checked"' : ($globals['enablenews'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -698,7 +698,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['todays_in_ticker']; ?></b><br />
-                    <font class="adexp"><?php echo $l['todays_in_ticker_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['todays_in_ticker_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="todaysnews" <?php echo (isset($_POST['todaysnews']) ? 'checked="checked"' : ($globals['todaysnews'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -707,7 +707,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['ticked_in_ticker']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ticked_in_ticker_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ticked_in_ticker_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="tickednews" <?php echo (isset($_POST['tickednews']) ? 'checked="checked"' : ($globals['tickednews'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -716,7 +716,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['articles_per_page']; ?></b><br />
-                    <font class="adexp"><?php echo $l['articles_per_page_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['articles_per_page_exp']; ?></span>
                 </div>
                 <input  type="text" size="20"  name="newsperpage" value="<?php echo (empty($_POST['newsperpage']) ? $globals['newsperpage'] : $_POST['newsperpage']); ?>" />
             </div>
@@ -731,7 +731,7 @@ function genset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['rss_recent']; ?></b><br />
-                    <font class="adexp"><?php echo $l['rss_recent_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['rss_recent_exp']; ?></span>
                 </div>
                 <input  type="text" size="20"  name="rss_recent" value="<?php echo (empty($_POST['rss_recent']) ? $globals['rss_recent'] : $_POST['rss_recent']); ?>" />
             </div>
@@ -756,7 +756,7 @@ function shoutboxset_theme() {
     <div class="cbor" align="center">
         <div>
             <img src="<?php echo $theme['images']; ?>admin/chat.gif">
-            <font class="adgreen"><?php echo $l['shout_box']; ?></font><br />
+            <span class="adgreen"><?php echo $l['shout_box']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -779,7 +779,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_shoutbox']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_shoutbox_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_shoutbox_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="enableshoutbox" <?php echo (isset($_POST['enableshoutbox']) ? 'checked="checked"' : ($globals['enableshoutbox'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -788,7 +788,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['num_shouts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['num_shouts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['num_shouts_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="shouts" value="<?php echo (empty($_POST['shouts']) ? $globals['shouts'] : $_POST['shouts']); ?>" />
             </div>
@@ -797,7 +797,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['shout_life']; ?></b><br />
-                    <font class="adexp"><?php echo $l['shout_life_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['shout_life_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="shoutboxtime" value="<?php echo (empty($_POST['shoutboxtime']) ? $globals['shoutboxtime'] : $_POST['shoutboxtime']); ?>" />
             </div>
@@ -806,7 +806,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_smilies']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_smilies_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_smilies_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="shoutbox_emot" <?php echo (isset($_POST['shoutbox_emot']) ? 'checked="checked"' : ($globals['shoutbox_emot'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -815,7 +815,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_normal_bbc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_normal_bbc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_normal_bbc_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="shoutbox_nbbc" <?php echo (isset($_POST['shoutbox_nbbc']) ? 'checked="checked"' : ($globals['shoutbox_nbbc'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -824,7 +824,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['enable_special_bbc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['enable_special_bbc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['enable_special_bbc_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="shoutbox_sbbc" <?php echo (isset($_POST['shoutbox_sbbc']) ? 'checked="checked"' : ($globals['shoutbox_sbbc'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -843,7 +843,7 @@ function shoutboxset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['start_count_again']; ?></b><br />
-                    <font class="adexp"><?php echo $l['start_count_again_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['start_count_again_exp']; ?></span>
                 </div>
                 <input  type="checkbox" name="divuncatediv" checked="checked" />
             </div>
@@ -875,7 +875,7 @@ function updates_theme() {
             </div>
             <div style="float:right;" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['update_aef']; ?></font><br />
+                <span class="adgreen"><?php echo $l['update_aef']; ?></span><br />
 
             </div>
         </div>
@@ -944,7 +944,7 @@ function seoset_theme() {
 
         <div align="center">
             <img src="<?php echo $theme['images']; ?>admin/spider.gif">
-            <font class="adgreen"><?php echo $l['seo']; ?></font><br />
+            <span class="adgreen"><?php echo $l['seo']; ?></span><br />
         </div>
 
         <div class="expl" >
@@ -967,7 +967,7 @@ function seoset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['title_in_links']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['title_in_links_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['title_in_links_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="title_in_link" <?php echo (isset($_POST['title_in_link']) ? 'checked="checked"' : ($globals['title_in_link'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -976,7 +976,7 @@ function seoset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['seo_urls']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['seo_urls_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['seo_urls_exp']; ?></span>
                 </div>
                     <input  type="checkbox" name="seo" <?php echo (isset($_POST['seo']) ? 'checked="checked"' : ($globals['seo'] ? 'checked="checked"' : '')); ?> />
             </div>
@@ -985,7 +985,7 @@ function seoset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['meta']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['meta_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['meta_exp']; ?></span>
                 </div>
                 <input  type="text" size="40"  name="keywords" value="<?php echo (empty($_POST['keywords']) ? $globals['keywords'] : $_POST['keywords']); ?>" />
             </div>
@@ -1013,7 +1013,7 @@ function banset_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/ban.gif">
-            <font class="adgreen"><?php echo $l['ban_ip']; ?></font><br />
+            <span class="adgreen"><?php echo $l['ban_ip']; ?></span><br />
         </div>
         <div>
             <div class="expl" >
@@ -1034,7 +1034,7 @@ function banset_theme() {
             <div>
                 <div >
                     <b><?php echo $l['specify_ip']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['specify_ip_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['specify_ip_exp']; ?></span>
                 </div>
             </div>
 

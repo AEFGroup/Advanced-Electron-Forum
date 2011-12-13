@@ -34,7 +34,7 @@ function tpp_global() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/topicposts.png">
-            <font class="adgreen"><?php echo $l['tpp_message_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['tpp_message_set']; ?></span><br />
         </div>
         <div class="expl">
             <?php echo $l['tpp_message_set_exp']; ?>
@@ -66,7 +66,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_max_char_title']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_max_char_title_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_max_char_title_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxtitlechars"
                                                    <?php echo 'value="' . $globals['maxtitlechars'] . '"'; ?> />
@@ -76,7 +76,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_min_char_title']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_min_char_title_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_min_char_title_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="mintitlechars"
                                                    <?php echo 'value="' . $globals['mintitlechars'] . '"'; ?> />
@@ -86,7 +86,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_num_topics_pp']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_num_topics_pp_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_num_topics_pp_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxtopics"
                                                    <?php echo 'value="' . $globals['maxtopics'] . '"'; ?> />
@@ -96,7 +96,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_num_posts_pt']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_num_posts_pt_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_num_posts_pt_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxpostsintopics"
                                                    <?php echo 'value="' . $globals['maxpostsintopics'] . '"'; ?> />
@@ -106,7 +106,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_replies_hot_topic']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_replies_hot_topic_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_replies_hot_topic_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxreplyhot"
                                                    <?php echo 'value="' . $globals['maxreplyhot'] . '"'; ?> />
@@ -116,7 +116,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_replies_veryhot_topic']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_replies_veryhot_topic_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_replies_veryhot_topic_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxreplyveryhot"
                                                    <?php echo 'value="' . $globals['maxreplyveryhot'] . '"'; ?> />
@@ -126,7 +126,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_disable_shouting_topic_titles']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_disable_shouting_topic_titles_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_disable_shouting_topic_titles_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="disableshoutingtopics"
                                                    <?php echo ($globals['disableshoutingtopics']) ? 'checked="checked"' : ''; ?> />
@@ -136,7 +136,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_prev_next_topic_links']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_prev_next_topic_links_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_prev_next_topic_links_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="prenextopic"
                     <?php
@@ -149,7 +149,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_old_topic_warn']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_old_topic_warn_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_old_topic_warn_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="warnoldtopic"
                                                    <?php echo 'value="' . $globals['warnoldtopic'] . '"'; ?> />
@@ -159,7 +159,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_pref_stickied_topics']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_pref_stickied_topics_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_pref_stickied_topics_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="prefixsticky"
                                                    <?php echo 'value="' . $globals['prefixsticky'] . '"'; ?> />
@@ -169,7 +169,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_pref_moved_topics']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_pref_moved_topics_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_pref_moved_topics_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="prefixmoved"
                                                    <?php echo 'value="' . $globals['prefixmoved'] . '"'; ?> />
@@ -179,7 +179,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_pref_poll_topics']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_pref_poll_topics_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_pref_poll_topics_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="prefixpolls"
                                                    <?php echo 'value="' . $globals['prefixpolls'] . '"'; ?> />
@@ -190,7 +190,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_disable_shouting_topic_desc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_disable_shouting_topic_desc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_disable_shouting_topic_desc_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="disableshoutingdesc"
                                                    <?php echo ($globals['disableshoutingdesc']) ? 'checked="checked"' : ''; ?> />
@@ -200,7 +200,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_max_char_desc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_max_char_desc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_max_char_desc_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxdescchars"
                                                    <?php echo 'value="' . $globals['maxdescchars'] . '"'; ?> />
@@ -210,7 +210,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_min_char_desc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_min_char_desc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_min_char_desc_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="mindescchars"
                                                    <?php echo 'value="' . $globals['mindescchars'] . '"'; ?> />
@@ -220,7 +220,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_allow_tell_friend']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_allow_tell_friend_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_allow_tell_friend_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="allow_taf"
                                                    <?php echo ($globals['allow_taf']) ? 'checked="checked"' : ''; ?> />
@@ -230,7 +230,7 @@ function manage_topics_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['who_read_topic']; ?> :</b><br />
-                    <font class="adexp"><?php echo $l['who_read_topic_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['who_read_topic_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="who_read_topic" <?php echo ($globals['who_read_topic']) ? 'checked="checked"' : ''; ?> />
             </div>
@@ -268,7 +268,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_num_posts_pt']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_num_posts_pt_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_num_posts_pt_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxpostsintopics"
                                                    <?php echo 'value="' . $globals['maxpostsintopics'] . '"'; ?> />
@@ -279,7 +279,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_max_char_post']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_max_char_post_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_max_char_post_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxcharposts"
                                                    <?php echo 'value="' . $globals['maxcharposts'] . '"'; ?> />
@@ -289,7 +289,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_min_char_post']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_min_char_post_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_min_char_post_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="mincharposts"
                                                    <?php echo 'value="' . $globals['mincharposts'] . '"'; ?> />
@@ -299,7 +299,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_time_between_posts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_time_between_posts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_time_between_posts_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="timepostfromuser"
                                                    <?php echo 'value="' . $globals['timepostfromuser'] . '"'; ?> />
@@ -309,7 +309,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_show_last_posts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_show_last_posts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_show_last_posts_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="last_posts_reply"
                                                    <?php echo 'value="' . $globals['last_posts_reply'] . '"'; ?> />
@@ -319,7 +319,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_max_emoticons_allow']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_max_emoticons_allow_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_max_emoticons_allow_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxemotpost"
                                                    <?php echo 'value="' . $globals['maxemotpost'] . '"'; ?> />
@@ -329,7 +329,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_max_images_allow']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_max_images_allow_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_max_images_allow_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maximgspost"
                                                    <?php echo 'value="' . $globals['maximgspost'] . '"'; ?> />
@@ -339,7 +339,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_width_height_image']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_width_height_image_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_width_height_image_exp']; ?></span>
                 </div>
                 <input type="text" size="10"  name="maximgwidthpost"
                                                    <?php echo 'value="' . $globals['maximgwidthpost'] . '"'; ?> /> x <input type="text" size="10"  name="maximgheightpost"
@@ -350,7 +350,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_rem_nested_quotes']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_rem_nested_quotes_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_rem_nested_quotes_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="removenestedquotes"
                                                    <?php echo ($globals['removenestedquotes']) ? 'checked="checked"' : ''; ?> />
@@ -360,7 +360,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_attach_sig_post']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_attach_sig_post_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_attach_sig_post_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="attachsigtopost"
                                                    <?php echo ($globals['attachsigtopost']) ? 'checked="checked"' : ''; ?> />
@@ -370,7 +370,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_allow_flash']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_allow_flash_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_allow_flash_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="embedflashinpost"
                     <?php
@@ -383,7 +383,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_allow_dynamic_images']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_allow_dynamic_images_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_allow_dynamic_images_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="allowdynimg"
                                                    <?php echo ($globals['allowdynimg']) ? 'checked="checked"' : ''; ?> />
@@ -393,7 +393,7 @@ function manage_posts_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_width_height_flash']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_width_height_flash_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_width_height_flash_exp']; ?></span>
                 </div>
                 <input type="text" size="10"  name="maxflashwidthinpost"
                                                    <?php echo 'value="' . $globals['maxflashwidthinpost'] . '"'; ?> /> x <input type="text" size="10"  name="maxflashheightinpost"
@@ -435,7 +435,7 @@ function manage_polls_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_enable_polls']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_enable_polls_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_enable_polls_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="enablepolls"
                                                    <?php echo ($globals['enablepolls']) ? 'checked="checked"' : ''; ?> />
@@ -445,7 +445,7 @@ function manage_polls_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_max_options_poll']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_max_options_poll_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_max_options_poll_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxoptionspoll"
                                                    <?php echo 'value="' . $globals['maxoptionspoll'] . '"'; ?> />
@@ -455,7 +455,7 @@ function manage_polls_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_pollquestion_length']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_pollquestion_length_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_pollquestion_length_exp']; ?></span>
                 </div>
                 <input type="text" size="30"  name="maxpollqtlen"
                                                    <?php echo 'value="' . $globals['maxpollqtlen'] . '"'; ?> />
@@ -512,7 +512,7 @@ function manage_words_theme() {
             <div>
                 <div width="50%" class="adbg">
                     <b><?php echo $l['tpp_case_sens']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_case_sens_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_case_sens_exp']; ?></span>
                 </div>
                 <div width="50%" class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="censor_words_case"
@@ -580,326 +580,264 @@ function manage_bbc_theme() {
     ?>
     <form action="" method="post" name="bbcset" accept-charset="UTF-8">
 
-        <div width="100%" cellpadding="2" cellspacing="1" class="cbor">
+        <div class="division">
 
-            <div>
-                <div class="adcbg" colspan="2">
-                    <?php echo $l['tpp_bbc_set']; ?>
-                </div>
+            <div class="topbar">
+                <h3><?php echo $l['tpp_bbc_set']; ?></h3>
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_parse_bbc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_parse_bbc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_parse_bbc_exp']; ?></span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="parsebbc"
-                                                   <?php echo ($globals['parsebbc']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="parsebbc" <?php echo ($globals['parsebbc']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_autolink_url']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_autolink_url_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_autolink_url_exp']; ?></span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="autolink"
-                                                   <?php echo ($globals['autolink']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="autolink" <?php echo ($globals['autolink']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_h_rule']; ?></b><br />
-                    <font class="adexp">[hr]</font>
+                    <span class="adexp">[hr]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_hr"
-                                                   <?php echo ($globals['bbc_hr']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_hr" <?php echo ($globals['bbc_hr']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_bold']; ?></b><br />
-                    <font class="adexp">[b][/b]</font>
+                    <span class="adexp">[b][/b]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_b"
-                                                   <?php echo ($globals['bbc_b']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_b" <?php echo ($globals['bbc_b']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_italics']; ?></b><br />
-                    <font class="adexp">[i][/i]</font>
+                    <span class="adexp">[i][/i]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_i"
-                                                   <?php echo ($globals['bbc_i']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_i" <?php echo ($globals['bbc_i']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_underline']; ?></b><br />
-                    <font class="adexp">[u][/u]</font>
+                    <span class="adexp">[u][/u]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_u"
-                                                   <?php echo ($globals['bbc_u']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_u" <?php echo ($globals['bbc_u']) ? 'checked="checked"' : ''; ?> />
             </div>
 
 
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_strike']; ?></b><br />
-                    <font class="adexp">[s][/s]</font>
+                    <span class="adexp">[s][/s]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_s"
-                                                   <?php echo ($globals['bbc_s']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_s" <?php echo ($globals['bbc_s']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_left_align']; ?></b><br />
-                    <font class="adexp">[left][/left]</font>
+                    <span class="adexp">[left][/left]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_left"
-                                                   <?php echo ($globals['bbc_left']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_left" <?php echo ($globals['bbc_left']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_right_align']; ?></b><br />
-                    <font class="adexp">[right][/right]</font>
+                    <span class="adexp">[right][/right]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_right"
-                                                   <?php echo ($globals['bbc_right']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_right" <?php echo ($globals['bbc_right']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_center_align']; ?></b><br />
-                    <font class="adexp">[center][/center]</font>
+                    <span class="adexp">[center][/center]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_center"
-                                                   <?php echo ($globals['bbc_center']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_center" <?php echo ($globals['bbc_center']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_font_size']; ?></b><br />
-                    <font class="adexp">[size][/size]</font>
+                    <span class="adexp">[size][/size]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_size"
-                                                   <?php echo ($globals['bbc_size']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_size" <?php echo ($globals['bbc_size']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_font_face']; ?></b><br />
-                    <font class="adexp">[font][/font]</font>
+                    <span class="adexp">[font][/font]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_font"
-                                                   <?php echo ($globals['bbc_font']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_font" <?php echo ($globals['bbc_font']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_sup_text']; ?></b><br />
-                    <font class="adexp">[sup][/sup]</font>
+                    <span class="adexp">[sup][/sup]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_sup"
-                                                   <?php echo ($globals['bbc_sup']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_sup" <?php echo ($globals['bbc_sup']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_sub_text']; ?></b><br />
-                    <font class="adexp">[sub][/sub]</font>
+                    <span class="adexp">[sub][/sub]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_sub"
-                                                   <?php echo ($globals['bbc_sub']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_sub" <?php echo ($globals['bbc_sub']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_colour_text']; ?></b><br />
-                    <font class="adexp">[color][/color]</font>
+                    <span class="adexp">[color][/color]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_color"
-                                                   <?php echo ($globals['bbc_color']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_color" <?php echo ($globals['bbc_color']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_anchor_url']; ?></b><br />
-                    <font class="adexp">[url][/url]</font>
+                    <span class="adexp">[url][/url]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_url"
-                                                   <?php echo ($globals['bbc_url']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_url" <?php echo ($globals['bbc_url']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_ftp_link']; ?></b><br />
-                    <font class="adexp">[ftp][/ftp]</font>
+                    <span class="adexp">[ftp][/ftp]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_ftp"
-                                                   <?php echo ($globals['bbc_ftp']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_ftp" <?php echo ($globals['bbc_ftp']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_email_link']; ?></b><br />
-                    <font class="adexp">[email][/email]</font>
+                    <span class="adexp">[email][/email]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_email"
-                                                   <?php echo ($globals['bbc_email']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_email" <?php echo ($globals['bbc_email']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_inline_image']; ?></b><br />
-                    <font class="adexp">[img][/img]</font>
+                    <span class="adexp">[img][/img]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_img"
-                                                   <?php echo ($globals['bbc_img']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_img" <?php echo ($globals['bbc_img']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_show_images']; ?></b><br />
-                    <font class="adexp"><?php echo $l['tpp_show_images_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['tpp_show_images_exp']; ?></span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="showimgs" <?php echo (isset($_POST['showimgs']) ? 'checked="checked"' : ($globals['showimgs'] ? 'checked="checked"' : '')); ?> />
-                </div>
+                <input type="checkbox" name="showimgs" <?php echo (isset($_POST['showimgs']) ? 'checked="checked"' : ($globals['showimgs'] ? 'checked="checked"' : '')); ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_flash']; ?></b><br />
-                    <font class="adexp">[flash][/flash]</font>
+                    <span class="adexp">[flash][/flash]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_flash"
-                                                   <?php echo ($globals['bbc_flash']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_flash" <?php echo ($globals['bbc_flash']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_code_block']; ?></b><br />
-                    <font class="adexp">[code][/code]</font>
+                    <span class="adexp">[code][/code]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_code"
-                                                   <?php echo ($globals['bbc_code']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_code" <?php echo ($globals['bbc_code']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_quote_text']; ?></b><br />
-                    <font class="adexp">[quote][/quote]</font>
+                    <span class="adexp">[quote][/quote]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_quote"
-                                                   <?php echo ($globals['bbc_quote']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_quote" <?php echo ($globals['bbc_quote']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_php_code_block']; ?></b><br />
-                    <font class="adexp">[php][/php]</font>
+                    <span class="adexp">[php][/php]</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_php"
-                                                   <?php echo ($globals['bbc_php']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_php" <?php echo ($globals['bbc_php']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_unord_list']; ?></b><br />
-                    <font class="adexp">[ul][/ul] (<?php echo $l['tpp_implies']; ?> [li][/li])</font>
+                    <span class="adexp">[ul][/ul] (<?php echo $l['tpp_implies']; ?> [li][/li])</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_ul"
-                                                   <?php echo ($globals['bbc_ul']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_ul" <?php echo ($globals['bbc_ul']) ? 'checked="checked"' : ''; ?> />
             </div>
 
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_ord_list']; ?></b><br />
-                    <font class="adexp">[ol][/ol] (<?php echo $l['tpp_implies']; ?> [li][/li])</font>
+                    <span class="adexp">[ol][/ol] (<?php echo $l['tpp_implies']; ?> [li][/li])</span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_ol"
-                                                   <?php echo ($globals['bbc_ol']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_ol" <?php echo ($globals['bbc_ol']) ? 'checked="checked"' : ''; ?> />
             </div>
 
+            <div style="clear:both; padding-bottom: 10px;"></div>
             <div>
-                <div width="50%" class="adbg">
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['tpp_execute_html']; ?></b><br />
-                    <font class="adexp">[parseHTML][/parseHTML]<br />
-                    <?php echo $l['tpp_execute_html_exp']; ?></font>
+                    <span class="adexp">[parseHTML][/parseHTML]<br />
+                    <?php echo $l['tpp_execute_html_exp']; ?></span>
                 </div>
-                <div class="adbg" align="left">
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="bbc_parseHTML"
-                                                   <?php echo ($globals['bbc_parseHTML']) ? 'checked="checked"' : ''; ?> />
-                </div>
+                <input type="checkbox" name="bbc_parseHTML" <?php echo ($globals['bbc_parseHTML']) ? 'checked="checked"' : ''; ?> />
             </div>
-
-
+            <input type="submit" name="editbbcset" value="<?php echo $l['tpp_submit']; ?>" />
+            <div style="clear:both;"></div>
         </div>
 
         <br /><br />
 
-        <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-            <div>
-                <div align="center" class="adbg">
-                    <input type="submit" name="editbbcset" value="<?php echo $l['tpp_submit']; ?>" />
-                </div>
-            </div>
-        </div>
 
     </form>
 

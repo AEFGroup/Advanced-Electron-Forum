@@ -36,7 +36,7 @@ function smset_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            <font class="adgreen"><?php echo $l['smiley_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['smiley_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -60,7 +60,7 @@ function smset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['use_smileys']; ?></b><br />
-                    <font class="adexp"><?php echo $l['use_smileys_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['use_smileys_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="usesmileys" <?php echo ($globals['usesmileys'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -69,7 +69,7 @@ function smset_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['space_boundary']; ?></b><br />
-                    <font class="adexp"><?php echo $l['space_boundary_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['space_boundary_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="smiley_space_boundary" <?php echo ($globals['smiley_space_boundary'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -90,55 +90,40 @@ function smman_theme() {
     adminhead($l['cp_sm_manage_smileys']);
     ?>
 
-    <div width="100%" cellpadding="1" cellspacing="1" class="cbor">
-
-        <div>
-            <div align="right" width="40%" class="adcbg1">
-                <img src="<?php echo $theme['images']; ?>admin/smileys.png">
-            </div>
-            <div align="left" class="adcbg1">
-
-                <font class="adgreen"><?php echo $l['manage_smileys']; ?></font><br />
-
-            </div>
+    <div class="cbor" style="text-align: center;">
+        <img src="<?php echo $theme['images']; ?>admin/smileys.png">
+        <span class="adgreen"><?php echo $l['manage_smileys']; ?></span><br />
+        <div class="expl">
+            <?php echo $l['manage_smileys_exp']; ?>
         </div>
-
-        <div>
-            <div align="left" colspan="2" class="adbg">
-                <?php echo $l['manage_smileys_exp']; ?>
-            </div>
-        </div>
-
     </div>
     <br /><br />
 
-    <div width="100%" cellpadding="5" cellspacing="1" class="cbor">
-        <div>
-            <div class="adcbg" colspan="7">
-                <?php echo $l['current_smileys']; ?>
-            </div>
+    <div class="division">
+        <div class="topbar">
+            <h3><?php echo $l['current_smileys']; ?></h3>
         </div>
 
         <div align="center">
-            <div class="adcbg2" width="10%">
+            <div class="adcbg2" width="20%" style="display: inline;">
                 <b><?php echo $l['smiley']; ?></b>
             </div>
-            <div class="adcbg2" width="15%">
+            <div class="adcbg2" width="25%" style="display: inline;">
                 <b><?php echo $l['code']; ?></b>
             </div>
-            <div class="adcbg2" width="20%">
+            <div class="adcbg2" width="30%" style="display: inline;">
                 <b><?php echo $l['file_name']; ?></b>
             </div>
-            <div class="adcbg2" width="20%">
+            <div class="adcbg2" width="30%" style="display: inline;">
                 <b><?php echo $l['emotion']; ?></b>
             </div>
-            <div class="adcbg2" width="10%">
+            <div class="adcbg2" width="20%" style="display: inline;">
                 <b><?php echo $l['status']; ?></b>
             </div>
-            <div class="adcbg2" width="10%">
+            <div class="adcbg2" width="20%" style="display: inline;">
                 <b><?php echo $l['edit']; ?></b>
             </div>
-            <div class="adcbg2" width="15%">
+            <div class="adcbg2" width="25%" style="display: inline;">
                 <b><?php echo $l['delete']; ?></b>
             </div>
         </div>
@@ -215,7 +200,7 @@ function smreorder_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['reorder_smileys']; ?></font><br />
+                <span class="adgreen"><?php echo $l['reorder_smileys']; ?></span><br />
 
             </div>
         </div>
@@ -317,7 +302,7 @@ function editsm_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['edit_smileys']; ?></font><br />
+                <span class="adgreen"><?php echo $l['edit_smileys']; ?></span><br />
 
             </div>
         </div>
@@ -346,7 +331,7 @@ function editsm_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['code_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['code_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['code_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smcode" value="<?php echo (empty($_POST['smcode']) ? $smiley['smcode'] : $_POST['smcode']); ?>" />
@@ -356,7 +341,7 @@ function editsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['emotion_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['emotion_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['emotion_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smtitle" value="<?php echo (empty($_POST['smtitle']) ? $smiley['smtitle'] : $_POST['smtitle']); ?>" />
@@ -367,7 +352,7 @@ function editsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['display_in']; ?></b><br />
-                    <font class="adexp"><?php echo $l['display_in_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['display_in_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="smstatus" <?php echo (!$smiley['smstatus'] ? 'checked="checked"' : ''); ?> />
@@ -377,7 +362,7 @@ function editsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['folder']; ?></b><br />
-                    <font class="adexp"><?php echo $l['folder_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['folder_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<select name="smfolder" disabled="disabled">
@@ -392,7 +377,7 @@ function editsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['smiley_file']; ?></b><br />
-                    <font class="adexp"><?php echo $l['smiley_file_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['smiley_file_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smfile" value="<?php echo $smiley['smfile']; ?>"  disabled="disabled" />
@@ -435,7 +420,7 @@ function addsm_theme() {
             </div>
             <div align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['add_smileys']; ?></font><br />
+                <span class="adgreen"><?php echo $l['add_smileys']; ?></span><br />
 
             </div>
         </div>
@@ -464,7 +449,7 @@ function addsm_theme() {
             <div>
                 <div width="45%" class="adbg">
                     <b><?php echo $l['code_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['code_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['code_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smcode" value="<?php echo (empty($_POST['smcode']) ? '' : $_POST['smcode']); ?>" />
@@ -474,7 +459,7 @@ function addsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['emotion_']; ?></b><br />
-                    <font class="adexp"><?php echo $l['emotion_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['emotion_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smtitle" value="<?php echo (empty($_POST['smtitle']) ? '' : $_POST['smtitle']); ?>" />
@@ -485,7 +470,7 @@ function addsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['display_in']; ?></b><br />
-                    <font class="adexp"><?php echo $l['display_in_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['display_in_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="smstatus" checked="checked" />
@@ -495,7 +480,7 @@ function addsm_theme() {
             <div>
                 <div class="adbg">
                     <b><?php echo $l['folder']; ?></b><br />
-                    <font class="adexp"><?php echo $l['folder_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['folder_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<select name="smfolder">
@@ -510,7 +495,7 @@ function addsm_theme() {
             <div>
                 <div class="adbg">
                     <input type="radio" name="filemethod" value="1" <?php echo (isset($_POST['filemethod']) && trim($_POST['filemethod']) == 1 ? 'checked="checked"' : '' ); ?> />&nbsp;<b><?php echo $l['smiley_file']; ?></b><br />
-                    <font class="adexp"><?php echo $l['smiley_file_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['smiley_file_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="smfile" value="<?php echo (empty($_POST['smfile']) ? '' : $_POST['smfile']); ?>" />
@@ -520,7 +505,7 @@ function addsm_theme() {
             <div>
                 <div class="adbg">
                     <input type="radio" name="filemethod" value="2" <?php echo (isset($_POST['filemethod']) && trim($_POST['filemethod']) == 2 ? 'checked="checked"' : '' ); ?>  />&nbsp;<b><?php echo $l['upload_smiley']; ?></b><br />
-                    <font class="adexp"><?php echo $l['upload_smiley_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['upload_smiley_exp']; ?></span>
                 </div>
                 <div class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="file" size="30"  name="smfile_u" value="<?php echo (empty($_POST['smfile']) ? '' : $_POST['smfile']); ?>" />

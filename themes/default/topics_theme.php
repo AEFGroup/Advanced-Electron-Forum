@@ -131,12 +131,12 @@ function topics_theme() {
     </td>
 
     <td class="mifor" width="44%">
-    <font class="forlink">
+    <span class="forlink">
     <a href="' . forumlink($v['fid'], $v['fname']) . '">' . $board['in_boards'][$i]['fname'] . '</a>
-    </font><br />
-    <font class="desc">
+    </span><br />
+    <span class="desc">
     ' . $board['in_boards'][$i]['description'] . '
-    </font><br />';
+    </span><br />';
 
             //Make the moderators array if there are any
             if (isset($v['moderators'])) {
@@ -148,7 +148,7 @@ function topics_theme() {
                     $boardmoderators[$i][] = '<a href="' . userlink($mv['id'], $mv['username']) . '">' . $v['moderators'][$mk]['username'] . '</a>';
                 }
 
-                echo '<div style="padding-top:4px;padding-bottom:2px;"><font class="modtxt">' . $l['forum_moderators'] . ' : </font>';
+                echo '<div style="padding-top:4px;padding-bottom:2px;"><span class="modtxt">' . $l['forum_moderators'] . ' : </span>';
 
                 echo implode(' , ', $boardmoderators[$i]) . '</div>';
             }
@@ -164,7 +164,7 @@ function topics_theme() {
                     $inboards[$i][] = (!empty($iv['is_read']) ? '' : '<b>') . '<a href="' . forumlink($iv['fid'], $iv['fname']) . '">' . $v['in_boards'][$ik]['fname'] . '</a>' . (!empty($iv['is_read']) ? '' : '</b>');
                 }
 
-                echo '<div style="padding-top:3px;"><font class="inbtxt">' . $l['forum_in_boards'] . ' : </font>';
+                echo '<div style="padding-top:3px;"><span class="inbtxt">' . $l['forum_in_boards'] . ' : </span>';
 
                 echo implode(' , ', $inboards[$i]) . '</div>';
             }

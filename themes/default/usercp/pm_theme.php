@@ -1208,7 +1208,7 @@ function sendsaved_theme() {
 
                             <tr>
                                 <td width="25%" class="ucpfrc"><?php echo $l['pm_select_folder']; ?><br />
-                                    <font class="ucpfexp"><?php echo $l['pm_select_folder_exp']; ?></font></td>
+                                    <span class="ucpfexp"><?php echo $l['pm_select_folder_exp']; ?></span></td>
                                 <td class="ucpflc">
                                     <select name="prunefolder">
                                         <option value="0"><?php echo $l['pm_inbox']; ?>(<?php echo $foldercount[0]; ?>)</option>
@@ -1221,8 +1221,8 @@ function sendsaved_theme() {
 
                             <tr>
                                 <td width="25%" class="ucpfrc"><b><?php echo $l['pm_older_than']; ?></b><br />
-                                    <font class="ucpfexp"><?php echo $l['pm_older_than_exp']; ?>
-                                    </font></td>
+                                    <span class="ucpfexp"><?php echo $l['pm_older_than_exp']; ?>
+                                    </span></td>
                                 <td class="ucpflc"><input type="text" size="10" maxlength="50" name="prunedays" /> <?php echo $l['pm_prune_days']; ?></td>
                             </tr>
 

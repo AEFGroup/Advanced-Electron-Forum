@@ -47,7 +47,7 @@ function editprofile_theme() {
                         <tr>
                             <td class="ucpflc" width="30%">
                                 <b><?php echo $l['email_address']; ?>* :</b><br />
-                                <font class="ucpfexp"><?php echo $l['email_address_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['email_address_exp']; ?></span>
                             </td>
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="email" value="<?php echo (isset($_POST['email']) ? $_POST['email'] : $member['email']); ?>" />
@@ -57,7 +57,7 @@ function editprofile_theme() {
                         <tr>
                             <td class="ucpflc" width="30%">
                                 <b><?php echo $l['user_group']; ?>* :</b><br />
-                                <font class="ucpfexp"><?php echo $l['user_group_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['user_group_exp']; ?></span>
                             </td>
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<select name="u_member_group" style="font-family:Verdana; font-size:11px">
@@ -77,7 +77,7 @@ function editprofile_theme() {
                         <tr>
                             <td class="ucpflc" width="30%">
                                 <b><?php echo $l['real_name']; ?> :</b><br />
-                                <font class="ucpfexp"><?php echo $l['real_name_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['real_name_exp']; ?></span>
                             </td>
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="realname" value="<?php echo (isset($_POST['realname']) ? $_POST['realname'] : $member['realname']); ?>" />
@@ -96,7 +96,7 @@ function editprofile_theme() {
                         <tr>
                             <td class="ucpflc" width="30%">
                                 <b><?php echo $l['location']; ?> :</b><br />
-                                <font class="ucpfexp"><?php echo $l['location_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['location_exp']; ?></span>
                             </td>
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="location" value="<?php echo (isset($_POST['location']) ? $_POST['location'] : $member['location']); ?>" />
@@ -107,7 +107,7 @@ function editprofile_theme() {
                         <tr>
                             <td class="ucpflc" width="30%">
                                 <b><?php echo$l['gender']; ?> :</b><br />
-                                <font class="ucpfexp"><?php echo $l['gender_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['gender_exp']; ?></span>
                             </td>
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<select name="gender" size="1">
@@ -120,7 +120,7 @@ function editprofile_theme() {
                         <tr>
                             <td class="ucpflc" width="30%">
                                 <b><?php echo $l['private_text']; ?> :</b><br />
-                                <font class="ucpfexp"><?php echo $l['private_text_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['private_text_exp']; ?></span>
                             </td>
                             <td class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="privatetext" value="<?php echo (isset($_POST['privatetext']) ? $_POST['privatetext'] : $member['users_text']); ?>" />
@@ -178,7 +178,7 @@ function editprofile_theme() {
 
                         <tr>
                             <td class="ucpflc" valign="top"><b><?php echo $l['signature']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['signature_exp']; ?></font></td>
+                                <span class="ucpfexp"><?php echo $l['signature_exp']; ?></span></td>
                             <td class="ucpfrc">
                                 &nbsp;&nbsp;&nbsp;<textarea name="sig" rows="8" cols="55" /><?php echo (isset($_POST['sig']) ? $_POST['sig'] : $member['sig']); ?></textarea>
                             </td>

@@ -17,20 +17,20 @@ function mainlogin_theme() {
                 <?php
                 if (!empty($globals['maintenance'])) {
 
-                    echo '<b><font size="4" color="red">' . $l['maintenance_mode'] . '</font></b><br />' .
+                    echo '<b><span size="4" color="red">' . $l['maintenance_mode'] . '</span></b><br />' .
                     (empty($globals['maintenance_subject']) ? '' : '<b>' . $globals['maintenance_subject'] . '</b><br />') . '' . $globals['maintenance_message'] . '<br /><br /><br />';
                 }
                 ?>
-                <img src="<?php echo $theme['images']; ?>fuser.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=login&logact=fuser" style="text-decoration:none;"><font size="4" color="#2874D0"><?php echo $l['forgot_username']; ?></font></a></b><br />
+                <img src="<?php echo $theme['images']; ?>fuser.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=login&logact=fuser" style="text-decoration:none;"><span size="4" color="#2874D0"><?php echo $l['forgot_username']; ?></span></a></b><br />
                 <?php echo $l['forgot_username_desc']; ?><br /><br /><br />
 
-                <img src="<?php echo $theme['images']; ?>fpass.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=login&logact=fpass" style="text-decoration:none;"><font size="4" color="#2874D0"><?php echo $l['forgot_password']; ?></font></a></b><br />
+                <img src="<?php echo $theme['images']; ?>fpass.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=login&logact=fpass" style="text-decoration:none;"><span size="4" color="#2874D0"><?php echo $l['forgot_password']; ?></span></a></b><br />
                 <?php echo $l['forgot_password_desc']; ?><br /><br /><br />
 
-                <img src="<?php echo $theme['images']; ?>register.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=register" style="text-decoration:none;"><font size="4" color="#2874D0"><?php echo $l['sign_up']; ?></font></a></b><br />
+                <img src="<?php echo $theme['images']; ?>register.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=register" style="text-decoration:none;"><span size="4" color="#2874D0"><?php echo $l['sign_up']; ?></span></a></b><br />
                 <?php echo $l['sign_up_desc']; ?><br /><br /><br />
 
-                <img src="<?php echo $theme['images']; ?>resendact.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=register&regact=resendact" style="text-decoration:none;"><font size="4" color="#2874D0"><?php echo $l['resend_activation']; ?></font></a></b><br /><?php echo $l['resend_activation_desc']; ?><br /><br /><br />
+                <img src="<?php echo $theme['images']; ?>resendact.png" style="float:left;" hspace="6" vspace="2" /><b><a href="<?php echo $globals['index_url']; ?>act=register&regact=resendact" style="text-decoration:none;"><span size="4" color="#2874D0"><?php echo $l['resend_activation']; ?></span></a></b><br /><?php echo $l['resend_activation_desc']; ?><br /><br /><br />
             </td>
             <td width="30%" valign="top">
 
@@ -151,7 +151,7 @@ function fpass_theme() {
     <tr>
     <td align="left" valign="top">
     <b>' . $l['security_code'] . '</b><br />
-    <font class="ucpfexp">' . $l['security_code_exp'] . '</font>
+    <span class="ucpfexp">' . $l['security_code_exp'] . '</span>
     </td>
     <td align="left">
     <img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />
@@ -345,7 +345,7 @@ function fuser_theme() {
     <tr>
     <td align="left" valign="top">
     <b>' . $l['security_code'] . '</b><br />
-    <font class="ucpfexp">' . $l['security_code_exp'] . '</font>
+    <span class="ucpfexp">' . $l['security_code_exp'] . '</span>
     </td>
     <td align="left">
     <img src="' . $globals['index_url'] . 'act=sec_conf_image"><br /><br />

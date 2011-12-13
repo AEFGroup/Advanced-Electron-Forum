@@ -115,7 +115,7 @@ function MainIndex_theme() {
 					<div class="forums_div">
 						<div class="mifor">
 							<div class="miforinfo">
-								<font class="forlink">';
+								<span class="forlink">';
 									if($forums[$c][$f]['fimage']){
 										echo '<img src="' . $forums[$c][$f]['fimage'] .'" alt="" />';
 									}
@@ -124,10 +124,10 @@ function MainIndex_theme() {
 											echo 'NEW' ;
 										}	
 								echo '
-								</font>
-								<font class="desc">
+								</span>
+								<span class="desc">
 									' . $forums[$c][$f]['description'] . '&nbsp;
-								</font>'.$l['heading_topics'].' : '.$forums[$c][$f]['ft_topic'].' & '.$l['heading_posts'].' : '.$forums[$c][$f]['ft_posts'].'';
+								</span>'.$l['heading_topics'].' : '.$forums[$c][$f]['ft_topic'].' & '.$l['heading_posts'].' : '.$forums[$c][$f]['ft_posts'].'';
 								//Make the moderators array if there are any
 								if (isset($forums[$c][$f]['moderators'])) {
 									$boardmoderators[$f] = array();
@@ -142,7 +142,7 @@ function MainIndex_theme() {
 									foreach ($forums[$c][$f]['in_boards'] as $ik => $iv) {
 										$inboards[$f][] = (!empty($iv['is_read']) ? '' : '<b>') . '<a href="' . forumlink($iv['fid'], $iv['fname']) . '">' . $forums[$c][$f]['in_boards'][$ik]['fname'] . '</a>' . (!empty($iv['is_read']) ? '' : '</b>');
 									}
-									echo '<font class="inbtxt">' . $l['forum_in_boards'] . '</font>';
+									echo '<span class="inbtxt">' . $l['forum_in_boards'] . '</span>';
 									echo implode(' , ', $inboards[$f]) . '';
 								}
 						echo '</div>

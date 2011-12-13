@@ -40,6 +40,7 @@ function core_section(){
 			Plugins Center</a>
 		</div>
 	</div>';
+	adminfoot();
 
 }
 
@@ -59,6 +60,7 @@ function external_section(){
 			Languages Center</a>
 		</div>
 	</div>';
+	adminfoot();
 
 }
 
@@ -74,10 +76,35 @@ function content_section(){
 			Forums Center</a>
 		</div>
 		<div class="app" style="display: inline;">
-			<a href="'.$globals['index_url'].'act=admin&adact=contentsection&seadact=bbcodescenter" style="background-image: url('.$theme['images'].'/admin/languages_center.png); font-size: 45px;">
+			<a href="'.$globals['index_url'].'act=admin&adact=tpp&seadact=bbc" style="background-image: url('.$theme['images'].'/admin/languages_center.png); font-size: 45px;">
 			BBCodes Center</a>
 		</div>
+		<div class="app" style="padding: 60px 150px;">
+			<a href="'.$globals['index_url'].'act=admin&adact=smileys&seadact=smman" style="background-image: url('.$theme['images'].'/admin/languages_center.png); font-size: 45px;">
+			Smileys Center</a>
+		</div>
 	</div>';
+	adminfoot();
+
+}
+
+function members_section(){
+	global $theme, $globals, $l;
+
+    //Admin Headers includes Global Headers
+    adminhead($theme['init_theme_name']);
+	echo '
+	<div style="padding: 50px 59px; ">
+		<div class="app" style="display: inline;">
+			<a href="'.$globals['index_url'].'act=admin&adact=forums" style="background-image: url('.$theme['images'].'/admin/themes_center.png); font-size: 45px;">
+			Members Center</a>
+		</div>
+		<div class="app" style="display: inline;">
+			<a href="'.$globals['index_url'].'act=admin&adact=tpp&seadact=bbc" style="background-image: url('.$theme['images'].'/admin/languages_center.png); font-size: 45px;">
+			UserGroups Center</a>
+		</div>
+	</div>';
+	adminfoot();
 
 }
 
@@ -180,6 +207,7 @@ function options_center_theme(){
 				</a>
 			</div>
 		</div>';
+		adminfoot();
 }
 
 function plugins_center_theme(){
@@ -190,6 +218,8 @@ function plugins_center_theme(){
     adminhead('Plugins Center');
 
     get_plugin_list();
+
+    adminfoot();
 }
 
 function themes_center_theme(){
@@ -200,6 +230,8 @@ function themes_center_theme(){
     adminhead('Plugins Center');
 
     echo "themes";
+
+    adminfoot();
 }
 
 function languages_center_theme(){
@@ -210,4 +242,6 @@ function languages_center_theme(){
     adminhead('Plugins Center');
 
     echo "lang";
+
+    adminfoot();
 }

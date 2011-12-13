@@ -40,7 +40,7 @@ function manug_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['ugr_ugroups']; ?></font><br />
+                <span class="adgreen"><?php echo $l['ugr_ugroups']; ?></span><br />
 
             </td>
         </tr>
@@ -81,7 +81,7 @@ function manug_theme() {
 
             echo '<tr>
     <td class="adbg" align="left">
-    <font color="' . $user_group[$uk]['mem_gr_colour'] . '">' . $user_group[$uk]['mem_gr_name'] . '</font>
+    <span color="' . $user_group[$uk]['mem_gr_colour'] . '">' . $user_group[$uk]['mem_gr_name'] . '</span>
     </td>
     <td class="adbg">';
             for ($i = 1; $i <= $user_group[$uk]['image_count']; $i++) {
@@ -131,7 +131,7 @@ function manug_theme() {
 
             echo '<tr>
     <td class="adbg" align="left">
-    <font color="' . $post_group[$pk]['mem_gr_colour'] . '">' . $post_group[$pk]['mem_gr_name'] . '</font>
+    <span color="' . $post_group[$pk]['mem_gr_colour'] . '">' . $post_group[$pk]['mem_gr_name'] . '</span>
     </td>
     <td class="adbg">';
             for ($i = 1; $i <= $post_group[$pk]['image_count']; $i++) {
@@ -197,7 +197,7 @@ function editug_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['ugr_edit_ugroups']; ?></font><br />
+                <span class="adgreen"><?php echo $l['ugr_edit_ugroups']; ?></span><br />
 
             </td>
         </tr>
@@ -226,7 +226,7 @@ function editug_theme() {
             <tr>
                 <td width="45%" class="adbg">
                     <b><?php echo $l['ugr_ugroup_name']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_ugroup_name_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_ugroup_name_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="mem_gr_name" value="<?php echo (empty($_POST['mem_gr_name']) ? $user_group['mem_gr_name'] : $_POST['mem_gr_name']); ?>" />
@@ -236,7 +236,7 @@ function editug_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['ugr_ugroup_colour']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_ugroup_colour_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_ugroup_colour_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="mem_gr_colour" value="<?php echo (empty($_POST['mem_gr_colour']) ? $user_group['mem_gr_colour'] : $_POST['mem_gr_colour']); ?>" />
@@ -246,7 +246,7 @@ function editug_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['ugr_ugroup_image']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_ugroup_image_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_ugroup_image_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="image_name" value="<?php echo (empty($_POST['image_name']) ? $user_group['image_name'] : $_POST['image_name']); ?>" />
@@ -268,7 +268,7 @@ function editug_theme() {
                 echo '<tr>
         <td class="adbg">
         <b>' . $l['ugr_post_based'] . '</b><br />
-        <font class="adexp">' . $l['ugr_post_based_exp'] . '</font>
+        <span class="adexp">' . $l['ugr_post_based_exp'] . '</span>
         </td>
         <td class="adbg" align="left">
         &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="post_based" ' . (isset($_POST['post_based']) || $user_group['post_count'] != -1 ? 'checked="checked"' : '' ) . ' />
@@ -277,7 +277,7 @@ function editug_theme() {
                 echo '<tr>
         <td class="adbg">
         <b>' . $l['ugr_num_posts'] . '</b><br />
-        <font class="adexp">' . $l['ugr_num_posts_exp'] . '</font>
+        <span class="adexp">' . $l['ugr_num_posts_exp'] . '</span>
         </td>
         <td class="adbg" align="left">
         &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="post_count" value="' . (empty($_POST['post_count']) ? $user_group['post_count'] : $_POST['post_count']) . '" />
@@ -420,7 +420,7 @@ function editug_theme() {
                     echo '<tr>
     <td class="adbg" width="50%">
     ' . $pv[1] . ' :<br />
-    ' . (empty($pv[2]) ? '' : '<font class="adexp">' . $pv[2] . '</font>') . '
+    ' . (empty($pv[2]) ? '' : '<span class="adexp">' . $pv[2] . '</span>') . '
     </td>
     <td class="adbg" align="left">
     &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func($pv[0], $pk) . '
@@ -490,7 +490,7 @@ function addug_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['ugr_add_ugroups']; ?></font><br />
+                <span class="adgreen"><?php echo $l['ugr_add_ugroups']; ?></span><br />
 
             </td>
         </tr>
@@ -519,7 +519,7 @@ function addug_theme() {
             <tr>
                 <td width="45%" class="adbg">
                     <b><?php echo $l['ugr_ugroup_name']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_ugroup_name_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_ugroup_name_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="mem_gr_name" value="<?php echo (empty($_POST['mem_gr_name']) ? '' : $_POST['mem_gr_name']); ?>" />
@@ -529,7 +529,7 @@ function addug_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['ugr_ugroup_colour']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_ugroup_colour_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_ugroup_colour_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="mem_gr_colour" value="<?php echo (empty($_POST['mem_gr_colour']) ? '' : $_POST['mem_gr_colour']); ?>" />
@@ -539,7 +539,7 @@ function addug_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['ugr_ugroup_image']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_ugroup_image_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_ugroup_image_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="image_name" value="<?php echo (empty($_POST['image_name']) ? '' : $_POST['image_name']); ?>" />
@@ -559,7 +559,7 @@ function addug_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['ugr_post_based']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_post_based_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_post_based_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="post_based" <?php echo (isset($_POST['post_based']) ? 'checked="checked"' : '' ) ?> />
@@ -569,7 +569,7 @@ function addug_theme() {
             <tr>
                 <td class="adbg">
                     <b><?php echo $l['ugr_num_posts']; ?></b><br />
-                    <font class="adexp"><?php echo $l['ugr_num_posts_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['ugr_num_posts_exp']; ?></span>
                 </td>
                 <td class="adbg" align="left">
                     &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" size="30"  name="post_count" value="<?php echo (empty($_POST['post_count']) ? '' : $_POST['post_count']); ?>" />
@@ -708,7 +708,7 @@ function addug_theme() {
                 echo '<tr>
     <td class="adbg" width="50%">
     ' . $pv[1] . ' :<br />
-    ' . (empty($pv[2]) ? '' : '<font class="adexp">' . $pv[2] . '</font>') . '
+    ' . (empty($pv[2]) ? '' : '<span class="adexp">' . $pv[2] . '</span>') . '
     </td>
     <td class="adbg" align="left">
     &nbsp;&nbsp;&nbsp;&nbsp;' . call_user_func($pv[0], $pk) . '

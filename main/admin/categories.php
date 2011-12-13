@@ -43,9 +43,7 @@ function categories() {
     //Array of functions to initialize
     $theme['init_theme_func'] = array('cat_global',
         'editcat_theme',
-        'catmanage_theme',
-        'createcat_theme',
-        'catreorder_theme');
+        'createcat_theme');
 
     //My activity
     $globals['last_activity'] = 'ac';
@@ -73,23 +71,14 @@ function categories() {
             createcat();
             break;
 
-        default :
-            if (!default_of_nor(false, false)) {
-
-                return false;
-            }
-            $theme['call_theme_func'] = 'catmanage_theme';
-            break;
-
-
-        //The form for reordering categories
-        case 'catreorder':
-            catreorder();
-            break;
-
         //Delete categories
         case 'delcat':
             delcat();
+            break;
+        
+        //redirect to manage forums #TODO : rework this part...
+        default:
+            redirect('act=admin&adact=forums');
             break;
     }
 }

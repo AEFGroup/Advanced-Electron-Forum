@@ -51,7 +51,7 @@ imgurl = \'' . $theme['images'] . '\';
         $color = $assoc['mem_gr_colour'];
 
         mysql_free_result($uColorRef);
-        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
+        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b>&nbsp;&nbsp;&nbsp;&nbsp;[<span class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></span>]&nbsp;&nbsp;';
     } else {
 
         echo '<b>' . $l['welcome'] . '</b> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';

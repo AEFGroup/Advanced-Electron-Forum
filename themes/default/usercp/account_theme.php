@@ -31,7 +31,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_date_birth']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_y_m-d']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_y_m-d']; ?></span>
                 </div>
                 <input type="text" maxlength="4" size="4" name="dobyear" value="<?php echo (isset($_POST['dobyear']) ? $_POST['dobyear'] : $user['dobyear']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobmonth" value="<?php echo (isset($_POST['dobmonth']) ? $_POST['dobmonth'] : $user['dobmonth']); ?>" /> - <input type="text" maxlength="2" size="2" name="dobday" value="<?php echo (isset($_POST['dobday']) ? $_POST['dobday'] : $user['dobday']); ?>" />
             </div>
@@ -40,7 +40,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_custom_title']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_custom_title_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_custom_title_exp']; ?></span>
                 </div>
                 <input type="text" size="45" name="title" value="<?php echo (isset($_POST['title']) ? $_POST['title'] : $user['customtitle']); ?>" maxlength="<?php echo $globals['customtitlelen']; ?>" />
             </div>
@@ -49,7 +49,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_location']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_location_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_location_exp']; ?></span>
                 </div>
                 <input type="text" size="45" name="location" value="<?php echo (isset($_POST['location']) ? $_POST['location'] : $user['location']); ?>" />
             </div>
@@ -58,7 +58,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_gender']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_gender_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_gender_exp']; ?></span>
                 </div>
                 <select name="gender" size="1">
                     <option value="1"  <?php echo ( (isset($_POST['gender']) && (int) $_POST['gender'] == 1) ? 'selected="selected"' : (($user['gender'] == 1) ? 'selected="selected"' : '') ); ?>><?php echo $l['acc_male']; ?></option>
@@ -70,7 +70,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_private_text']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_private_text_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_private_text_exp']; ?></span>
                 </div>
                 <input type="text" size="45" name="privatetext" value="<?php echo (isset($_POST['privatetext']) ? $_POST['privatetext'] : $user['users_text']); ?>" />
             </div>
@@ -79,7 +79,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_icq']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_icq_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_icq_exp']; ?></span>
                 </div>
                 <input type="text" size="24" name="icq" value="<?php echo (isset($_POST['icq']) ? $_POST['icq'] : $user['icq']); ?>" />
             </div>
@@ -89,7 +89,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_yim']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_yim_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_yim_exp']; ?></span>
                 </div>
                 <input type="text" size="24" name="yim" value="<?php echo (isset($_POST['yim']) ? $_POST['yim'] : $user['yim']); ?>" />
             </div>
@@ -99,7 +99,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_msn']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_msn_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_msn_exp']; ?></span>
                 </div>
             <input type="text" size="24" name="msn" value="<?php echo (isset($_POST['msn']) ? $_POST['msn'] : $user['msn']); ?>" />
             </div>
@@ -109,7 +109,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_aim']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_aim_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_aim_exp']; ?></span>
                 </div>
             <input type="text" size="24" name="aim" value="<?php echo (isset($_POST['aim']) ? $_POST['aim'] : $user['aim']); ?>" />
             </div>
@@ -118,7 +118,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_gmail']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_gmail_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_gmail_exp']; ?></span>
                 </div>
             <input type="text" size="24" name="gmail" value="<?php echo (isset($_POST['gmail']) ? $_POST['gmail'] : $user['gmail']); ?>" />
             </div>
@@ -127,7 +127,7 @@ function profile_theme() {
             <div>
                 <div style="width:300px; float:left; padding:5px;">
                     <b><?php echo $l['acc_www']; ?></b><br />
-                    <font class="ucpfexp"><?php echo $l['acc_www_exp']; ?></font>
+                    <span class="ucpfexp"><?php echo $l['acc_www_exp']; ?></span>
                 </div>
                 <input type="text" size="45" name="www" value="<?php echo (isset($_POST['www']) ? $_POST['www'] : $user['www']); ?>" />
             </div>
@@ -181,7 +181,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_realname']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_realname_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_realname_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="realname" value="<?php echo (isset($_POST['realname']) ? $_POST['realname'] : $user['realname']); ?>" />
@@ -191,7 +191,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_usname']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_usname_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_usname_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="username" value=<?php echo '"' . (isset($_POST['username']) ? $_POST['username'] : $user['username']) . '" ' . (empty($globals['change_username']) ? 'disabled="disabled"' : ''); ?> />
@@ -201,7 +201,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_new_pass']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_new_pass_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_new_pass_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="newpass" />
@@ -211,7 +211,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_conf_new_pass']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_conf_new_pass_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_conf_new_pass_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="confirmnewpass" />
@@ -222,7 +222,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_sec_qt']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_sec_qt_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_sec_qt_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="secretqt" value="<?php echo (isset($_POST['secretqt']) ? $_POST['secretqt'] : $user['secret_question']); ?>" />
@@ -233,7 +233,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_answer']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_answer_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_answer_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="30" name="answer" />
@@ -244,7 +244,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_email']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_email_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_email_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="text" size="45" name="email" value="<?php echo (isset($_POST['email']) ? $_POST['email'] : $user['email']); ?>" />
@@ -255,7 +255,7 @@ function account_theme() {
                         <div>
                             <div class="ucpflc" width="30%">
                                 <b><?php echo $l['acc_curr_pass']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_curr_pass_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_curr_pass_exp']; ?></span>
                             </div>
                             <div class="ucpflc">
                                 &nbsp;&nbsp;&nbsp;<input type="password" size="30" name="currentpass" />
@@ -354,7 +354,7 @@ function signature_theme() {
 
                         <div>
                             <div class="ucpflc" valign="top"><b><?php echo $l['acc_sig']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_sig_exp']; ?></font></div>
+                                <span class="ucpfexp"><?php echo $l['acc_sig_exp']; ?></span></div>
                             <div class="ucpfrc"><textarea name="signature" rows="13" cols="65" onchange="storeCaret(this);" onkeyup="storeCaret(this);" onclick="storeCaret(this);" onselect="storeCaret(this);" id="sig" /><?php echo (isset($_POST['signature']) ? $_POST['signature'] : $user['sig']); ?></textarea>
                             </div>
                         </div>
@@ -452,7 +452,7 @@ function avatar_theme() {
                             </div>
                             <div class="ucpflc" width="25%" align="left">
                                 <b><?php echo $l['acc_avatar_gall']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_avatar_gall_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_avatar_gall_exp']; ?></span>
                             </div>
                             <div class="ucpfrc" align="left">
 
@@ -513,7 +513,7 @@ function avatar_theme() {
                             </div>
                             <div class="ucpflc" width="25%" align="left">
                                 <b><?php echo $l['acc_online_img']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_online_img_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_online_img_exp']; ?></span>
                             </div>
                             <div class="ucpfrc" align="left">
                                 <input type="text" size="45" name="urlavatar" <?php echo ( (isset($_POST['avatartype']) && (int) $_POST['avatartype'] == 2) && (isset($_POST['urlavatar'])) ? 'value="' . $_POST['urlavatar'] . '"' : (($user['avatar_type'] == 2) ? 'value="' . ($user['avatar']) . '"' : '') ); ?> onfocus="$('avurl').checked = true;" />
@@ -526,7 +526,7 @@ function avatar_theme() {
                             </div>
                             <div class="ucpflc" align="left">
                                 <b><?php echo $l['acc_upl_img']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_upl_img_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_upl_img_exp']; ?></span>
                             </div>
                             <div class="ucpfrc" align="left">
                                 <?php echo (($user['avatar_type'] == 3) ? '<img src="' . $curpp[0] . '" height="' . $curpp[4] . '" width="' . $curpp[3] . '" />' : ''); ?><br />
@@ -609,7 +609,7 @@ function personalpic_theme() {
                             </div>
                             <div class="ucpflc" width="25%" align="left">
                                 <b><?php echo $l['acc_online_perpic']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_online_perpic_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_online_perpic_exp']; ?></span>
                             </div>
                             <div class="ucpfrc" align="left">
                                 <input type="text" size="45" name="urlppic" <?php echo ( (isset($_POST['ppictype']) && (int) $_POST['ppictype'] == 1) && (isset($_POST['urlppic'])) ? 'value="' . $_POST['urlppic'] . '"' : (($user['ppic_type'] == 1) ? 'value="' . ($user['ppic']) . '"' : '') ); ?> onfocus="$('ppicurl').checked = true;" />
@@ -622,7 +622,7 @@ function personalpic_theme() {
                             </div>
                             <div class="ucpflc" align="left">
                                 <b><?php echo $l['acc_upl_img']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['acc_upl_img_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['acc_upl_img_exp']; ?></span>
                             </div>
                             <div class="ucpfrc" align="left">
                                 <?php echo (($user['ppic_type'] == 2) ? '<img src="' . $curpp[0] . '" height="' . $curpp[4] . '" width="' . $curpp[3] . '" />' : ''); ?><br />

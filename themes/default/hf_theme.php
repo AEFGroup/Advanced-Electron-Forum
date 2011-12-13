@@ -14,13 +14,15 @@ function aefheader($title = '', $stats_panel = '') {
             <meta name="keywords" content="aef, advanced, electron, forum, bulletin, board, software' . (empty($globals['keywords']) ? '' : ', ' . $globals['keywords']) . '" />
             <title>' . $title . '</title>
             <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/style.css" />
+            <link rel="stylesheet" type="text/css" href="' . $theme['url'] . '/jquery-ui.css" />
             <link rel="shortcut icon" href="favicon.ico" />
             ' . ((empty($globals['rss_recent'])) ? '' : '<link rel="alternate" type="application/rss+xml" title="' . $globals['sn'] . ' - ' . $l['rss'] . '" href="' . $globals['ind'] . 'act=feeds" />') . '
             ' . (empty($feeds) ? '' : implode('', $feeds)) . '
             <script language="javascript" src="' . $theme['url'] . '/js/universal.js" type="text/javascript"></script>
             <script language="javascript" src="' . $theme['url'] . '/js/menu.js" type="text/javascript"></script>
             <script language="javascript" src="' . $theme['url'] . '/js/domdrag.js" type="text/javascript"></script>
-            <script type="text/javascript" src="' . $theme['url'] . '/jquery.min.js"></script>
+            <script type="text/javascript" src="' . $theme['url'] . '/js/jquery.min.js"></script>
+            <script type="text/javascript" src="' . $theme['url'] . '/js/jquery-ui.min.js"></script>
             <script type="text/javascript">
                 var $j = jQuery.noConflict();
                 $j(document).ready(function(){
@@ -86,7 +88,7 @@ function aefheader($title = '', $stats_panel = '') {
 			$avatar_url = $globals['url'] . '/avatars/unknown.png';
 			break;
 		}
-        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b><img src="'. $avatar_url .'" alt="" width="20" height="20">&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
+        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b><img src="'. $avatar_url .'" alt="" width="20" height="20">&nbsp;&nbsp;&nbsp;&nbsp;[<span class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></span>]&nbsp;&nbsp;';
     } else {
         echo '<b>' . $l['welcome'] . '</b> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';
     }

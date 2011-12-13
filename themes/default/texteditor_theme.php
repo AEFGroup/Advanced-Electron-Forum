@@ -29,25 +29,25 @@ function editor_buttons($object = 'editor') {
             <?php
             $dmenus[] = '<table id="fontsize" onmouseover="clearTimeout(hider)" onmouseout="pullmenu(\'fontsize\')" class="ddopt" cellpadding="3" cellspacing="1">
 <tr><td align="center">
-<font size="1"><a href="javascript:' . $object . '.wrap_bbc(\'[size=1]\', \'[/size]\');">1</a></font>
+<span size="1"><a href="javascript:' . $object . '.wrap_bbc(\'[size=1]\', \'[/size]\');">1</a></span>
 </td></tr>
 <tr><td align="center">
-<font size="2"><a href="javascript:' . $object . '.wrap_bbc(\'[size=2]\', \'[/size]\');">2</a></font>
+<span size="2"><a href="javascript:' . $object . '.wrap_bbc(\'[size=2]\', \'[/size]\');">2</a></span>
 </td></tr>
 <tr><td align="center">
-<font size="3"><a href="javascript:' . $object . '.wrap_bbc(\'[size=3]\', \'[/size]\');">3</a></font>
+<span size="3"><a href="javascript:' . $object . '.wrap_bbc(\'[size=3]\', \'[/size]\');">3</a></span>
 </td></tr>
 <tr><td align="center">
-<font size="4"><a href="javascript:' . $object . '.wrap_bbc(\'[size=4]\', \'[/size]\');">4</a></font>
+<span size="4"><a href="javascript:' . $object . '.wrap_bbc(\'[size=4]\', \'[/size]\');">4</a></span>
 </td></tr>
 <tr><td align="center">
-<font size="5"><a href="javascript:' . $object . '.wrap_bbc(\'[size=5]\', \'[/size]\');">5</a></font>
+<span size="5"><a href="javascript:' . $object . '.wrap_bbc(\'[size=5]\', \'[/size]\');">5</a></span>
 </td></tr>
 <tr><td align="center">
-<font size="6"><a href="javascript:' . $object . '.wrap_bbc(\'[size=6]\', \'[/size]\');">6</a></font>
+<span size="6"><a href="javascript:' . $object . '.wrap_bbc(\'[size=6]\', \'[/size]\');">6</a></span>
 </td></tr>
 <tr><td align="center">
-<font size="7"><a href="javascript:' . $object . '.wrap_bbc(\'[size=7]\', \'[/size]\');">7</a></font>
+<span size="7"><a href="javascript:' . $object . '.wrap_bbc(\'[size=7]\', \'[/size]\');">7</a></span>
 </td></tr>
 </table>';
             ?>
@@ -57,55 +57,55 @@ function editor_buttons($object = 'editor') {
             $dmenus[] = '<table id="fontface" onmouseover="clearTimeout(hider)" onmouseout="pullmenu(\'fontface\')" class="ddopt" cellpadding="3" cellspacing="1">
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="arial"><a href="javascript:' . $object . '.wrap_bbc(\'[font=arial]\', \'[/font]\');">Arial</a></font>
+<span face="arial"><a href="javascript:' . $object . '.wrap_bbc(\'[font=arial]\', \'[/font]\');">Arial</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="Arial Black"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Arial Black]\', \'[/font]\');">Arial Black</a></font>
+<span face="Arial Black"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Arial Black]\', \'[/font]\');">Arial Black</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="Arial Narrow"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Arial Narrow]\', \'[/font]\');">Arial Narrow</a></font>
+<span face="Arial Narrow"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Arial Narrow]\', \'[/font]\');">Arial Narrow</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="Courier"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Courier]\', \'[/font]\');">Courier</a></font>
+<span face="Courier"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Courier]\', \'[/font]\');">Courier</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="courier new"><a href="javascript:' . $object . '.wrap_bbc(\'[font=courier new]\', \'[/font]\');">Courier New</a></font>
+<span face="courier new"><a href="javascript:' . $object . '.wrap_bbc(\'[font=courier new]\', \'[/font]\');">Courier New</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="geneva"><a href="javascript:' . $object . '.wrap_bbc(\'[font=geneva]\', \'[/font]\');">Geneva</a></font>
+<span face="geneva"><a href="javascript:' . $object . '.wrap_bbc(\'[font=geneva]\', \'[/font]\');">Geneva</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="georgia"><a href="javascript:' . $object . '.wrap_bbc(\'[font=georgia]\', \'[/font]\');">Georgia</a></font>
+<span face="georgia"><a href="javascript:' . $object . '.wrap_bbc(\'[font=georgia]\', \'[/font]\');">Georgia</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="helvetica"><a href="javascript:' . $object . '.wrap_bbc(\'[font=helvetica]\', \'[/font]\');">Helvetica</a></font>
+<span face="helvetica"><a href="javascript:' . $object . '.wrap_bbc(\'[font=helvetica]\', \'[/font]\');">Helvetica</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="monospace"><a href="javascript:' . $object . '.wrap_bbc(\'[font=monospace]\', \'[/font]\');">Monospace</a></font>
+<span face="monospace"><a href="javascript:' . $object . '.wrap_bbc(\'[font=monospace]\', \'[/font]\');">Monospace</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="serif"><a href="javascript:' . $object . '.wrap_bbc(\'[font=serif]\', \'[/font]\');">Serif</a></font>
+<span face="serif"><a href="javascript:' . $object . '.wrap_bbc(\'[font=serif]\', \'[/font]\');">Serif</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="Times New Roman"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Times New Roman]\', \'[/font]\');">Times New Roman</a></font>
+<span face="Times New Roman"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Times New Roman]\', \'[/font]\');">Times New Roman</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="Tahoma"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Tahoma]\', \'[/font]\');">Tahoma</a></font>
+<span face="Tahoma"><a href="javascript:' . $object . '.wrap_bbc(\'[font=Tahoma]\', \'[/font]\');">Tahoma</a></span>
 </td></tr>
 
 <tr><td class="bbcddm" onmouseover="this.className=\'bbcddmon\'" onmouseout="this.className=\'bbcddm\'">
-<font face="verdana"><a href="javascript:' . $object . '.wrap_bbc(\'[font=verdana]\', \'[/font]\');">Verdana</a></font>
+<span face="verdana"><a href="javascript:' . $object . '.wrap_bbc(\'[font=verdana]\', \'[/font]\');">Verdana</a></span>
 </td></tr>
 
 </table>';

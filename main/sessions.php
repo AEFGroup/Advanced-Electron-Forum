@@ -42,18 +42,14 @@ function check_session() {
     global $user, $conn, $dbtables, $logged_in, $globals, $l, $AEF_SESS;
     global $isbot;
 
-    //echo 'Called check_session';
 
     $isbot = is_bot();
-
     if (!empty($isbot) && $isbot < -100) {
-
         return bot_session_id($isbot);
     }
 
     if (isset($_COOKIE[$globals['cookie_name']]['aefsid']) &&
             strlen(trim($_COOKIE[$globals['cookie_name']]['aefsid'])) == 32) {
-
         $id = inputsec(htmlizer(trim($_COOKIE[$globals['cookie_name']]['aefsid'])));
 
         if (preg_match('~^[A-Za-z0-9]{32}$~', $id) == 0) {

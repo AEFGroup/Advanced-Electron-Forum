@@ -49,7 +49,7 @@ function manskin_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/themes.png">
-            <font class="adgreen"><?php echo $l['theme_manager_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['theme_manager_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -74,7 +74,7 @@ function manskin_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['default_skin']; ?></b><br />
-                    <font class="adexp"><?php echo $l['default_skin_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['default_skin_exp']; ?></span>
                 </div>
                 <select name="theme_id">
                     <?php
@@ -89,7 +89,7 @@ function manskin_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['choose_skin']; ?></b><br />
-                    <font class="adexp"><?php echo $l['choose_skin_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['choose_skin_exp']; ?></span>
                 </div>
                 <input type="checkbox" name="choose_theme"    <?php echo ($globals['choose_theme'] ? 'checked="checked"' : ''); ?> />
             </div>
@@ -110,7 +110,7 @@ function manskin_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['base_path']; ?></b><br />
-                    <font class="adexp"><?php echo $l['base_path_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['base_path_exp']; ?></span>
                 </div>
                 <input type="text" size="45"  name="path" value="<?php echo (empty($_POST['path']) ? $globals['themesdir'] : $_POST['path']); ?>" />
             </div>
@@ -119,7 +119,7 @@ function manskin_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['base_url']; ?></b><br />
-                    <font class="adexp"><?php echo $l['base_url_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['base_url_exp']; ?></span>
                 </div>
                 <input type="text" size="45"  name="url" value="<?php echo (empty($_POST['url']) ? $globals['url'] . '/themes' : $_POST['url']); ?>" />
             </div>
@@ -147,7 +147,7 @@ function import_theme() {
     <div class="cbor" align="center">
         <div>
             <img src="<?php echo $theme['images']; ?>admin/themes.png">
-            <font class="adgreen"><?php echo $l['import_skin']; ?></font><br />
+            <span class="adgreen"><?php echo $l['import_skin']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -172,7 +172,7 @@ function import_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['from_folder']; ?></b><br />
-                    <font class="adexp"><?php echo $l['from_folder_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['from_folder_exp']; ?></span>
                 </div>
                 
                     <input type="radio" name="importtype" id="fromfolder" value="1" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 1)) ? 'checked="checked"' : ''); ?> />
@@ -184,7 +184,7 @@ function import_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['from_web']; ?></b><br />
-                    <font class="adexp"><?php echo $l['from_web_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['from_web_exp']; ?></span>
                 </div>
                 <input type="radio" name="importtype" id="fromweb" value="2" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 2)) ? 'checked="checked"' : ''); ?> />
                 <br>
@@ -195,7 +195,7 @@ function import_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['from_file_server']; ?></b><br />
-                    <font class="adexp"><?php echo $l['from_file_server_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['from_file_server_exp']; ?></span>
                 </div>
                 <input type="radio" name="importtype" id="fromfile" value="3" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 3)) ? 'checked="checked"' : ''); ?> />
                 <br>
@@ -206,7 +206,7 @@ function import_theme() {
             <div>
                 <div style="width:400px; float:left; padding:5px;">
                 <b><?php echo $l['from_file_pc']; ?></b><br />
-                    <font class="adexp"><?php echo $l['from_file_pc_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['from_file_pc_exp']; ?></span>
                 </div>
                 <input type="radio" name="importtype" id="fromcomp" value="4" <?php echo ((isset($_POST['importtype']) && ((int) $_POST['importtype'] == 4)) ? 'checked="checked"' : ''); ?> />
                 <br>
@@ -237,7 +237,7 @@ function uninstall_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/themes.png">
-            <font class="adgreen"><?php echo $l['uninstall_skin_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['uninstall_skin_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -261,7 +261,7 @@ function uninstall_theme() {
             <div>    
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['uninst_skin']; ?></b><br />
-                    <font class="adexp"><?php echo $l['uninst_skin_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['uninst_skin_exp']; ?></span>
                 </div>
                 <select name="theme_id">
                     <option value="0"><?php echo $l['select_skin']; ?></option>
@@ -296,7 +296,7 @@ function settings_theme() {
 
         <div>
             <img src="<?php echo $theme['images']; ?>admin/themes.png">
-            <font class="adgreen"><?php echo $l['edit_skin_set']; ?></font><br />
+            <span class="adgreen"><?php echo $l['edit_skin_set']; ?></span><br />
         </div>
 
         <div class="expl">
@@ -319,7 +319,7 @@ function settings_theme() {
             <div >
                 <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['edit_set']; ?></b><br />
-                    <font class="adexp"><?php echo $l['edit_set_exp']; ?></font>
+                    <span class="adexp"><?php echo $l['edit_set_exp']; ?></span>
                 </div>
                 <div align="left">
                     <script type="text/javascript">
@@ -386,7 +386,7 @@ function settings_theme() {
                                     <div style="width:400px; float:left; padding:5px;">
                                     <b>' . $theme_registry[$ck][$k]['shortexp'] . '</b>
                                     ' . (empty($theme_registry[$ck][$k]['exp']) ? '' : '<br />
-                                    <font class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</font>') . '
+                                    <span class="adexp">' . $theme_registry[$ck][$k]['exp'] . '</span>') . '
                                     </div>
                                     <div>
                                         ' . call_user_func_array('html_' . $theme_registry[$ck][$k]['type'], array($k, $theme_registry[$ck][$k]['value'])) . '

@@ -42,8 +42,7 @@ function recyclebin() {
     $theme['init_theme_name'] = 'Admin Center - Recycle Bin Settings';
 
     //Array of functions to initialize
-    $theme['init_theme_func'] = array('recyclebin_global',
-        'recyclebin_theme');
+    $theme['init_theme_func'] = array('recyclebin_theme');
 
     //My activity
     $globals['last_activity'] = 'arb';
@@ -144,7 +143,7 @@ function recyclebin() {
 
 
         //Redirect
-        redirect('act=admin');
+        redirect('act=admin&adact=recyclebin');
 
         return true;
     } else {

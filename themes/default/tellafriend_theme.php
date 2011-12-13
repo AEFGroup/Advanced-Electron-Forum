@@ -39,7 +39,7 @@ function tellafriend_theme() {
                         <tr>
                             <td class="taflc" width="30%" align="left">
                                 <b><?php echo $l['your_name']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['your_name_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['your_name_exp']; ?></span>
                             </td>
                             <td class="tafrc" align="left">
                                 <input type="text" size="45" name="sendername" <?php echo ( (isset($_POST['sendername'])) ? 'value="' . $_POST['sendername'] . '"' : ((!empty($user['username'])) ? 'value="' . $user['username'] . '"' : '') ); ?> />
@@ -49,7 +49,7 @@ function tellafriend_theme() {
                         <tr>
                             <td class="taflc" width="30%" align="left">
                                 <b><?php echo $l['recipients_name']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['recipients_name_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['recipients_name_exp']; ?></span>
                             </td>
                             <td class="tafrc" align="left">
                                 <input type="text" size="45" name="recipientname" <?php echo ( (isset($_POST['recipientname'])) ? 'value="' . $_POST['recipientname'] . '"' : '' ); ?> />
@@ -59,7 +59,7 @@ function tellafriend_theme() {
                         <tr>
                             <td class="taflc" align="left">
                                 <b><?php echo $l['recipients_email']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['recipients_email_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['recipients_email_exp']; ?></span>
                             </td>
                             <td class="tafrc" align="left">
                                 <input type="text" size="45" name="email" <?php echo ((isset($_POST['email'])) ? 'value="' . trim($_POST['email']) . '"' : ''); ?> />

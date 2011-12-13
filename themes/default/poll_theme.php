@@ -48,7 +48,7 @@ function editpoll_theme() {
                         <tr>
                             <td class="polc" align="left">
                                 <b><?php echo $l['lock_voting']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['lock_voting_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['lock_voting_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <input type="checkbox" size="45" name="locked" <?php echo ( (isset($_POST['locked'])) ? 'checked="checked"' : ($poll['locked'] ? 'checked="checked"' : '') ); ?> />
@@ -58,7 +58,7 @@ function editpoll_theme() {
                         <tr>
                             <td class="polc" align="left">
                                 <b><?php echo $l['can_change_vote']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['can_change_vote_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['can_change_vote_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <input type="checkbox" size="45" name="change_vote" <?php echo ( (isset($_POST['change_vote'])) ? 'checked="checked"' : ($poll['change_vote'] ? 'checked="checked"' : '') ); ?> />
@@ -68,7 +68,7 @@ function editpoll_theme() {
                         <tr>
                             <td class="polc" align="left">
                                 <b><?php echo $l['expires_in']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['expires_in_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['expires_in_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <input type="text" size="10" name="expiry" <?php echo ( (isset($_POST['expiry'])) ? 'value="' . $_POST['expiry'] . '"' : ($poll['expiry'] ? 'value="' . $poll['expiry'] . '"' : 'value="0"') ); ?> />
@@ -89,7 +89,7 @@ function editpoll_theme() {
                         <tr>
                             <td class="polc" align="left" valign="top">
                                 <b><?php echo $l['poll_options']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['poll_options_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['poll_options_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <?php
@@ -186,7 +186,7 @@ function postpoll_theme() {
                         <tr>
                             <td class="polc" align="left">
                                 <b><?php echo $l['lock_voting']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['lock_voting_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['lock_voting_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <input type="checkbox" size="45" name="locked" <?php echo ( (isset($_POST['locked'])) ? 'checked="checked"' : ($poll['locked'] ? 'checked="checked"' : '') ); ?> />
@@ -196,7 +196,7 @@ function postpoll_theme() {
                         <tr>
                             <td class="polc" align="left">
                                 <b><?php echo $l['can_change_vote']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['can_change_vote_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['can_change_vote_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <input type="checkbox" size="45" name="change_vote" <?php echo ( (isset($_POST['change_vote'])) ? 'checked="checked"' : ($poll['change_vote'] ? 'checked="checked"' : '') ); ?> />
@@ -206,7 +206,7 @@ function postpoll_theme() {
                         <tr>
                             <td class="polc" align="left">
                                 <b><?php echo $l['expires_in']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['expires_in_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['expires_in_exp']; ?></span>
                             </td>
                             <td class="porc" align="left">
                                 <input type="text" size="10" name="expiry" <?php echo ( (isset($_POST['expiry'])) ? 'value="' . $_POST['expiry'] . '"' : ($poll['expiry'] ? 'value="' . $poll['expiry'] . '"' : 'value="0"') ); ?> />

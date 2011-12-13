@@ -98,7 +98,7 @@ createmenu("pagejump", [
 <tr>
 <td>
 <a href="' . $globals['index_url'] . 'act=news&nid=' . $n . '#n' . $n . '" name="n' . $n . '">' . $v['title'] . '</a><br />
-<font class="newsinfo">' . $l['submitted_by'] . ' <a href="' . $globals['index_url'] . 'mid=' . $v['uid'] . '">' . $v['username'] . '</a> ' . $l['on'] . ' ' . datify($v['time']) . '' . (empty($v['approved']) ? ' | <b>' . $l['unapproved'] . '</b>' : '' ) . (!empty($v['showinticker']) ? ' | <b>' . $l['ticked'] . '</b>' : '' ) . '</font>
+<span class="newsinfo">' . $l['submitted_by'] . ' <a href="' . $globals['index_url'] . 'mid=' . $v['uid'] . '">' . $v['username'] . '</a> ' . $l['on'] . ' ' . datify($v['time']) . '' . (empty($v['approved']) ? ' | <b>' . $l['unapproved'] . '</b>' : '' ) . (!empty($v['showinticker']) ? ' | <b>' . $l['ticked'] . '</b>' : '' ) . '</span>
 </td>
 <td width="1%">';
 

@@ -40,7 +40,7 @@ function manval_theme() {
             </td>
             <td align="left" class="adcbg1">
 
-                <font class="adgreen"><?php echo $l['manage_validating']; ?></font><br />
+                <span class="adgreen"><?php echo $l['manage_validating']; ?></span><br />
 
             </td>
         </tr>
@@ -223,7 +223,7 @@ function manval_theme() {
                 </td>
                 <td align="left" class="adcbg1">
 
-                    <font class="adgreen"><?php echo $l['users_awaiting_approval']; ?></font><br />
+                    <span class="adgreen"><?php echo $l['users_awaiting_approval']; ?></span><br />
 
                 </td>
             </tr>
@@ -405,7 +405,7 @@ function manval_theme() {
                     </td>
                     <td align="left" class="adcbg1">
 
-                        <font class="adgreen"><?php echo $l['coppa_users_awaiting_approval']; ?></font><br />
+                        <span class="adgreen"><?php echo $l['coppa_users_awaiting_approval']; ?></span><br />
 
                     </td>
                 </tr>

@@ -794,6 +794,13 @@ background:-webkit-gradient(linear,center bottom,center top,from(#3570b8),to(#5e
 background:-moz-linear-gradient(90deg,#3570b8,#5e9ae2);
 filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#3570b8',endColorstr='#5e9ae2');
 }
+input[type="submit"]:disabled{
+    background-image: none !important; 
+    background-color: #bebebe !important; 
+    border-color: #949494 !important; 
+    color: #fefefe !important; 
+    text-shadow: #777 1px 1px 1px !important;
+}
 .search_input{
 padding: 3px 3px 3px 23px;
 background: url('images/search_icon.png') 5px 50% no-repeat white

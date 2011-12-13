@@ -24,37 +24,6 @@ if (!defined('AEF')) {
     die('Hacking Attempt');
 }
 
-//A global part to appear
-function recyclebin_global() {
-
-    global $globals, $theme, $l, $categories;
-    ?>
-
-    <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
-
-        <tr>
-            <td align="right" width="40%" class="adcbg1">
-                <img src="<?php echo $theme['images']; ?>admin/recyclebin.png">
-            </td>
-            <td align="left" class="adcbg1">
-
-                <font class="adgreen"><?php echo $l['recyclebin_set']; ?></font><br />
-
-
-
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left" colspan="2" class="adbg">
-                <?php echo $l['recyclebin_set_exp']; ?>
-            </td>
-        </tr>
-
-    </table>
-    <br /><br />
-    <?php
-}
 
 //This is the theme that is for the management of the forums
 function recyclebin_theme() {
@@ -63,51 +32,43 @@ function recyclebin_theme() {
 
     adminhead($l['cp_recyclebin']);
 
-    recyclebin_global();
-
     error_handle($error, '100%');
     ?>
+    <div class="cbor" style="text-align: center;">
+        <img src="<?php echo $theme['images']; ?>admin/recyclebin.png">
+        <span class="adgreen"><?php echo $l['recyclebin_set']; ?></span><br />
 
+        <div class="expl">
+            <?php echo $l['recyclebin_set_exp']; ?>
+        </div>
+
+    </div>
+    </br></br>
     <form accept-charset="<?php echo $globals['charset']; ?>" action="" method="post" name="editfpermissions">
-        <table width="100%" cellpadding="1" cellspacing="1" class="cbor">
+        <div class="division">
 
-            <tr>
-                <td class="adcbg" colspan="2" style="height:25px">
-                    <?php echo $l['recyclebin_set']; ?>
-                </td>
-            </tr>
+            <div class="topbar">
+                <h3><?php echo $l['recyclebin_set']; ?></h3>
+            </div>
 
-            <tr>
-                <td class="adbg" width="40%" height="30">
+            <div style="clear:both; padding-bottom: 10px;"></div>
+            <div>
+                <div style="width:400px; float:left; padding:5px;">
                     <b><?php echo $l['forum']; ?></b><br />
-                    <?php echo $l['forum_exp']; ?>
-                </td>
-                <td class="adbg">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <select name="rbfid" style="font-family:Verdana; font-size:11px">
-
-                        <?php
-                        echo '<option value="0" ' . ((isset($_POST['rbfid']) && trim($_POST['rbfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : '') . '>
-            ' . $l['none'] . '
-            </option>';
-
+                    <span class="adexp"><?php echo $l['forum_exp']; ?></span>
+                </div>
+                <select name="rbfid" style="font-family:Verdana; font-size:11px">
+                    <?php
+                        echo '<option value="0" ' . ((isset($_POST['rbfid']) && trim($_POST['rbfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : '') . '>' . $l['none'] . '</option>';
                         foreach ($mother_options as $i => $iv) {
-
-                            echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['rbfid']) && trim($_POST['rbfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : (($mother_options[$i][0] == (int) $globals['recyclebin']) ? 'selected="selected"' : '' ) ) . '>
-            ' . $mother_options[$i][1] . '
-            </option>';
+                            echo '<option value="' . $mother_options[$i][0] . '" ' . ((isset($_POST['rbfid']) && trim($_POST['rbfid']) == $mother_options[$i][0] ) ? 'selected="selected"' : (($mother_options[$i][0] == (int) $globals['recyclebin']) ? 'selected="selected"' : '' ) ) . '>' . $mother_options[$i][1] . '</option>';
                         }//End of for loop
                         ?>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="adbg" height="30" colspan="2" align="center">
-                    <input type="submit" name="setrecyclebin" value="<?php echo $l['submit']; ?>" />
-                </td>
-            </tr>
-
-        </table>
+                </select>
+            </div>
+            <input type="submit" name="setrecyclebin" value="<?php echo $l['submit']; ?>" />
+            <div style="clear:both;"></div>
+        </div>
 
         <?php
         adminfoot();

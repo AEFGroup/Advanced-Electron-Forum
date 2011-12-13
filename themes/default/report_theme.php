@@ -35,7 +35,7 @@ function report_theme() {
                         <tr>
                             <td class="etlc" width="30%">
                                 <b><?php echo $l['report']; ?></b><br />
-                                <font class="ucpfexp"><?php echo $l['report_exp']; ?></font>
+                                <span class="ucpfexp"><?php echo $l['report_exp']; ?></span>
                             </td>
                             <td class="etrc">
                                 <textarea name="report" rows="10" cols="65"><?php echo ( (isset($_POST['report'])) ? $_POST['report'] : '' ); ?></textarea>

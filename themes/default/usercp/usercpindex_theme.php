@@ -15,7 +15,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=profile'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/general.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_your_profile']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_your_profile']; ?></span><br />
                             <?php echo $l['uin_your_profile_exp']; ?></td>
                     </tr>
                 </table>
@@ -27,7 +27,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=account'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/account.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_account_settings']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_account_settings']; ?></span><br />
                             <?php echo $l['uin_account_settings_exp']; ?></td>
                     </tr>
                 </table>
@@ -41,7 +41,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=inbox'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/inbox.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_inbox']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_inbox']; ?></span><br />
                             <?php echo $l['uin_inbox_exp']; ?></td>
                     </tr>
                 </table>
@@ -53,7 +53,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=writepm'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/compose.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_compose_pm']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_compose_pm']; ?></span><br />
                             <?php echo $l['uin_compose_pm_exp']; ?></td>
                     </tr>
                 </table>
@@ -67,7 +67,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=searchpm'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/searchpm.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_search_pm']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_search_pm']; ?></span><br />
                             <?php echo $l['uin_search_pm_exp']; ?></td>
                     </tr>
                 </table>
@@ -79,7 +79,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=emptyfolders'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/bin.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_recycle_pm']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_recycle_pm']; ?></span><br />
                             <?php echo $l['uin_recycle_pm_exp']; ?></td>
                     </tr>
                 </table>
@@ -93,7 +93,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=emailpmset'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/emailpmsettings.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_email_pm_set']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_email_pm_set']; ?></span><br />
                             <?php echo $l['uin_email_pm_set_exp']; ?></td>
                     </tr>
                 </table>
@@ -105,7 +105,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=forumset'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/boardsettings.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_forum_set']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_forum_set']; ?></span><br />
                             <?php echo $l['uin_forum_set_exp']; ?></td>
                     </tr>
                 </table>
@@ -119,7 +119,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=topicsub'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/topicnotifications.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_topic_subscriptions']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_topic_subscriptions']; ?></span><br />
                             <?php echo $l['uin_topic_subscriptions_exp']; ?></td>
                     </tr>
                 </table>
@@ -131,7 +131,7 @@ function usercpindex_theme() {
                 <table width="100%" cellpadding="1" cellspacing="1" onmouseover="this.className='ucpon'" onmouseout="this.className='ucpnor'" class="ucpnor" border="0" onclick="window.location='<?php echo $globals['index_url']; ?>act=usercp&ucpact=forumsub'">
                     <tr>
                         <td width="30%"><img src="<?php echo $theme['images']; ?>usercp/forumnotifications.gif" /></td>
-                        <td class="ucpicol"><font class="ucpihtxt"><?php echo $l['uin_forum_subscriptions']; ?></font><br />
+                        <td class="ucpicol"><span class="ucpihtxt"><?php echo $l['uin_forum_subscriptions']; ?></span><br />
                             <?php echo $l['uin_forum_subscriptions_exp']; ?></td>
                     </tr>
                 </table>

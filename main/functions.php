@@ -667,7 +667,7 @@ function xhtmlHighlightString($str, $return=false) {
     if ($r1 == '--')
         $str = preg_replace('#(&lt;\?.*?)(php)?(.*?&nbsp;)#s', '\\1\\3', $str);
 
-    $fon = str_replace(array('<font ', '</font>'), array('<span ', '</span>'), $hlt);
+    $fon = str_replace(array('<span ', '</span>'), array('<span ', '</span>'), $hlt);
 
     $ret = preg_replace('#color="(.*?)"#', 'style="color: \\1"', $fon);
 
