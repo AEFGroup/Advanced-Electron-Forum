@@ -1567,14 +1567,9 @@ function sendpm($to, $subject, $body, $track, $saveinsentitems) {
 
 function aefunserialize($str) {
 
+    $str = preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.aefstrlen('$2').':\"$2\";'", $str);
+
     $var = unserialize($str);
-
-    if (empty($var)) {
-
-        $str = preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.aefstrlen('$2').':\"$2\";'", $str);
-
-        $var = unserialize($str);
-    }
 
     //If it is still empty false
     if (empty($var)) {
