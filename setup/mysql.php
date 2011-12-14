@@ -588,7 +588,7 @@ $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('newsperpage', '12')
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('bannedip', '')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('keywords', '')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('akismet_key', '')";
-$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('enable_akismet', '0'";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('enable_akismet', '0')";
 
 //Sessions
 $queries[] = "CREATE TABLE " . $dbprefix . "sessions (
