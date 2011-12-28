@@ -213,8 +213,8 @@ function delete() {
                 if ($row['poster_id'] != -1) { //Only use Akismet for members :S
                     //TODO Akismet here for guests too
                     $uresult = makequery("SELECT u.*
-            FROM " . $dbtables['users'] . " u
-            WHERE u.id = " . $row['poster_id']);
+                                            FROM " . $dbtables['users'] . " u
+                                            WHERE u.id = " . $row['poster_id']);
 
                     if (mysql_num_rows($uresult) == 1) {
 

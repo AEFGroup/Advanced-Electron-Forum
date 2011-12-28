@@ -976,7 +976,7 @@ function posts() {
     }
 
 
-    //Can he delete the topic
+    //Can he move the topic
     if ((($i_started && $user['can_move_own_topic']) ||
             (!$i_started && $user['can_move_other_topic']))) {
 

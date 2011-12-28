@@ -106,7 +106,8 @@ function posts_theme() {
             </tr>
 
         </table>';
-    }
+    }else{$stats_panel = NULL;}
+
     
 	$stats_panel .= '
     <table border="0" width="100%" cellspacing="1" cellpadding="4" class="cbor">
