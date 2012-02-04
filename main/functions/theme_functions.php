@@ -56,10 +56,10 @@ function theme_registry_fn($theme_id, $uservar = false) {
     $registry = aefunserialize($skin['theme_registry']);
 
 
-    if (!include_once($registry['path'] . '/theme_registry.php')) {
+    if (!include_cached($registry['path'] . '/theme_registry.php')) {
 
         //Try to load directly
-        include_once($globals['themesdir'] . '/' . $skin['th_folder'] . '/theme_registry.php');
+        include_cached($globals['themesdir'] . '/' . $skin['th_folder'] . '/theme_registry.php');
     }
 
     if (empty($theme)) {

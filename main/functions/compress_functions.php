@@ -32,7 +32,7 @@ function compress_fn($path, $name, $method) {
 
     global $conn, $dbtables, $globals, $user, $logged_in;
 
-    include_once($globals['mainfiles'] . '/classes/archive.php');
+    include_cached($globals['mainfiles'] . '/classes/archive.php');
 
     if (!in_array($method, array('zip', 'tar', 'tgz', 'tbz'))) {
 
@@ -139,7 +139,7 @@ function decompress_tar_fn($file, $destination, $overwrite) {
 
     global $conn, $dbtables, $globals, $user, $logged_in;
 
-    include_once($globals['mainfiles'] . '/classes/archive.php');
+    include_cached($globals['mainfiles'] . '/classes/archive.php');
 
     $tar = new tar_file($file);
 
@@ -178,7 +178,7 @@ function decompress_tgz_fn($file, $destination, $overwrite) {
 
     global $conn, $dbtables, $globals, $user, $logged_in;
 
-    include_once($globals['mainfiles'] . '/classes/archive.php');
+    include_cached($globals['mainfiles'] . '/classes/archive.php');
 
     $gzip = new gzip_file($file);
 
@@ -215,7 +215,7 @@ function decompress_tbz_fn($file, $destination, $overwrite) {
 
     global $conn, $dbtables, $globals, $user, $logged_in;
 
-    include_once($globals['mainfiles'] . '/classes/archive.php');
+    include_cached($globals['mainfiles'] . '/classes/archive.php');
 
     $tbz = new bzip_file($file);
 
@@ -255,7 +255,7 @@ function decompress_zip_fn($file, $destination, $overwrite) {
 
     global $conn, $dbtables, $globals, $user, $logged_in;
 
-    include_once($globals['mainfiles'] . '/classes/unzip.php');
+    include_cached($globals['mainfiles'] . '/classes/unzip.php');
 
     $zip = new SimpleUnzip();
 

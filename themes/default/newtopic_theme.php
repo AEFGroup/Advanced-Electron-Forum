@@ -10,7 +10,7 @@ function newtopic_theme() {
     error_handle($error, '90%');
 
     //Include the WYSIWYG functions
-    include_once($theme['path'] . '/texteditor_theme.php');
+    include_cached($theme['path'] . '/texteditor_theme.php');
 
     //Iframe for WYSIWYG
     $dmenus[] = '<iframe id="aefwysiwyg" style="width:530px; height:175px; visibility: hidden; left:0px; top:0px; position:absolute; border:1px solid #666666; background:#FFFFFF;" frameborder="0" marginheight="3" marginwidth="3"></iframe>';

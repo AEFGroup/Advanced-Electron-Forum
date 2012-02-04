@@ -43,6 +43,9 @@ include_once('universal.php');
 //Some globals vars
 include_once('globals.php');
 
+//The necessary functions to run the Board
+include_once($globals['mainfiles'] . '/functions.php');
+
 //check if the script is installed or not - SAFAD
 if ($globals['installed'] == 0)
     die(header('Location: setup/index.php'));
@@ -52,16 +55,13 @@ $conn = mysql_connect($globals['server'], $globals['user'], $globals['password']
 mysql_select_db($globals['database'], $conn) or die("Unable to select database");
 
 //A array of DB Tables prefixed with the prefix
-include_once($globals['server_url'] . '/dbtables.php');
-
-//The necessary functions to run the Board
-include_once($globals['mainfiles'] . '/functions.php');
+include_cached($globals['server_url'] . '/dbtables.php');
 
 //include the csrf protection (thanks csrf magic library <3)
-include_once($globals['mainfiles'] . '/csrf_protection.php');
+include_cached($globals['mainfiles'] . '/csrf_protection.php');
 
 //plugins
-include_once($globals['mainfiles'] . '/plugin.php');
+include_cached($globals['mainfiles'] . '/plugin.php');
 initiate_plugins();
 
 
@@ -117,10 +117,10 @@ header("Content-Type:text/html; charset=" . $globals['charset']);
 load_lang('index');
 
 //Load Session File
-include_once($globals['mainfiles'] . '/sessions.php');
+include_cached($globals['mainfiles'] . '/sessions.php');
 
 //Checks a user is logged in
-include_once($globals['mainfiles'] . '/checklogin.php');
+include_cached($globals['mainfiles'] . '/checklogin.php');
 
 //Is the user Logged In
 $logged_in = checklogin();
@@ -229,7 +229,7 @@ if (isset($act)) {
     //check first if the file really exists
     if (isset($actionsArray[$act][0]) && file_exists($globals['mainfiles'] . '/' . $actionsArray[$act][0])) {
         //include the file
-        include_once $globals['mainfiles'] . '/' . $actionsArray[$act][0];
+        include_cached($globals['mainfiles'] . '/' . $actionsArray[$act][0]);
         //execute the function
         if (!empty($actionsArray[$act][1])) {
             $actionsArray[$act][1]();
@@ -313,7 +313,7 @@ if (!empty($theme['init_theme']) && empty($errormessage)
             //Load the news if there
             if ($globals['enablenews']) {
 
-                include_once($globals['mainfiles'] . '/news.php');
+                include_cached($globals['mainfiles'] . '/news.php');
 
                 $newslinks = newslinks();
             }

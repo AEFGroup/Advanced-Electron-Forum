@@ -451,7 +451,7 @@ function posts() {
     //Do we have a poll ?
     if ($topic['poll_id']) {
 
-        include_once($globals['mainfiles'] . '/poll.php');
+        include_cached($globals['mainfiles'] . '/poll.php');
 
         $poll = loadpoll($topic['poll_id']);
 

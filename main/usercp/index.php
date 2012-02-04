@@ -74,130 +74,130 @@ function usercp() {
         /* User Account Related */
 
         case 'profile' :
-            include_once($globals['mainfiles'] . '/usercp/account.php');
+            include_cached($globals['mainfiles'] . '/usercp/account.php');
             profile();
             break;
 
         case 'account' :
-            include_once($globals['mainfiles'] . '/usercp/account.php');
+            include_cached($globals['mainfiles'] . '/usercp/account.php');
             account();
             break;
 
         case 'signature' :
-            include_once($globals['mainfiles'] . '/usercp/account.php');
+            include_cached($globals['mainfiles'] . '/usercp/account.php');
             signature();
             break;
 
         case 'avatar' :
-            include_once($globals['mainfiles'] . '/usercp/account.php');
+            include_cached($globals['mainfiles'] . '/usercp/account.php');
             avatar();
             break;
 
         case 'personalpic' :
-            include_once($globals['mainfiles'] . '/usercp/account.php');
+            include_cached($globals['mainfiles'] . '/usercp/account.php');
             personalpic();
             break;
 
         /* Subscriptions */
 
         case 'topicsub' :
-            include_once($globals['mainfiles'] . '/usercp/subscriptions.php');
+            include_cached($globals['mainfiles'] . '/usercp/subscriptions.php');
             topicsub();
             break;
 
         case 'forumsub' :
-            include_once($globals['mainfiles'] . '/usercp/subscriptions.php');
+            include_cached($globals['mainfiles'] . '/usercp/subscriptions.php');
             forumsub();
             break;
 
         /* User Settings */
 
         case 'emailpmset' :
-            include_once($globals['mainfiles'] . '/usercp/usersettings.php');
+            include_cached($globals['mainfiles'] . '/usercp/usersettings.php');
             emailpmset();
             break;
 
         case 'forumset' :
-            include_once($globals['mainfiles'] . '/usercp/usersettings.php');
+            include_cached($globals['mainfiles'] . '/usercp/usersettings.php');
             forumset();
             break;
 
         case 'themeset' :
-            include_once($globals['mainfiles'] . '/usercp/usersettings.php');
+            include_cached($globals['mainfiles'] . '/usercp/usersettings.php');
             themeset();
             break;
 
         /* PM System stuff */
 
         case 'showpm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             showpm(0);
             $theme['call_theme_func'] = 'showpm_theme';
             break;
 
         case 'showsentpm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             showpm(1);
             $theme['call_theme_func'] = 'showpm_theme';
             break;
 
         case 'inbox' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             inbox();
             $theme['call_theme_func'] = 'inbox_theme';
             break;
 
         case 'sentitems' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             sentitems();
             $theme['call_theme_func'] = 'sentitems_theme';
             break;
 
         case 'drafts' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             drafts();
             $theme['call_theme_func'] = 'drafts_theme';
             break;
 
         case 'trackpm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             trackpm();
             $theme['call_theme_func'] = 'trackpm_theme';
             break;
 
         case 'writepm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             writepm();
             break;
 
         case 'searchpm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             searchpm();
             break;
 
         case 'sendsaved' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             sendsaved();
             break;
 
         case 'prunepm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             prunepm();
             break;
 
         case 'emptyfolders' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             emptyfolders();
             break;
 
         case 'delpm' :
-            include_once($globals['mainfiles'] . '/usercp/pm.php');
+            include_cached($globals['mainfiles'] . '/usercp/pm.php');
             delpm();
             break;
 
         /* Default UserCP Index */
         default :
-            include_once($globals['mainfiles'] . '/usercp/usercpindex.php');
+            include_cached($globals['mainfiles'] . '/usercp/usercpindex.php');
             usercpindex();
             break;
     }

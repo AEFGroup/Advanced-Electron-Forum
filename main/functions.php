@@ -300,7 +300,7 @@ function aefmail($array) {
 
     global $user, $globals, $theme, $conn, $dbtables;
 
-    include_once($globals['mainfiles'] . '/functions/mail_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/mail_functions.php');
 
     return aefmail_fn($array);
 }
@@ -328,7 +328,7 @@ function default_of_nor($newposts = true, $get_mod = true) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     ///////////////////////////////////////////
     // Note : To remove the bug when no forums
@@ -346,7 +346,7 @@ function board($fid) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     return board_fn($fid);
 }
@@ -467,7 +467,7 @@ function checktitle($title) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return checktitle_fn($title);
 }
@@ -477,7 +477,7 @@ function checkdescription($description) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return checkdescription_fn($description);
 }
@@ -487,7 +487,7 @@ function checkpost($post) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return checkpost_fn($post);
 }
@@ -496,7 +496,7 @@ function read_topic($tid, $view_time) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return read_topic_fn($tid, $view_time);
 }
@@ -505,7 +505,7 @@ function first_post_topic($tid) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return first_post_topic_fn($tid);
 }
@@ -514,7 +514,7 @@ function last_post_topic($tid) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return last_post_topic_fn($tid);
 }
@@ -523,7 +523,7 @@ function read_forum($fid, $view_time) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     return read_forum_fn($fid, $view_time);
 }
@@ -533,7 +533,7 @@ function is_mod() {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     return is_mod_fn();
 }
@@ -542,7 +542,7 @@ function last_post_forum($fid) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     return last_post_forum_fn($fid);
 }
@@ -569,7 +569,7 @@ function format_text($text) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/bbc_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/bbc_functions.php');
 
     $text = normal_bbc($text);
 
@@ -580,7 +580,7 @@ function parse_special_bbc($text, $allow_html=0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/bbc_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/bbc_functions.php');
 
     $text = special_bbc($text, $allow_html);
 
@@ -600,7 +600,7 @@ function parse_br($text) {
     //If excess space
     $text = str_replace("  ", '&nbsp; ', $text);
 
-    include_once($globals['mainfiles'] . '/functions/bbc_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/bbc_functions.php');
 
     $text = censor_words($text);
 
@@ -845,7 +845,7 @@ function attach($fid, $tid, $pid) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/attachment_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/attachment_functions.php');
 
     return attach_fn($fid, $tid, $pid);
 }
@@ -860,7 +860,7 @@ function dettach($fid, $tid, $pid, $attachments, $update = true) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/attachment_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/attachment_functions.php');
 
     return dettach_fn($fid, $tid, $pid, $attachments, $update);
 }
@@ -1057,7 +1057,11 @@ function load_lang($file) {
 
         $language = $user['language'];
     }
-
+    //if possible, use the cached file 
+    if(file_exists($globals['cachedir'] . '/' . $file)){
+        include_once($globals['cachedir'] . '/' . $file);
+        return true;
+    }
     $path = $globals['server_url'] . '/languages/' . $language . '/' . $file;
 
     //If this location is there and it did not load
@@ -1106,6 +1110,11 @@ function init_theme($file, $theme_file_name) {
 
     global $theme, $globals, $l;
 
+    //if possible, use the cached file 
+    if(file_exists($globals['cachedir'] . '/' . $file)){
+        include_once($globals['cachedir'] . '/' . $file);
+        return true;
+    }
     //If this location is there and it did not load
     if (empty($theme[$file]) || !include_once($theme[$file])) {
 
@@ -1201,35 +1210,39 @@ function load_theme_settings($id) {
     //Now pass the theme_registry
     $theme = array_merge($theme, $skin);
 
-
-    //Contains all the necessary theme Variables of every theme file.
-    if (!include_once($theme['path'] . '/theme_settings.php')) {
-
-        $id = 1;
-
-        if (!empty($skins[$id][0]['theme_registry'])) {
-
-            $skin = aefunserialize($skins[$id][0]['theme_registry']);
-        } else {
-
-            $skin['path'] = '';
-        }
-
-        //Now pass the theme_registry
-        $theme = array_merge($theme, $skin);
-
-        //Try to load the Default
+    //if possible, use the cached file 
+    if(file_exists($globals['cachedir'] . '/theme_settings.php')){
+        include_once($globals['cachedir'] . '/theme_settings.php');
+    }
+    else{
+        //Contains all the necessary theme Variables of every theme file.
         if (!include_once($theme['path'] . '/theme_settings.php')) {
 
-            //If not there reporterror is triggered.
-            reporterror('', $l['load_theme_settings_error']);
+            $id = 1;
 
-            $load_hf = false;
+            if (!empty($skins[$id][0]['theme_registry'])) {
 
-            return false;
+                $skin = aefunserialize($skins[$id][0]['theme_registry']);
+            } else {
+
+                $skin['path'] = '';
+            }
+
+            //Now pass the theme_registry
+            $theme = array_merge($theme, $skin);
+
+            //Try to load the Default
+            if (!include_once($theme['path'] . '/theme_settings.php')) {
+
+                //If not there reporterror is triggered.
+                reporterror('', $l['load_theme_settings_error']);
+
+                $load_hf = false;
+
+                return false;
+            }
         }
     }
-
     //User preferences
     if (!empty($skins[$id][$uid]['theme_registry'])) {
 
@@ -1253,7 +1266,7 @@ function theme_registry($theme_id, $uservar = false) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/theme_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/theme_functions.php');
 
     return theme_registry_fn($theme_id, $uservar);
 }
@@ -1376,7 +1389,7 @@ function delete_topics($tids, $param = array()) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/topic_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/topic_functions.php');
 
     return delete_topics_fn($tids, $param);
 }
@@ -1386,7 +1399,7 @@ function delete_forums($fids) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     return delete_forums_fn($fids);
 }
@@ -1396,7 +1409,7 @@ function delete_categories($cids) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/category_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/category_functions.php');
 
     return delete_categories_fn($cids);
 }
@@ -1406,7 +1419,7 @@ function reorderchildren($par, $cat) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/forum_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/forum_functions.php');
 
     return reorderchildren_fn($par, $cat);
 }
@@ -1417,7 +1430,7 @@ function compress($path, $name, $method) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/compress_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/compress_functions.php');
 
     return compress_fn($path, $name, $method);
 }
@@ -1428,7 +1441,7 @@ function decompress($file, $destination, $overwrite = 0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/compress_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/compress_functions.php');
 
     return decompress_fn($file, $destination, $overwrite);
 }
@@ -1439,7 +1452,7 @@ function decompress_zip($file, $destination, $overwrite = 0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/compress_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/compress_functions.php');
 
     return decompress_zip_fn($file, $destination, $overwrite);
 }
@@ -1450,7 +1463,7 @@ function decompress_tgz($file, $destination, $overwrite = 0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/compress_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/compress_functions.php');
 
     return decompress_tgz_fn($file, $destination, $overwrite);
 }
@@ -1461,7 +1474,7 @@ function decompress_tar($file, $destination, $overwrite = 0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/compress_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/compress_functions.php');
 
     return decompress_tar_fn($file, $destination, $overwrite);
 }
@@ -1472,7 +1485,7 @@ function decompress_tbz($file, $destination, $overwrite = 0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/compress_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/compress_functions.php');
 
     return decompress_tbz_fn($file, $destination, $overwrite);
 }
@@ -1483,7 +1496,7 @@ function writefile($file, $data, $overwrite = 0) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/file_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/file_functions.php');
 
     return writefile_fn($file, $data, $overwrite);
 }
@@ -1494,7 +1507,7 @@ function filelist($startdir="./", $searchSubdirs=1, $directoriesonly=0, $maxleve
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/file_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/file_functions.php');
 
     return filelist_fn($startdir, $searchSubdirs, $directoriesonly, $maxlevel, $level);
 }
@@ -1505,7 +1518,7 @@ function zipclass() {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/classes/zip.php');
+    include_cached($globals['mainfiles'] . '/classes/zip.php');
 
     return new zip();
 }
@@ -1519,7 +1532,7 @@ function akismetclass() {
     
     global $globals;
     
-    include_once($globals['mainfiles'] . '/classes/akismet.php');
+    include_cached($globals['mainfiles'] . '/classes/akismet.php');
     
     return new Akismet();
     
@@ -1531,7 +1544,7 @@ function get_web_file($url, $writefilename = '') {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/file_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/file_functions.php');
 
     return get_web_file_fn($url, $writefilename);
 }
@@ -1542,7 +1555,7 @@ function rssclass() {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/classes/rss.php');
+    include_cached($globals['mainfiles'] . '/classes/rss.php');
 
     return new rss();
 }
@@ -1560,7 +1573,7 @@ function sendpm($to, $subject, $body, $track, $saveinsentitems) {
 
     global $globals;
 
-    include_once($globals['mainfiles'] . '/functions/pm_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/pm_functions.php');
 
     return sendpm_fn($to, $subject, $body, $track, $saveinsentitems);
 }
@@ -1797,7 +1810,7 @@ function aefstrtolower($string) {
     if (function_exists('mb_strtolower'))
         return mb_strtolower($string, $globals['charset']);
 
-    include_once($globals['mainfiles'] . '/functions/utf8_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/utf8_functions.php');
 
     return aefstrtolower_fn($string);
 }
@@ -1813,7 +1826,7 @@ function aefstrtoupper($string) {
     if (function_exists('mb_strtoupper'))
         return mb_strtoupper($string, $globals['charset']);
 
-    include_once($globals['mainfiles'] . '/functions/utf8_functions.php');
+    include_cached($globals['mainfiles'] . '/functions/utf8_functions.php');
 
     return aefstrtoupper_fn($string);
 }
@@ -1927,4 +1940,19 @@ function optGET($name, $default = '') {
 
         return $default;
     }
+}
+//Cache System
+function include_cached($filename){
+    global $globals, $l, $theme;
+    $file_name = $globals['cachedir'] . '/' . $filename;
+    //first of all we check if the file exists in the cache_dir
+    if(file_exists($file_name)){
+        //now we just include it! !
+        include_once($file_name);
+    }
+    else{
+        //nothing is changed just include the original one
+        include_once($filename);
+    }
+    $GLOBALS += get_defined_vars();
 }

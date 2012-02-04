@@ -813,7 +813,7 @@ function checktheme($path) {
         return false;
     } else {
 
-        include_once($regitryfile); // The theme_registry.php file
+        include_cached($regitryfile); // The theme_registry.php file
     }
 
     //Make a array of only the values

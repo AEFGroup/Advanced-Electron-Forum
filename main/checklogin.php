@@ -293,7 +293,8 @@ function checklogin() {
 
     //Set the timezone if not there
     $globals['pgtimezone'] = (float) (empty($user['timezone']) ? $globals['timezone'] : $user['timezone']);
-
+    
+    
     //Free the resources
     mysql_free_result($qresult);
 

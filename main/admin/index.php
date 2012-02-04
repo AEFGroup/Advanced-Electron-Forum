@@ -51,7 +51,7 @@ $load_ahf = true;
 
 
 //Checks a admin session
-include_once($globals['mainfiles'] . '/admin/adminlogin.php');
+include_cached($globals['mainfiles'] . '/admin/adminlogin.php');
 $admin_logged_in = adminlogin();
 
 if (empty($admin_logged_in)) {
@@ -97,7 +97,7 @@ if (isset($adact)) {
     //check first if the file really exists
     if (isset($actionsArray[$adact][0]) && file_exists($globals['mainfiles'] . '/admin/' . $actionsArray[$adact][0])) {
         //include the file
-        include_once $globals['mainfiles'] . '/admin/' . $actionsArray[$adact][0];
+        include_cached $globals['mainfiles'] . '/admin/' . $actionsArray[$adact][0];
         //execute the function
         if (!empty($actionsArray[$adact][1])) {
             $actionsArray[$adact][1]();
