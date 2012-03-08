@@ -93,3 +93,7 @@ function get_plugin_list() {
     }
     return $plugins;
 }
+//now we start plugin funtions
+function plugin_replace(){
+    
+}

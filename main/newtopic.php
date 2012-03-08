@@ -675,8 +675,8 @@ function newtopic() {
             }
 
             $akismet->setCommentType('post');
-
-            $akismet->setCommentContent($post);
+            //there are som bots thare are smart, we should trick them and scan their signatures too
+            $akismet->setCommentContent($post.(!empty($user['sig']) ? $user['sig'] : ''));
 
             $akismet->setUserIP($poster_ip);
 

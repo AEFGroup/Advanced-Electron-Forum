@@ -229,8 +229,8 @@ function delete() {
                         $akismet->setCommentAuthorURL($_user['www']);
 
                         $akismet->setCommentType("post");
-
-                        $akismet->setCommentContent($row['post']);
+                        //since our bots are smart and they use their signature as spam field, post it too
+                        $akismet->setCommentContent($row['post'].$row['sig']);
                         
                         $akismet->submitSpam();
                     }

@@ -790,7 +790,7 @@ function reply() {
 
             $akismet->setCommentType('comment');
 
-            $akismet->setCommentContent($post);
+            $akismet->setCommentContent($post.(!empty($user['sig']) ? $user['sig'] : ''));
 
             $akismet->setUserIP($poster_ip);
 
