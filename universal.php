@@ -4,7 +4,7 @@
 //===========================================================
 // universal.php
 //===========================================================
-// AEF : Advanced Electron Forum 
+// aef1.1 : Advanced Electron Forum 
 // Version : 1.0.9
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
@@ -16,17 +16,20 @@
 // Please Read the Terms of use at http://www.anelectron.com
 // ----------------------------------------------------------
 //===========================================================
-// (C)AEF Group All Rights Reserved.
+// (C)aef1.1 Group All Rights Reserved.
 //===========================================================
 //////////////////////////////////////////////////////////////
 
+
 /* Database Connection */
+
 
 $globals['user'] = 'root';
 $globals['password'] = '199407';
 $globals['database'] = 'aef';
 $globals['dbprefix'] = 'aeef_';
-$globals['server'] = 'localhost';
+$globals['server'] = '127.0.0.1';
+
 
 /* Ending - Database Connection */
 
@@ -36,13 +39,14 @@ $globals['server'] = 'localhost';
 
 $globals['url'] = 'http://localhost/aef1.1';
 $globals['sn'] = 'My Board';
-$globals['board_email'] = 'aaa@aaa.fr';
+$globals['board_email'] = 'test@test.t';
 $globals['server_url'] = '/srv/www/htdocs/aef1.1';
 $globals['mainfiles'] = '/srv/www/htdocs/aef1.1/main';
 $globals['themesdir'] = '/srv/www/htdocs/aef1.1/themes';
 $globals['pluginsdir'] = '/srv/www/htdocs/aef1.1/plugins';
+$globals['cachedir'] = '/srv/www/htdocs/aef1.1/cache';
 $globals['gzip'] = 1;
-$globals['cookie_name'] = 'AEFCookies5075';
+$globals['cookie_name'] = 'Cookies2575';
 $globals['installed'] = '1';
 
 /* Ending - Core Settings */
