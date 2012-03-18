@@ -812,7 +812,7 @@ $queries[] = "CREATE TABLE " . $dbprefix . "tellafriend (
   `userid` int(11) NOT NULL,
   `time` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci" ;
+) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
 
 
 
