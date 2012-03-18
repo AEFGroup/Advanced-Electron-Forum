@@ -1,0 +1,5 @@
+1) Added in registry 'subscribeauto' key.(A default setting for the board.)
+
+2) Added in registry 'enablesig' key.
+
+3) Added in registry 'showimgs' key.

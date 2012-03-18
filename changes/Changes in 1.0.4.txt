@@ -1,0 +1,20 @@
+1) Modified key 'group_message' in permissions table from tinytext to text.
+
+2) Created table 'shouts' with the following query:
+    CREATE TABLE `shouts` (
+      `shid` INT(10) NOT NULL AUTO_INCREMENT,
+      `shtime` INT(10) NOT NULL,
+      `shuid` MEDIUMINT(8) NOT NULL,
+      `shtext` TEXT NOT NULL,
+      PRIMARY KEY (`shid`)
+    );
+
+3) Registry Key 'shouts' now holds the number of shouts that will be shown on 'first load' or 'reload'.
+
+4) Added Registry Key 'shoutbox_emot' - means allow smileys or not.
+
+5) Added Registry Key 'shoutbox_nbbc' - Allow Normal BBC or no
+
+6) Added Registry Key 'shoutbox_sbbc' - Allow Special BBC or no.
+
+7) Registry Key 'shoutboxtime' should be 1440 min.

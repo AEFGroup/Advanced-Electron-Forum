@@ -1,0 +1,43 @@
+div.sdmenu {
+    width:100%;
+    padding-bottom: 10px;
+    background:transparent;
+    color: #000;
+}
+div.sdmenu div {
+    background: url(images/sdmenutop.png) repeat-x;
+    overflow: hidden;
+}
+div.sdmenu div:first-child {
+    background: url(images/sdmenutop.png);
+}
+
+div.sdmenu div.collapsed {
+    height: 25px;
+}
+div.sdmenu div span {
+    display: block;
+    padding: 5px 5px 5px 18px;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+}
+div.sdmenu div.collapsed span {
+    background-image: url(images/collapsed.png);
+}
+div.sdmenu div a:link,
+div.sdmenu div a:visited,
+div.sdmenu div a:active{
+    padding: 3px 10px;
+    background: #fff;
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+div.sdmenu div a.current {
+    background: #EAEAEA;
+}
+div.sdmenu div a:hover {
+    background : #b3cfe5;
+    text-decoration: none;
+}
