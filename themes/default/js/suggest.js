@@ -41,7 +41,7 @@ function handlesuggest(e, elid){
     if(getAttributeByName($(elid), "suggesturl")){
         AJAX(getAttributeByName($(elid), "suggesturl")+'&q='+qtxt, 'handlesuggestresponse(\''+elid+'\',re)');
     }
-};
+}
 
 function handlekeys(e){
     var hkey = ((window.event) ? window.event.keyCode : e.which);
@@ -73,7 +73,7 @@ function handlekeys(e){
         default:
             return;
     }
-};
+}
 
 
 //This mill make the suggest table
@@ -87,7 +87,7 @@ function handlesuggestresponse(elid, r_txt){
     }else{
         makesuggesttable(elid, sugdivid, returned);
     }
-};
+}
 
 function makesuggesttable(elid, divid, r_returned){
 
@@ -109,7 +109,7 @@ function makesuggesttable(elid, divid, r_returned){
     }
     showel(divid);
     sugaon();//Well just to hightlight the first row
-};
+}
 
 function insertsuggested(val, elid){
     //alert(value);
@@ -124,7 +124,7 @@ function insertsuggested(val, elid){
     $(elid).value = tmp_r.join('; ')+val+'; ';
     $(elid).focus();
     hidesuggest();
-};
+}
 
 function suggestmovedown(){
     if(returned.length > 0 && isvisible(sugdivid)){
@@ -134,7 +134,7 @@ function suggestmovedown(){
         }
         sugaon();
     }
-};
+}
 
 function suggestmoveup(){
     if(returned.length > 0 && isvisible(sugdivid)){
@@ -144,12 +144,12 @@ function suggestmoveup(){
         }
         sugaon();
     }
-};
+}
 
 //Hides the suggest box
 function hidesuggest(){
     hideel(sugdivid);
-};
+}
 
 //Hightlight
 function sugaon(){
@@ -162,4 +162,4 @@ function sugaon(){
 
         $('sa'+saindex).className = 'sugaon';
     }
-};
+}
