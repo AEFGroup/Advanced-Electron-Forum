@@ -471,6 +471,26 @@ function editprofile() {
             }
         }
 
+        //check if spammer
+        if ($globals['enable_akismet'] == 1) {
+
+            $akismet = akismetclass();
+
+            $akismet->setCommentAuthor($username);
+
+            $akismet->setCommentAuthorEmail($email);
+
+            $akismet->setCommentAuthorURL($www);
+
+            $akismet->setCommentType('profile');
+
+            $akismet->setCommentContent($sig);
+
+            if ($akismet->isCommentSpam()) {
+                $error[] = $l['akismet_error'];
+            }
+        }
+
         //on error call the form
         if (!empty($error)) {
             $theme['call_theme_func'] = 'editprofile_theme';
