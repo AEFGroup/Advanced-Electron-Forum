@@ -122,7 +122,7 @@ function aefheader($title = '') {
     
     If you keep seeing this message afterwards, you may have a problem with SELinux (Security module)<br />
     Please try opening a terminal, going into su/sudo mode, and typing "setenforce 0"<br />
-    If this fixes the problem, please consult your IT Administrator on how to permit attribute modification<br /><br />
+    If this fixes the problem, please consult the relevant person on how to permit attribute modification<br /><br />
     
     This is known to happen with Red Hat Enterprise Linux and Fedora 16
     <?php
