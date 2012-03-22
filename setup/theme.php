@@ -116,7 +116,15 @@ function aefheader($title = '') {
                         ?>
     The universal.php file is not writable and the setup could not CHMOD.<br />
     Please CHMOD it to 0777 for the setup of your AEF board. You may later revert it back to 0655.<br /><br />
-    After CHMOD just access this page again to start the setup.
+    After CHMOD just access this page again to start the setup. <br /><br />
+    
+    <strong>Linux users: Please read this next note</strong><br /><br />
+    
+    If you keep seeing this message afterwards, you may have a problem with SELinux (Security module)<br />
+    Please try opening a terminal, going into su/sudo mode, and typing "setenforce 0"<br />
+    If this fixes the problem, please consult your IT Administrator on how to permit attribute modification<br /><br />
+    
+    This is known to happen with Red Hat Enterprise Linux and Fedora 16
     <?php
     aeffooter();
 }
