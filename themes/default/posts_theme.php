@@ -463,10 +463,10 @@ function showquickreply(){
     foreach ($post as $p => $pv) {
 
         //The first row that is Headers
-        echo '<br /><table width="100%" cellpadding="0" cellspacing="0">
+        echo '<br /><table width="100%" >
     <tr>
     <td>
-    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <table width="100%" ><tr>
     <td class="pcbgl"></td>
     <td class="pcbg"><b>' . ($post[$p]['post_count'] == 0 ? '&nbsp;' . $title . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')' : $post[$p]['post_title']) . '</b></td>
     <td class="pcbgr"></td>
@@ -558,7 +558,6 @@ function showquickreply(){
     ' . ( (empty($post[$p]['users_text'])) ? '' : '<br />' . $post[$p]['users_text'] ) . '
     </td>
     <td class="post" align="left" valign="top">
-    ' . wordwrap($post[$p]['post'], 80, " ", 1) . '
     ' . (!empty($attachments[$post[$p]['pid']]) ? '<br /><br />-----------------------<br />' . implode('<br />', $attachments[$post[$p]['pid']]) : '') . '
     ' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '');
 
@@ -953,10 +952,10 @@ function showquickreply(){
 
     $p = $pid; //Just getting bored to write $pid
     //The first row that is Headers
-    echo '<br /><table width="100%" cellpadding="0" cellspacing="0">
+    echo '<br /><table width="100%" >
     <tr>
     <td>
-    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <table width="100%" ><tr>
     <td class="pcbgl"></td>
     <td class="pcbg"><b>' . ($post[$p]['post_count'] == 0 || empty($post[$p]['post_title']) ? '&nbsp;' . $title . (empty($topic['description']) ? '' : ',&nbsp;' . $topic['description']) . '&nbsp;(' . $topic['n_posts'] . ' ' . $l['replies'] . ', ' . $l['read'] . ' ' . $topic['n_views'] . ' ' . $l['times'] . ')' : $post[$p]['post_title']) . '</b></td>
     <td class="pcbgr"></td>
@@ -1091,10 +1090,10 @@ function showquickreply(){
     // All the threads
     ///////////////////
 
-    echo '<br /><br /><table width="100%" cellpadding="0" cellspacing="0">
+    echo '<br /><br /><table width="100%" >
     <tr>
     <td>
-    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+    <table width="100%" ><tr>
     <td class="pcbgl"></td>
     <td class="pcbg"><b>' . $l['threads'] . '</b></td>
     <td class="pcbgr"></td>
