@@ -1308,7 +1308,7 @@ function copyright() {
     // LICENCE TO USE AEF.
     /////////////////////////////////////////////////////
 
-    return '<a href="http://www.anelectron.com">Powered By AEF 1.1.0 Preview</a> &copy; 2007-2011 <a href="http://www.anelectron.com">AEF Group.</a> All rights reserved';
+    return '<a href="http://www.anelectron.com">Powered By AEF 1.0.10 Preview</a> &copy; 2007-2011 <a href="http://www.anelectron.com">AEF Group.</a> All rights reserved';
 }
 
 //Returns a string of all $_GET values
