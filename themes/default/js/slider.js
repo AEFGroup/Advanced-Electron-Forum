@@ -19,8 +19,8 @@ function slideitout(elid, endheight, inc, time){
                 $(elid).style.height = endheight+"px"
             }
         }
-    };
-};
+    }
+}
 
 function pullitin(elid, dec, time){
     height = $(elid).offsetHeight;
@@ -35,8 +35,8 @@ function pullitin(elid, dec, time){
                 $(elid).style.height = "1px";//A bug in IE 5.5
             }
         }
-    };
-};
+    }
+}
 
 function slider(){
     this.speed = 20;
@@ -67,4 +67,4 @@ function slider(){
             }
         }
     };
-};
+}

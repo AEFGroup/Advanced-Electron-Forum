@@ -94,28 +94,28 @@ function members_theme() {
         </tr>';
     } else {
 
-        foreach ($members as $m => $mv) {
+        foreach ($members as $memberIndex => $memberInstance) {
 
             echo '<tr>
 
             <td class="ucpflc">
-            <a style="color:' . $mv['mem_gr_colour'] . '" href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
+            <a style="color:' . $memberInstance['mem_gr_colour'] . '" href="' . $globals['index_url'] . 'mid=' . $members[$memberIndex]['id'] . '">' . $members[$memberIndex]['username'] . '</a>
             </td>
 
             <td class="ucpflc" align="center">
-            <font color="' . $members[$m]['mem_gr_colour'] . '">' . $members[$m]['mem_gr_name'] . '</font>
+            <font color="' . $members[$memberIndex]['mem_gr_colour'] . '">' . $members[$memberIndex]['mem_gr_name'] . '</font>
             </td>
 
             <td class="ucpflc" align="left">
-            ' . datify($members[$m]['r_time']) . '
+            ' . datify($members[$memberIndex]['r_time']) . '
             </td>
 
             <td class="ucpflc" align="center">
-            ' . $members[$m]['posts'] . '
+            ' . $members[$memberIndex]['posts'] . '
             </td>
 
             <td class="ucpflc" align="center">
-            <img src="' . (empty($members[$m]['time']) ? $theme['images'] . 'offline.png' : $theme['images'] . 'online.png' ) . '" title="' . (empty($members[$m]['time']) ? $l['offline'] : $l['online'] ) . '">
+            <img src="' . (empty($members[$memberIndex]['time']) ? $theme['images'] . 'offline.png' : $theme['images'] . 'online.png' ) . '" title="' . (empty($members[$memberIndex]['time']) ? $l['offline'] : $l['online'] ) . '">
             </td>';
 
             echo '</tr>';

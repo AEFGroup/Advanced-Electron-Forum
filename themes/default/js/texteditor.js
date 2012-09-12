@@ -31,7 +31,7 @@ function aef_editor(){
 
     this.to_wysiwyg=function(dontalert){
         var pos=findelpos($(this.textarea_id));
-        if(!document.getElementById||!document.designMode||isSafari||isKonqueror){
+        if(!document.getElementById||!document.designMode){
             if(dontalert!=true){
                 alert('Your Browser does not support WYSIWYG.')
             }
@@ -204,7 +204,7 @@ function aef_editor(){
             field.value+=emotcode
         }
     }
-};
+}
 
 function html_bbc(text){
     opened_tags=new Array();
@@ -233,7 +233,7 @@ function html_bbc(text){
         }
         return text
     }
-};
+}
 
 function check_tag(tag){
     if(/<\//i.test(tag)){
@@ -284,7 +284,7 @@ function check_tag(tag){
         opened_tags[x]=new Array(thistag,false,closed.reverse());
         x++;
         return opened.join('')
-    };
+    }
         
     function close_tag(tag){
         if(/<\/(\w*)>/i.test(tag)){
@@ -300,7 +300,7 @@ function check_tag(tag){
         }
         opened_tags[i][1]=true;
         return opened_tags[i][2].join('')
-    };
+    }
         
     function handle_param(param){
         var opened=new Array();
@@ -358,7 +358,7 @@ function check_tag(tag){
         }
         return[opened,closed]
     }
-};
+}
 
 function bbc_html(text){
     text=text.replace(/&/gi,'&amp;');
@@ -395,7 +395,7 @@ function bbc_html(text){
     text=smcode_img(text);
     text=text.replace(/ {2}/g,'&nbsp;&nbsp;');
     return text
-};
+}
     
 function check_ul(ul){
     ul_opened=0;
@@ -410,7 +410,7 @@ function check_ul(ul){
     }else{
         return ul
     }
-};
+}
 
 function parse_ul(param){
     type='disc';
@@ -422,12 +422,12 @@ function parse_ul(param){
     }
     ul_opened++;
     return'<ul type="'+type+'" >'
-};
+}
 
 function close_ul(){
     ul_closed++;
     return'</ul >'
-};
+}
     
 function check_ol(ol){
     ol_opened=0;
@@ -442,7 +442,7 @@ function check_ol(ol){
     }else{
         return ol
     }
-};
+}
 
 function parse_ol(param){
     type=1;
@@ -454,12 +454,12 @@ function parse_ol(param){
     }
     ol_opened++;
     return'<ol type="'+type+'" >'
-};
+}
 
 function close_ol(){
     ol_closed++;
     return'</ol >'
-};
+}
     
 function smcode_img(text){
     var regexp;
@@ -471,11 +471,11 @@ function smcode_img(text){
         text=text.replace(eval(regexp),' <img src="'+aefsmileys[x][2]+'"> ')
     }
     return text
-};
+}
     
 function storeCaret(ele){
     if(ele.createTextRange)ele.caretPos=document.selection.createRange().duplicate()
-};
+}
         
 function makeurl(){
     var urltext,linkurl;
@@ -486,7 +486,7 @@ function makeurl(){
     }else if(linkurl!=''&&urltext!=''){
         editor.wrap_bbc('[url='+linkurl+']'+urltext,'[/url]')
     }
-};
+}
 
 function makeftp(){
     var ftptext,ftplink;
@@ -497,7 +497,7 @@ function makeftp(){
     }else if(ftplink!=''&&ftptext!=''){
         editor.wrap_bbc('[ftp='+ftplink+']'+ftptext,'[/ftp]')
     }
-};
+}
 
 function makeemail(){
     var addressee,emailadd;
@@ -508,9 +508,9 @@ function makeemail(){
     } else if (emailadd!=''&&addressee!=''){
         editor.wrap_bbc('[email='+emailadd+']'+addressee,'[/email]')
     }
-};
+}
 
 function toHex(decimal){
     var HexCharacters="0123456789ABCDEF";
     return HexCharacters.charAt((decimal>>4)&0xf)+HexCharacters.charAt(decimal&0xf)
-};
+}
