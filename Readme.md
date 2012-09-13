@@ -1,4 +1,4 @@
-Advanced Electron Forums 1.0.9 Installation/Upgrade Guide
+Advanced Electron Forums 1.0.10 Installation/Upgrade Guide
 ============================
 
 
@@ -7,7 +7,7 @@ Requirements :
 
 First of all we thank you for choosing AEF.
 
-Advanced Electron Forums 1.0.9 requires PHP 5.0 or higher and MySQL 4.0 or higher.
+Advanced Electron Forums 1.0.10 requires PHP 5.0 or higher and MySQL 4.0 or higher.
 However we recommend that you should have PHP 5.1.0 (or better) and MySQL 4.1 (or higher) for the best perfomance and to use some extra AEF Features. 
 
 You will also need the following MySQL information:
@@ -22,7 +22,7 @@ You will also need the following MySQL information:
 Installing Advanced Electron Forums :
 --------
 
-After downloading AEF 1.0.9 from Anelectron.com unzip it on your computer.
+After downloading AEF 1.0.10 from Anelectron.com unzip it on your computer.
 
 You will now need to upload all the unzipped files to a directory on your server which supports PHP and MySQL.
 
@@ -38,7 +38,7 @@ Just fill in the necessary details and your AEF Board will be installed in no ti
 Upgrading Advanced Electron Forums :
 --------
 
-After downloading AEF 1.0.9 (Upgrade Version) from Anelectron.com unzip it on your computer.
+After downloading AEF 1.0.10 (Upgrade Version) from Anelectron.com unzip it on your computer.
 
 You will now need to upload all the unzipped files to your current AEF directory on your server.
 

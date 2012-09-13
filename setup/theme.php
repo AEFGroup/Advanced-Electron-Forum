@@ -143,7 +143,7 @@ function startsetup() {
     aefheader('AEF Setup');
     ?><h1>Thank you for downloading AEF</h1>
     <br /><br />
-    AEF 1.0.9 requires <b>PHP 5.0.0</b> or higher and <b>MySQL 4.0</b> or higher.
+    AEF 1.0.10 requires <b>PHP 5.0.0</b> or higher and <b>MySQL 4.0</b> or higher.
     <br /><br />
     You will also need the following MySQL information:<br />
     <ul>

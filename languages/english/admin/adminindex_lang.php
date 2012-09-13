@@ -5,7 +5,7 @@
 // adminindex_lang.php(languages/english/admin)
 //===============================================================
 // AEF : Advanced Electron Forum 
-// Version : 1.0.9
+// Version : 1.0.10
 // Inspired by Pulkit and taken over by Electron
 // Extract text from admin files by oxlo (16th January 2008).
 // --------------------------------------------------------------

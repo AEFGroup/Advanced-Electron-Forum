@@ -5,7 +5,7 @@
 // topic_functions_lang.php(languages/english/functions)
 //===========================================================
 // AEF : Advanced Electron Forum 
-// Version : 1.0.9
+// Version : 1.0.10
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
 // Started by: Electron, Ronak Gupta, Pulkit Gupta

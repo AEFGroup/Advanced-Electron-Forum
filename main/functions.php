@@ -5,7 +5,7 @@
 // functions.php
 //===========================================================
 // AEF : Advanced Electron Forum
-// Version : 1.0.9
+// Version : 1.0.10
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
 // Started by: Electron, Ronak Gupta, Pulkit Gupta
@@ -1308,7 +1308,7 @@ function copyright() {
     // LICENCE TO USE AEF.
     /////////////////////////////////////////////////////
 
-    return '<a href="http://www.anelectron.com">Powered By AEF 1.0.10 Preview</a> &copy; 2007-2011 <a href="http://www.anelectron.com">AEF Group.</a> All rights reserved';
+    return '<a href="http://www.anelectron.com">Powered By AEF 1.0.10</a> &copy; 2007-2011 <a href="http://www.anelectron.com">AEF Group.</a> All rights reserved';
 }
 
 //Returns a string of all $_GET values

@@ -5,7 +5,7 @@
 // mysql.php(Setup)
 //===========================================================
 // AEF : Advanced Electron Forum 
-// Version : 1.0.9
+// Version : 1.0.10
 // Inspired by Pulkit and taken over by Electron
 // ----------------------------------------------------------
 // Started by: Electron, Ronak Gupta, Pulkit Gupta
@@ -542,7 +542,7 @@ $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('maxmemberlist', '50
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('theme', 'default')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('theme_id', '1')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('choose_theme', '1')";
-$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('version', '1.0.9')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('version', '1.0.10')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('enablenews', '1')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('enableshoutbox', '0')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('shouts', '10')";
