@@ -213,9 +213,9 @@ function MainIndex_theme() {
 </td>
 <td class="mifor" style="font-size:12px">';
 
-        foreach ($recent_posts as $recentIndex => $recentPost) {
+        foreach ($recent_posts as $rk => $rv) {
 
-            echo '(' . $recentPost['pdate'] . ') <b><a href="' . topiclink($recentPost['tid'], $recentPost['topic'], $recentPost['last_page']) . '#p' . $recentPost['pid'] . '">' . $recentPost['topic'] . '</a></b> ' . $l['by'] . ' <a style="color:' . $recentPost['mem_gr_colour'] . '" href="' . userlink($recentPost['id'], $recentPost['username']) . '">' . $recentPost['username'] . '</a>   (<a href="' . forumlink($recentPost['fid'], $recentPost['fname']) . '">' . $recentPost['fname'] . '</a>)<br />';
+            echo '(' . $rv['pdate'] . ') <b><a href="' . topiclink($rv['tid'], $rv['topic'], $rv['last_page']) . '#p' . $rv['pid'] . '">' . $rv['topic'] . '</a></b> ' . $l['by'] . ' <a href="' . userlink($rv['id'], $rv['username']) . '">' . $rv['username'] . '</a>   (<a href="' . forumlink($rv['fid'], $rv['fname']) . '">' . $rv['fname'] . '</a>)<br />';
         }
 
         echo '</td>
