@@ -99,7 +99,7 @@ function members_theme() {
             echo '<tr>
 
             <td class="ucpflc">
-            <a style="color:' . $memberInstance['mem_gr_colour'] . '" href="' . $globals['index_url'] . 'mid=' . $members[$memberIndex]['id'] . '">' . $members[$memberIndex]['username'] . '</a>
+            <a href="' . $globals['index_url'] . 'mid=' . $members[$m]['id'] . '">' . $members[$m]['username'] . '</a>
             </td>
 
             <td class="ucpflc" align="center">
