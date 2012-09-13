@@ -121,10 +121,9 @@ function inbox() {
 
 
     //Get the PM in the Inbox of this user.
-    $qresult = makequery("SELECT pm.*, u.username AS sender, ug.mem_gr_colour AS colour
+    $qresult = makequery("SELECT pm.*, u.username AS sender
             FROM " . $dbtables['pm'] . " pm
             LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
-            LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
             WHERE pm.pm_to = '" . $user['id'] . "'
             AND pm_folder = '0'
             ORDER BY pm.pmid DESC
