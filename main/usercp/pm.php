@@ -212,10 +212,9 @@ function sentitems() {
 
 
     //Get the PM in the sentitems of this user.
-    $qresult = makequery("SELECT pm.*, u.username AS reciever, ug.mem_gr_colour AS colour
+    $qresult = makequery("SELECT pm.*, u.username AS reciever
             FROM " . $dbtables['pm'] . " pm
             LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_to = u.id)
-            LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
             WHERE pm.pm_from = '" . $user['id'] . "'
             AND pm_folder = '1'
             ORDER BY pm.pmid DESC
