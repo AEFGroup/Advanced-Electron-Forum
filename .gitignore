@@ -8,4 +8,7 @@
 #First, ignore all NetBeans files
 /nbproject/
 
+#Also ignore all UNIX temp files.
+*~
+
 #Add your own here when needed, and commit if you like
