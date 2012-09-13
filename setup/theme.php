@@ -303,7 +303,7 @@ function startsetup() {
                                                     <b>MySQL Password :</b>
                                                 </td>
                                                 <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="30"  name="password" value="<?php echo ( (isset($_POST['password'])) ? $_POST['password'] : '' ); ?>" />
+                                                    &nbsp;<input type="password" size="30"  name="password" value="<?php echo ( (isset($_POST['password'])) ? $_POST['password'] : '' ); ?>" />
                                                 </td>
                                             </tr>
 
