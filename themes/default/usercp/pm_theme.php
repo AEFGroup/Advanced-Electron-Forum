@@ -1077,7 +1077,7 @@ function sendsaved_theme() {
 
     <tr>
     <td class="pmsender" width="21%">
-    <a style="color:' . $pm['mem_gr_colour'] . '" href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">
+    <a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">
     ' . $pm['sender'] . '
     </a>
     </td>

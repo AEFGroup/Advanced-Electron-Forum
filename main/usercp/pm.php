@@ -1408,7 +1408,7 @@ function showpm($folder = 0) {
             u.username AS sender, u.email, u.posts, u.u_member_group,u.users_text,
             u.sig, u.avatar, u.avatar_type, u.avatar_width, u.avatar_height, u.location,
             u.www , u.timezone , u.icq , u.aim , u.yim , u.msn , u.email , u.hideemail,
-            s.uid AS status, ug.mem_gr_colour
+            s.uid AS status
             FROM " . $dbtables['pm'] . " pm
             LEFT JOIN " . $dbtables['users'] . " u ON (pm.pm_from = u.id)
             LEFT JOIN " . $dbtables['user_groups'] . " ug ON (ug.member_group = u.u_member_group)
