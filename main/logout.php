@@ -78,7 +78,7 @@ function logout() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Process the DATA
@@ -101,7 +101,7 @@ function logout() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Redirect to Index
     redirect('');

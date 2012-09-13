@@ -131,7 +131,7 @@ function manskin() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     if (isset($_POST['editskin'])) {
@@ -583,7 +583,7 @@ function uninstall() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     if (isset($_POST['uninstallskin'])) {
@@ -694,7 +694,7 @@ function settings() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Checks the theme_id is set or no

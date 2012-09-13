@@ -165,7 +165,7 @@ function members() {
     $count = $temp['pages'];
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Get the Members

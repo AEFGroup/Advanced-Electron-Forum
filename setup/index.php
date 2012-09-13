@@ -343,11 +343,11 @@ function setup() {
         }
 
         //Try to connect to MySQL
-        $conn = @mysql_connect($server, $user, $password);
+        $conn = mysql_connect($server, $user, $password);
 
         if (!empty($conn)) {
 
-            if (!(@mysql_select_db($database, $conn))) {
+            if (!(mysql_select_db($database, $conn))) {
 
                 $error[] = 'The MySQL Database could not be selected.';
             }

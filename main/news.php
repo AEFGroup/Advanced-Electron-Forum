@@ -203,7 +203,7 @@ function shownews() {
             unset($row);
         }//End of main for loop
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
     $theme['call_theme_func'] = 'shownews_theme';
@@ -443,7 +443,7 @@ function editnews() {
     $newsarticle = mysql_fetch_assoc($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //My activity
     $globals['last_activity'] = 'editn';
@@ -773,7 +773,7 @@ function newslinks() {
             unset($row);
         }//End of main for loop
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
     return $news;
@@ -802,7 +802,7 @@ function npg($nid) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $npg = ($rownum / $globals['newsperpage']);
 

@@ -334,7 +334,7 @@ function handle_vote($poll) {
             $row = mysql_fetch_assoc($qresult);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             ///////////////////////////////
@@ -1249,7 +1249,7 @@ function postpoll() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -1271,7 +1271,7 @@ function postpoll() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 
@@ -1291,7 +1291,7 @@ function postpoll() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect

@@ -140,7 +140,7 @@ function modify_registry($array, $compare = 1) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }//End of Loop
     //If everyting went fine
     return true;

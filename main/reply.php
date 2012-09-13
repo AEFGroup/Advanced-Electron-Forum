@@ -156,7 +156,7 @@ function reply() {
     $topic = mysql_fetch_assoc($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $title = $topic['topic'];
 
@@ -808,7 +808,7 @@ function reply() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         /////////////////////////////////////////////
@@ -831,7 +831,7 @@ function reply() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////
@@ -852,7 +852,7 @@ function reply() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 
@@ -873,7 +873,7 @@ function reply() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Increase the stats for todays post count
@@ -982,7 +982,7 @@ function reply() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
 
                 $mail[0]['to'] = $globals['board_email'];
                 $mail[0]['subject'] = lang_vars($l['new_reply_mail_subject'], array($title));

@@ -163,7 +163,7 @@ function load_session() {
         if ((mysql_num_rows($qresult) < 1)) {
 
             //Free the resources for the next query
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Register a session
             if (!register_session()) {
@@ -208,7 +208,7 @@ function load_session() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
         //No AEF Session found

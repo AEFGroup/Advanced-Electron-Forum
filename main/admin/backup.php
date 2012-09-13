@@ -591,7 +591,7 @@ function tablestructure($table, $crlf) {
         }
     }
 
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $str .= $create_query;
 
@@ -660,7 +660,7 @@ function tabledata($table, $crlf) {
         unset($row);
     }
 
-    @mysql_free_result($result);
+    mysql_free_result($result);
 
     //Is the data string empty
     if (empty($data)) {

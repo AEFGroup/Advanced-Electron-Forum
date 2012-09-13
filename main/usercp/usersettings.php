@@ -106,7 +106,7 @@ function emailpmset() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -136,7 +136,7 @@ function emailpmset() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -200,7 +200,7 @@ function forumset() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //The user is Posting some Personal Picture
@@ -299,7 +299,7 @@ function forumset() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -330,7 +330,7 @@ function forumset() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');

@@ -117,7 +117,7 @@ function fpermissionsmanage() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     return true;
 }
@@ -262,7 +262,7 @@ function editfpermissions() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -289,7 +289,7 @@ function editfpermissions() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=admin&adact=fpermissions');
@@ -505,7 +505,7 @@ function createfpermissions() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect

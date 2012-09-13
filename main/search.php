@@ -398,7 +398,7 @@ function results() {
             unset($row);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             $ins = implode(',', $pids);
 
@@ -481,7 +481,7 @@ function results() {
             unset($row);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             $ins = implode(',', $pids);
 

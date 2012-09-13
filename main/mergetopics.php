@@ -117,7 +117,7 @@ function select() {
     $fid = $topic['t_bid'];
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Load the boards
@@ -468,7 +468,7 @@ function merge() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same forum or no(For Moderators only)
@@ -537,7 +537,7 @@ function merge() {
     $pids_str = implode(', ', $pids);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Lets make the tree
@@ -706,7 +706,7 @@ function merge() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////
@@ -760,7 +760,7 @@ function merge() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -796,7 +796,7 @@ function merge() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -824,7 +824,7 @@ function merge() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 
@@ -850,7 +850,7 @@ function merge() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////
@@ -866,7 +866,7 @@ function merge() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////
@@ -882,7 +882,7 @@ function merge() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Looks like everything went well

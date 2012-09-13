@@ -421,7 +421,7 @@ function trackpm() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -450,7 +450,7 @@ function trackpm() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Get the PM that is Unread by reciever first.
     $qresult = makequery("SELECT pm.pmid, pm.pm_to, pm_subject, pm.pm_time, pm.pm_read_time,
@@ -553,7 +553,7 @@ function writepm() {
         $reply = mysql_fetch_assoc($qresult);
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     } elseif (!empty($pmto)) {
 
         //Get the PM the user has requested to Reply.
@@ -570,7 +570,7 @@ function writepm() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
     ///////////////////////////////////////
@@ -798,7 +798,7 @@ function writepm() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             ////////////////////////////////
             // UPDATE The Senders PM count
@@ -816,7 +816,7 @@ function writepm() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }//End of IF...ELSEIF Save/Send PM
         //Store that this code was successful
         $AEF_SESS['postcode'][] = $postedcode;
@@ -1127,7 +1127,7 @@ function sendsaved() {
 
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             ////////////////////////////////
@@ -1146,7 +1146,7 @@ function sendsaved() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             //The user wants to SAVE it
@@ -1178,7 +1178,7 @@ function sendsaved() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }//End of IF...ELSEIF Save/Send PM
         //Store that this code was successful
         $AEF_SESS['postcode'][] = $postedcode;
@@ -1570,7 +1570,7 @@ function showpm($folder = 0) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////////////////
@@ -1589,7 +1589,7 @@ function showpm($folder = 0) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }//End of if($folder == 0)
 }
 
@@ -1784,7 +1784,7 @@ function searchpm() {
           echo '</pre>'; */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         $theme['call_theme_func'] = 'searchpm_theme';
 
@@ -1915,7 +1915,7 @@ function prunepm() {
             $affectedrows = mysql_affected_rows($conn);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Redirect to which folder
             $redirect = 'inbox';
@@ -1941,7 +1941,7 @@ function prunepm() {
             $affectedrows = mysql_affected_rows($conn);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Redirect to which folder
             $redirect = 'sentitems';
@@ -1967,7 +1967,7 @@ function prunepm() {
             $affectedrows = mysql_affected_rows($conn);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Redirect to which folder
             $redirect = 'drafts';
@@ -2159,7 +2159,7 @@ function emptyfolders() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
         //Redirect
@@ -2317,7 +2317,7 @@ function deletepm($pmidarray, $pmfolder) {
             $affectedrows = $affectedrows + mysql_affected_rows($conn);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }//End of if($makequery[$i][2])
     }//End of loop
     /////////////////////////////
@@ -2339,7 +2339,7 @@ function deletepm($pmidarray, $pmfolder) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
     //Redirect

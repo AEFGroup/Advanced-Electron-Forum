@@ -692,7 +692,7 @@ function newtopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////
@@ -721,7 +721,7 @@ function newtopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         /////////////////////////////////////////////
@@ -741,7 +741,7 @@ function newtopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////
@@ -762,7 +762,7 @@ function newtopic() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 
@@ -784,7 +784,7 @@ function newtopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Increase the stats for todays topic and post count
@@ -886,7 +886,7 @@ function newtopic() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
 
                 $mail[0]['to'] = $globals['board_email'];
                 $mail[0]['subject'] = lang_vars($l['new_topic_mail_subject'], array($board['fname']));

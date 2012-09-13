@@ -48,7 +48,7 @@ imgurl = \'' . $theme['images'] . '\';
 
         $color = $assoc['mem_gr_colour'];
 
-        @mysql_free_result($uColorRef);
+        mysql_free_result($uColorRef);
         echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
     } else {
 

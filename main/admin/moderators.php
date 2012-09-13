@@ -189,7 +189,7 @@ function editmoderators() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -220,7 +220,7 @@ function editmoderators() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=admin&adact=moderators');

@@ -233,7 +233,7 @@ function usernameindb($username) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 }
 
 ////////////////////////////////
@@ -267,7 +267,7 @@ function emailindb($email) {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 }
 
 ////////////////////////////////

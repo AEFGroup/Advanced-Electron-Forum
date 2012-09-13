@@ -112,7 +112,7 @@ function delete_topics_fn($tids, $param = array()) {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -146,7 +146,7 @@ function delete_topics_fn($tids, $param = array()) {
     $pids_str = implode(', ', $pids);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -324,7 +324,7 @@ function delete_topics_fn($tids, $param = array()) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Bring the post count out
@@ -346,7 +346,7 @@ function delete_topics_fn($tids, $param = array()) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Loop through the posters as there may be many

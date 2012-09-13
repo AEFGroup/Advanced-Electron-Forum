@@ -100,7 +100,7 @@ function getcatsandforums_fn($newposts = true, $get_mod = true) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }//End of if($get_mod)
     //Get out the boards according to the user
     $qresult = makequery("SELECT cat.*, f.*, fp.*, t.*, p.*, u.username
@@ -394,7 +394,7 @@ function delete_forums_fn($fids) {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////
@@ -576,7 +576,7 @@ function is_mod_fn() {
             $forumpermissions = mysql_fetch_assoc($qresult);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Lets merge the user array
             $board = array_merge($board, $forumpermissions);
@@ -599,7 +599,7 @@ function is_mod_fn() {
             $permissions = mysql_fetch_assoc($qresult);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
             //Lets merge the user array
             $user = array_merge($user, $permissions);

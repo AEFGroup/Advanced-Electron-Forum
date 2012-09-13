@@ -192,7 +192,7 @@ function mergeposts() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same topic or no
@@ -449,7 +449,7 @@ function mergeposts() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         $npids = array();
@@ -512,7 +512,7 @@ function mergeposts() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //GET the FIRST Pid
         $firstpost = first_post_topic($tid);
@@ -541,7 +541,7 @@ function mergeposts() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -567,7 +567,7 @@ function mergeposts() {
                   } */
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
             }
         }
 
@@ -591,7 +591,7 @@ function mergeposts() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////
@@ -605,7 +605,7 @@ function mergeposts() {
                         WHERE at_pid IN ($pids_str)", false);
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
 

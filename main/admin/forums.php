@@ -374,7 +374,7 @@ function editforum() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -775,7 +775,7 @@ function editforum() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
             }
 
@@ -812,7 +812,7 @@ function editforum() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }//End of for loop
             } elseif ($forum_order > $board[$edit_field]) {
 
@@ -843,7 +843,7 @@ function editforum() {
                     }
 
                     //Free the resources
-                    @mysql_free_result($qresult);
+                    mysql_free_result($qresult);
                 }
             }//End of if($forum_order < $default)
         }
@@ -1027,7 +1027,7 @@ function createforum() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     ///////////////////////////////////////
@@ -1422,7 +1422,7 @@ function createforum() {
                 }
 
                 //Free the resources
-                @mysql_free_result($qresult);
+                mysql_free_result($qresult);
             }
         }
 

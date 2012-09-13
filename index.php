@@ -84,7 +84,7 @@ if ((mysql_num_rows($qresult) > 0)) {
 }
 
 //Free the resources
-@mysql_free_result($qresult);
+mysql_free_result($qresult);
 
 SEO();
 

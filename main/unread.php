@@ -171,7 +171,7 @@ function unread() {
         unset($row);
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         $ins = implode(',', $pids); //echo $ins;
         //Get out the topics in this board
@@ -203,7 +203,7 @@ function unread() {
 
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
 

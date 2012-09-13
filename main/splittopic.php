@@ -184,7 +184,7 @@ function deletetopic() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same forum or no
@@ -318,7 +318,7 @@ function deletetopic() {
     $pids_str = implode(', ', $pids);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
 
@@ -368,7 +368,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
 
@@ -414,7 +414,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -437,7 +437,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -482,7 +482,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////////
@@ -503,7 +503,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Actual Delete and also to delete from recycle bin
@@ -537,7 +537,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
 
@@ -560,7 +560,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //////////////////////////
@@ -654,7 +654,7 @@ function deletetopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
 

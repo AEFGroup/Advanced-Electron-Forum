@@ -180,7 +180,7 @@ function locktopic() {
     }
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Check are they of the same forum or no
@@ -294,7 +294,7 @@ function locktopic() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
 
     //Unlock the topics
@@ -320,7 +320,7 @@ function locktopic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
     }
 
 

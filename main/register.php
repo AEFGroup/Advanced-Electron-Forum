@@ -519,7 +519,7 @@ function mainregister() {
 
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////////////
@@ -553,7 +553,7 @@ function mainregister() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             ////////////////////////////////
@@ -572,7 +572,7 @@ function mainregister() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
 
 
             //Welcome Email
@@ -968,7 +968,7 @@ function validate() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////////
@@ -987,7 +987,7 @@ function validate() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Welcome Email
@@ -1084,7 +1084,7 @@ function resendact() {
             }
 
             //Free the resources
-            @mysql_free_result($qresult);
+            mysql_free_result($qresult);
         }
 
         //Ok so no error found - Lets process

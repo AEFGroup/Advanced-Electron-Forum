@@ -354,7 +354,7 @@ function profile() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -689,7 +689,7 @@ function account() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -773,7 +773,7 @@ function signature() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1157,7 +1157,7 @@ function avatar() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1180,7 +1180,7 @@ function avatar() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //We must delete the old file first if it is there
         delfileavatar();
@@ -1524,7 +1524,7 @@ function personalpic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //Redirect
         redirect('act=usercp');
@@ -1547,7 +1547,7 @@ function personalpic() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
         //We must delete the old file first if it is there
         delfileppic();

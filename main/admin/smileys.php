@@ -284,7 +284,7 @@ function editsm() {
 
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
@@ -324,7 +324,7 @@ function delsm() {
 
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     //Redirect
     redirect('act=admin&adact=smileys&seadact=smman');
@@ -624,7 +624,7 @@ function addsm() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect

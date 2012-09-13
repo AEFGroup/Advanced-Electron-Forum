@@ -144,7 +144,7 @@ function editpost() {
     $post = mysql_fetch_assoc($qresult);
 
     //Free the resources
-    @mysql_free_result($qresult);
+    mysql_free_result($qresult);
 
     $fid = $post['post_fid'];
 
@@ -689,7 +689,7 @@ function editpost() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ///////////////////////////////
@@ -781,7 +781,7 @@ function editpost() {
         }
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Find the post number that this post is of its topic

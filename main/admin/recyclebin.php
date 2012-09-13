@@ -128,7 +128,7 @@ function recyclebin() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         /////////////////////////////////
@@ -155,7 +155,7 @@ function recyclebin() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         ////////////////////////////////////
@@ -175,7 +175,7 @@ function recyclebin() {
           } */
 
         //Free the resources
-        @mysql_free_result($qresult);
+        mysql_free_result($qresult);
 
 
         //Redirect
