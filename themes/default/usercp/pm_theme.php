@@ -647,7 +647,7 @@ function searchpm_theme() {
 
         echo $l['pm_search_results'];
 
-        foreach ($pms as $pmIndex => $pm) {
+        foreach ($pms as $p => $pm) {
 
             //The PM Subject
             echo '<br /><table width="100%" cellpadding="0" cellspacing="0">
@@ -669,8 +669,8 @@ function searchpm_theme() {
 
 <tr>
     <td class="pmsender" width="20%">
-    ' . (empty($pm['sender']) ? '' : '<a style="color:' . $pm['colour'] . '" href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['sender'] . '</a>') . '
-    ' . (empty($pm['receiver']) ? '' : '<a style="color:' . $pm['colour'] . '" href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['receiver'] . '</a>');
+    ' . (empty($pm['sender']) ? '' : '<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['sender'] . '</a>') . '
+    ' . (empty($pm['receiver']) ? '' : '<a href="' . $globals['index_url'] . 'mid=' . $pm['id'] . '">' . $pm['receiver'] . '</a>');
             if (!empty($pm['rec_usernames'])) {
 
                 //First Lets Build up the recievers array
