@@ -2,7 +2,7 @@
 
 function aefheader($title = '') {
 
-    global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $feeds, $dbtables;
+    global $theme, $user, $logged_in, $globals, $l, $dmenus, $onload, $newslinks, $feeds;
 
     $title = ((empty($title)) ? $globals['sn'] : $title);
 
@@ -38,18 +38,7 @@ imgurl = \'' . $theme['images'] . '\';
         <td align="right" class="welcome">';
 
     if ($logged_in) {
-        $uColorRef = makequery("SELECT mem_gr_colour FROM " . $dbtables['user_groups'] . " WHERE member_group = " . $user['u_member_group'] . " LIMIT 1");
-
-        if (mysql_num_rows($uColorRef) == 0) {
-            return false;
-        }
-
-        $assoc = mysql_fetch_assoc($uColorRef);
-
-        $color = $assoc['mem_gr_colour'];
-
-        mysql_free_result($uColorRef);
-        echo $l['welcome'] . ' <b><span style=color:' . $color . '>' . $user['username'] . '</span></b>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
+        echo $l['welcome'] . ' <b>' . $user['username'] . '</b>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
     } else {
 
         echo '<b>' . $l['welcome'] . '</b> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';
