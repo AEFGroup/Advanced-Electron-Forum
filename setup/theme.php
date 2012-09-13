@@ -440,8 +440,16 @@ function startsetup() {
                         <div class="setup"><a href="<?php echo $url . '/setup/index.php?act=removesetup'; ?>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove setup folder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a><font class="exp">&nbsp;(Opens a new window)</div>
                         <br /><br /><br /><br /><br /><br />
                         <?php
+                        //Try to open a lockfile handle
+                        $handle = @fopen("lock", 'w');
+                        
+                        //See if it doesn't work
+                        if (!$handle) {
+                            echo "Installation lock file could not be made.";
+                            echo "<h2>Please remove the setup folder immediately!";
+                        } else fclose($handle);
+                        
                         aeffooter();
-                        fclose(fopen("lock", 'w')) or die("couldn't create the lock file");
                     }
 
                     function error_handle($error, $table_width = '100%', $center = false) {
