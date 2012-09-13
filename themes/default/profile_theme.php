@@ -52,7 +52,7 @@ function profile_theme() {
             <td>
                 <table width="100%" cellpadding="0" cellspacing="0"><tr>
                         <td class="cbgl"></td>
-                        <td class="cbg"><?php echo $l['profile_heading']; ?></td>
+                        <td class="cbg"><?php echo $l['profile_heading'] . ' <span style="color:' . $member['mem_gr_colour'] . '">' . $member['username'] . "</span>"; ?></td>
                         <td class="cbgr"></td>
                     </tr>
                 </table>

@@ -34,7 +34,7 @@ $l['no_member_found'] = 'Sorry, we were unable to process your request because t
 
 //Theme Strings
 $l['<title>'] = 'Profile of';
-$l['profile_heading'] = 'Viewing profile';
+$l['profile_heading'] = 'Profile of';
 $l['avatar'] = 'Avatar';
 $l['personal_picture'] = 'Personal Picture';
 $l['information_heading'] = 'Information';
