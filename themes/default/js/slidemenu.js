@@ -1,6 +1,6 @@
 /********************************
-* Slashdot Menu script- By DimX
-*********************************/
+ * Slashdot Menu script- By DimX
+ *********************************/
 
 function SDMenu(id) {
     if (!document.getElementById || !document.getElementsByTagName)
@@ -12,10 +12,10 @@ function SDMenu(id) {
     this.markCurrent = true;
     this.oneSmOnly = false;
 }
-SDMenu.prototype.init = function() {
+SDMenu.prototype.init = function () {
     var mainInstance = this;
     for (var i = 0; i < this.submenus.length; i++)
-        this.submenus[i].getElementsByTagName("span")[0].onclick = function() {
+        this.submenus[i].getElementsByTagName("span")[0].onclick = function () {
             mainInstance.toggleMenu(this.parentNode);
         };
     if (this.markCurrent) {
@@ -36,13 +36,13 @@ SDMenu.prototype.init = function() {
         }
     }
 };
-SDMenu.prototype.toggleMenu = function(submenu) {
+SDMenu.prototype.toggleMenu = function (submenu) {
     if (submenu.className == "collapsed")
         this.expandMenu(submenu);
     else
         this.collapseMenu(submenu);
 };
-SDMenu.prototype.expandMenu = function(submenu) {
+SDMenu.prototype.expandMenu = function (submenu) {
     var fullHeight = submenu.getElementsByTagName("span")[0].offsetHeight;
     var links = submenu.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++)
@@ -50,7 +50,7 @@ SDMenu.prototype.expandMenu = function(submenu) {
     var moveBy = Math.round(this.speed * links.length);
 
     var mainInstance = this;
-    var intId = setInterval(function() {
+    var intId = setInterval(function () {
         var curHeight = submenu.offsetHeight;
         var newHeight = curHeight + moveBy;
         if (newHeight < fullHeight)
@@ -64,11 +64,11 @@ SDMenu.prototype.expandMenu = function(submenu) {
     }, 30);
     this.collapseOthers(submenu);
 };
-SDMenu.prototype.collapseMenu = function(submenu) {
+SDMenu.prototype.collapseMenu = function (submenu) {
     var minHeight = submenu.getElementsByTagName("span")[0].offsetHeight;
     var moveBy = Math.round(this.speed * submenu.getElementsByTagName("a").length);
     var mainInstance = this;
-    var intId = setInterval(function() {
+    var intId = setInterval(function () {
         var curHeight = submenu.offsetHeight;
         var newHeight = curHeight - moveBy;
         if (newHeight > minHeight)
@@ -81,14 +81,14 @@ SDMenu.prototype.collapseMenu = function(submenu) {
         }
     }, 30);
 };
-SDMenu.prototype.collapseOthers = function(submenu) {
+SDMenu.prototype.collapseOthers = function (submenu) {
     if (this.oneSmOnly) {
         for (var i = 0; i < this.submenus.length; i++)
             if (this.submenus[i] != submenu && this.submenus[i].className != "collapsed")
                 this.collapseMenu(this.submenus[i]);
     }
 };
-SDMenu.prototype.expandAll = function() {
+SDMenu.prototype.expandAll = function () {
     var oldOneSmOnly = this.oneSmOnly;
     this.oneSmOnly = false;
     for (var i = 0; i < this.submenus.length; i++)
@@ -96,12 +96,12 @@ SDMenu.prototype.expandAll = function() {
             this.expandMenu(this.submenus[i]);
     this.oneSmOnly = oldOneSmOnly;
 };
-SDMenu.prototype.collapseAll = function() {
+SDMenu.prototype.collapseAll = function () {
     for (var i = 0; i < this.submenus.length; i++)
         if (this.submenus[i].className != "collapsed")
             this.collapseMenu(this.submenus[i]);
 };
-SDMenu.prototype.memorize = function() {
+SDMenu.prototype.memorize = function () {
     if (this.remember) {
         var states = new Array();
         for (var i = 0; i < this.submenus.length; i++)

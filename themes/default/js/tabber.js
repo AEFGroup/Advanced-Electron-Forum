@@ -6,7 +6,7 @@
 // You cannot remove the copyrights.
 //////////////////////////////////////////////////////////////
 
-function tabber(){
+function tabber() {
 
     this.tabs = new Array();//The tabs
 
@@ -16,12 +16,12 @@ function tabber(){
 
     this.tabbedclass = 'tabbed';//The tabbed button class
 
-    this.tab = function(id){
-        for(x in this.tabs){
-            if(this.tabs[x] == id){
+    this.tab = function (id) {
+        for (x in this.tabs) {
+            if (this.tabs[x] == id) {
                 $(this.tabs[x]).className = this.tabbedclass;
                 $(this.tabwindows[x]).style.display = 'block';
-            }else{
+            } else {
                 $(this.tabs[x]).className = this.tabclass;
                 $(this.tabwindows[x]).style.display = 'none';
             }
@@ -29,7 +29,7 @@ function tabber(){
     };
 
     //Will set the first tab to Tabbed
-    this.init = function(){
+    this.init = function () {
         this.tab(this.tabs[0]);
     }
 
