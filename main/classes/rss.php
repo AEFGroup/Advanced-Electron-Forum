@@ -79,15 +79,16 @@ RSS;
      */
     function item($title, $link, $desc, $category, $pubDate) {
 
-        return '
+        return <<<ITEM
         <item>
-            <title><![CDATA[' . $title . ']]></title>
-            <link>' . $link . '</link>
-            <description><![CDATA[' . $desc . ']]></description>
-            <category><![CDATA[' . $category . ']]></category>
-            <pubDate>' . $pubDate . '</pubDate>
-            <guid>' . $link . '</guid>
-        </item>';
+            <title><![CDATA[$title]]></title>
+            <link>$link</link>
+            <description><![CDATA[$desc]]></description>
+            <category><![CDATA[$category]]></category>
+            <pubDate>$pubDate</pubDate>
+            <guid>$link</guid>
+        </item>
+ITEM;
     }
 
 }
