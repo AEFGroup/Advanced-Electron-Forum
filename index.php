@@ -347,7 +347,7 @@ if (!empty($messagetext) && empty($errormessage)) {
     }
 }
 
-@ob_end_flush();
+ob_end_flush();
 
 mysql_close($conn);
 
