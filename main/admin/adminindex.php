@@ -70,6 +70,8 @@ function adminindex() {
             $theme['call_theme_func'] = 'credits_theme';
             break;
     }
+
+    return true;
 }
 
 ?>
