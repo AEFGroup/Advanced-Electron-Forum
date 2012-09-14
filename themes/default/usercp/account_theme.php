@@ -347,7 +347,7 @@ function signature_theme() {
             if(try_wysiwyg){
                 editor.to_wysiwyg(true);//Directly try to pass to WYSIWYG Mode
             }
-        };
+        }
     </script>
 
     <form accept-charset="<?php echo $globals['charset']; ?>" action=""  method="post" name="editsigform" onsubmit="editor.onsubmit();">

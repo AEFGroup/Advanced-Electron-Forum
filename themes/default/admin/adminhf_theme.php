@@ -319,12 +319,11 @@ function js_reorder() {
                 }
             }
             return false;
-        };
-
+        }
         //Just a sort function
         function sortnumber(a, b){
             return a - b;
-        };
+        }
 
     </script>
     <?php

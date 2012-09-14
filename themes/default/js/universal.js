@@ -28,41 +28,34 @@ function $(id){
     }else if(document.layers){
         return document.layers[id];
     }
-};
-
+}
 //Trims a string
 function trim(str){
     return str.replace(/^[\s]+|[\s]+$/, "");
-};
-
+}
 //Give a random integer
 function AEFrand(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
-};
-
+}
 //To clear a time out
 function AEFclear(timer){
     clearTimeout(timer);
     clearInterval(timer);
     return null;
-};
-
+}
 //Changes the opacity
 function setopacity(el, opacity){
     el.style.opacity = (opacity/100);
     el.style.filter = 'alpha(opacity=' + opacity + ')';
-};
-
+}
 //Hides an element
 function hideel(elid){
     $(elid).style.visibility="hidden";
-};
-
+}
 //Shows an element
 function showel(elid){
     $(elid).style.visibility="visible";
-};
-
+}
 function isvisible(elid){
     if($(elid).style.visibility == "visible"){
         return true;
@@ -82,16 +75,15 @@ function check(field, checker){
             field[i].checked = false;
         }
     }
-};
+}
 //The page width
 function getwidth(){
     return document.body.clientWidth;
-};
+}
 //The page height
 function getheight(){
     return document.body.clientHeight;
-};
-
+}
 //Get the scrolled height
 function scrolledy(){
     //Netscape compliant
@@ -106,8 +98,7 @@ function scrolledy(){
     }else{
         return 0;
     }
-};
-
+}
 //Gradually increases the opacity
 function smoothopaque(elid, startop, endop, inc){
     if(typeof(elid) == 'object'){
@@ -133,9 +124,8 @@ function smoothopaque(elid, startop, endop, inc){
             }
         }
         setopacity(el, op);
-    };
-};
-
+    }
+}
 //Cookie setter
 function setcookie(name, value, duration){
     value = escape(value);
@@ -145,19 +135,16 @@ function setcookie(name, value, duration){
         value += "; expires=" + date.toGMTString();
     }
     document.cookie = name + "=" + value;
-};
-
+}
 //Gets the cookie value
 function getcookie(name){
     value = document.cookie.match('(?:^|;)\\s*'+name+'=([^;]*)');
     return value ? unescape(value[1]) : false;
-};
-
+}
 //Removes the cookies
 function removecookie(name){
     setcookie(name, '', -1);
-};
-
+}
 function AJAX(url, evalthis){
     req = false;
     toeval = evalthis;
@@ -207,8 +194,7 @@ function AJAX(url, evalthis){
         return false;
     }
     return true;
-};
-
+}
 //Finds the position of the element
 function findelpos(ele){
     var curleft = 0;
@@ -227,8 +213,7 @@ function findelpos(ele){
         curtop += ele.y;
     }
     return [curleft,curtop];
-};
-
+}
 function getAttributeByName(node, attribute){
     if(typeof NamedNodeMap != "undefined"){
         if(node.attributes.getNamedItem(attribute)){
@@ -237,35 +222,32 @@ function getAttributeByName(node, attribute){
     }else{
         return node.getAttribute(attribute);
     }
-};
-
+}
 //With ';'
 function addonload(js){
     aefonload += js;
-};
-
+}
 function createdw(id, content, classname, dwtitle){
     //Is this ID already created
     try{
         $(id).innerHTML;
         return false;
-    }catch(e){ };
+    } catch (e) {
+    }
     var dw = document.createElement("div");
     dw.id = id;
     dw.className = classname ? classname : "pqr";
     dw.innerHTML = '<table width="100%" cellspacing="0" cellpadding="0" id="'+id+'handle"><tr><td class="dwhl"></td><td align="left" class="dwhc"><b>'+dwtitle+'</b></td><td align="right" class="dwhc"><a href="javascript:hideel(\''+id+'\')"><img src="'+imgurl+'close.gif" alt="" /></a></td><td class="dwhr"></td></tr></table><table width="100%" cellspacing="0" cellpadding="0" class="dwbody"><tr><td>'+content+'</td></tr><tr><td align="left" class="dwb" colspan="2"></td></tr></table>';
     document.body.appendChild(dw);
     Drag.init($(id+'handle'), $(id));
-};
-
+}
 function showdw(id){
     $(id).style.left=((getwidth()/2)-($(id).offsetWidth/2))+"px";
     $(id).style.top=(scrolledy()+110)+"px";
     showel(id);
     smoothopaque(id, 0, 100, 10);
-};
-
+}
 function domwindow(id, content, classname, dwtitle){
     createdw(id, content, classname, dwtitle);
     showdw(id);
-};
+}

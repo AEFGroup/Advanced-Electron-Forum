@@ -28,7 +28,7 @@ function mergeposts_theme() {
             if(try_wysiwyg){
                 editor.to_wysiwyg(true);//Directly try to pass to WYSIWYG Mode
             }
-        };
+        }
     </script>
 
     <center>

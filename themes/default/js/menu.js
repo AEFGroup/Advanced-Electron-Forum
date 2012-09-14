@@ -14,7 +14,7 @@ function dropmenu(ele, divid){
         $(divid).style;
     }catch(e){
         return false;
-    };
+    }
     //If it is visible means he is on the drop down list
     if($(divid).style.visibility=="visible"){
         clearTimeout(hider);
@@ -39,22 +39,19 @@ function dropmenu(ele, divid){
     //Make the div visble
     $(divid).style.visibility="visible";
     smoothopaque(divid, 0, 100, 5);
-};
-
+}
 //Hides the menu
 function pullmenu(hidedivid){
     hider = setTimeout("puller('"+hidedivid+"')", 100);
-};
-
+}
 function puller(pid){
     try{
         $(pid).style;
     }catch(e){
         return false;
-    };
+    }
     $(pid).style.visibility="hidden";
-};
-
+}
 function createmenu(id, array){
     if(!array){
         return false;
@@ -67,4 +64,4 @@ function createmenu(id, array){
 
     t += '</table>';
     document.write(t);
-};
+}

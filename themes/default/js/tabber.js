@@ -33,4 +33,4 @@ function tabber(){
         this.tab(this.tabs[0]);
     }
 
-};
+}

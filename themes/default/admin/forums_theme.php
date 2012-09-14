@@ -644,8 +644,7 @@ function createforum_theme() {
                                 $('forder').disabled = true;
                                 LoadStatus('');
                             }
-                        };
-
+                        }
                         function PrintOrder(resp){
                             //Remove the old order list
                             while ($('forder').length > 0) {
@@ -681,7 +680,7 @@ function createforum_theme() {
                             $('forder').selectedIndex = resp - 1;
                             $('forder').disabled = false;
                             LoadStatus('');
-                        };
+                        }
 
                     </script>
                 </td>
