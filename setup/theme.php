@@ -323,7 +323,7 @@ function startsetup() {
                                                     <font class="exp">Use if you are going to work with multiple languages.</font>
                                                 </td>
                                                 <td class="lc" align="left">
-                                                    &nbsp;<input type="checkbox"  name="utf8" <?php echo (isset($_POST['utf8']) ? 'checked="checked"' : '' ); ?> />
+                                                    &nbsp;<input type="checkbox"  name="utf8" checked="checked" />
                                                 </td>
                                             </tr>
 
