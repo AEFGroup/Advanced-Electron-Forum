@@ -25,7 +25,7 @@ define('AEF', 1);
 $user = array();
 $theme = array();
 
-//This causes some probems
+//This causes some problems
 ini_set('magic_quotes_runtime', 0);
 ini_set('magic_quotes_sybase', 0);
 
@@ -43,7 +43,7 @@ include_once('universal.php');
 //Some globals vars
 include_once('globals.php');
 
-//check if the script is installed or not - SAFAD
+//check if the script is installed or not
 if ($globals['installed'] == 0)
     die(header('Location: setup/index.php'));
 
