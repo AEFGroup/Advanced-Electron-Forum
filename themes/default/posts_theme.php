@@ -513,7 +513,7 @@ function showquickreply(){
     ' . ( (empty($post[$p]['users_text'])) ? '' : '<br />' . $post[$p]['users_text'] ) . '
     </td>
     <td class="post" align="left" valign="top">
-    ' . wordwrap($post[$p]['post'], 80, " ", 1) . '
+    ' . $post[$p]['post'] . '
     ' . (!empty($attachments[$post[$p]['pid']]) ? '<br /><br />-----------------------<br />' . implode('<br />', $attachments[$post[$p]['pid']]) : '') . '
     ' . (!empty($post[$p]['modifier']) ? '<br /><br />' . $l['edited_by'] . ' <b>' . $post[$p]['modifier'] . '</b> : ' . $post[$p]['modtime'] : '');
 
