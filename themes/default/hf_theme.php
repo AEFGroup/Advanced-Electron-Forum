@@ -38,10 +38,10 @@ imgurl = \'' . $theme['images'] . '\';
         <td align="right" class="welcome">';
 
     if ($logged_in) {
-        echo $l['welcome'] . ' <b>' . $user['username'] . '</b>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
+        echo $l['welcome'] . ' <strong>' . $user['username'] . '</strong>&nbsp;&nbsp;&nbsp;&nbsp;[<font class="logout"><a href="' . $globals['ind'] . 'act=logout">' . $l['nav_logout'] . '</a></font>]&nbsp;&nbsp;';
     } else {
 
-        echo '<b>' . $l['welcome'] . '</b> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';
+        echo '<strong>' . $l['welcome'] . '</strong> ' . $l['guest'] . '. ' . $l['please'] . ' <a href="' . $globals['ind'] . 'act=login" title="' . $l['login_title'] . '">' . $l['login'] . '</a> ' . $l['or'] . ' <a href="' . $globals['ind'] . 'act=register" title="' . $l['register_title'] . '">' . $l['register'] . '</a>&nbsp;&nbsp;';
     }
 
     echo '</td>
@@ -59,7 +59,7 @@ imgurl = \'' . $theme['images'] . '\';
 
         if ($user['can_admin']) {
 
-            $opt[] = '<b><a href="' . $globals['ind'] . 'act=admin" onmouseover="dropmenu(this, \'adminopt\')" onmouseout="pullmenu(\'adminopt\')">' . $l['admin'] . '</a></b>';
+            $opt[] = '<strong><a href="' . $globals['ind'] . 'act=admin" onmouseover="dropmenu(this, \'adminopt\')" onmouseout="pullmenu(\'adminopt\')">' . $l['admin'] . '</a></strong>';
 
             echo '<script language="javascript" type="text/javascript"><!-- // --><![CDATA[
 createmenu("adminopt", [
@@ -87,7 +87,7 @@ createmenu("pmopt", [
 ]);
 // ]]></script>';
 
-        $opt[] = '<b><a href="' . $globals['ind'] . 'act=usercp" style="position:relative;" onmouseover="dropmenu(this, \'ucpopt\')" onmouseout="pullmenu(\'ucpopt\')" >' . $l['usercp'] . '</a></b>
+        $opt[] = '<strong><a href="' . $globals['ind'] . 'act=usercp" style="position:relative;" onmouseover="dropmenu(this, \'ucpopt\')" onmouseout="pullmenu(\'ucpopt\')" >' . $l['usercp'] . '</a></strong>
 ';
 
         $opt[] = '<a href="' . $globals['ind'] . 'act=usercp&amp;ucpact=inbox"  style="position:relative;" onmouseover="dropmenu(this, \'pmopt\')" onmouseout="pullmenu(\'pmopt\')">' . $l['pms'] . ' (' . $user['unread_pm'] . ')</a>';
@@ -169,7 +169,7 @@ createmenu("quicklinks", [' . $quick_links . ']);
         echo '<br /><table width="100%" cellpadding="2" cellspacing="2" class="newshead">
 <tr>
 <td width="1%">
-<b>' . $l['news_prefix'] . ':</b>
+<strong>' . $l['news_prefix'] . ':</strong>
 </td>
 <td valign="top">';
 
@@ -220,7 +220,7 @@ function initnews(){
 <table width="100%" cellspacing="0" cellpadding="0" id="shbhandle">
 <tr>
 <td class="dwhl"></td>
-<td align="left" class="dwhc"><b>' . $l['shout_box'] . '</b></td>
+<td align="left" class="dwhc"><strong>' . $l['shout_box'] . '</strong></td>
 <td align="right" class="dwhc"><a href="javascript:hide_shoutbox()"><img src="' . $theme['images'] . 'close.gif" alt="" /></a></td>
 <td class="dwhr"></td>
 </tr>
@@ -251,7 +251,7 @@ Drag.init($("shbhandle"), $("shoutbox"));
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr>
 <td class="dwhl"></td>
-<td align="left" class="dwhc"><b>' . $l['shout_box'] . '</b></td>
+<td align="left" class="dwhc"><strong>' . $l['shout_box'] . '</strong></td>
 <td align="right" class="dwhc"><a href="javascript:hideshow_fixedshoutbox()" ><img src="' . $theme['images'] . 'expanded.gif" id="shbimgcollapser" alt="" /></a></td>
 <td class="dwhr"></td>
 </tr>
@@ -372,14 +372,14 @@ function tree() {
 
     if (empty($tree) || !is_array($tree)) {
 
-        $links[] = '<b><a href="' . $globals['ind'] . '">' . $l['index'] . '</a></b>';
+        $links[] = '<strong><a href="' . $globals['ind'] . '">' . $l['index'] . '</a></strong>';
     } else {
 
         foreach ($tree as $k => $v) {
 
             //& => &amp; for W3C
             //l - means links, txt - The text, prefix is a prefix
-            $links[] = (empty($v['prefix']) ? '' : $v['prefix'] ) . '<b><a href="' . str_replace('&', '&amp;', $v['l']) . '">' . $v['txt'] . '</a></b>';
+            $links[] = (empty($v['prefix']) ? '' : $v['prefix'] ) . '<strong><a href="' . str_replace('&', '&amp;', $v['l']) . '">' . $v['txt'] . '</a></strong>';
         }
     }
 
@@ -452,7 +452,7 @@ function majorerror($title, $text, $heading = '') {
 
         <tr>
             <td class="patcbg" align="left">
-                <b><?php echo ((empty($heading)) ? $l['following_fatal_error'] . ':' : $heading); ?></b>
+                <strong><?php echo ((empty($heading)) ? $l['following_fatal_error'] . ':' : $heading); ?></strong>
             </td>
         </tr>
 
@@ -488,7 +488,7 @@ function message($title, $heading = '', $icon, $text) {
 
         <tr>
             <td class="patcbg" align="left"  >
-                <b><?php echo ((empty($heading)) ? $l['following_board_message'] . ':' : $heading); ?></b>
+                <strong><?php echo ((empty($heading)) ? $l['following_board_message'] . ':' : $heading); ?></strong>
             </td>
         </tr>
 
