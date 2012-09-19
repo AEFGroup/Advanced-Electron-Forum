@@ -432,7 +432,7 @@ function writepm_theme() {
             if(try_wysiwyg){
                 editor.to_wysiwyg(true);//Directly try to pass to WYSIWYG Mode
             }
-        };
+        }
     </script>
 
     <script language="JavaScript" src="<?php echo $theme['url'] . '/js/suggest.js'; ?>" type="text/javascript"></script>
@@ -749,7 +749,7 @@ function sendsaved_theme() {
             if(try_wysiwyg){
                 editor.to_wysiwyg(true);//Directly try to pass to WYSIWYG Mode
             }
-        };
+        }
     </script>
 
     <script language="JavaScript" src="<?php echo $theme['url'] . '/js/suggest.js'; ?>" type="text/javascript"></script>

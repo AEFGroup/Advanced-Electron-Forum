@@ -11,4 +11,7 @@
 #Also ignore all UNIX temp files.
 *~
 
+#Ignore IntelliJ IDEA and PhpStorm metadata directories
+.idea
+
 #Add your own here when needed, and commit if you like

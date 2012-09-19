@@ -181,7 +181,7 @@ function dbback_theme() {
                             for(var i = 0; i < $(id).options.length; i++){
                                 $(id).options[i].selected = val;
                             }
-                        };
+                        }
                     </script>
                 </td>
             </tr>

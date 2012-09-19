@@ -229,6 +229,7 @@ function csrf_check($fatal = true) {
  */
 function csrf_get_tokens() {
     $has_cookies = !empty($_COOKIE);
+    $secret = csrf_get_secret();
 
     // $ip implements a composite key, which is sent if the user hasn't sent
     // any cookies. It may or may not be used, depending on whether or not

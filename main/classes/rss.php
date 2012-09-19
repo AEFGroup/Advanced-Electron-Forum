@@ -45,13 +45,15 @@ class rss {
     function start($xmlVersion = '1.0', $encoding = 'UTF-8', $rssVersion = '2.0', $title = '', $link = '', $desc = '') {
         global $globals;
         header('Content-Type: application/rss+xml; charset=' . $encoding);
-        return '<?xml version="' . $xmlVersion . '" encoding="' . $encoding . '"?>
-<rss version="' . $rssVersion . '" xml:lang="en-US">
+        return <<<RSS
+<?xml version="$xmlVersion" encoding="$encoding"?>
+<rss version="$rssVersion" xml:lang="en-US">
     <channel>
-        <title>' . $title . '</title>
-        <link>' . $link . '</link>
-        <description>' . $desc . '</description>
-        <generator>Advanced Electron Forums ' . $globals['version'] . '</generator';
+        <title>$title</title>
+        <link>$link</link>
+        <description>$desc</description>
+        <generator>Advanced Electron Forums ${globals['version']}</generator>
+RSS;
     }
 
     /**
@@ -60,9 +62,10 @@ class rss {
      */
     function close() {
 
-        return '
+        return <<<RSS
     </channel>
-</rss>';
+</rss>
+RSS;
     }
 
     /**
@@ -76,15 +79,16 @@ class rss {
      */
     function item($title, $link, $desc, $category, $pubDate) {
 
-        return '
+        return <<<ITEM
         <item>
-            <title><![CDATA[' . $title . ']]></title>
-            <link>' . $link . '</link>
-            <description><![CDATA[' . $desc . ']]></description>
-            <category><![CDATA[' . $category . ']]></category>
-            <pubDate>' . $pubDate . '</pubDate>
-            <guid>' . $link . '</guid>
-        </item>';
+            <title><![CDATA[$title]]></title>
+            <link>$link</link>
+            <description><![CDATA[$desc]]></description>
+            <category><![CDATA[$category]]></category>
+            <pubDate>$pubDate</pubDate>
+            <guid>$link</guid>
+        </item>
+ITEM;
     }
 
 }

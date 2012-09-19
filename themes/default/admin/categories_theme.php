@@ -104,8 +104,7 @@ Drag.init($("delcatpromptha"), $("delcatprompt"));
                 showel(delcatpromptid);
                 smoothopaque(delcatpromptid, 0, 100, 10);
             }
-        };
-
+        }
         function redirectdeletecat(){
             //alert(cat_id);
             window.location = '<?php echo $globals['index_url'] . 'act=admin&adact=categories&seadact=delcat&cid='; ?>'+cat_id;

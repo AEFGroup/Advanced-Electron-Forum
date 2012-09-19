@@ -25,7 +25,7 @@ define('AEF', 1);
 $user = array();
 $theme = array();
 
-//This causes some probems
+//This causes some problems
 ini_set('magic_quotes_runtime', 0);
 ini_set('magic_quotes_sybase', 0);
 
@@ -37,13 +37,13 @@ if (!ini_get('date.timezone')) {
     ini_set('date.timezone', 'Europe/Berlin');
 }
 
-//All imp info like DB username & pass.
+//Include the universal variables, such as database information.
 include_once('universal.php');
 
-//Some globals vars
+//Include the global variables
 include_once('globals.php');
 
-//check if the script is installed or not - SAFAD
+//Check to see if AEF is installed - Fixed by SAFAD
 if ($globals['installed'] == 0)
     die(header('Location: setup/index.php'));
 
@@ -347,7 +347,7 @@ if (!empty($messagetext) && empty($errormessage)) {
     }
 }
 
-@ob_end_flush();
+ob_end_flush();
 
 mysql_close($conn);
 

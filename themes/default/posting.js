@@ -14,9 +14,7 @@ function insertbbc(field, starttag, endtag){
     } else {
         field.value += starttag+endtag;
     }
-};
-
-
+}
 //A function to insert Smileys in the form
 function insertemot(myField, myValue) {
     //IE support
