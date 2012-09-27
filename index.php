@@ -45,6 +45,7 @@ include_once('globals.php');
 
 //Check to see if AEF is installed - Fixed by SAFAD
 if ($globals['installed'] == 0)
+    /** @noinspection PhpVoidFunctionResultUsedInspection */
     die(header('Location: setup/index.php'));
 
 //Make the connection
