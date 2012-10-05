@@ -46,7 +46,7 @@ include_once('globals.php');
 //Check to see if AEF is installed - Fixed by SAFAD
 if ($globals['installed'] == 0)
     /** @noinspection PhpVoidFunctionResultUsedInspection */
-    die(header('Location: setup/index.php'));
+    header('Location: setup/index.php');
 
 //Make the connection
 $conn = mysql_connect($globals['server'], $globals['user'], $globals['password']);
@@ -217,7 +217,6 @@ $actionsArray = array(
     'feeds' => array('feeds.php', 'feeds'),
     'calendar' => array('calendar.php', 'calendar'),
     'report' => array('report.php', 'report'),
-    'active' => array('active.php', 'active'),
     'active' => array('active.php', 'active'),
 );
 

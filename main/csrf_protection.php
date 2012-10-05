@@ -147,7 +147,7 @@ $GLOBALS['csrf']['xhtml'] = true;
 
 // FUNCTIONS:
 // Don't edit this!
-$GLOBALS['csrf']['version'] = '1.0.1';
+$GLOBALS['csrf']['version'] = '1.0 AEF';
 
 /**
  * Rewrites <form> on the fly to add CSRF tokens to them. This can also
@@ -268,9 +268,8 @@ function csrf_get_tokens() {
  * @param $tokens is safe for HTML consumption
  */
 function csrf_callback($tokens) {
-    header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
-    echo "<html><head><title>CSRF check failed</title></head><body>CSRF check failed. Please enable cookies.<br />Debug: " . $tokens . "</body></html>
-";
+    //trigger a major error
+    reporterror("CSRF check failed. Please enable cookies and try again.","CSRF check failed");
 }
 
 /**
