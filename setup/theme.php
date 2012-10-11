@@ -141,9 +141,14 @@ function locked_theme() {
 function startsetup() {
 
     aefheader('AEF Setup');
-    ?><h1>Thank you for downloading AEF</h1>
+    ?><h1>Welcome To AEF's setup wizard !</h1>
     <br /><br />
-    AEF 1.0.10 requires <b>PHP 5.0.0</b> or higher and <b>MySQL 4.0</b> or higher.
+    <?php
+        echo "AEF requires <b>PHP 5.0.0</b> or higher to function properly, your PHP version is : "
+            .phpversion(). (phpversion() < '5.0.0' ? " , Please consider updating your server's software" : '' ). '</br>';
+        echo "AEF requires <b>MySQL 4.0</b> or higher to function properly, your MySQL version is : "
+            .mysql_get_server_info(). (mysql_get_server_info() < '4.0' ? " , please consider updating your server's software" : ''). '</br>' ;
+    ?>
     <br /><br />
     You will also need the following MySQL information:<br />
     <ul>

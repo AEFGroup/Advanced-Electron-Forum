@@ -21,7 +21,7 @@
 //////////////////////////////////////////////////////////////
 
 /**
- * @file
+ * @file : csrf_protection.php
  *
  * csrf-magic is a PHP library that makes adding CSRF-protection to your
  * web applications a snap. No need to modify every form or create a database
@@ -44,11 +44,7 @@
  */
 $GLOBALS['csrf']['defer'] = false;
 
-/**
- * This is the amount of seconds you wish to allow before any token becomes
- * invalid; the default is two hours, which should be more than enough for
- * most websites.
- */
+//token expiration : 2 hours
 $GLOBALS['csrf']['expires'] = 7200;
 
 /**
@@ -66,18 +62,10 @@ $GLOBALS['csrf']['callback'] = 'csrf_callback';
  */
 $GLOBALS['csrf']['rewrite-js'] = false;
 
-/**
- * A secret key used when hashing items. Please generate a random string and
- * place it here. If you change this value, all previously generated tokens
- * will become invalid.
- */
+//should be secure, if proved otherwise, please notify to implement a better token generator
 $GLOBALS['csrf']['secret'] = md5(time());
 
-/**
- * Set this to false to disable csrf-magic's output handler, and therefore,
- * its rewriting capabilities. If you're serving non HTML content, you should
- * definitely set this false.
- */
+//always must be set to TRUE
 $GLOBALS['csrf']['rewrite'] = true;
 
 /**
