@@ -35,7 +35,7 @@ $error = array();
 include_once($setup_path . '/theme.php');
 
 include_once($path . '/main/functions.php');
-if(file_exists($setup_path . "/lock") && $_GET['act'] != 'removesetup'){
+if(file_exists($setup_path . "/lock") && isset($_GET['act']) != 'removesetup'){
     //give error message
     locked_theme();
     die();
