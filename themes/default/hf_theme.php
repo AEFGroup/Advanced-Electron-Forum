@@ -25,6 +25,18 @@ boardurl = \'' . $globals['url'] . '/\';
 indexurl = \'' . $globals['index_url'] . '\';
 imgurl = \'' . $theme['images'] . '\';
 // ]]></script>
+
+<script>
+    try {
+        function unityReady() {}
+        var Unity = external.getUnityObject(1.0);
+        Unity.init({name: "'. $globals['sn'] .'",
+            iconUrl: "http://upload.wikimedia.org/wikipedia/commons/2/29/Ubuntu-icon-pd2.png",
+            domain: "'. $globals['server'] .'",
+            homepage: "'. $globals['url'] .'",
+            onInit: unityReady});
+} catch (err) {}
+</script>
     </head>
     <body onload="bodyonload();">';
 
