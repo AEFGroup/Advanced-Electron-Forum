@@ -32,14 +32,11 @@ $globals['server'] = '';
 
 /* Core Settings */
 
-$globals['url'] = '';
-$globals['sn'] = '';
-$globals['board_email'] = '';
+$globals['url'] = 'http://' . (empty($_SERVER['HTTP_HOST']) ? $_SERVER['SERVER_NAME'] : $_SERVER['HTTP_HOST']) . substr($_SERVER['PHP_SELF'], 0, -16);
 $globals['server_url'] = '';
 $globals['mainfiles'] = '';
 $globals['themesdir'] = '';
-$globals['gzip'] = 1;
-$globals['cookie_name'] = '';
-$globals['installed'] = '0';
+$globals['installed'] = '';
+
 
 /* Ending - Core Settings */

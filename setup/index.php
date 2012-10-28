@@ -31,29 +31,22 @@ $url = 'http://' . (empty($_SERVER['HTTP_HOST']) ? $_SERVER['SERVER_NAME'] : $_S
 
 $error = array();
 
+$warning = array();
+
 //Lets load the theme functions
 include_once($setup_path . '/theme.php');
 
 include_once($path . '/main/functions.php');
-if(file_exists($setup_path . "/lock") && isset($_GET['act']) != 'removesetup'){
-    //give error message
-    locked_theme();
-    die();
-}
-//Is the universal file writable
-if (!is_writable($path . '/universal.php') && @!chmod($path . '/universal.php', 0777)) {
-    //It is not, so give message
-    not_writable_theme();
-    die();
+
+
+//check requirements SILENTLY and only warn user if something is REALLY wrong !
+check_requirements();
+
+if (isset($_GET['act']) && trim($_GET['act']) !== "") {
+    $act = trim($_GET['act']);
 } else {
-
-    if (isset($_GET['act']) && trim($_GET['act']) !== "") {
-
-        $act = trim($_GET['act']);
-    } else {
-
-        $act = '';
-    }
+    $act = '';
+}
 
     switch ($act) {
 
@@ -61,6 +54,9 @@ if (!is_writable($path . '/universal.php') && @!chmod($path . '/universal.php', 
             startsetup(); //Theme file
             break;
 
+        case 'db':
+            database_setup();
+            break;
         //The form asking for all requirements
         case 'setup':
             setup();
@@ -76,116 +72,11 @@ if (!is_writable($path . '/universal.php') && @!chmod($path . '/universal.php', 
             removesetup();
             break;
     }
-}
 
-function setup() {
+function database_setup(){
+    global $chmod_issue, $server, $database, $user, $password, $dbprefix, $utf8, $path, $error;
 
-    global $error, $server_url, $conn;
-
-    /////////////////////////////
-    // Define the necessary VARS
-    /////////////////////////////
-    //Board settings
-    $sn = '';
-
-    $board_email = '';
-
-    $url = '';
-
-    $server_url = '';
-
-    $cookie_name = 'AEFCookies' . mt_rand(1000, 9999);
-
-    //MySQL Settins
-    $server = '';
-
-    $database = '';
-
-    $user = '';
-
-    $password = '';
-
-    $dbprefix = '';
-
-    $utf8 = false;
-
-    //Admin Account
-    $ad_username = '';
-
-    $ad_pass = '';
-
-    $ad_pass_conf = '';
-
-    $ad_email = '';
-
-
-    if (isset($_POST['setup'])) {
-
-        //////////////////
-        // Board Settings
-        //////////////////
-        //Check the Board Name
-        if (!(isset($_POST['sn'])) || strlen(trim($_POST['sn'])) < 1) {
-
-            $error[] = 'You did not enter your Board\'s Name.';
-        } else {
-
-            $sn = inputsec(htmlizer(trim($_POST['sn'])));
-        }
-
-
-        //Check the Board Email
-        if (!(isset($_POST['board_email'])) || strlen(trim($_POST['board_email'])) < 1) {
-
-            $error[] = 'You did not enter your Board\'s Email address.';
-        } else {
-
-            $board_email = inputsec(htmlizer(trim($_POST['board_email'])));
-
-            //We must check its validity
-            if (!emailvalidation($board_email)) {
-
-                $error[] = 'The Board\'s Email address you entered is invalid .';
-            }
-        }
-
-
-        //The Board URL
-        if (!(isset($_POST['url'])) || strlen(trim($_POST['url'])) < 1) {
-
-            $error[] = 'You did not enter Board\'s URL.';
-        } else {
-
-            $url = inputsec(htmlizer(trim($_POST['url'])));
-
-            $url = rtrim($url, '/\\');
-        }
-
-
-        //The Board Directory
-        if (!(isset($_POST['server_url'])) || strlen(trim($_POST['server_url'])) < 1) {
-
-            $error[] = 'You did not enter Board\'s Directory.';
-        } else {
-
-            $server_url = inputsec(htmlizer(trim($_POST['server_url'])));
-
-            $server_url = rtrim($server_url, '/\\');
-
-            if (!file_exists($server_url . '/universal.php')) {
-
-                $error[] = 'The location of the Board Directory is invalid.';
-            }
-        }
-
-
-        //on error call the form
-        if (!empty($error)) {
-            setup_theme();
-            die();
-        }
-
-
+    if(isset($_POST['db'])){
         //////////////////
         // MySQL Settings
         //////////////////
@@ -233,6 +124,93 @@ function setup() {
         if (isset($_POST['utf8'])) {
 
             $utf8 = true;
+        }
+
+        //Try to connect to MySQL
+        $conn = @mysql_connect($server, $user, $password);
+
+        if (!empty($conn)) {
+
+            if (!(mysql_select_db($database, $conn))) {
+
+                $error[] = 'The MySQL Database could not be selected.';
+            }
+            //using a prefix doesn't mean its not already used, test about that
+            elseif(mysql_query("SELECT * FROM `".$dbprefix."registry`") === TRUE){
+                $error[] = 'The database Prefix is already used.';
+            }
+        } else {
+
+            $error[] = 'The MySQL Connection could not be established.';
+        }
+
+
+        if(!empty($error)){
+            die(db_theme());
+        }
+
+        //we are good, now check chmod issues
+        if($chmod_issue === TRUE){
+            die(not_writable_theme());
+        }
+        //oh, we are permitted to modify the file, DO it and proceed
+        modify_universal(array(
+            'server_url' => array($path, 0),
+            'mainfiles' => array($path . '/main', 0),
+            'themesdir' => array($path . '/themes', 0),
+            'user' => array($user, 0),
+            'password' => array($password, 0),
+            'database' => array($database, 0),
+            'dbprefix' => array($dbprefix, 0),
+            'server' => array($server, 0),
+            'installed' => array(TRUE, 0)));
+
+        if(!empty($error)){
+            die(db_theme());
+        }
+        //we are good, now redirect to the normal setup
+        header("Location: ?act=setup");
+    }
+    db_theme();
+}
+
+function setup() {
+
+    global $error, $url, $path, $conn;
+
+    /////////////////////////////
+    // Define the necessary VARS
+    /////////////////////////////
+    $cookie_name = 'AEFCookies' . mt_rand(1000, 9999);
+
+    if (isset($_POST['setup'])) {
+
+        //////////////////
+        // Board Settings
+        //////////////////
+        //Check the Board Name
+        if (!(isset($_POST['sn'])) || strlen(trim($_POST['sn'])) < 1) {
+
+            $error[] = 'You did not enter your Board\'s Name.';
+        } else {
+
+            $sn = inputsec(htmlizer(trim($_POST['sn'])));
+        }
+
+
+        //Check the Board Email
+        if (!(isset($_POST['board_email'])) || strlen(trim($_POST['board_email'])) < 1) {
+
+            $error[] = 'You did not enter your Board\'s Email address.';
+        } else {
+
+            $board_email = inputsec(htmlizer(trim($_POST['board_email'])));
+
+            //We must check its validity
+            if (!emailvalidation($board_email)) {
+
+                $error[] = 'The Board\'s Email address you entered is invalid .';
+            }
         }
 
         //on error call the form
@@ -318,51 +296,15 @@ function setup() {
             die();
         }
 
+        require($path . '/universal.php');
+        $conn = mysql_connect($globals['server'], $globals['user'], $globals['password']);
+        mysql_select_db($globals['database'], $conn) or die("Unable to select database");
+        $dbprefix = $globals['dbprefix'];
 
         //If we have reached here everything is fine from the inputs
-        //Modify the universal.php
-        if (!modify_universal(array('url' => array($url, 0),
-                    'sn' => array($sn, 0),
-                    'board_email' => array($board_email, 0),
-                    'server_url' => array($server_url, 0),
-                    'mainfiles' => array($server_url . '/main', 0),
-                    'themesdir' => array($server_url . '/themes', 0),
-                    'user' => array($user, 0),
-                    'password' => array($password, 0),
-                    'database' => array($database, 0),
-                    'dbprefix' => array($dbprefix, 0),
-                    'installed' => array('1', 0),
-                    'server' => array($server, 0),
-                    'cookie_name' => array($cookie_name, 0)))) {
+        include_once($path . '/setup/mysql.php');
 
-            //on error call the form
-            if (!empty($error)) {
-                setup_theme();
-                die();
-            }
-        }
 
-        //Try to connect to MySQL
-        $conn = mysql_connect($server, $user, $password);
-
-        if (!empty($conn)) {
-
-            if (!(mysql_select_db($database, $conn))) {
-
-                $error[] = 'The MySQL Database could not be selected.';
-            }
-        } else {
-
-            $error[] = 'The MySQL Connection could not be established.';
-        }
-
-        //on error call the form
-        if (!empty($error)) {
-            setup_theme();
-            die();
-        }
-
-        @include_once($server_url . '/setup/mysql.php');
 
         //Load the MySQL File
         if (!function_exists('make_mysql')) {
@@ -376,7 +318,7 @@ function setup() {
             die();
         }
 
-        //Now everything is left upto us
+        //Now everything is left up to us
         if (!make_mysql($queries)) {
 
             //on error call the form
@@ -398,11 +340,11 @@ function setup() {
 //Modifies the universal.php
 function modify_universal($array) {
 
-    global $server_url, $error;
+    global $path, $error;
 
-    $filename = $server_url . '/universal.php';
+    $filename = $path . '/universal.php';
 
-    @include_once($server_url . '/universal.php');
+    @include_once($path . '/universal.php');
 
     // Let's make sure the file exists and is writable first.
     if (is_writable($filename)) {
@@ -534,4 +476,35 @@ function fn_filelist($startdir="./", $searchSubdirs=1, $directoriesonly=0, $maxl
     return($directorylist);
 }
 
-?>
+function check_requirements(){
+    global $path, $warning, $chmod_issue;
+    //first we check if the board is already installed and/or the lock file exist
+    if(file_exists($path . '/universal.php')){
+        //well the file really exists and we should think more about what will happen next
+        require_once($path . '/universal.php');
+        //now check if the board is installed and not to interrupt during install
+        if($globals['installed'] == 1 ){
+            //the board is installed so we got a problem here
+            //but maybe there are no tables
+            $conn = mysql_connect($globals['server'], $globals['user'], $globals['password']);
+            mysql_select_db($globals['database'], $conn) or die("Unable to select database");
+            //check if the tables do exist
+            if(mysql_query("SELECT * FROM `".$globals['dbprefix']."registry`") === TRUE){
+                //hacker ?
+                die(locked_theme());
+            }
+        }
+    }
+    //Is the universal file writable ?
+    if (!is_writable($path . '/universal.php') && @!chmod($path . '/universal.php', 0777)) {
+        //show a warning that the file is not writable but the wizard will finish anyway
+        $warning[] = 'The universal.php file is not writable and the installation wizard could not CHMOD.<br />
+        Please CHMOD it to 0777 for the setup of your AEF board. You may later revert it back to 0655.<br />';
+        $chmod_issue = TRUE;
+
+    }
+    //now what about the PHP version and other *cough* smaller *cough* modifications ?
+    $php = (phpversion() < '5.0.0' ? 'bad' : 'good' );
+    $mysql = (mysql_get_server_info() < '4.0' ? 'bad' : 'good');
+
+}

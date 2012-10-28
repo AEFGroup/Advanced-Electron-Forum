@@ -83,6 +83,19 @@ function aefheader($title = '') {
                 .error{
                     background-color: rgb(230, 230, 230);
                 }
+
+                .warning {
+                    color: #660;
+                    background-color: #FFD;
+                    background-image: url("http://localhost/wb/wcf/icon/warningM.png");
+                    background-position: 10px center;
+                    background-repeat: no-repeat;
+                    border-color: #660;
+                    border-style: solid;
+                    border-width: 1px;
+                    margin-bottom: 20px;
+                    padding: 7px 10px 7px 45px;
+                }
             </style>
         </head>
         <body>
@@ -110,22 +123,65 @@ function aefheader($title = '') {
     </html><?php
                 }
 
-                function not_writable_theme() {
+function not_writable_theme() {
+    global $server, $database, $user, $password, $dbprefix, $path;
+    aefheader('AEF Setup');
+    echo'
+    The "universal.php" file is not writable and the installation wizard could not CHMOD.<br />
+    Thus you have to save the file yourself<br />
+    Please copy the content below and paste it into the file (universal.php) via FTP or any other file transfer method.
+    <br /><br />
 
-                    aefheader('AEF Setup');
-                        ?>
-    The universal.php file is not writable and the setup could not CHMOD.<br />
-    Please CHMOD it to 0777 for the setup of your AEF board. You may later revert it back to 0655.<br /><br />
-    After CHMOD just access this page again to start the setup. <br /><br />
-    
-    <strong>Linux users: Please read this next note</strong><br /><br />
-    
-    If you keep seeing this message afterwards, you may have a problem with SELinux (Security module)<br />
+    <textarea style="margin: 2px; height: 752px; width: 520px; "><?php
+
+//////////////////////////////////////////////////////////////
+//===========================================================
+// universal.php
+//===========================================================
+// AEF : Advanced Electron Forum
+// Version : 1.0.10
+// Inspired by Pulkit and taken over by Electron
+// ----------------------------------------------------------
+// Started by: Electron, Ronak Gupta, Pulkit Gupta
+// Date:       23rd Jan 2006
+// Time:       15:00 hrs
+// Site:       http://www.anelectron.com/ (Anelectron)
+// ----------------------------------------------------------
+// Please Read the Terms of use at http://www.anelectron.com
+// ----------------------------------------------------------
+//===========================================================
+// (C)AEF Group All Rights Reserved.
+//===========================================================
+//////////////////////////////////////////////////////////////
+
+/* Database Connection */
+
+$globals[\'user\'] = \''.$user.'\';
+$globals[\'password\'] = \''.$password.'\';
+$globals[\'database\'] = \''.$database.'\';
+$globals[\'dbprefix\'] = \''.$dbprefix.'\';
+$globals[\'server\'] = \''.$server.'\';
+
+/* Ending - Database Connection */
+
+/* Core Settings */
+
+$globals[\'server_url\'] = \''.$path.'\';
+$globals[\'mainfiles\'] = \''.$path.'/main\';
+$globals[\'themesdir\'] = \''.$path.'/themes\';
+$globals[\'installed\'] = \'1\';
+
+/* Ending - Core Settings */
+
+</textarea>
+    <br />
+    <strong>Linux users, Please read this :</strong><br /><br />
+
+    If you keep seeing this message after you changed the file permissions, you may have an issue with SELinux<br />
     Please try opening a terminal, going into su/sudo mode, and typing "setenforce 0"<br />
     If this fixes the problem, please consult the relevant person on how to permit attribute modification<br /><br />
-    
-    This is known to happen with Red Hat Enterprise Linux and Fedora
-    <?php
+
+    This is known to happen with Red Hat Enterprise Linux and Fedora';
     aeffooter();
 }
 
@@ -133,52 +189,149 @@ function locked_theme() {
 
     aefheader('AEF Setup');
     ?>
-    The installation script is locked, please remove "lock" file from "/setup" directory before you can continue the setup
+    The installation script is locked, it seems that the board is already installed !</br>
+    If you are trying to upgrade your board, You downloaded the wrong upgrade package buddy !
     <?php
     aeffooter();
 }
 
 function startsetup() {
-
     aefheader('AEF Setup');
     ?><h1>Welcome To AEF's setup wizard !</h1>
     <br /><br />
+    We made this wizard to make sure You won't get lost installing our great software !<br />
+    The installation will not take longer than 2 minutes so prepare yourself to have fun<br />
+    Click the <b>Install</b> button to start the setup for your new AEF Board.<br />
+    <br /><br /><br /><br />
+    <div class="setup"><a href="?act=db">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
+    <br /><br /><br /><br /><br /><br />
     <?php
-        echo "AEF requires <b>PHP 5.0.0</b> or higher to function properly, your PHP version is : "
-            .phpversion(). (phpversion() < '5.0.0' ? " , Please consider updating your server's software" : '' ). '</br>';
-        echo "AEF requires <b>MySQL 4.0</b> or higher to function properly, your MySQL version is : "
-            .mysql_get_server_info(). (mysql_get_server_info() < '4.0' ? " , please consider updating your server's software" : ''). '</br>' ;
+        aeffooter();
+}
+
+function db_theme() {
+    global $error, $warning;
+    //Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON
+    $_GET = cleanVARS($_GET);
+    $_POST = cleanVARS($_POST);
+
+    aefheader('AEF Setup');
+
+    error_handle($error, '100%', true);
+    warning_handle($warning);
     ?>
-    <br /><br />
-    You will also need the following MySQL information:<br />
-    <ul>
-        <li>Username
-            <li>Password
-                <li>Database Name
-                    <li>Hostname
-                        </ul>
-                        <br />
-                        Click the <b>Install</b> button to start the setup for your new AEF Board.
-                        <br /><br /><br /><br />
-                        <div class="setup"><a href="?act=setup">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
-                        <br /><br /><br /><br /><br /><br />
-                        <?php
-                        aeffooter();
-                    }
+<form action="" method="post" name="db">
+<br />
 
-                    function setup_theme() {
+<table width="100%" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+        <td>
+            <table width="100%" cellpadding="0" cellspacing="0"><tr>
+                <td class="pcbgl"></td>
+                <td class="pcbg" align="left">MySQL Settings</td>
+                <td class="pcbgr"></td>
+            </tr>
+            </table>
+        </td>
+    </tr>
 
-                        global $url, $path, $error;
+    <tr>
+        <td>
 
-                        //Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON
-                        $_GET = cleanVARS($_GET);
-                        $_POST = cleanVARS($_POST);
+            <table width="100%" cellpadding="5" cellspacing="1" class="cbgbor">
 
-                        aefheader('AEF Setup');
+                <tr>
+                    <td class="topbg" colspan="2" align="center">
+                        <img src="images/mysql.png" />
+                    </td>
+                </tr>
 
-                        error_handle($error, '100%', true);
-                        ?>
+                <tr>
+                    <td width="40%" class="rc">
+                        <b>MySQL Host :</b><br />
+                        <font class="exp">This is usually localhost.</font>
+                    </td>
+                    <td class="lc" align="left">
+                        &nbsp;<input type="text" size="30"  name="server" value="<?php echo ( (isset($_POST['server'])) ? $_POST['server'] : 'localhost' ); ?>" />
+                    </td>
+                </tr>
 
+                <tr>
+                    <td class="rc">
+                        <b>MySQL Database Name :</b>
+                    </td>
+                    <td class="lc" align="left">
+                        &nbsp;<input type="text" size="30"  name="database" value="<?php echo ( (isset($_POST['database'])) ? $_POST['database'] : '' ); ?>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rc">
+                        <b>MySQL Username :</b>
+                    </td>
+                    <td class="lc" align="left">
+                        &nbsp;<input type="text" size="30"  name="user" value="<?php echo ( (isset($_POST['user'])) ? $_POST['user'] : '' ); ?>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rc">
+                        <b>MySQL Password :</b>
+                    </td>
+                    <td class="lc" align="left">
+                        &nbsp;<input type="password" size="30"  name="password" value="<?php echo ( (isset($_POST['password'])) ? $_POST['password'] : '' ); ?>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rc">
+                        <b>MySQL Table Prefix :</b><br />
+                        <font class="exp">The prefix for every table of your board.</font>
+                    </td>
+                    <td class="lc" align="left">
+                        &nbsp;<input type="text" size="30"  name="dbprefix" value="<?php echo ( (isset($_POST['dbprefix'])) ? $_POST['dbprefix'] : 'aef_' ); ?>" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="rc">
+                        <b>Use UTF-8 Character Set :</b><br />
+                        <font class="exp">Use if you are going to work with multiple languages.</font>
+                    </td>
+                    <td class="lc" align="left">
+                        &nbsp;<input type="checkbox"  name="utf8" checked="checked" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="rc" colspan="2" align="center">
+                        <input type="submit" size="30" name="db" value="Submit" />
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td><img src="images/cbotsmall.png" width="100%" height="10"></td>
+    </tr>
+
+</table>
+
+</form>
+<?php
+    aeffooter();
+}
+function setup_theme() {
+    global $url, $path, $error, $warning;
+    //Clean For XSS and Extra Slashes('\') if magic_quotes_gpc is ON
+    $_GET = cleanVARS($_GET);
+    $_POST = cleanVARS($_POST);
+
+    aefheader('AEF Setup');
+
+    error_handle($error, '100%', true);
+    ?>
                         <form action="" method="post" name="setupform">
                             <br />
                             <table width="100%" cellpadding="0" cellspacing="0" align="center">
@@ -221,117 +374,6 @@ function startsetup() {
                                                     &nbsp;<input type="text" size="40" name="board_email" value="<?php echo ( (isset($_POST['board_email'])) ? $_POST['board_email'] : '' ); ?>" />
                                                 </td>
                                             </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>URL :</b>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="40" name="url" value="<?php echo ( (isset($_POST['url'])) ? $_POST['url'] : $url ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>Board Directory :</b>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="40" name="server_url" value="<?php echo ( (isset($_POST['server_url'])) ? $_POST['server_url'] : $path ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                        </table>
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td><img src="images/cbotsmall.png" width="100%" height="10"></td>
-                                </tr>
-
-                            </table>
-
-                            <br />
-                            <table width="100%" cellpadding="0" cellspacing="0" align="center">
-                                <tr>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0"><tr>
-                                                <td class="pcbgl"></td>
-                                                <td class="pcbg" align="left">MySQL Settings</td>
-                                                <td class="pcbgr"></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-
-                                        <table width="100%" cellpadding="5" cellspacing="1" class="cbgbor">
-
-                                            <tr>
-                                                <td class="topbg" colspan="2" align="center">
-                                                    <img src="images/mysql.png" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td width="40%" class="rc">
-                                                    <b>MySQL Host :</b><br />
-                                                    <font class="exp">This is usually localhost.</font>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="30"  name="server" value="<?php echo ( (isset($_POST['server'])) ? $_POST['server'] : 'localhost' ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>MySQL Database Name :</b>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="30"  name="database" value="<?php echo ( (isset($_POST['database'])) ? $_POST['database'] : '' ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>MySQL Username :</b>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="30"  name="user" value="<?php echo ( (isset($_POST['user'])) ? $_POST['user'] : '' ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>MySQL Password :</b>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="password" size="30"  name="password" value="<?php echo ( (isset($_POST['password'])) ? $_POST['password'] : '' ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>MySQL Table Prefix :</b><br />
-                                                    <font class="exp">The prefix for every table of your board.</font>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="text" size="30"  name="dbprefix" value="<?php echo ( (isset($_POST['dbprefix'])) ? $_POST['dbprefix'] : 'aef_' ); ?>" />
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="rc">
-                                                    <b>Use UTF-8 Character Set :</b><br />
-                                                    <font class="exp">Use if you are going to work with multiple languages.</font>
-                                                </td>
-                                                <td class="lc" align="left">
-                                                    &nbsp;<input type="checkbox"  name="utf8" checked="checked" />
-                                                </td>
-                                            </tr>
-
                                         </table>
 
                                     </td>
@@ -426,38 +468,26 @@ function startsetup() {
                         //echo '<pre>';print_r($_SERVER);
                     }
 
-                    function aftersetup() {
-
-                        global $url;
-
-                        aefheader('AEF Setup');
-                        ?><h1>Congratulations, the board was installed successfully</h1>
-                        <br /><br />
-                        Thank you for using AEF.<br /><br /><br />
-                        If you need any support you can always count on us. Just drop in at our <a href="http://www.anelectron.com/board">Support Board</a>.
-                        <br /><br />
-                        You can also customize AEF by installing new themes. If you know PHP or MySQL you could help us develop AEF. And if you are good at HTML or Java Scripting then try and make a theme.
-                        <br /><br />
-                        In the meantime lets go check your new Board.
-                        <br /><br /><br /><br />
-                        <div class="setup"><a href="<?php echo $url; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lets see the new Board&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
-                        <br /><br />
-                        <div class="setup"><a href="<?php echo $url . '/setup/index.php?act=removesetup'; ?>" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove setup folder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a><font class="exp">&nbsp;(Opens a new window)</div>
-                        <br /><br /><br /><br /><br /><br />
-                        <?php
-                        //Try to open a lockfile handle
-                        $handle = @fopen("lock", 'w');
+function aftersetup() {
+    global $url;
+    aefheader('AEF Setup');
+    echo '<h1>Congratulations, the board was installed successfully</h1>
+          <br /><br />
+          Thank you for using AEF.<br /><br /><br />
+          If you need any support you can always count on us. Just drop in at our <a href="http://www.anelectron.com/board">Support Board</a>.
+          <br /><br />
+          You can also customize AEF by installing new themes, Mods, and even Plugins [soon (tm)] !.<br />
+          Not to forget that AEF is an opensource software, If you have experience making things good,Please contribute!
+          <br /><br />
+          <div class="setup"><a href="'. $url .'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lets see the new Board&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a></div>
+          <br /><br />
+          <div class="setup"><a href="'. $url . '/setup/index.php?act=removesetup" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remove setup folder&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/right.gif" />&nbsp;&nbsp;</a><font class="exp">&nbsp;(Opens a new window)</div>
+          <br /><br /><br /><br /><br /><br />';
                         
-                        //See if it doesn't work
-                        if (!$handle) {
-                            echo "Installation lock file could not be made.";
-                            echo "<h2>Please remove the setup folder immediately!";
-                        } else fclose($handle);
-                        
-                        aeffooter();
-                    }
+    aeffooter();
+}
 
-                    function error_handle($error, $table_width = '100%', $center = false) {
+function error_handle($error, $table_width = '100%', $center = false) {
 
                         //on error call the form
                         if (!empty($error)) {
@@ -481,4 +511,10 @@ function startsetup() {
             <br />';
                         }
                     }
-                    ?>
+function warning_handle($warning){
+    if(!empty($warning)){
+        foreach($warning as $warnings){
+            echo '<p class="warning">'.$warnings.'</p>';
+        }
+    }
+}

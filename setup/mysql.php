@@ -397,6 +397,12 @@ $queries[] = "CREATE TABLE " . $dbprefix . "registry (
   UNIQUE KEY name (name)
 ) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
 
+
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('url', '". $url ."')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('sn', '". $sn ."')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('board_email', '".$board_email."')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('gzip', '1')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('cookie_name', '".$cookie_name."')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('reserved_names', 'admin\r\nwebmaster\r\nmaster\r\nuser\r\nlocalhost\r\nlord')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('latest_mem', '" . $ad_username . "|1')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('num_mem', '1')";
@@ -496,13 +502,13 @@ $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('secretansmaxlen', '
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('secretansminlen', '4')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('usersiglen', '200')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('showavatars', '1')";
-$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('avatardir', '" . $server_url . "/avatars')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('avatardir', '" . $path . "/avatars')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('avatarurl', '" . $url . "/avatars')";
-$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadavatardir', '" . $server_url . "/uploads/avatars')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadavatardir', '" . $path . "/uploads/avatars')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadavatarurl', '" . $url . "/uploads/avatars')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadavatarmaxsize', '5000')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('avatartypes', 'gif,jpg,png')";
-$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadppicdir', '" . $server_url . "/uploads/personalpic')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadppicdir', '" . $path . "/uploads/personalpic')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadppicurl', '" . $url . "/uploads/personalpic')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('uploadppicmaxsize', '5000')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('ppictypes', 'gif,jpg,png,tiff')";
@@ -513,7 +519,7 @@ $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('pmnumshowinfolders'
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('pmsaveinsentitems', '1')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('attachmentmode', '1')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('allownewattachment', '1')";
-$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('attachmentdir', '" . $server_url . "/uploads/attachments')";
+$queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('attachmentdir', '" . $path . "/uploads/attachments')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('maxattachmentpost', '3')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('maxattachsize', '150')";
 $queries[] = "INSERT INTO " . $dbprefix . "registry VALUES ('maxattachsizepost', '250')";
@@ -653,7 +659,7 @@ $queries[] = "CREATE TABLE " . $dbprefix . "theme_registry (
   UNIQUE KEY `thid` (`thid`,`uid`)
 ) ENGINE=MyISAM" . (empty($utf8) ? '' : " DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci");
 
-$queries[] = "INSERT INTO " . $dbprefix . "theme_registry VALUES (1, 0, 'a:15:{s:4:\"name\";s:8:\"Electron\";s:4:\"path\";s:54:\"" . $server_url . "/themes/default\";s:3:\"url\";s:35:\"" . $url . "/themes/default\";s:6:\"images\";s:43:\"" . $url . "/themes/default/images/\";s:7:\"wysiwyg\";i:1;s:11:\"fixshoutbox\";i:0;s:8:\"showdock\";i:1;s:9:\"headerimg\";s:0:\"\";s:9:\"headerads\";s:0:\"\";s:13:\"headernavtree\";i:1;s:14:\"shownumqueries\";i:1;s:14:\"showntimetaken\";i:1;s:9:\"copyright\";s:0:\"\";s:9:\"footerads\";s:0:\"\";s:13:\"footernavtree\";i:0;}')";
+$queries[] = "INSERT INTO " . $dbprefix . "theme_registry VALUES (1, 0, 'a:15:{s:4:\"name\";s:8:\"Electron\";s:4:\"path\";s:54:\"" . $path . "/themes/default\";s:3:\"url\";s:35:\"" . $url . "/themes/default\";s:6:\"images\";s:43:\"" . $url . "/themes/default/images/\";s:7:\"wysiwyg\";i:1;s:11:\"fixshoutbox\";i:0;s:8:\"showdock\";i:1;s:9:\"headerimg\";s:0:\"\";s:9:\"headerads\";s:0:\"\";s:13:\"headernavtree\";i:1;s:14:\"shownumqueries\";i:1;s:14:\"showntimetaken\";i:1;s:9:\"copyright\";s:0:\"\";s:9:\"footerads\";s:0:\"\";s:13:\"footernavtree\";i:0;}')";
 
 //Themes
 $queries[] = "CREATE TABLE " . $dbprefix . "themes (
