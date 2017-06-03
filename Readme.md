@@ -70,3 +70,12 @@ We hope you enjoy AEF & Thank you for trusting our experience in forums building
 
 The Advanced Electron Forums team.
 
+
+2.0 In the works :
+--------
+We are currently working on AnElectron 2.0. Stay tuned for updates!
+
+BrowserStack :
+--------
+
+AnElectron 2.0 is supported by BrowserStack https://browserstack.com
