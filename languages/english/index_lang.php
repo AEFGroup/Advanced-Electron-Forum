@@ -31,7 +31,7 @@
 // Index.php Language Strings
 ////////////////////////////////
 
-$l['cant_view_forum_title'] = 'Cant View Forum';
+$l['cant_view_forum_title'] = 'Can\'t View Forum';
 $l['cant_view_forum'] = 'You are not allowed to view or use this forum.';
 
 

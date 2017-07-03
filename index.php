@@ -1,24 +1,17 @@
 <?php
 
-//////////////////////////////////////////////////////////////
-//===========================================================
-// index.php
-//===========================================================
-// AEF : Advanced Electron Forum
-// Version : 1.0.10
-// Inspired by Pulkit and taken over by Electron
-// ----------------------------------------------------------
-// Started by: Electron, Ronak Gupta, Pulkit Gupta
-// Date:       23rd Jan 2006
-// Time:       15:00 hrs
-// Site:       http://www.anelectron.com/ (Anelectron)
-// ----------------------------------------------------------
-// Please Read the Terms of use at http://www.anelectron.com
-// ----------------------------------------------------------
-//===========================================================
-// (C)AEF Group All Rights Reserved.
-//===========================================================
-//////////////////////////////////////////////////////////////
+/*
+* Copyright (C) 2013 AEF Group
+* http://anelectron.com
+* License: http://www.anelectron.com/about.php?page=license
+*
+* NO WARRANTY:
+* BECAUSE THE SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE SOFTWARE.
+* THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+* INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+* IN NO EVENT SHALL THE AUTHORS/COPYRIGHT HOLDERS BE LIABLE TO ANY PARTY FOR ANY KIND OF DAMAGE
+* IN ANY FORM ARISING IN ANY WAY OUT OF THE USE OR MISUSE OF THIS SOFTWARE.
+*/
 
 define('AEF', 1);
 
